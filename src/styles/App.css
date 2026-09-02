@@ -64,7 +64,7 @@
   --charcoal: #f8fafc;
   --background: #ffffff;
   --background-dark: #ffffff;
-  --page-bg: linear-gradient(180deg, #f8fafc 0%, #f0f7ff 40%, #ffffff 100%);
+  --page-bg: linear-gradient(160deg, #dbeafe 0%, #eff6ff 28%, #e0f2fe 65%, #f0f9ff 100%);
   --text-main: #334155;
   --text-h: #0f172a;
   --text-dark: #1e293b;
@@ -562,8 +562,10 @@ input:focus, textarea:focus, select:focus {
    ============================================================ */
 
 /* 1. Base & Background */
+[data-theme="light"] html,
 [data-theme="light"] body {
-  background: var(--page-bg);
+  background: var(--page-bg) !important;
+  background-attachment: fixed !important;
   color: var(--text-dark);
 }
 
@@ -925,5 +927,16 @@ input:focus, textarea:focus, select:focus {
   filter: none !important;
   -webkit-filter: none !important;
   opacity: 1 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+[data-theme="light"] .service-img-container,
+[data-theme="light"] .course-img-container,
+[data-theme="light"] .portfolio-img-container,
+[data-theme="light"] .video-container {
+  background: #eff6ff !important;
 }
 

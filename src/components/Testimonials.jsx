@@ -1,24 +1,27 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import imgSarah from '../assets/sarah.jpg';
+import imgDavid from '../assets/david.jpg';
+import imgElena from '../assets/elena.jpg';
 
 const testimonials = [
   {
     name: 'Sarah Jenkins',
     role: 'CEO, TechNova Solutions',
     content: 'The level of innovation and technical expertise is unmatched. They transformed our outdated platform into a next-generation experience.',
-    avatar: 'https://i.pravatar.cc/150?u=sarah'
+    avatar: imgSarah
   },
   {
     name: 'David Chen',
     role: 'Founder, MetaVerse Dynamics',
     content: 'Their AR/VR and motion graphics capabilities completely blew our minds. We saw a 300% increase in user engagement after the redesign.',
-    avatar: 'https://i.pravatar.cc/150?u=david'
+    avatar: imgDavid
   },
   {
     name: 'Elena Rodriguez',
     role: 'CMO, Quantum AI',
     content: 'A truly futuristic agency. From the sleek digital designs to the AI-driven marketing strategies, they are lightyears ahead of the competition.',
-    avatar: 'https://i.pravatar.cc/150?u=elena'
+    avatar: imgElena
   }
 ];
 

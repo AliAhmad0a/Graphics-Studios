@@ -1,10 +1,13 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
+import posterVideo1 from '../assets/images/video_editing_setup_1788284013820.jpg';
+import posterVideo2 from '../assets/images/course_video_editing_1788287019361.jpg';
+import posterVideo3 from '../assets/images/three_d_design_1788284076868.jpg';
 
 const videos = [
-  { id: 1, title: 'Commercial Edit', category: 'Video Editing', src: '/videos/video1.mp4' },
-  { id: 2, title: 'Social Media Reel', category: 'Motion Graphics', src: '/videos/video2.mp4' },
-  { id: 3, title: 'Brand Promo', category: 'Video Editing', src: '/videos/video3.mp4' }
+  { id: 1, title: 'Commercial Edit', category: 'Video Editing', src: '/videos/video1.mp4', poster: posterVideo1 },
+  { id: 2, title: 'Social Media Reel', category: 'Motion Graphics', src: '/videos/video2.mp4', poster: posterVideo2 },
+  { id: 3, title: 'Brand Promo', category: 'Video Editing', src: '/videos/video3.mp4', poster: posterVideo3 }
 ];
 
 const VideoCard = ({ video, index }) => {
@@ -29,7 +32,8 @@ const VideoCard = ({ video, index }) => {
           muted 
           loop 
           playsInline
-          poster=""
+          poster={video.poster}
+          preload="metadata"
         />
         <div className="video-overlay">
           <div className="play-icon">▶</div>
