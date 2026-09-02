@@ -136,7 +136,7 @@ const Portfolio = () => {
         .portfolio-overlay {
           position: absolute;
           inset: 0;
-          background: linear-gradient(180deg, transparent 50%, rgba(2, 6, 23, 0.7) 100%);
+          background: linear-gradient(180deg, transparent 50%, var(--glass-bg) 100%);
           pointer-events: none;
         }
 

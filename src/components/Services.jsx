@@ -172,7 +172,7 @@ const Services = () => {
         .service-img-overlay {
           position: absolute;
           inset: 0;
-          background: linear-gradient(180deg, transparent 50%, rgba(11, 17, 32, 0.85) 100%);
+          background: linear-gradient(180deg, transparent 50%, var(--glass-bg) 100%);
           pointer-events: none;
         }
 
