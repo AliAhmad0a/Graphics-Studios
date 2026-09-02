@@ -219,7 +219,7 @@ const Navbar = () => {
           background: rgba(10, 15, 28, 0.88);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
-          border-color: rgba(255, 255, 255, 0.1);
+          border-color: var(--white-alpha-10);
           box-shadow: 0 8px 30px -5px rgba(0, 0, 0, 0.6);
           padding: 8px 18px;
         }
@@ -248,7 +248,7 @@ const Navbar = () => {
           position: relative;
           z-index: 2;
           object-fit: cover;
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          border: 1px solid var(--white-alpha-20);
         }
 
         .logo-img-mobile {
@@ -256,7 +256,7 @@ const Navbar = () => {
           width: 28px;
           border-radius: 50%;
           object-fit: cover;
-          border: 1px solid rgba(255, 255, 255, 0.2);
+          border: 1px solid var(--white-alpha-20);
         }
 
         .logo-glow {
@@ -282,7 +282,7 @@ const Navbar = () => {
           font-family: var(--heading);
           font-size: clamp(0.95rem, 2vw, 1.12rem);
           font-weight: 700;
-          color: #ffffff;
+          color: var(--strong-text);
           letter-spacing: -0.25px;
           white-space: nowrap;
         }
@@ -303,7 +303,7 @@ const Navbar = () => {
         }
 
         .nav-link:hover {
-          color: #ffffff;
+          color: var(--strong-text);
         }
 
         .nav-underline {
@@ -325,9 +325,9 @@ const Navbar = () => {
 
         .mobile-toggle {
           display: none;
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          color: #ffffff;
+          background: var(--white-alpha-05);
+          border: 1px solid var(--white-alpha-10);
+          color: var(--strong-text);
           border-radius: 9px;
           padding: 7px;
           cursor: pointer;
@@ -338,13 +338,13 @@ const Navbar = () => {
         }
 
         .mobile-toggle:hover {
-          background: rgba(255, 255, 255, 0.1);
+          background: var(--white-alpha-10);
         }
 
         .theme-toggle-btn {
-          background: rgba(255, 255, 255, 0.05);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          color: #ffffff;
+          background: var(--white-alpha-05);
+          border: 1px solid var(--white-alpha-10);
+          color: var(--strong-text);
           border-radius: 9px;
           padding: 7px;
           cursor: pointer;
@@ -355,7 +355,7 @@ const Navbar = () => {
         }
         
         .theme-toggle-btn:hover {
-          background: rgba(255, 255, 255, 0.1);
+          background: var(--white-alpha-10);
         }
         
         [data-theme="light"] .main-navbar.nav-scrolled, [data-theme="light"] .mobile-nav-overlay {
@@ -401,15 +401,15 @@ const Navbar = () => {
           justify-content: space-between;
           align-items: center;
           padding-bottom: 14px;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          border-bottom: 1px solid var(--white-alpha-08);
           margin-bottom: 16px;
           width: 100%;
         }
 
         .mobile-close-btn {
-          background: rgba(255, 255, 255, 0.06);
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          color: #ffffff;
+          background: var(--white-alpha-06);
+          border: 1px solid var(--white-alpha-12);
+          color: var(--strong-text);
           width: 36px;
           height: 36px;
           border-radius: 9px;
@@ -422,7 +422,7 @@ const Navbar = () => {
         }
 
         .mobile-close-btn:hover {
-          background: rgba(255, 255, 255, 0.15);
+          background: var(--white-alpha-15);
         }
 
         .mobile-nav-links {
@@ -439,9 +439,9 @@ const Navbar = () => {
           gap: 12px;
           padding: 11px 16px;
           border-radius: 11px;
-          background: rgba(255, 255, 255, 0.02);
+          background: var(--white-alpha-02);
           border: 1px solid transparent;
-          color: #ffffff;
+          color: var(--strong-text);
           transition: all 0.2s ease;
           width: 100%;
           box-sizing: border-box;
@@ -469,7 +469,7 @@ const Navbar = () => {
         .mobile-nav-footer {
           margin-top: 16px;
           padding-top: 14px;
-          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          border-top: 1px solid var(--white-alpha-08);
           width: 100%;
         }
 

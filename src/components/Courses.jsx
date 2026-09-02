@@ -257,7 +257,7 @@ const Courses = () => {
         .course-enroll-btn:hover {
           background: rgba(59, 130, 246, 0.2);
           border-color: #3b82f6;
-          color: #ffffff;
+          color: var(--strong-text);
         }
 
         @media (max-width: 600px) {

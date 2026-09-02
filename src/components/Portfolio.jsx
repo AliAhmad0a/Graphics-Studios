@@ -209,7 +209,7 @@ const Portfolio = () => {
         }
 
         .portfolio-item:hover .view-btn {
-          color: #ffffff;
+          color: var(--strong-text);
         }
 
         @media (max-width: 600px) {

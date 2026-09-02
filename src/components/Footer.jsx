@@ -82,7 +82,7 @@ const Footer = () => {
           background: rgba(2, 6, 23, 0.75);
           backdrop-filter: blur(16px);
           -webkit-backdrop-filter: blur(16px);
-          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          border-top: 1px solid var(--white-alpha-08);
           padding-top: clamp(32px, 4.5vw, 48px);
           padding-bottom: 20px;
           width: 100% !important;
@@ -117,7 +117,7 @@ const Footer = () => {
           font-size: clamp(1.15rem, 2.2vw, 1.4rem);
           font-weight: 700;
           margin-bottom: 10px;
-          color: #ffffff;
+          color: var(--strong-text);
           overflow-wrap: break-word;
         }
 
@@ -139,13 +139,13 @@ const Footer = () => {
           width: 36px;
           height: 36px;
           border-radius: 50%;
-          background: rgba(255, 255, 255, 0.04);
+          background: var(--white-alpha-04);
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #ffffff;
+          color: var(--strong-text);
           transition: all 0.25s ease;
-          border: 1px solid rgba(255, 255, 255, 0.08);
+          border: 1px solid var(--white-alpha-08);
           font-size: 0.9rem;
           flex-shrink: 0;
         }
@@ -153,7 +153,7 @@ const Footer = () => {
         .footer-col-title {
           font-size: clamp(0.95rem, 1.8vw, 1.15rem);
           margin-bottom: clamp(10px, 1.8vw, 14px);
-          color: #ffffff;
+          color: var(--strong-text);
           font-weight: 600;
         }
 
@@ -207,7 +207,7 @@ const Footer = () => {
         }
 
         .footer-contact-val {
-          color: #ffffff;
+          color: var(--strong-text);
           font-weight: 500;
           font-size: clamp(0.82rem, 1.5vw, 0.92rem);
           overflow-wrap: anywhere !important;
@@ -219,7 +219,7 @@ const Footer = () => {
 
         .footer-bottom-bar {
           text-align: center;
-          border-top: 1px solid rgba(255, 255, 255, 0.05);
+          border-top: 1px solid var(--white-alpha-05);
           margin-top: clamp(22px, 3vw, 32px);
           padding-top: 16px;
           padding-left: 14px;

@@ -109,8 +109,8 @@ const Hero = () => {
           justify-content: center;
           margin: 0 auto clamp(10px, 2vw, 15px) auto;
           padding: 6px 14px;
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.12);
+          background: var(--white-alpha-04);
+          border: 1px solid var(--white-alpha-12);
           border-radius: 100px;
           font-size: clamp(0.72rem, 1.8vw, 0.84rem);
           color: var(--text-main);

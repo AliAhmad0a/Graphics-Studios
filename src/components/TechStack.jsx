@@ -12,7 +12,7 @@ const AdobeIcon = ({ text }) => (
 
 const techData = [
   { icon: <FaReact />, name: 'React', color: '#61DAFB' },
-  { icon: <SiNextdotjs />, name: 'Next.js', color: '#ffffff' },
+  { icon: <SiNextdotjs />, name: 'Next.js', color: 'var(--strong-text)' },
   { icon: <FaNodeJs />, name: 'Node.js', color: '#339933' },
   { icon: <FaPython />, name: 'Python', color: '#3776AB' },
   { icon: <SiTensorflow />, name: 'TensorFlow', color: '#FF6F00' },
@@ -20,7 +20,7 @@ const techData = [
   { icon: <FaDocker />, name: 'Docker', color: '#2496ED' },
   { icon: <SiVite />, name: 'Vite', color: '#646CFF' },
   { icon: <SiTailwindcss />, name: 'Tailwind CSS', color: '#06B6D4' },
-  { icon: <SiUnrealengine />, name: 'Unreal Engine', color: '#ffffff' },
+  { icon: <SiUnrealengine />, name: 'Unreal Engine', color: 'var(--strong-text)' },
   { icon: <SiBlender />, name: 'Blender', color: '#F5792A' },
   { icon: <FaFigma />, name: 'Figma', color: '#F24E1E' },
   { icon: <AdobeIcon text="Ps" />, name: 'Photoshop', color: '#31A8FF' },

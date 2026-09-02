@@ -90,7 +90,7 @@ const Mission = () => {
 
         .mission-card {
           border-radius: clamp(14px, 3vw, 20px);
-          box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+          box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), inset 0 0 0 1px var(--white-alpha-08);
           background: rgba(11, 17, 32, 0.65);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
