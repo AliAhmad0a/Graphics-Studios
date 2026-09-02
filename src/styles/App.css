@@ -37,6 +37,31 @@
   -webkit-text-size-adjust: 100%;
 }
 
+[data-theme="light"] {
+  --primary: #2563eb;
+  --secondary: #f1f5f9;
+  --navy: #ffffff;
+  --charcoal: #f8fafc;
+  --background: #f8fafc;
+  --background-dark: #ffffff;
+  --text-main: #475569;
+  --text-h: #0f172a;
+  --text-dark: #1e293b;
+  --text-light: #f8fafc;
+  --cyan: #0891b2;
+  --blue: #2563eb;
+  --electric: #7c3aed;
+  --accent: #2563eb;
+  --accent-glow: rgba(37, 99, 235, 0.2);
+  --border: rgba(0, 0, 0, 0.1);
+  --glass: rgba(255, 255, 255, 0.7);
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --shadow-soft: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.15);
+  color-scheme: light;
+}
+
 /* ============================================================
    GLOBAL RESET & COMPLETE HORIZONTAL OVERFLOW PREVENTION
    ============================================================ */

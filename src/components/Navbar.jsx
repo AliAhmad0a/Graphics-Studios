@@ -1,11 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { FaSun, FaMoon } from 'react-icons/fa';
 import logo from '../assets/logo/logo.jpeg';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [theme, setTheme] = useState('dark');
+
+  useEffect(() => {
+    if (theme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -88,13 +102,22 @@ const Navbar = () => {
             ))}
           </div>
 
-          <button 
-            className="mobile-toggle"
-            aria-label={isOpen ? "Close Navigation Menu" : "Open Navigation Menu"}
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <HiX size={22} /> : <HiMenuAlt3 size={22} />}
-          </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <button 
+              className="theme-toggle-btn"
+              onClick={toggleTheme}
+              aria-label="Toggle Theme"
+            >
+              {theme === 'dark' ? <FaSun size={18} /> : <FaMoon size={18} />}
+            </button>
+            <button 
+              className="mobile-toggle"
+              aria-label={isOpen ? "Close Navigation Menu" : "Open Navigation Menu"}
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              {isOpen ? <HiX size={22} /> : <HiMenuAlt3 size={22} />}
+            </button>
+          </div>
         </motion.nav>
       </div>
 
@@ -316,6 +339,37 @@ const Navbar = () => {
 
         .mobile-toggle:hover {
           background: rgba(255, 255, 255, 0.1);
+        }
+
+        .theme-toggle-btn {
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          color: #ffffff;
+          border-radius: 9px;
+          padding: 7px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s ease;
+        }
+        
+        .theme-toggle-btn:hover {
+          background: rgba(255, 255, 255, 0.1);
+        }
+        
+        [data-theme="light"] .main-navbar.nav-scrolled, [data-theme="light"] .mobile-nav-overlay {
+          background: rgba(255, 255, 255, 0.95);
+        }
+        [data-theme="light"] .nav-link, [data-theme="light"] .logo-text, [data-theme="light"] .mobile-toggle, [data-theme="light"] .theme-toggle-btn, [data-theme="light"] .mobile-nav-link {
+          color: #1e293b;
+        }
+        [data-theme="light"] .mobile-toggle, [data-theme="light"] .theme-toggle-btn, [data-theme="light"] .mobile-close-btn {
+          border-color: rgba(0,0,0,0.1);
+          color: #1e293b;
+        }
+        [data-theme="light"] .mobile-toggle:hover, [data-theme="light"] .theme-toggle-btn:hover {
+          background: rgba(0,0,0,0.05);
         }
 
         /* Mobile Menu Fullscreen Sheet */
