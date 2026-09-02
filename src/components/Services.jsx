@@ -26,10 +26,10 @@ const ServiceCard = ({ service, index }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20, scale: 0.97 }}
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.4, delay: index * 0.04 }}
+      transition={{ duration: 0.5, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
       onMouseMove={(e) => {
         if (window.innerWidth < 1024) return;
         const rect = e.currentTarget.getBoundingClientRect();
@@ -44,23 +44,29 @@ const ServiceCard = ({ service, index }) => {
         style={{
           rotateX, rotateY,
         }}
+        whileHover={{ y: -6, borderColor: 'rgba(59, 130, 246, 0.5)' }}
       >
         <div className="service-img-container">
           <img src={service.img} alt={service.title} className="service-img" />
+          <div className="service-img-overlay"></div>
         </div>
         
         <div className="service-content">
           <div className="service-header">
-            <div className="service-icon">
+            <motion.div 
+              className="service-icon"
+              whileHover={{ rotate: 12, scale: 1.1 }}
+              transition={{ type: 'spring', stiffness: 300 }}
+            >
               {service.icon}
-            </div>
+            </motion.div>
             <h3 className="service-title">{service.title}</h3>
           </div>
           <p className="service-desc">
             {service.desc}
           </p>
           <div className="service-explore">
-            Explore <span>→</span>
+            Explore <span className="explore-arrow">→</span>
           </div>
         </div>
       </motion.div>
@@ -78,9 +84,10 @@ const Services = () => {
       </div>
       
       <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
+        initial={{ opacity: 0, y: 25 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
         style={{ width: '100%', maxWidth: '1140px', margin: '0 auto', position: 'relative', zIndex: 1, boxSizing: 'border-box' }}
       >
         <div className="section-title">Our <span className="gradient-text">Expertise</span></div>
@@ -157,11 +164,18 @@ const Services = () => {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-img-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, transparent 50%, rgba(11, 17, 32, 0.85) 100%);
+          pointer-events: none;
         }
 
         .service-card:hover .service-img {
-          transform: scale(1.05);
+          transform: scale(1.08);
         }
 
         .service-content {
@@ -185,14 +199,15 @@ const Services = () => {
           width: 34px;
           height: 34px;
           border-radius: 9px;
-          background: rgba(6, 182, 212, 0.1);
+          background: rgba(6, 182, 212, 0.12);
           display: flex;
           align-items: center;
           justify-content: center;
           color: var(--cyan);
           font-size: 1rem;
-          box-shadow: inset 0 0 9px rgba(6, 182, 212, 0.2);
+          box-shadow: inset 0 0 9px rgba(6, 182, 212, 0.25);
           flex-shrink: 0;
+          transition: all 0.3s ease;
         }
 
         .service-title {
@@ -219,11 +234,25 @@ const Services = () => {
           font-weight: 600;
           display: flex;
           align-items: center;
-          gap: 5px;
+          gap: 6px;
           font-size: 0.76rem;
           margin-top: auto;
           text-transform: uppercase;
           letter-spacing: 0.5px;
+          transition: all 0.25s ease;
+        }
+
+        .explore-arrow {
+          display: inline-block;
+          transition: transform 0.25s ease;
+        }
+
+        .service-card:hover .explore-arrow {
+          transform: translateX(4px);
+        }
+
+        .service-card:hover .service-explore {
+          color: var(--cyan);
         }
 
         @media (max-width: 600px) {

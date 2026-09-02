@@ -1,6 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
+const statsData = [
+  { number: '150+', label: 'Projects Completed' },
+  { number: '50+', label: 'Global Clients' },
+  { number: '10+', label: 'Expert Team Members' }
+];
+
 const About = () => {
   return (
     <section id="about" className="section about-section" style={{ position: 'relative', overflow: 'hidden' }}>
@@ -8,27 +14,34 @@ const About = () => {
       {/* Animated Blue Glass Waves Background - Strictly Contained with clip-path */}
       <div className="about-bg-wrapper">
         <motion.div 
-          animate={{ y: ['-4%', '4%', '-4%'] }} 
-          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
-          className="about-blur-wave wave-top"
+          animate={{ y: ['-4%', '4%', '-4%'], scale: [1, 1.05, 1] }} 
+          transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+          className="about-blur-wave wave-top animate-breathe"
         />
         <motion.div 
-          animate={{ y: ['4%', '-4%', '4%'] }} 
-          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-          className="about-blur-wave wave-bottom"
+          animate={{ y: ['4%', '-4%', '4%'], scale: [1, 0.95, 1] }} 
+          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+          className="about-blur-wave wave-bottom animate-breathe"
         />
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: 25 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
         className="about-inner"
       >
         <h2 className="section-title">About <span className="gradient-text">Us</span></h2>
         
-        <div className="vision-pro-glass about-card">
+        <motion.div 
+          className="vision-pro-glass about-card"
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          whileHover={{ borderColor: 'rgba(59, 130, 246, 0.4)' }}
+        >
           <p className="about-text-lead">
             <strong style={{ color: '#ffffff', fontWeight: '600' }}>Graphics Studios Media Agency</strong> is a creative digital media agency providing professional Graphic Design, Branding, UI/UX Design, Video Editing, Motion Graphics, Digital Marketing, AI Solutions, Automation, Web Development, and 3D Design services.
           </p>
@@ -37,20 +50,22 @@ const About = () => {
           </p>
           
           <div className="about-stats-grid">
-            <motion.div whileHover={{ scale: 1.02 }} className="about-stat">
-              <h3 className="stat-number">150+</h3>
-              <p className="stat-label">Projects Completed</p>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.02 }} className="about-stat">
-              <h3 className="stat-number">50+</h3>
-              <p className="stat-label">Global Clients</p>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.02 }} className="about-stat">
-              <h3 className="stat-number">10+</h3>
-              <p className="stat-label">Expert Team Members</p>
-            </motion.div>
+            {statsData.map((stat, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: 0.2 + i * 0.1 }}
+                whileHover={{ scale: 1.05, borderColor: 'rgba(34, 211, 238, 0.4)', boxShadow: '0 8px 24px rgba(34, 211, 238, 0.15)' }}
+                className="about-stat"
+              >
+                <h3 className="stat-number">{stat.number}</h3>
+                <p className="stat-label">{stat.label}</p>
+              </motion.div>
+            ))}
           </div>
-        </div>
+        </motion.div>
       </motion.div>
       
       <style>{`
@@ -121,6 +136,7 @@ const About = () => {
           box-sizing: border-box;
           width: 100%;
           min-width: 0;
+          transition: all 0.35s ease;
         }
 
         .about-text-lead {
@@ -161,6 +177,8 @@ const About = () => {
           justify-content: center;
           min-width: 0;
           box-sizing: border-box;
+          cursor: default;
+          transition: all 0.3s ease;
         }
 
         .stat-number {

@@ -32,9 +32,10 @@ const Portfolio = () => {
       </div>
 
       <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
+        initial={{ opacity: 0, y: 25 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
         style={{ width: '100%', maxWidth: '1140px', margin: '0 auto', position: 'relative', zIndex: 1, boxSizing: 'border-box' }}
       >
         <div className="section-title">Our <span className="gradient-text">Masterpieces</span></div>
@@ -45,20 +46,21 @@ const Portfolio = () => {
 
       <motion.div layout className="portfolio-grid">
         <AnimatePresence>
-          {projects.map((project) => (
+          {projects.map((project, idx) => (
             <motion.div
               layout
-              initial={{ opacity: 0, scale: 0.96, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96, y: -20 }}
-              transition={{ duration: 0.4 }}
+              initial={{ opacity: 0, scale: 0.95, y: 25 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{ duration: 0.45, delay: idx * 0.05 }}
               key={project.id}
               className="glass-card portfolio-item"
               onClick={() => { if(project.link) window.open(project.link, '_blank'); }}
-              whileHover={{ scale: 1.02, boxShadow: '0 14px 28px rgba(59, 130, 246, 0.16)' }}
+              whileHover={{ y: -6, borderColor: 'rgba(34, 211, 238, 0.45)', boxShadow: '0 16px 36px rgba(59, 130, 246, 0.22)' }}
             >
               <div className="portfolio-img-container">
                 <img src={project.img} alt={project.title} className="portfolio-img" />
+                <div className="portfolio-overlay"></div>
               </div>
               
               <div className="portfolio-content">
@@ -69,7 +71,7 @@ const Portfolio = () => {
                   {project.title}
                 </h3>
                 <div className="portfolio-footer">
-                  <div className="view-btn">View Project &rarr;</div>
+                  <div className="view-btn">View Project <span className="view-arrow">→</span></div>
                 </div>
               </div>
             </motion.div>
@@ -113,6 +115,7 @@ const Portfolio = () => {
           border-radius: clamp(12px, 2vw, 16px);
           padding: 0;
           box-sizing: border-box;
+          transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .portfolio-img-container {
@@ -127,11 +130,18 @@ const Portfolio = () => {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .portfolio-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, transparent 50%, rgba(2, 6, 23, 0.7) 100%);
+          pointer-events: none;
         }
 
         .portfolio-item:hover .portfolio-img {
-          transform: scale(1.05);
+          transform: scale(1.08);
         }
 
         .portfolio-content {
@@ -154,6 +164,13 @@ const Portfolio = () => {
           font-weight: 600;
           margin-bottom: 6px;
           border: 1px solid rgba(59, 130, 246, 0.2);
+          transition: all 0.2s ease;
+        }
+
+        .portfolio-item:hover .portfolio-category {
+          background: rgba(34, 211, 238, 0.15);
+          color: var(--cyan);
+          border-color: rgba(34, 211, 238, 0.3);
         }
 
         .portfolio-title {
@@ -178,8 +195,17 @@ const Portfolio = () => {
           transition: all 0.25s ease;
           display: inline-flex;
           align-items: center;
-          gap: 4px;
+          gap: 5px;
           letter-spacing: 0.4px;
+        }
+
+        .view-arrow {
+          display: inline-block;
+          transition: transform 0.25s ease;
+        }
+
+        .portfolio-item:hover .view-arrow {
+          transform: translateX(4px);
         }
 
         .portfolio-item:hover .view-btn {

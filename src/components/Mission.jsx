@@ -13,16 +13,17 @@ const Mission = () => {
       
       <div className="mission-container">
         <motion.div
-          initial={{ opacity: 0, scale: 0.96, filter: 'blur(5px)' }}
-          whileInView={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+          initial={{ opacity: 0, scale: 0.94, y: 30 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          whileHover={{ borderColor: 'rgba(59, 130, 246, 0.45)', boxShadow: '0 24px 50px rgba(0, 0, 0, 0.55), 0 0 25px rgba(59, 130, 246, 0.2)' }}
           className="glass-card mission-card"
         >
           <motion.h2 
-            initial={{ y: 14, opacity: 0 }} 
+            initial={{ y: 16, opacity: 0 }} 
             whileInView={{ y: 0, opacity: 1 }} 
-            transition={{ delay: 0.12 }}
+            transition={{ delay: 0.15, duration: 0.6 }}
             className="mission-title"
           >
             Our <span className="gradient-text">Mission</span>
@@ -30,15 +31,15 @@ const Mission = () => {
           
           <motion.div 
             initial={{ width: 0 }} 
-            whileInView={{ width: '56px' }} 
-            transition={{ delay: 0.25, duration: 0.6 }}
+            whileInView={{ width: '64px' }} 
+            transition={{ delay: 0.3, duration: 0.7 }}
             className="mission-divider"
           ></motion.div>
           
           <motion.p 
-            initial={{ y: 14, opacity: 0 }} 
+            initial={{ y: 16, opacity: 0 }} 
             whileInView={{ y: 0, opacity: 1 }} 
-            transition={{ delay: 0.38 }}
+            transition={{ delay: 0.42, duration: 0.6 }}
             className="mission-quote"
           >
             "To help businesses and individuals grow through creative design, modern digital solutions, strategic marketing, and innovative AI technology."
@@ -90,11 +91,14 @@ const Mission = () => {
         .mission-card {
           border-radius: clamp(14px, 3vw, 20px);
           box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-          background: rgba(11, 17, 32, 0.6);
+          background: rgba(11, 17, 32, 0.65);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
           padding: clamp(20px, 3.8vw, 40px);
           box-sizing: border-box;
           width: 100%;
           overflow: hidden !important;
+          transition: all 0.35s ease;
         }
 
         .mission-title {
@@ -108,10 +112,10 @@ const Mission = () => {
 
         .mission-divider {
           height: 3px;
-          background: var(--accent);
+          background: linear-gradient(90deg, #3b82f6, #00d9ff);
           margin: 0 auto clamp(12px, 2.2vw, 22px) auto;
           border-radius: 3px;
-          box-shadow: 0 0 12px var(--accent);
+          box-shadow: 0 0 14px rgba(0, 217, 255, 0.6);
         }
 
         .mission-quote {

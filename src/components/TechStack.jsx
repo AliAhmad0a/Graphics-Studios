@@ -22,9 +22,10 @@ const TechStack = () => {
   return (
     <section id="tech-stack" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
+        initial={{ opacity: 0, y: 25 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
         style={{ width: '100%', maxWidth: '900px', margin: '0 auto', boxSizing: 'border-box' }}
       >
         <div className="section-title">Powered by <span className="gradient-text">Next-Gen Tech</span></div>
@@ -38,14 +39,21 @@ const TechStack = () => {
           <motion.div
             key={index}
             className="glass-card tech-card"
-            initial={{ opacity: 0, scale: 0.85 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: index * 0.025, type: 'spring', stiffness: 220, damping: 22 }}
+            transition={{ delay: index * 0.035, type: 'spring', stiffness: 260, damping: 20 }}
+            whileHover={{ scale: 1.12, y: -6, borderColor: tech.color }}
+            whileTap={{ scale: 0.95 }}
           >
-            <div className="tech-icon" style={{ color: tech.color }}>
+            <motion.div 
+              className="tech-icon" 
+              style={{ color: tech.color }}
+              whileHover={{ rotate: [0, -10, 10, 0] }}
+              transition={{ duration: 0.4 }}
+            >
               {tech.icon}
-            </div>
+            </motion.div>
             <span className="tech-name">{tech.name}</span>
           </motion.div>
         ))}
@@ -71,12 +79,12 @@ const TechStack = () => {
           width: clamp(70px, 9.5vw, 90px);
           height: clamp(70px, 9.5vw, 90px);
           cursor: pointer;
-          transition: border-color 0.25s ease, transform 0.25s ease;
           border-radius: clamp(10px, 1.8vw, 14px);
           padding: 8px 4px;
           box-sizing: border-box;
           flex-shrink: 0;
           min-width: 0;
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .tech-icon {
@@ -87,10 +95,6 @@ const TechStack = () => {
           justify-content: center;
           transition: transform 0.25s ease;
           flex-shrink: 0;
-        }
-
-        .tech-card:hover .tech-icon {
-          transform: scale(1.1);
         }
 
         .tech-name {

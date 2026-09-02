@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 
 const Footer = () => {
@@ -7,7 +8,13 @@ const Footer = () => {
       <div className="footer-container">
         
         {/* Brand Info */}
-        <div className="footer-col brand-col">
+        <motion.div 
+          className="footer-col brand-col"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <h3 className="footer-brand-title">
             Graphics Studios
           </h3>
@@ -16,15 +23,21 @@ const Footer = () => {
             Premium creative technology agency.
           </p>
           <div className="footer-social-links">
-            <a href="#" aria-label="Facebook" className="footer-social-btn"><FaFacebookF /></a>
-            <a href="#" aria-label="Instagram" className="footer-social-btn"><FaInstagram /></a>
-            <a href="#" aria-label="LinkedIn" className="footer-social-btn"><FaLinkedinIn /></a>
-            <a href="#" aria-label="YouTube" className="footer-social-btn"><FaYoutube /></a>
+            <motion.a href="#" aria-label="Facebook" className="footer-social-btn" whileHover={{ y: -4, scale: 1.1, backgroundColor: '#3b82f6' }} whileTap={{ scale: 0.95 }}><FaFacebookF /></motion.a>
+            <motion.a href="#" aria-label="Instagram" className="footer-social-btn" whileHover={{ y: -4, scale: 1.1, backgroundColor: '#ec4899' }} whileTap={{ scale: 0.95 }}><FaInstagram /></motion.a>
+            <motion.a href="#" aria-label="LinkedIn" className="footer-social-btn" whileHover={{ y: -4, scale: 1.1, backgroundColor: '#0284c7' }} whileTap={{ scale: 0.95 }}><FaLinkedinIn /></motion.a>
+            <motion.a href="#" aria-label="YouTube" className="footer-social-btn" whileHover={{ y: -4, scale: 1.1, backgroundColor: '#ef4444' }} whileTap={{ scale: 0.95 }}><FaYoutube /></motion.a>
           </div>
-        </div>
+        </motion.div>
 
         {/* Quick Links */}
-        <div className="footer-col links-col">
+        <motion.div 
+          className="footer-col links-col"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           <h4 className="footer-col-title">Quick Links</h4>
           <ul className="footer-nav-list">
             <li><a href="#home" className="footer-nav-link">Home</a></li>
@@ -33,10 +46,16 @@ const Footer = () => {
             <li><a href="#courses" className="footer-nav-link">Courses</a></li>
             <li><a href="#contact" className="footer-nav-link">Contact</a></li>
           </ul>
-        </div>
+        </motion.div>
 
         {/* Contact Info */}
-        <div className="footer-col contact-col">
+        <motion.div 
+          className="footer-col contact-col"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           <h4 className="footer-col-title">Contact</h4>
           <ul className="footer-contact-list">
             <li>
@@ -52,7 +71,7 @@ const Footer = () => {
               </a>
             </li>
           </ul>
-        </div>
+        </motion.div>
         
       </div>
       
@@ -117,8 +136,8 @@ const Footer = () => {
         }
 
         .footer-social-btn {
-          width: 34px;
-          height: 34px;
+          width: 36px;
+          height: 36px;
           border-radius: 50%;
           background: rgba(255, 255, 255, 0.04);
           display: flex;
@@ -127,14 +146,8 @@ const Footer = () => {
           color: #ffffff;
           transition: all 0.25s ease;
           border: 1px solid rgba(255, 255, 255, 0.08);
-          font-size: 0.88rem;
+          font-size: 0.9rem;
           flex-shrink: 0;
-        }
-
-        .footer-social-btn:hover {
-          background: #3b82f6;
-          border-color: #3b82f6;
-          transform: translateY(-2px);
         }
 
         .footer-col-title {
@@ -153,12 +166,13 @@ const Footer = () => {
         .footer-nav-link {
           color: #94a3b8;
           font-size: clamp(0.82rem, 1.5vw, 0.92rem);
-          transition: color 0.2s ease;
+          transition: all 0.2s ease;
           display: inline-block;
         }
 
         .footer-nav-link:hover {
-          color: #3b82f6;
+          color: #38bdf8;
+          transform: translateX(4px);
         }
 
         .footer-contact-list {
@@ -180,6 +194,11 @@ const Footer = () => {
           min-width: 0;
           max-width: 100%;
           box-sizing: border-box;
+          transition: all 0.2s ease;
+        }
+
+        .footer-contact-link:hover .footer-contact-val {
+          color: #38bdf8;
         }
 
         .footer-contact-label {
@@ -195,6 +214,7 @@ const Footer = () => {
           word-break: break-all !important;
           display: block;
           max-width: 100%;
+          transition: color 0.2s ease;
         }
 
         .footer-bottom-bar {

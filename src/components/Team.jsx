@@ -25,10 +25,10 @@ const TeamCard = ({ name, role, detail, image, link, delay }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.96 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.42, delay }}
+      initial={{ opacity: 0, scale: 0.95, y: 25 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ duration: 0.45, delay, ease: [0.16, 1, 0.3, 1] }}
       onClick={() => { if(link) window.open(link, '_blank'); }}
       onMouseMove={(e) => {
         if (window.innerWidth < 1024) return;
@@ -42,7 +42,7 @@ const TeamCard = ({ name, role, detail, image, link, delay }) => {
       <motion.div
         className="vision-pro-glass team-card"
         style={{ rotateX, rotateY }}
-        whileHover={{ scale: 1.02, borderColor: "rgba(59,130,246,0.4)" }}
+        whileHover={{ y: -6, borderColor: "rgba(59,130,246,0.5)", boxShadow: '0 16px 36px rgba(59, 130, 246, 0.2)' }}
       >
         <div className="team-glow"></div>
         <div className="team-avatar-wrapper">
@@ -61,17 +61,25 @@ const TeamCard = ({ name, role, detail, image, link, delay }) => {
 const Team = () => {
   return (
     <section id="team" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
-      <div className="section-title">Meet Our <span className="gradient-text">Creative Team</span></div>
-      <p className="section-subtitle">
-        The passionate minds behind Graphics Studios Media Agency.
-      </p>
+      <motion.div
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="section-title">Meet Our <span className="gradient-text">Creative Team</span></div>
+        <p className="section-subtitle">
+          The passionate minds behind Graphics Studios Media Agency.
+        </p>
+      </motion.div>
 
       {/* Founder Section */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        viewport={{ once: true }} 
-        transition={{ duration: 0.5 }}
+        initial={{ opacity: 0, y: 30, scale: 0.96 }} 
+        whileInView={{ opacity: 1, y: 0, scale: 1 }} 
+        viewport={{ once: true, margin: "-40px" }} 
+        transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+        whileHover={{ borderColor: 'rgba(59, 130, 246, 0.45)', boxShadow: '0 20px 45px rgba(59, 130, 246, 0.18)' }}
         className="vision-pro-glass founder-card"
       >
         <div className="founder-bg-glow"></div>
@@ -89,14 +97,16 @@ const Team = () => {
           <p className="founder-bio">
             Creative Graphics Designer leading the agency's vision. Dedicated to building a premium environment where technology and art seamlessly blend.
           </p>
-          <a 
+          <motion.a 
             href="https://safia-blond-psi.vercel.app/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="btn btn-primary founder-btn"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.96 }}
           >
-            View My Portfolio
-          </a>
+            View My Portfolio →
+          </motion.a>
         </div>
       </motion.div>
 
@@ -116,10 +126,11 @@ const Team = () => {
       </div>
       
       <motion.div 
-        initial={{ opacity: 0, y: 25 }} 
+        initial={{ opacity: 0, y: 30 }} 
         whileInView={{ opacity: 1, y: 0 }} 
-        viewport={{ once: true }} 
-        transition={{ duration: 0.6 }}
+        viewport={{ once: true, margin: "-40px" }} 
+        transition={{ duration: 0.65 }}
+        whileHover={{ scale: 1.01 }}
         className="glass-card team-workspace"
       >
          <img src={imgTeam} alt="Our Team Workspace" className="team-workspace-img" />
@@ -138,6 +149,7 @@ const Team = () => {
           padding: clamp(18px, 3.5vw, 36px);
           box-sizing: border-box;
           width: 100%;
+          transition: all 0.35s ease;
         }
 
         .founder-bg-glow {
@@ -145,7 +157,7 @@ const Team = () => {
           inset: 0;
           width: 100%;
           height: 100%;
-          background: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 60%);
+          background: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 60%);
           pointer-events: none;
           clip-path: inset(0);
           -webkit-clip-path: inset(0);
@@ -155,11 +167,12 @@ const Team = () => {
           width: clamp(90px, 14vw, 130px);
           height: clamp(90px, 14vw, 130px);
           border-radius: 50%;
-          background: linear-gradient(135deg, #3b82f6, #0a42db);
+          background: linear-gradient(135deg, #3b82f6, #00d9ff);
           padding: 3px;
           flex-shrink: 0;
           position: relative;
           box-sizing: border-box;
+          box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
         }
 
         .founder-img {
@@ -253,6 +266,7 @@ const Team = () => {
           overflow: hidden !important;
           box-sizing: border-box;
           transform-style: preserve-3d;
+          transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .team-glow {
@@ -261,9 +275,9 @@ const Team = () => {
           right: 0;
           width: 75px;
           height: 75px;
-          background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
           opacity: 0;
-          transition: opacity 0.3s ease;
+          transition: opacity 0.35s ease;
           pointer-events: none;
         }
 
@@ -283,6 +297,13 @@ const Team = () => {
           padding: 2px;
           border: 1.5px solid rgba(59, 130, 246, 0.3);
           flex-shrink: 0;
+          transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+
+        .team-card:hover .team-avatar-wrapper {
+          transform: scale(1.08);
+          border-color: var(--cyan);
+          box-shadow: 0 0 14px rgba(34, 211, 238, 0.3);
         }
 
         .team-avatar-img {
@@ -309,6 +330,11 @@ const Team = () => {
           color: #3b82f6;
           font-weight: 600;
           margin-bottom: 5px;
+          transition: color 0.2s ease;
+        }
+
+        .team-card:hover .team-member-role {
+          color: var(--cyan);
         }
 
         .team-member-detail {
@@ -330,6 +356,7 @@ const Team = () => {
           margin-left: auto;
           margin-right: auto;
           box-sizing: border-box;
+          transition: transform 0.5s ease;
         }
 
         .team-workspace-img {

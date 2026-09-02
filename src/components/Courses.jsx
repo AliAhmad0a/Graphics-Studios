@@ -23,10 +23,10 @@ const CourseCard = ({ course, index }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.96, y: 20 }}
+      initial={{ opacity: 0, scale: 0.95, y: 30 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.04 }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ duration: 0.45, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
       onMouseMove={(e) => {
         if (window.innerWidth < 1024) return;
         const rect = e.currentTarget.getBoundingClientRect();
@@ -41,13 +41,14 @@ const CourseCard = ({ course, index }) => {
         style={{ 
           rotateX, rotateY,
         }}
-        whileHover={{ scale: 1.02, boxShadow: '0 14px 28px rgba(59, 130, 246, 0.16)' }}
+        whileHover={{ y: -6, borderColor: 'rgba(59, 130, 246, 0.5)', boxShadow: '0 16px 36px rgba(59, 130, 246, 0.22)' }}
       >
         <div className="course-accent-bar"></div>
         <div className="course-glow"></div>
         
         <div className="course-img-container">
            <img src={course.img} alt={course.title} className="course-img" />
+           <div className="course-img-overlay"></div>
         </div>
 
         <div className="course-content">
@@ -60,14 +61,16 @@ const CourseCard = ({ course, index }) => {
           </p>
           
           <div className="course-btn-wrapper">
-            <a 
+            <motion.a 
               href="https://api.whatsapp.com/send/?phone=03365821674&text&type=phone_number&app_absent=0" 
               target="_blank" 
               rel="noopener noreferrer"
               className="btn btn-outline course-enroll-btn"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.97 }}
             >
-              Enroll Now
-            </a>
+              Enroll Now →
+            </motion.a>
           </div>
         </div>
       </motion.div>
@@ -79,9 +82,10 @@ const Courses = () => {
   return (
     <section id="courses" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
+        initial={{ opacity: 0, y: 25 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
         style={{ width: '100%', maxWidth: '1140px', margin: '0 auto', boxSizing: 'border-box' }}
       >
         <div className="section-title">Professional <span className="gradient-text">Training Courses</span></div>
@@ -131,6 +135,7 @@ const Courses = () => {
           transform-style: preserve-3d;
           border-radius: clamp(12px, 2vw, 16px);
           box-sizing: border-box;
+          transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .course-accent-bar {
@@ -139,7 +144,7 @@ const Courses = () => {
           left: 0;
           width: 3.5px;
           height: 100%;
-          background: linear-gradient(to bottom, #3b82f6, #0a42db);
+          background: linear-gradient(to bottom, #3b82f6, #00d9ff);
           z-index: 10;
         }
 
@@ -149,10 +154,10 @@ const Courses = () => {
           right: 0;
           width: 110px;
           height: 110px;
-          background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
           border-radius: 50%;
           opacity: 0;
-          transition: opacity 0.3s ease;
+          transition: opacity 0.35s ease;
           pointer-events: none;
         }
 
@@ -172,11 +177,18 @@ const Courses = () => {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .course-img-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(180deg, transparent 50%, rgba(2, 6, 23, 0.7) 100%);
+          pointer-events: none;
         }
 
         .course-card-wrapper:hover .course-img {
-          transform: scale(1.05);
+          transform: scale(1.08);
         }
 
         .course-content {
@@ -199,6 +211,13 @@ const Courses = () => {
           font-weight: 600;
           margin-bottom: 6px;
           border: 1px solid rgba(59, 130, 246, 0.2);
+          transition: all 0.2s ease;
+        }
+
+        .course-card-wrapper:hover .course-level {
+          background: rgba(34, 211, 238, 0.15);
+          color: var(--cyan);
+          border-color: rgba(34, 211, 238, 0.3);
         }
 
         .course-title {
@@ -236,6 +255,7 @@ const Courses = () => {
         .course-enroll-btn:hover {
           background: rgba(59, 130, 246, 0.2);
           border-color: #3b82f6;
+          color: #ffffff;
         }
 
         @media (max-width: 600px) {

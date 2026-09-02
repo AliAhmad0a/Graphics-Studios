@@ -3,51 +3,70 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Hero = () => {
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 40]);
+  const y1 = useTransform(scrollY, [0, 500], [0, 35]);
+  const opacityHero = useTransform(scrollY, [0, 400], [1, 0.4]);
 
   return (
     <section id="home" className="hero-section">
       <motion.div 
-        style={{ y: y1 }}
+        style={{ y: y1, opacity: opacityHero }}
         className="hero-content"
       >
+        {/* Floating Animated Badge */}
         <motion.div
-          className="hero-badge"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="hero-badge animate-floating"
+          initial={{ opacity: 0, y: -20, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="hero-badge-dot"></span>
           <span>Graphics Studios Media Agency</span>
         </motion.div>
         
+        {/* Dynamic Title with Spring Reveal */}
         <motion.h1 
           className="hero-title"
-          initial={{ opacity: 0, scale: 0.96 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          initial={{ opacity: 0, y: 25, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.75, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
         >
           Building the future of <br />
           <span className="gradient-text">digital experiences.</span>
         </motion.h1>
         
+        {/* Subtitle with Smooth Fade Up */}
         <motion.p 
           className="hero-p"
-          initial={{ opacity: 0, y: 8 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
+          transition={{ delay: 0.28, duration: 0.65, ease: "easeOut" }}
         >
           A premium software house and media agency delivering high-end UI/UX, robust full-stack development, and AI-driven creative solutions.
         </motion.p>
         
+        {/* Interactive CTA Buttons */}
         <motion.div 
           className="hero-btns"
-          initial={{ opacity: 0, y: 8 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
+          transition={{ delay: 0.4, duration: 0.65, ease: "easeOut" }}
         >
-          <a href="#services" className="btn btn-primary">Explore Services</a>
-          <a href="#portfolio" className="btn btn-outline">Our Portfolio</a>
+          <motion.a 
+            href="#services" 
+            className="btn btn-primary"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.96 }}
+          >
+            Explore Services
+          </motion.a>
+          <motion.a 
+            href="#portfolio" 
+            className="btn btn-outline"
+            whileHover={{ scale: 1.05, backgroundColor: 'rgba(59, 130, 246, 0.15)' }}
+            whileTap={{ scale: 0.96 }}
+          >
+            Our Portfolio
+          </motion.a>
         </motion.div>
       </motion.div>
 
@@ -89,25 +108,28 @@ const Hero = () => {
           align-items: center;
           justify-content: center;
           margin: 0 auto clamp(10px, 2vw, 15px) auto;
-          padding: 5px 13px;
+          padding: 6px 14px;
           background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.09);
+          border: 1px solid rgba(255, 255, 255, 0.12);
           border-radius: 100px;
           font-size: clamp(0.72rem, 1.8vw, 0.84rem);
           color: var(--text-main);
           max-width: 95%;
           letter-spacing: 0.2px;
           box-sizing: border-box;
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
         }
 
         .hero-badge-dot {
-          width: 6.5px;
-          height: 6.5px;
+          width: 7px;
+          height: 7px;
           background: var(--cyan);
           border-radius: 50%;
           display: inline-block;
-          margin-right: 7px;
-          box-shadow: 0 0 7px var(--cyan);
+          margin-right: 8px;
+          box-shadow: 0 0 8px var(--cyan);
           flex-shrink: 0;
         }
 
@@ -140,7 +162,7 @@ const Hero = () => {
 
         .hero-btns {
           display: flex;
-          gap: 10px;
+          gap: 12px;
           justify-content: center;
           align-items: center;
           flex-wrap: wrap;

@@ -31,9 +31,10 @@ const Testimonials = () => {
       </div>
 
       <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
+        initial={{ opacity: 0, y: 25 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
         style={{ width: '100%', maxWidth: '1140px', margin: '0 auto', position: 'relative', zIndex: 1, boxSizing: 'border-box' }}
       >
         <div className="section-title">Client <span className="gradient-text">Testimonials</span></div>
@@ -47,10 +48,11 @@ const Testimonials = () => {
           <motion.div
             key={i}
             className="glass-card testimonial-card"
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.06, duration: 0.45 }}
+            initial={{ opacity: 0, y: 30, scale: 0.96 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-30px" }}
+            transition={{ delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ y: -6, borderColor: 'rgba(59, 130, 246, 0.45)', boxShadow: '0 16px 36px rgba(59, 130, 246, 0.2)' }}
           >
             {/* Quote Icon */}
             <div className="quote-mark">"</div>
@@ -60,7 +62,13 @@ const Testimonials = () => {
             </p>
             
             <div className="testimonial-author">
-              <img src={test.avatar} alt={test.name} className="testimonial-avatar" />
+              <motion.img 
+                src={test.avatar} 
+                alt={test.name} 
+                className="testimonial-avatar"
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              />
               <div className="testimonial-author-info">
                 <h4 className="testimonial-author-name">{test.name}</h4>
                 <span className="testimonial-author-role">{test.role}</span>
@@ -107,17 +115,23 @@ const Testimonials = () => {
           width: 100%;
           min-width: 0;
           overflow: hidden !important;
+          transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .quote-mark {
           position: absolute;
           top: clamp(8px, 1.5vw, 14px);
           right: clamp(12px, 2vw, 18px);
-          font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-          color: rgba(255, 255, 255, 0.04);
+          font-size: clamp(2rem, 4vw, 3rem);
+          color: rgba(59, 130, 246, 0.12);
           font-family: serif;
           line-height: 1;
           pointer-events: none;
+          transition: color 0.3s ease;
+        }
+
+        .testimonial-card:hover .quote-mark {
+          color: rgba(34, 211, 238, 0.25);
         }
 
         .testimonial-content {
@@ -147,6 +161,7 @@ const Testimonials = () => {
           border: 1.5px solid var(--blue);
           flex-shrink: 0;
           object-fit: cover;
+          box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
         }
 
         .testimonial-author-info {

@@ -28,26 +28,38 @@ const Contact = () => {
         <div style={{ position: 'absolute', bottom: '5%', right: '5%', width: 'min(45%, 260px)', height: 'min(45%, 260px)', background: 'rgba(59, 130, 246, 0.08)', borderRadius: '50%', filter: 'blur(45px)' }}></div>
       </div>
 
-      <div className="section-title">Get In <span className="gradient-text">Touch</span></div>
-      <p className="section-subtitle">
-        Ready to transform your brand? Let's discuss your next big project.
-      </p>
+      <motion.div
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="section-title">Get In <span className="gradient-text">Touch</span></div>
+        <p className="section-subtitle">
+          Ready to transform your brand? Let's discuss your next big project.
+        </p>
+      </motion.div>
 
       <div className="contact-grid">
         
         {/* Contact Info */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45 }}
+          initial={{ opacity: 0, x: -25 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
           className="contact-col-outer"
         >
           <div className="glass-card contact-card">
             <h3 className="contact-card-title">Contact Information</h3>
             
             <div className="contact-items-list">
-              <a href="mailto:graphicsstudiosmediaagency@gmail.com" className="contact-item-row">
+              <motion.a 
+                href="mailto:graphicsstudiosmediaagency@gmail.com" 
+                className="contact-item-row"
+                whileHover={{ x: 6 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
                 <div className="contact-icon-box">
                   <FaEnvelope />
                 </div>
@@ -55,9 +67,14 @@ const Contact = () => {
                   <p className="contact-item-label">Email Us</p>
                   <span className="contact-item-value">graphicsstudiosmediaagency@gmail.com</span>
                 </div>
-              </a>
+              </motion.a>
 
-              <a href="tel:03365821674" className="contact-item-row">
+              <motion.a 
+                href="tel:03365821674" 
+                className="contact-item-row"
+                whileHover={{ x: 6 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
                 <div className="contact-icon-box">
                   <FaPhoneAlt />
                 </div>
@@ -65,19 +82,30 @@ const Contact = () => {
                   <p className="contact-item-label">Call Us</p>
                   <span className="contact-item-value">0336 5821674</span>
                 </div>
-              </a>
+              </motion.a>
 
-              <a href="https://api.whatsapp.com/send/?phone=03365821674&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" className="contact-item-row">
-                <div className="contact-icon-box">
+              <motion.a 
+                href="https://api.whatsapp.com/send/?phone=03365821674&text&type=phone_number&app_absent=0" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="contact-item-row"
+                whileHover={{ x: 6 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
+                <div className="contact-icon-box" style={{ color: '#22c55e', borderColor: 'rgba(34, 197, 94, 0.3)', background: 'rgba(34, 197, 94, 0.1)' }}>
                   <FaWhatsapp />
                 </div>
                 <div className="contact-item-text">
                   <p className="contact-item-label">WhatsApp Us</p>
                   <span className="contact-item-value">0336 5821674</span>
                 </div>
-              </a>
+              </motion.a>
               
-              <div className="contact-item-row">
+              <motion.div 
+                className="contact-item-row"
+                whileHover={{ x: 6 }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              >
                 <div className="contact-icon-box">
                   <FaMapMarkerAlt />
                 </div>
@@ -85,28 +113,28 @@ const Contact = () => {
                   <p className="contact-item-label">Location</p>
                   <p className="contact-item-value" style={{ margin: 0 }}>Global (Remote) / Headquarters</p>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </motion.div>
 
         {/* Contact Form */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45, delay: 0.08 }}
+          initial={{ opacity: 0, x: 25 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="contact-col-outer"
         >
           <div className="glass-card contact-card">
             {submitted ? (
               <motion.div
-                initial={{ opacity: 0, scale: 0.92 }}
+                initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="contact-submitted"
               >
-                <FaCheckCircle style={{ fontSize: '2.4rem', color: '#22d3ee' }} />
-                <h3 style={{ fontSize: '1.2rem', margin: 0 }}>Message Sent!</h3>
+                <FaCheckCircle style={{ fontSize: '2.5rem', color: '#22d3ee' }} />
+                <h3 style={{ fontSize: '1.25rem', margin: 0 }}>Message Sent!</h3>
                 <p style={{ color: '#94a3b8', margin: 0, fontSize: '0.86rem' }}>We've received your enquiry and will get back to you shortly via WhatsApp.</p>
                 <button className="btn btn-outline" onClick={() => { setSubmitted(false); setFormState({ name: '', email: '', phone: '', service: '', message: '' }); }} style={{ padding: '8px 16px', fontSize: '0.85rem' }}>
                   Send Another
@@ -133,9 +161,15 @@ const Contact = () => {
                   </select>
                 </div>
                 <textarea name="message" placeholder="Your Message" rows="3" required className="neon-input" value={formState.message} onChange={handleChange}></textarea>
-                <button type="submit" className="btn btn-primary contact-submit-btn" disabled={sending}>
+                <motion.button 
+                  type="submit" 
+                  className="btn btn-primary contact-submit-btn" 
+                  disabled={sending}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                   {sending ? 'Sending...' : 'Send Message →'}
-                </button>
+                </motion.button>
               </form>
             )}
           </div>
@@ -185,6 +219,12 @@ const Contact = () => {
           display: flex;
           flex-direction: column;
           overflow: hidden !important;
+          transition: all 0.35s ease;
+        }
+
+        .contact-card:hover {
+          border-color: rgba(59, 130, 246, 0.4);
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.15);
         }
 
         .contact-card-title {
@@ -212,6 +252,7 @@ const Contact = () => {
           max-width: 100%;
           min-width: 0;
           box-sizing: border-box;
+          cursor: pointer;
         }
 
         .contact-icon-box {
@@ -226,6 +267,12 @@ const Contact = () => {
           font-size: clamp(0.9rem, 1.8vw, 1.05rem);
           flex-shrink: 0;
           border: 1px solid rgba(59, 130, 246, 0.2);
+          transition: all 0.25s ease;
+        }
+
+        .contact-item-row:hover .contact-icon-box {
+          transform: scale(1.1);
+          box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
         }
 
         .contact-item-text {
@@ -296,8 +343,8 @@ const Contact = () => {
 
         .neon-input:focus {
           border-color: var(--cyan);
-          box-shadow: 0 0 10px rgba(6, 182, 212, 0.25);
-          background: rgba(2, 6, 23, 0.75);
+          box-shadow: 0 0 14px rgba(6, 182, 212, 0.35);
+          background: rgba(2, 6, 23, 0.8);
         }
 
         .neon-input::placeholder {
