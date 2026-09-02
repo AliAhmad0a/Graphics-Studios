@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
+import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -24,9 +24,7 @@ const Footer = () => {
           </p>
           <div className="footer-social-links">
             <motion.a href="https://www.facebook.com/profile.php?id=61573042965782&rdid=LPqKSNB6cBPZ0bwP&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BdLuR7LBe%2F#" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="footer-social-btn" whileHover={{ y: -4, scale: 1.1, backgroundColor: '#3b82f6' }} whileTap={{ scale: 0.95 }}><FaFacebookF /></motion.a>
-            <motion.a href="#" aria-label="Instagram" className="footer-social-btn" whileHover={{ y: -4, scale: 1.1, backgroundColor: '#ec4899' }} whileTap={{ scale: 0.95 }}><FaInstagram /></motion.a>
             <motion.a href="https://www.linkedin.com/posts/graphicsstudiospk_graphicsstudiosmediaagency-nivea-niveacreme-activity-7498494716653576194-9WsW?utm_source=share&utm_medium=member_android&rcm=ACoAAErEqIUBKJf-l5MB7xJEfYMKQrdIXsm9U1I" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="footer-social-btn" whileHover={{ y: -4, scale: 1.1, backgroundColor: '#0284c7' }} whileTap={{ scale: 0.95 }}><FaLinkedinIn /></motion.a>
-            <motion.a href="#" aria-label="YouTube" className="footer-social-btn" whileHover={{ y: -4, scale: 1.1, backgroundColor: '#ef4444' }} whileTap={{ scale: 0.95 }}><FaYoutube /></motion.a>
           </div>
         </motion.div>
 
