@@ -9,10 +9,10 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [theme, setTheme] = useState(() => {
     try {
-      const saved = localStorage.getItem('gs_theme');
-      return saved || 'light';
+      const saved = localStorage.getItem('gs_theme_mode');
+      return saved || 'dark';
     } catch {
-      return 'light';
+      return 'dark';
     }
   });
 
@@ -23,7 +23,7 @@ const Navbar = () => {
       document.documentElement.removeAttribute('data-theme');
     }
     try {
-      localStorage.setItem('gs_theme', theme);
+      localStorage.setItem('gs_theme_mode', theme);
     } catch {}
   }, [theme]);
 
@@ -93,7 +93,7 @@ const Navbar = () => {
               <img src={logo} alt="Graphics Studios Logo" className="logo-img" />
               <div className="logo-glow"></div>
             </div>
-            <span className="logo-text hide-mobile">
+            <span className="logo-text">
               Graphics Studios Media Agency
             </span>
           </div>
@@ -290,11 +290,12 @@ const Navbar = () => {
 
         .logo-text {
           font-family: var(--heading);
-          font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+          font-size: clamp(0.76rem, 1.35vw, 0.98rem);
           font-weight: 700;
           color: var(--strong-text);
           letter-spacing: -0.25px;
           white-space: nowrap;
+          flex-shrink: 0;
         }
 
         .desktop-nav {
@@ -483,7 +484,7 @@ const Navbar = () => {
           width: 100%;
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 1040px) {
           .desktop-nav {
             display: none !important;
           }
@@ -499,14 +500,14 @@ const Navbar = () => {
         }
 
         @media (max-width: 600px) {
-          .hide-mobile {
-            display: none !important;
-          }
           .navbar-fixed-wrapper {
             padding: 8px 12px 0 12px;
           }
           .main-navbar {
             padding: 6px 14px;
+          }
+          .logo-text {
+            font-size: clamp(0.66rem, 3vw, 0.8rem);
           }
           .logo-img {
             height: 24px;
