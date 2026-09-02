@@ -1,67 +1,61 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useEffect, useState, useRef } from 'react';
 
 const CustomCursor = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const cursorRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
-    const updateMousePosition = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+    // Don't show custom cursor on touch/mobile devices
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+    setIsTouchDevice(isTouch);
+    if (isTouch) return;
+
+    const onMove = (e) => {
+      if (!cursorRef.current) return;
+      cursorRef.current.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
     };
 
-    const handleMouseOver = (e) => {
-      if (e.target.closest('a') || e.target.closest('button') || e.target.classList.contains('service-card') || e.target.classList.contains('glass-card')) {
-        setIsHovered(true);
-      } else {
-        setIsHovered(false);
-      }
+    const onOver = (e) => {
+      const el = e.target;
+      setIsHovered(!!(el.closest('a') || el.closest('button') || el.closest('.glass-card')));
     };
 
-    window.addEventListener('mousemove', updateMousePosition);
-    window.addEventListener('mouseover', handleMouseOver);
+    window.addEventListener('mousemove', onMove, { passive: true });
+    window.addEventListener('mouseover', onOver, { passive: true });
 
     return () => {
-      window.removeEventListener('mousemove', updateMousePosition);
-      window.removeEventListener('mouseover', handleMouseOver);
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseover', onOver);
     };
   }, []);
 
-  const variants = {
-    default: {
-      x: mousePosition.x - 10,
-      y: mousePosition.y - 10,
-      height: 20,
-      width: 20,
-      backgroundColor: "rgba(59, 130, 246, 0.8)",
-      border: "0px solid rgba(59, 130, 246, 0)",
-      transition: { type: "tween", ease: "backOut", duration: 0.15 }
-    },
-    hover: {
-      x: mousePosition.x - 30,
-      y: mousePosition.y - 30,
-      height: 60,
-      width: 60,
-      backgroundColor: "rgba(59, 130, 246, 0.1)",
-      border: "1px solid rgba(59, 130, 246, 0.8)",
-      transition: { type: "tween", ease: "backOut", duration: 0.15 }
-    }
-  };
+  if (isTouchDevice) return null;
 
   return (
     <>
-      <style>{`body { cursor: none; } a, button { cursor: none; }`}</style>
-      <motion.div
-        variants={variants}
-        animate={isHovered ? "hover" : "default"}
+      <style>{`
+        @media (pointer: fine) {
+          body, a, button { cursor: none !important; }
+        }
+      `}</style>
+      <div
+        ref={cursorRef}
         style={{
           position: 'fixed',
-          top: 0,
-          left: 0,
-          borderRadius: "50%",
+          top: 0, left: 0,
+          width: isHovered ? '50px' : '20px',
+          height: isHovered ? '50px' : '20px',
+          borderRadius: '50%',
+          background: isHovered ? 'rgba(59,130,246,0.12)' : 'rgba(59,130,246,0.85)',
+          border: isHovered ? '1px solid rgba(59,130,246,0.8)' : 'none',
+          boxShadow: '0 0 15px rgba(59,130,246,0.6)',
           pointerEvents: 'none',
           zIndex: 9999,
-          boxShadow: "0 0 15px rgba(59, 130, 246, 0.8)"
+          transition: 'width 0.15s ease, height 0.15s ease, background 0.15s ease, border 0.15s ease',
+          willChange: 'transform',
+          marginTop: isHovered ? '-15px' : '0',
+          marginLeft: isHovered ? '-15px' : '0',
         }}
       />
     </>

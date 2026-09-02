@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaWhatsapp } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaWhatsapp, FaCheckCircle } from 'react-icons/fa';
 
 const Contact = () => {
+  const [formState, setFormState] = useState({ name: '', email: '', phone: '', service: '', message: '' });
+  const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+
+  const handleChange = (e) => setFormState(prev => ({ ...prev, [e.target.name]: e.target.value }));
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSending(true);
+    // Build WhatsApp message with form data
+    const msg = `New Enquiry from ${formState.name}%0AEmail: ${formState.email}%0APhone: ${formState.phone}%0AService: ${formState.service}%0AMessage: ${formState.message}`;
+    setTimeout(() => {
+      setSending(false);
+      setSubmitted(true);
+      window.open(`https://api.whatsapp.com/send/?phone=03365821674&text=${msg}&type=phone_number&app_absent=0`, '_blank');
+    }, 800);
+  };
+
   return (
     <section id="contact" className="section" style={{ position: 'relative' }}>
        {/* Background Glow */}
@@ -77,30 +95,45 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="glass-card contact-card">
-            <form className="contact-form" onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-                <input type="text" placeholder="Your Name" required className="neon-input" />
-                <input type="email" placeholder="Your Email" required className="neon-input" />
-              </div>
-              <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-                <input type="tel" placeholder="Phone Number" className="neon-input" />
-                <select required defaultValue="" className="neon-input" style={{ appearance: 'none' }}>
-                  <option value="" disabled>Select Service</option>
-                  <option value="graphic">Graphic Design</option>
-                  <option value="uiux">UI/UX Design</option>
-                  <option value="video">Video Editing</option>
-                  <option value="marketing">Digital Marketing</option>
-                  <option value="ai">AI Solutions</option>
-                  <option value="web">Web Design</option>
-                  <option value="3d">3D Design</option>
-                  <option value="course">Training Courses</option>
-                </select>
-              </div>
-              <textarea placeholder="Your Message" rows="5" required className="neon-input"></textarea>
-              <button type="submit" className="btn btn-primary" style={{ width: '100%', padding: '15px' }}>
-                Send Message
-              </button>
-            </form>
+            {submitted ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '20px', minHeight: '300px', textAlign: 'center' }}
+              >
+                <FaCheckCircle style={{ fontSize: '3rem', color: '#22d3ee' }} />
+                <h3 style={{ fontSize: '1.5rem', margin: 0 }}>Message Sent!</h3>
+                <p style={{ color: '#94a3b8', margin: 0 }}>We've received your enquiry and will get back to you shortly via WhatsApp.</p>
+                <button className="btn btn-outline" onClick={() => { setSubmitted(false); setFormState({ name: '', email: '', phone: '', service: '', message: '' }); }}>
+                  Send Another
+                </button>
+              </motion.div>
+            ) : (
+              <form className="contact-form" onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                  <input type="text" name="name" placeholder="Your Name" required className="neon-input" value={formState.name} onChange={handleChange} />
+                  <input type="email" name="email" placeholder="Your Email" required className="neon-input" value={formState.email} onChange={handleChange} />
+                </div>
+                <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                  <input type="tel" name="phone" placeholder="Phone Number" className="neon-input" value={formState.phone} onChange={handleChange} />
+                  <select name="service" required value={formState.service} onChange={handleChange} className="neon-input" style={{ appearance: 'none' }}>
+                    <option value="" disabled>Select Service</option>
+                    <option value="Graphic Design">Graphic Design</option>
+                    <option value="UI/UX Design">UI/UX Design</option>
+                    <option value="Video Editing">Video Editing</option>
+                    <option value="Digital Marketing">Digital Marketing</option>
+                    <option value="AI Solutions">AI Solutions</option>
+                    <option value="Web Design">Web Design</option>
+                    <option value="3D Design">3D Design</option>
+                    <option value="Training Courses">Training Courses</option>
+                  </select>
+                </div>
+                <textarea name="message" placeholder="Your Message" rows="5" required className="neon-input" value={formState.message} onChange={handleChange}></textarea>
+                <button type="submit" className="btn btn-primary" style={{ width: '100%', padding: '15px' }} disabled={sending}>
+                  {sending ? 'Sending...' : 'Send Message →'}
+                </button>
+              </form>
+            )}
           </div>
         </motion.div>
 

@@ -115,8 +115,8 @@ const Team = () => {
       
       <motion.div 
         initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-        style={{ marginTop: '80px', borderRadius: '30px', overflow: 'hidden', height: '450px', boxShadow: '0 30px 60px rgba(0,0,0,0.5)' }} 
-        className="glass-card"
+        className="glass-card team-workspace"
+        style={{ marginTop: '80px', borderRadius: '30px', overflow: 'hidden', boxShadow: '0 30px 60px rgba(0,0,0,0.5)' }} 
       >
          <img src={imgTeam} alt="Our Team Workspace" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85 }} />
       </motion.div>
@@ -125,9 +125,14 @@ const Team = () => {
         .team-glow { position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%); opacity: 0; transition: opacity 0.3s; }
         .vision-pro-glass:hover .team-glow { opacity: 1; }
         .founder-card { padding: 50px; }
+        .team-workspace { height: 420px; }
         @media (max-width: 768px) {
-          .founder-card { padding: 30px 20px; flex-direction: column; gap: 20px; }
-          .founder-card h3 { font-size: 2rem !important; }
+          .founder-card { padding: 28px 18px !important; flex-direction: column !important; gap: 20px !important; }
+          .founder-card h3 { font-size: 1.65rem !important; }
+          .team-workspace { height: 260px !important; }
+        }
+        @media (max-width: 480px) {
+          .team-workspace { height: 200px !important; }
         }
       `}</style>
     </section>

@@ -17,6 +17,7 @@ const Hero = () => {
     }}>
       <motion.div style={{ y: y1, zIndex: 1, textAlign: 'center', maxWidth: '800px', marginTop: '60px' }}>
         <motion.div
+          className="hero-badge"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
