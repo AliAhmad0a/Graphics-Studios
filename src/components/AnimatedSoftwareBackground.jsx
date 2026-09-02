@@ -15,7 +15,7 @@ const AnimatedSoftwareBackground = () => {
             {/* Deep Navy Gradient */}
             <div style={{
                 position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-                background: 'radial-gradient(circle at 50% 0%, rgba(255, 182, 193, 0.15) 0%, transparent 70%)'
+                background: 'radial-gradient(circle at 50% 0%, rgba(10, 66, 219, 0.15) 0%, transparent 70%)'
             }}></div>
 
             {/* 3D Perspective Digital Grid */}
@@ -38,11 +38,11 @@ const AnimatedSoftwareBackground = () => {
                     fpsLimit: 60,
                     interactivity: {
                         events: { onHover: { enable: true, mode: "grab" }, resize: true },
-                        modes: { grab: { distance: 150, links: { opacity: 0.6, color: "#ffb6c1" } } }
+                        modes: { grab: { distance: 150, links: { opacity: 0.6, color: "#3b82f6" } } }
                     },
                     particles: {
-                        color: { value: ["#ffb6c1", "#ffc0cb"] },
-                        links: { color: "#ffb6c1", distance: 130, enable: true, opacity: 0.5, width: 1 },
+                        color: { value: ["#3b82f6", "#60a5fa"] },
+                        links: { color: "#1e3a8a", distance: 130, enable: true, opacity: 0.5, width: 1 },
                         move: { enable: true, speed: 0.6, direction: "none", random: false, straight: false, outModes: { default: "bounce" } },
                         number: { density: { enable: true, area: 800 }, value: 70 },
                         opacity: { value: 0.6 },
@@ -58,8 +58,8 @@ const AnimatedSoftwareBackground = () => {
                     position: absolute;
                     bottom: -20%; left: -20%; width: 140%; height: 70vh;
                     background-image: 
-                        linear-gradient(to right, rgba(255, 182, 193, 0.15) 1px, transparent 1px),
-                        linear-gradient(to top, rgba(255, 182, 193, 0.15) 1px, transparent 1px);
+                        linear-gradient(to right, rgba(59, 130, 246, 0.15) 1px, transparent 1px),
+                        linear-gradient(to top, rgba(59, 130, 246, 0.15) 1px, transparent 1px);
                     background-size: 60px 60px;
                     transform: perspective(600px) rotateX(75deg);
                     transform-origin: bottom center;
@@ -72,7 +72,7 @@ const AnimatedSoftwareBackground = () => {
                 }
                 .data-stream {
                     position: absolute; width: 1px; height: 150px;
-                    background: linear-gradient(to bottom, transparent, rgba(255, 182, 193, 0.8), transparent);
+                    background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.8), transparent);
                     opacity: 0;
                     animation: streamFall linear infinite;
                 }

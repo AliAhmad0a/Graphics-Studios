@@ -17,7 +17,7 @@ const VideoCard = ({ video, index }) => {
       viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.45, delay: index * 0.1 }}
       className="glass-card video-item"
-      whileHover={{ y: -6, borderColor: 'rgba(255, 240, 245, 0.45)', boxShadow: '0 16px 36px rgba(255, 182, 193, 0.22)' }}
+      whileHover={{ y: -6, borderColor: 'rgba(34, 211, 238, 0.45)', boxShadow: '0 16px 36px rgba(59, 130, 246, 0.22)' }}
       onMouseEnter={() => videoRef.current?.play()}
       onMouseLeave={() => videoRef.current?.pause()}
     >
@@ -48,7 +48,7 @@ const OurWorkVideos = () => {
   return (
     <section id="our-work-videos" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       <div className="video-bg-glow">
-        <div style={{ position: 'absolute', top: '10%', right: '5%', width: 'min(45%, 240px)', height: 'min(45%, 240px)', background: 'rgba(255, 182, 193, 0.05)', borderRadius: '50%', filter: 'blur(45px)' }}></div>
+        <div style={{ position: 'absolute', top: '10%', right: '5%', width: 'min(45%, 240px)', height: 'min(45%, 240px)', background: 'rgba(59, 130, 246, 0.05)', borderRadius: '50%', filter: 'blur(45px)' }}></div>
       </div>
 
       <motion.div 
@@ -138,7 +138,7 @@ const OurWorkVideos = () => {
         .play-icon {
           width: 40px;
           height: 40px;
-          background: rgba(255, 182, 193, 0.8);
+          background: rgba(59, 130, 246, 0.8);
           color: white;
           border-radius: 50%;
           display: flex;
@@ -177,20 +177,20 @@ const OurWorkVideos = () => {
           display: inline-block;
           align-self: flex-start;
           padding: 3px 9px;
-          background: rgba(255, 182, 193, 0.1);
-          color: #ffc0cb;
+          background: rgba(59, 130, 246, 0.1);
+          color: #60a5fa;
           border-radius: 14px;
           font-size: 0.72rem;
           font-weight: 600;
           margin-bottom: 6px;
-          border: 1px solid rgba(255, 182, 193, 0.2);
+          border: 1px solid rgba(59, 130, 246, 0.2);
           transition: all 0.2s ease;
         }
 
         .video-item:hover .video-category {
-          background: rgba(255, 240, 245, 0.15);
+          background: rgba(34, 211, 238, 0.15);
           color: var(--cyan);
-          border-color: rgba(255, 240, 245, 0.3);
+          border-color: rgba(34, 211, 238, 0.3);
         }
 
         .video-title {

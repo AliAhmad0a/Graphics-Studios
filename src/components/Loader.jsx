@@ -29,7 +29,7 @@ const Loader = () => {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-          style={{ width: '60px', height: '60px', borderRadius: '50%', border: '2px solid rgba(255, 182, 193, 0.2)', borderTopColor: '#ffb6c1', borderRightColor: '#ffb6c1' }}
+          style={{ width: '60px', height: '60px', borderRadius: '50%', border: '2px solid rgba(59, 130, 246, 0.2)', borderTopColor: '#3b82f6', borderRightColor: '#3b82f6' }}
         />
         <motion.div
           animate={{ rotate: -360 }}
@@ -44,7 +44,7 @@ const Loader = () => {
         transition={{ delay: 0.3 }}
         style={{ fontFamily: 'Space Grotesk', fontSize: '1rem', color: 'white', letterSpacing: '2px' }}
       >
-        INITIALIZING <span style={{ color: '#ffb6c1' }}>AI ENGINE</span>
+        INITIALIZING <span style={{ color: '#3b82f6' }}>AI ENGINE</span>
       </motion.div>
     </motion.div>
   );

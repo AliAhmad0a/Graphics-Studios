@@ -32,13 +32,13 @@ const AnimatedBackground = () => {
                             resize: true 
                         },
                         modes: { 
-                            grab: { distance: 150, links: { opacity: 0.8, color: "#ffb6c1" } }
+                            grab: { distance: 150, links: { opacity: 0.8, color: "#22d3ee" } }
                         }
                     },
                     particles: {
-                        color: { value: ["#ffffff", "#ffb6c1", "#8b5cf6"] },
+                        color: { value: ["#ffffff", "#22d3ee", "#8b5cf6"] },
                         links: { 
-                            color: "#ffb6c1", distance: 150, enable: true, opacity: 0.15, width: 1,
+                            color: "#22d3ee", distance: 150, enable: true, opacity: 0.15, width: 1,
                             triangles: { enable: true, opacity: 0.03 } 
                         },
                         move: { enable: true, speed: 0.6, direction: "none", random: false, straight: false, outModes: { default: "bounce" } },

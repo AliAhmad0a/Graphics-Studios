@@ -46,7 +46,7 @@ const ServiceCard = ({ service, index }) => {
         style={{
           rotateX, rotateY,
         }}
-        whileHover={{ y: -6, borderColor: 'rgba(255, 182, 193, 0.5)' }}
+        whileHover={{ y: -6, borderColor: 'rgba(59, 130, 246, 0.5)' }}
       >
         <div className="service-img-container">
           <img src={service.img} alt={service.title} className="service-img" />
@@ -81,7 +81,7 @@ const Services = () => {
     <section id="services" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Contained background glow with clip-path */}
       <div className="services-bg-glow">
-        <div style={{ position: 'absolute', top: '5%', right: '5%', width: 'min(45%, 240px)', height: 'min(45%, 240px)', background: 'rgba(255, 240, 245, 0.035)', borderRadius: '50%', filter: 'blur(45px)' }}></div>
+        <div style={{ position: 'absolute', top: '5%', right: '5%', width: 'min(45%, 240px)', height: 'min(45%, 240px)', background: 'rgba(34, 211, 238, 0.035)', borderRadius: '50%', filter: 'blur(45px)' }}></div>
         <div style={{ position: 'absolute', bottom: '5%', left: '5%', width: 'min(45%, 220px)', height: 'min(45%, 220px)', background: 'rgba(99, 102, 241, 0.035)', borderRadius: '50%', filter: 'blur(45px)' }}></div>
       </div>
       
@@ -232,7 +232,7 @@ const Services = () => {
         }
 
         .service-explore {
-          color: #ffc0cb;
+          color: #60a5fa;
           font-weight: 600;
           display: flex;
           align-items: center;

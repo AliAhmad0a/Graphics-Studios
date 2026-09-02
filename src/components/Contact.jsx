@@ -25,7 +25,7 @@ const Contact = () => {
     <section id="contact" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Contained Background Glow with clip-path */}
       <div className="contact-bg-glow">
-        <div style={{ position: 'absolute', bottom: '5%', right: '5%', width: 'min(45%, 260px)', height: 'min(45%, 260px)', background: 'rgba(255, 182, 193, 0.08)', borderRadius: '50%', filter: 'blur(45px)' }}></div>
+        <div style={{ position: 'absolute', bottom: '5%', right: '5%', width: 'min(45%, 260px)', height: 'min(45%, 260px)', background: 'rgba(59, 130, 246, 0.08)', borderRadius: '50%', filter: 'blur(45px)' }}></div>
       </div>
 
       <motion.div
@@ -133,7 +133,7 @@ const Contact = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 className="contact-submitted"
               >
-                <FaCheckCircle style={{ fontSize: '2.5rem', color: '#ffb6c1' }} />
+                <FaCheckCircle style={{ fontSize: '2.5rem', color: '#22d3ee' }} />
                 <h3 style={{ fontSize: '1.25rem', margin: 0 }}>Message Sent!</h3>
                 <p style={{ color: 'var(--text-main)', margin: 0, fontSize: '0.86rem' }}>We've received your enquiry and will get back to you shortly via WhatsApp.</p>
                 <button className="btn btn-outline" onClick={() => { setSubmitted(false); setFormState({ name: '', email: '', phone: '', service: '', message: '' }); }} style={{ padding: '8px 16px', fontSize: '0.85rem' }}>
@@ -224,8 +224,8 @@ const Contact = () => {
         }
 
         .contact-card:hover {
-          border-color: rgba(255, 182, 193, 0.4);
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 182, 193, 0.15);
+          border-color: rgba(59, 130, 246, 0.4);
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.15);
         }
 
         .contact-card-title {
@@ -260,20 +260,20 @@ const Contact = () => {
           width: clamp(34px, 6.5vw, 42px);
           height: clamp(34px, 6.5vw, 42px);
           border-radius: 50%;
-          background: rgba(255, 182, 193, 0.1);
+          background: rgba(59, 130, 246, 0.1);
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #ffb6c1;
+          color: #3b82f6;
           font-size: clamp(0.9rem, 1.8vw, 1.05rem);
           flex-shrink: 0;
-          border: 1px solid rgba(255, 182, 193, 0.2);
+          border: 1px solid rgba(59, 130, 246, 0.2);
           transition: all 0.25s ease;
         }
 
         .contact-item-row:hover .contact-icon-box {
           transform: scale(1.1);
-          box-shadow: 0 0 12px rgba(255, 182, 193, 0.4);
+          box-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
         }
 
         .contact-item-text {

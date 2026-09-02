@@ -111,9 +111,9 @@ const AnimatedBubbleBackground = () => {
         }
         .bubble-glass {
           width: 100%; height: 100%; border-radius: 50%;
-          background: radial-gradient(circle at 30% 30%, var(--white-alpha-20), rgba(255, 182, 193, 0.05));
+          background: radial-gradient(circle at 30% 30%, var(--white-alpha-20), rgba(59, 130, 246, 0.05));
           border: 1px solid var(--white-alpha-10);
-          box-shadow: inset 0 0 10px rgba(255, 182, 193, 0.3), 0 0 15px rgba(255, 182, 193, 0.2);
+          box-shadow: inset 0 0 10px rgba(59, 130, 246, 0.3), 0 0 15px rgba(59, 130, 246, 0.2);
           backdrop-filter: blur(4px);
         }
         @keyframes floatUpwards {

@@ -17,7 +17,7 @@ const Mission = () => {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          whileHover={{ borderColor: 'rgba(255, 182, 193, 0.45)', boxShadow: '0 24px 50px rgba(0, 0, 0, 0.55), 0 0 25px rgba(255, 182, 193, 0.2)' }}
+          whileHover={{ borderColor: 'rgba(59, 130, 246, 0.45)', boxShadow: '0 24px 50px rgba(0, 0, 0, 0.55), 0 0 25px rgba(59, 130, 246, 0.2)' }}
           className="glass-card mission-card"
         >
           <motion.h2 
@@ -112,7 +112,7 @@ const Mission = () => {
 
         .mission-divider {
           height: 3px;
-          background: linear-gradient(90deg, #ffb6c1, #00d9ff);
+          background: linear-gradient(90deg, #3b82f6, #00d9ff);
           margin: 0 auto clamp(12px, 2.2vw, 22px) auto;
           border-radius: 3px;
           box-shadow: 0 0 14px rgba(0, 217, 255, 0.6);
@@ -133,7 +133,7 @@ const Mission = () => {
           position: absolute;
           width: 2px;
           height: 100%;
-          background: linear-gradient(to bottom, rgba(255,182,193,0), rgba(255,182,193,0.35), rgba(255,182,193,0));
+          background: linear-gradient(to bottom, rgba(59,130,246,0), rgba(59,130,246,0.35), rgba(59,130,246,0));
           transform: rotate(45deg);
           filter: blur(4px);
           animation: sweep 8s infinite linear;

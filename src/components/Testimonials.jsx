@@ -27,7 +27,7 @@ const Testimonials = () => {
     <section id="testimonials" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Contained Background glow with clip-path */}
       <div className="testimonials-bg-glow">
-        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 'min(45%, 280px)', height: 'min(45%, 230px)', background: 'rgba(255, 182, 193, 0.04)', filter: 'blur(45px)' }}></div>
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 'min(45%, 280px)', height: 'min(45%, 230px)', background: 'rgba(59, 130, 246, 0.04)', filter: 'blur(45px)' }}></div>
       </div>
 
       <motion.div 
@@ -52,7 +52,7 @@ const Testimonials = () => {
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true, margin: "-30px" }}
             transition={{ delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            whileHover={{ y: -6, borderColor: 'rgba(255, 182, 193, 0.45)', boxShadow: '0 16px 36px rgba(255, 182, 193, 0.2)' }}
+            whileHover={{ y: -6, borderColor: 'rgba(59, 130, 246, 0.45)', boxShadow: '0 16px 36px rgba(59, 130, 246, 0.2)' }}
           >
             {/* Quote Icon */}
             <div className="quote-mark">"</div>
@@ -123,7 +123,7 @@ const Testimonials = () => {
           top: clamp(8px, 1.5vw, 14px);
           right: clamp(12px, 2vw, 18px);
           font-size: clamp(2rem, 4vw, 3rem);
-          color: rgba(255, 182, 193, 0.12);
+          color: rgba(59, 130, 246, 0.12);
           font-family: serif;
           line-height: 1;
           pointer-events: none;
@@ -131,7 +131,7 @@ const Testimonials = () => {
         }
 
         .testimonial-card:hover .quote-mark {
-          color: rgba(255, 240, 245, 0.25);
+          color: rgba(34, 211, 238, 0.25);
         }
 
         .testimonial-content {
@@ -161,7 +161,7 @@ const Testimonials = () => {
           border: 1.5px solid var(--blue);
           flex-shrink: 0;
           object-fit: cover;
-          box-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
+          box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
         }
 
         .testimonial-author-info {
