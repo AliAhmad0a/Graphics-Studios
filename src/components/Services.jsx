@@ -1,21 +1,23 @@
 import React from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { FaPaintBrush, FaLaptopCode, FaVideo, FaBullhorn, FaRobot, FaCode, FaCube } from 'react-icons/fa';
+import { FaPaintBrush, FaLaptopCode, FaVideo, FaBullhorn, FaRobot, FaCode, FaCube, FaMobileAlt } from 'react-icons/fa';
 import imgGraphic from '../assets/images/graphic_designer_workspace_1788284001078.jpg';
 import imgUIUX from '../assets/images/ui_ux_screens_1788283959900.jpg';
 import imgVideo from '../assets/images/video_editing_setup_1788284013820.jpg';
 import imgAI from '../assets/images/ai_technology_1788283971125.jpg';
 import imgMarketing from '../assets/images/marketing_dashboard_1788284025825.jpg';
 import img3D from '../assets/images/three_d_design_1788284076868.jpg';
+import imgMobileApp from '../assets/mobile_app_design.jpg';
 
 const servicesList = [
   { id: 1, title: 'Graphic Design & Branding', icon: <FaPaintBrush />, desc: 'Crafting unique brand identities, logos, and visual assets that tell your story.', img: imgGraphic },
   { id: 2, title: 'UI/UX Design', icon: <FaLaptopCode />, desc: 'Designing intuitive, user-centric interfaces and seamless digital experiences.', img: imgUIUX },
-  { id: 3, title: 'Video Editing, AR/VR & Motion Graphics', icon: <FaVideo />, desc: 'Producing captivating video content, AR/VR experiences, and dynamic motion graphics.', img: imgVideo },
-  { id: 4, title: 'Digital Marketing & Meta Ads', icon: <FaBullhorn />, desc: 'Data-driven marketing strategies and targeted Meta ad campaigns for growth.', img: imgMarketing },
-  { id: 5, title: 'AI Solutions & Automation', icon: <FaRobot />, desc: 'Implementing smart AI tools and workflows to automate and scale your business.', img: imgAI },
-  { id: 6, title: 'Web Design & Development', icon: <FaCode />, desc: 'Building responsive, high-performance websites and web applications.', img: imgUIUX },
-  { id: 7, title: '3D Design & Modeling', icon: <FaCube />, desc: 'Creating immersive 3D models, environments, and product renderings.', img: img3D }
+  { id: 3, title: 'Mobile App Development', icon: <FaMobileAlt />, desc: 'Building high-performance, responsive native & cross-platform iOS and Android apps.', img: imgMobileApp },
+  { id: 4, title: 'Web Design & Development', icon: <FaCode />, desc: 'Building responsive, high-performance websites and scalable web applications.', img: imgUIUX },
+  { id: 5, title: 'Video Editing, AR/VR & Motion Graphics', icon: <FaVideo />, desc: 'Producing captivating video content, AR/VR experiences, and dynamic motion graphics.', img: imgVideo },
+  { id: 6, title: 'Digital Marketing & Meta Ads', icon: <FaBullhorn />, desc: 'Data-driven marketing strategies and targeted Meta ad campaigns for rapid growth.', img: imgMarketing },
+  { id: 7, title: 'AI Solutions & Automation', icon: <FaRobot />, desc: 'Implementing smart AI tools and custom automated workflows to scale your business.', img: imgAI },
+  { id: 8, title: '3D Design & Modeling', icon: <FaCube />, desc: 'Creating immersive 3D models, interactive environments, and photorealistic product renderings.', img: img3D }
 ];
 
 const ServiceCard = ({ service, index }) => {
@@ -29,7 +31,7 @@ const ServiceCard = ({ service, index }) => {
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.5, delay: index * 0.05, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.5, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
       onMouseMove={(e) => {
         if (window.innerWidth < 1024) return;
         const rect = e.currentTarget.getBoundingClientRect();

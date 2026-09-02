@@ -43,10 +43,10 @@ const About = () => {
           whileHover={{ borderColor: 'rgba(59, 130, 246, 0.4)' }}
         >
           <p className="about-text-lead">
-            <strong style={{ color: '#ffffff', fontWeight: '600' }}>Graphics Studios Media Agency</strong> is a creative digital media agency providing professional Graphic Design, Branding, UI/UX Design, Video Editing, Motion Graphics, Digital Marketing, AI Solutions, Automation, Web Development, and 3D Design services.
+            <strong style={{ color: '#ffffff', fontWeight: '600' }}>Graphics Studios Media Agency</strong> is a creative digital media agency providing professional Graphic Design, Branding, UI/UX Design, Mobile App Development, Web Development, Video Editing, Motion Graphics, Digital Marketing, AI Solutions, Automation, and 3D Design services.
           </p>
           <p className="about-text-sub">
-            We merge cutting-edge AI technology with unparalleled creative vision. From branding that resonates to immersive web experiences and data-driven marketing, we build solutions that elevate your brand in the digital future.
+            We merge cutting-edge AI technology with unparalleled creative vision. From branding that resonates to immersive mobile and web experiences, we build solutions that elevate your brand in the digital future.
           </p>
           
           <div className="about-stats-grid">
