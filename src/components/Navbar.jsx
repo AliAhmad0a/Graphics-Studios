@@ -7,31 +7,36 @@ import logo from '../assets/logo/logo.jpeg';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
 
   useEffect(() => {
-    if (theme === 'light') {
-      document.documentElement.setAttribute('data-theme', 'light');
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
     } else {
       document.documentElement.removeAttribute('data-theme');
     }
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
   };
 
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      const handleEscape = (e) => {
+        if (e.key === 'Escape') setIsOpen(false);
+      };
+      window.addEventListener('keydown', handleEscape);
+      return () => {
+        document.body.style.overflow = '';
+        document.body.style.overflowX = 'hidden';
+        window.removeEventListener('keydown', handleEscape);
+      };
     } else {
       document.body.style.overflow = '';
       document.body.style.overflowX = 'hidden';
     }
-    return () => {
-      document.body.style.overflow = '';
-      document.body.style.overflowX = 'hidden';
-    };
   }, [isOpen]);
 
   useEffect(() => {
@@ -448,9 +453,9 @@ const Navbar = () => {
         }
 
         .mobile-nav-link:hover, .mobile-nav-link:active {
-          background: rgba(59, 130, 246, 0.1);
-          border-color: rgba(59, 130, 246, 0.3);
-          color: #38bdf8;
+          background: rgba(255, 182, 193, 0.1);
+          border-color: rgba(255, 182, 193, 0.3);
+          color: #ffc0cb;
         }
 
         .mobile-nav-index {

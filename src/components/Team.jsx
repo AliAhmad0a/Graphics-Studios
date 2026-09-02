@@ -42,7 +42,7 @@ const TeamCard = ({ name, role, detail, image, link, delay }) => {
       <motion.div
         className="vision-pro-glass team-card"
         style={{ rotateX, rotateY }}
-        whileHover={{ y: -6, borderColor: "rgba(59,130,246,0.5)", boxShadow: '0 16px 36px rgba(59, 130, 246, 0.2)' }}
+        whileHover={{ y: -6, borderColor: "rgba(255,182,193,0.5)", boxShadow: '0 16px 36px rgba(255, 182, 193, 0.2)' }}
       >
         <div className="team-glow"></div>
         <div className="team-avatar-wrapper">
@@ -79,7 +79,7 @@ const Team = () => {
         whileInView={{ opacity: 1, y: 0, scale: 1 }} 
         viewport={{ once: true, margin: "-40px" }} 
         transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-        whileHover={{ borderColor: 'rgba(59, 130, 246, 0.45)', boxShadow: '0 20px 45px rgba(59, 130, 246, 0.18)' }}
+        whileHover={{ borderColor: 'rgba(255, 182, 193, 0.45)', boxShadow: '0 20px 45px rgba(255, 182, 193, 0.18)' }}
         className="vision-pro-glass founder-card"
       >
         <div className="founder-bg-glow"></div>
@@ -157,7 +157,7 @@ const Team = () => {
           inset: 0;
           width: 100%;
           height: 100%;
-          background: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 60%);
+          background: radial-gradient(circle at 20% 30%, rgba(255, 182, 193, 0.15) 0%, transparent 60%);
           pointer-events: none;
           clip-path: inset(0);
           -webkit-clip-path: inset(0);
@@ -167,12 +167,12 @@ const Team = () => {
           width: clamp(90px, 14vw, 130px);
           height: clamp(90px, 14vw, 130px);
           border-radius: 50%;
-          background: linear-gradient(135deg, #3b82f6, #00d9ff);
+          background: linear-gradient(135deg, #ffb6c1, #00d9ff);
           padding: 3px;
           flex-shrink: 0;
           position: relative;
           box-sizing: border-box;
-          box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+          box-shadow: 0 0 20px rgba(255, 182, 193, 0.4);
         }
 
         .founder-img {
@@ -207,11 +207,11 @@ const Team = () => {
 
         .founder-badge {
           padding: 3px 11px;
-          background: rgba(59, 130, 246, 0.1);
+          background: rgba(255, 182, 193, 0.1);
           border-radius: 16px;
           font-size: clamp(0.72rem, 1.4vw, 0.82rem);
-          color: #60a5fa;
-          border: 1px solid rgba(59, 130, 246, 0.2);
+          color: #ffc0cb;
+          border: 1px solid rgba(255, 182, 193, 0.2);
           font-weight: 500;
         }
 
@@ -275,7 +275,7 @@ const Team = () => {
           right: 0;
           width: 75px;
           height: 75px;
-          background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(255,182,193,0.15) 0%, transparent 70%);
           opacity: 0;
           transition: opacity 0.35s ease;
           pointer-events: none;
@@ -289,13 +289,13 @@ const Team = () => {
           width: clamp(56px, 9vw, 70px);
           height: clamp(56px, 9vw, 70px);
           border-radius: 50%;
-          background: rgba(59, 130, 246, 0.1);
+          background: rgba(255, 182, 193, 0.1);
           display: flex;
           align-items: center;
           justify-content: center;
           overflow: hidden;
           padding: 2px;
-          border: 1.5px solid rgba(59, 130, 246, 0.3);
+          border: 1.5px solid rgba(255, 182, 193, 0.3);
           flex-shrink: 0;
           transition: transform 0.4s ease, border-color 0.4s ease;
         }
@@ -303,7 +303,7 @@ const Team = () => {
         .team-card:hover .team-avatar-wrapper {
           transform: scale(1.08);
           border-color: var(--cyan);
-          box-shadow: 0 0 14px rgba(34, 211, 238, 0.3);
+          box-shadow: 0 0 14px rgba(255, 240, 245, 0.3);
         }
 
         .team-avatar-img {
@@ -327,7 +327,7 @@ const Team = () => {
 
         .team-member-role {
           font-size: 0.78rem;
-          color: #3b82f6;
+          color: #ffb6c1;
           font-weight: 600;
           margin-bottom: 5px;
           transition: color 0.2s ease;

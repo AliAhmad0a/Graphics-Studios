@@ -40,7 +40,7 @@ const About = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          whileHover={{ borderColor: 'rgba(59, 130, 246, 0.4)' }}
+          whileHover={{ borderColor: 'rgba(255, 182, 193, 0.4)' }}
         >
           <p className="about-text-lead">
             <strong style={{ color: 'var(--strong-text)', fontWeight: '600' }}>Graphics Studios Media Agency</strong> is a creative digital media agency providing professional Graphic Design, Branding, UI/UX Design, Mobile App Development, Web Development, Video Editing, Motion Graphics, Digital Marketing, AI Solutions, Automation, and 3D Design services.
@@ -57,7 +57,7 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: 0.2 + i * 0.1 }}
-                whileHover={{ scale: 1.05, borderColor: 'rgba(34, 211, 238, 0.4)', boxShadow: '0 8px 24px rgba(34, 211, 238, 0.15)' }}
+                whileHover={{ scale: 1.05, borderColor: 'rgba(255, 240, 245, 0.4)', boxShadow: '0 8px 24px rgba(255, 240, 245, 0.15)' }}
                 className="about-stat"
               >
                 <h3 className="stat-number">{stat.number}</h3>
@@ -104,7 +104,7 @@ const About = () => {
           transform: translateX(-50%);
           width: min(85%, 480px);
           height: 160px;
-          background: rgba(10, 66, 219, 0.08);
+          background: rgba(255, 182, 193, 0.08);
         }
 
         .wave-bottom {
@@ -113,7 +113,7 @@ const About = () => {
           transform: translateX(-50%);
           width: min(85%, 480px);
           height: 160px;
-          background: rgba(59, 130, 246, 0.08);
+          background: rgba(255, 182, 193, 0.08);
         }
 
         .about-inner {
@@ -183,7 +183,7 @@ const About = () => {
 
         .stat-number {
           font-size: clamp(1.3rem, 3vw, 2rem);
-          color: #3b82f6;
+          color: #ffb6c1;
           margin-bottom: 2px;
           font-family: var(--heading);
           line-height: 1.1;

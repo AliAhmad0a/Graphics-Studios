@@ -43,7 +43,7 @@ const CourseCard = ({ course, index }) => {
         style={{ 
           rotateX, rotateY,
         }}
-        whileHover={{ y: -6, borderColor: 'rgba(59, 130, 246, 0.5)', boxShadow: '0 16px 36px rgba(59, 130, 246, 0.22)' }}
+        whileHover={{ y: -6, borderColor: 'rgba(255, 182, 193, 0.5)', boxShadow: '0 16px 36px rgba(255, 182, 193, 0.22)' }}
       >
         <div className="course-accent-bar"></div>
         <div className="course-glow"></div>
@@ -146,7 +146,7 @@ const Courses = () => {
           left: 0;
           width: 3.5px;
           height: 100%;
-          background: linear-gradient(to bottom, #3b82f6, #00d9ff);
+          background: linear-gradient(to bottom, #ffb6c1, #00d9ff);
           z-index: 10;
         }
 
@@ -156,7 +156,7 @@ const Courses = () => {
           right: 0;
           width: 110px;
           height: 110px;
-          background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(255,182,193,0.15) 0%, transparent 70%);
           border-radius: 50%;
           opacity: 0;
           transition: opacity 0.35s ease;
@@ -206,20 +206,20 @@ const Courses = () => {
           display: inline-block;
           align-self: flex-start;
           padding: 3px 9px;
-          background: rgba(59, 130, 246, 0.1);
-          color: #60a5fa;
+          background: rgba(255, 182, 193, 0.1);
+          color: #ffc0cb;
           border-radius: 14px;
           font-size: 0.72rem;
           font-weight: 600;
           margin-bottom: 6px;
-          border: 1px solid rgba(59, 130, 246, 0.2);
+          border: 1px solid rgba(255, 182, 193, 0.2);
           transition: all 0.2s ease;
         }
 
         .course-card-wrapper:hover .course-level {
-          background: rgba(34, 211, 238, 0.15);
+          background: rgba(255, 240, 245, 0.15);
           color: var(--cyan);
-          border-color: rgba(34, 211, 238, 0.3);
+          border-color: rgba(255, 240, 245, 0.3);
         }
 
         .course-title {
@@ -255,8 +255,8 @@ const Courses = () => {
         }
 
         .course-enroll-btn:hover {
-          background: rgba(59, 130, 246, 0.2);
-          border-color: #3b82f6;
+          background: rgba(255, 182, 193, 0.2);
+          border-color: #ffb6c1;
           color: var(--strong-text);
         }
 

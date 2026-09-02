@@ -62,10 +62,10 @@ const TechBackground = () => {
         
         // Colors: Vivid Cyan, Electric Blue, Bright White, Indigo
         const colorPalette = [
-          { r: 34, g: 211, b: 238 },  // #22d3ee cyan
-          { r: 59, g: 130, b: 246 },  // #3b82f6 blue
+          { r: 34, g: 211, b: 238 },  // #ffb6c1 cyan
+          { r: 59, g: 130, b: 246 },  // #ffb6c1 blue
           { r: 255, g: 255, b: 255 }, // #ffffff white
-          { r: 96, g: 165, b: 250 },  // #60a5fa sky
+          { r: 96, g: 165, b: 250 },  // #ffc0cb sky
           { r: 129, g: 140, b: 248 }  // #818cf8 indigo
         ];
         this.color = colorPalette[Math.floor(Math.random() * colorPalette.length)];
@@ -134,7 +134,7 @@ const TechBackground = () => {
       
       // Draw Grid Lines
       ctx.lineWidth = 0.75;
-      ctx.strokeStyle = isMobile ? 'rgba(59, 130, 246, 0.035)' : 'rgba(59, 130, 246, 0.085)';
+      ctx.strokeStyle = isMobile ? 'rgba(255, 182, 193, 0.035)' : 'rgba(255, 182, 193, 0.085)';
 
       // Vertical grid lines
       for (let x = gridOffsetX; x <= width + gridSize; x += gridSize) {
@@ -155,14 +155,14 @@ const TechBackground = () => {
       // Moving cyber scan line sweep
       scanLineY = (scanLineY + 1.2) % (height + 200);
       const scanGrad = ctx.createLinearGradient(0, scanLineY - 60, 0, scanLineY + 60);
-      scanGrad.addColorStop(0, 'rgba(34, 211, 238, 0)');
-      scanGrad.addColorStop(0.5, isMobile ? 'rgba(34, 211, 238, 0.025)' : 'rgba(34, 211, 238, 0.07)');
-      scanGrad.addColorStop(1, 'rgba(34, 211, 238, 0)');
+      scanGrad.addColorStop(0, 'rgba(255, 240, 245, 0)');
+      scanGrad.addColorStop(0.5, isMobile ? 'rgba(255, 240, 245, 0.025)' : 'rgba(255, 240, 245, 0.07)');
+      scanGrad.addColorStop(1, 'rgba(255, 240, 245, 0)');
       ctx.fillStyle = scanGrad;
       ctx.fillRect(0, scanLineY - 60, width, 120);
 
       // Grid Intersection Glowing Dots
-      ctx.fillStyle = 'rgba(34, 211, 238, 0.25)';
+      ctx.fillStyle = 'rgba(255, 240, 245, 0.25)';
       for (let x = gridOffsetX; x <= width + gridSize; x += gridSize * 2) {
         for (let y = gridOffsetY; y <= height + gridSize; y += gridSize * 2) {
           ctx.beginPath();
@@ -187,7 +187,7 @@ const TechBackground = () => {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(59, 130, 246, ${lineAlpha})`;
+            ctx.strokeStyle = `rgba(255, 182, 193, ${lineAlpha})`;
             ctx.lineWidth = 0.9;
             ctx.stroke();
           }
@@ -204,9 +204,9 @@ const TechBackground = () => {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(mouse.x, mouse.y);
-            ctx.strokeStyle = `rgba(34, 211, 238, ${lineAlpha})`;
+            ctx.strokeStyle = `rgba(255, 240, 245, ${lineAlpha})`;
             ctx.lineWidth = 1.2;
-            ctx.shadowColor = '#22d3ee';
+            ctx.shadowColor = '#ffb6c1';
             ctx.shadowBlur = 6;
             ctx.stroke();
             ctx.shadowBlur = 0;
@@ -285,7 +285,7 @@ const TechBackground = () => {
           left: 5%;
           width: 500px;
           height: 500px;
-          background: radial-gradient(circle, rgba(59, 130, 246, 0.85) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(255, 182, 193, 0.85) 0%, transparent 70%);
         }
 
         .spot-center-right {
@@ -309,7 +309,7 @@ const TechBackground = () => {
           left: 10%;
           width: 520px;
           height: 520px;
-          background: radial-gradient(circle, rgba(59, 130, 246, 0.8) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(255, 182, 193, 0.8) 0%, transparent 70%);
         }
 
         @media (max-width: 768px) {

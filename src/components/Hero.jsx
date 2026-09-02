@@ -62,7 +62,7 @@ const Hero = () => {
           <motion.a 
             href="#portfolio" 
             className="btn btn-outline"
-            whileHover={{ scale: 1.05, backgroundColor: 'rgba(59, 130, 246, 0.15)' }}
+            whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 182, 193, 0.15)' }}
             whileTap={{ scale: 0.96 }}
           >
             Our Portfolio

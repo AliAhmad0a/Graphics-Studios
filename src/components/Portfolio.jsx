@@ -28,7 +28,7 @@ const Portfolio = () => {
     <section id="portfolio" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Contained background glow with clip-path */}
       <div className="portfolio-bg-glow">
-        <div style={{ position: 'absolute', top: '10%', right: '5%', width: 'min(45%, 240px)', height: 'min(45%, 240px)', background: 'rgba(59, 130, 246, 0.05)', borderRadius: '50%', filter: 'blur(45px)' }}></div>
+        <div style={{ position: 'absolute', top: '10%', right: '5%', width: 'min(45%, 240px)', height: 'min(45%, 240px)', background: 'rgba(255, 182, 193, 0.05)', borderRadius: '50%', filter: 'blur(45px)' }}></div>
       </div>
 
       <motion.div 
@@ -56,7 +56,7 @@ const Portfolio = () => {
               key={project.id}
               className="glass-card portfolio-item"
               onClick={() => { if(project.link) window.open(project.link, '_blank'); }}
-              whileHover={{ y: -6, borderColor: 'rgba(34, 211, 238, 0.45)', boxShadow: '0 16px 36px rgba(59, 130, 246, 0.22)' }}
+              whileHover={{ y: -6, borderColor: 'rgba(255, 240, 245, 0.45)', boxShadow: '0 16px 36px rgba(255, 182, 193, 0.22)' }}
             >
               <div className="portfolio-img-container">
                 <img src={project.img} alt={project.title} className="portfolio-img" />
@@ -157,20 +157,20 @@ const Portfolio = () => {
           display: inline-block;
           align-self: flex-start;
           padding: 3px 9px;
-          background: rgba(59, 130, 246, 0.1);
-          color: #60a5fa;
+          background: rgba(255, 182, 193, 0.1);
+          color: #ffc0cb;
           border-radius: 14px;
           font-size: 0.72rem;
           font-weight: 600;
           margin-bottom: 6px;
-          border: 1px solid rgba(59, 130, 246, 0.2);
+          border: 1px solid rgba(255, 182, 193, 0.2);
           transition: all 0.2s ease;
         }
 
         .portfolio-item:hover .portfolio-category {
-          background: rgba(34, 211, 238, 0.15);
+          background: rgba(255, 240, 245, 0.15);
           color: var(--cyan);
-          border-color: rgba(34, 211, 238, 0.3);
+          border-color: rgba(255, 240, 245, 0.3);
         }
 
         .portfolio-title {
