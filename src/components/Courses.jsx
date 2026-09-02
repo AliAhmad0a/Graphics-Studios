@@ -6,13 +6,15 @@ import imgUIUX from '../assets/images/course_ui_ux_1788287008043.jpg';
 import imgVideo from '../assets/images/course_video_editing_1788287019361.jpg';
 import imgAI from '../assets/images/course_ai_tools_1788287078301.jpg';
 import imgMarketing from '../assets/images/marketing_dashboard_1788284025825.jpg';
+import imgWebDev from '../assets/images/hero_workspace_1788283948097.jpg';
 
 const coursesList = [
   { id: 1, title: 'Graphic Design Masterclass', desc: 'Learn professional branding, typography, and visual design from scratch.', level: 'Beginner to Pro', img: imgGraphic },
   { id: 2, title: 'UI/UX Design Bootcamp', desc: 'Master Figma and learn how to create user-centric digital products.', level: 'Intermediate', img: imgUIUX },
   { id: 3, title: 'Video Editing, AR/VR & Motion Graphics Pro', desc: 'Comprehensive guide to Premiere Pro, After Effects, AR/VR experiences, and motion graphics.', level: 'All Levels', img: imgVideo },
-  { id: 4, title: 'AI Tools & Automation', desc: 'Harness the power of AI to supercharge your creative and business workflows.', level: 'Advanced', img: imgAI },
-  { id: 5, title: 'Meta Ads & Social Media Management', desc: 'Learn to run profitable campaigns and manage brands online effectively.', level: 'Beginner', img: imgMarketing }
+  { id: 4, title: 'Full-Stack Web Development', desc: 'Build modern, responsive websites and applications from front to back.', level: 'Beginner to Advanced', img: imgWebDev },
+  { id: 5, title: 'AI Tools & Automation', desc: 'Harness the power of AI to supercharge your creative and business workflows.', level: 'Advanced', img: imgAI },
+  { id: 6, title: 'Meta Ads & Social Media Management', desc: 'Learn to run profitable campaigns and manage brands online effectively.', level: 'Beginner', img: imgMarketing }
 ];
 
 const CourseCard = ({ course, index }) => {
