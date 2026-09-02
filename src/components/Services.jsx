@@ -223,7 +223,7 @@ const Services = () => {
         }
 
         .service-desc {
-          color: #94a3b8;
+          color: var(--text-main);
           line-height: 1.5;
           font-size: clamp(0.82rem, 1.5vw, 0.92rem);
           margin-bottom: 12px;

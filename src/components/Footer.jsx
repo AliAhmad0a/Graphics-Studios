@@ -122,7 +122,7 @@ const Footer = () => {
         }
 
         .footer-brand-tagline {
-          color: #94a3b8;
+          color: var(--text-main);
           line-height: 1.5;
           margin-bottom: 14px;
           font-size: clamp(0.82rem, 1.5vw, 0.94rem);
@@ -164,7 +164,7 @@ const Footer = () => {
         }
 
         .footer-nav-link {
-          color: #94a3b8;
+          color: var(--text-main);
           font-size: clamp(0.82rem, 1.5vw, 0.92rem);
           transition: all 0.2s ease;
           display: inline-block;
@@ -202,7 +202,7 @@ const Footer = () => {
         }
 
         .footer-contact-label {
-          color: #94a3b8;
+          color: var(--text-main);
           font-size: clamp(0.72rem, 1.3vw, 0.8rem);
         }
 

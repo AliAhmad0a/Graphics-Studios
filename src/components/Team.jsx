@@ -216,7 +216,7 @@ const Team = () => {
         }
 
         .founder-bio {
-          color: #94a3b8;
+          color: var(--text-main);
           line-height: 1.5;
           font-size: clamp(0.82rem, 1.5vw, 0.95rem);
           margin-bottom: clamp(12px, 2vw, 18px);
@@ -339,7 +339,7 @@ const Team = () => {
 
         .team-member-detail {
           font-size: clamp(0.76rem, 1.4vw, 0.86rem);
-          color: #94a3b8;
+          color: var(--text-main);
           line-height: 1.42;
           margin: 0;
           overflow-wrap: break-word;

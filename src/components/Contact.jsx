@@ -135,7 +135,7 @@ const Contact = () => {
               >
                 <FaCheckCircle style={{ fontSize: '2.5rem', color: '#22d3ee' }} />
                 <h3 style={{ fontSize: '1.25rem', margin: 0 }}>Message Sent!</h3>
-                <p style={{ color: '#94a3b8', margin: 0, fontSize: '0.86rem' }}>We've received your enquiry and will get back to you shortly via WhatsApp.</p>
+                <p style={{ color: 'var(--text-main)', margin: 0, fontSize: '0.86rem' }}>We've received your enquiry and will get back to you shortly via WhatsApp.</p>
                 <button className="btn btn-outline" onClick={() => { setSubmitted(false); setFormState({ name: '', email: '', phone: '', service: '', message: '' }); }} style={{ padding: '8px 16px', fontSize: '0.85rem' }}>
                   Send Another
                 </button>
@@ -285,7 +285,7 @@ const Contact = () => {
         }
 
         .contact-item-label {
-          color: #94a3b8;
+          color: var(--text-main);
           font-size: clamp(0.72rem, 1.3vw, 0.8rem);
           margin: 0 0 2px 0;
         }

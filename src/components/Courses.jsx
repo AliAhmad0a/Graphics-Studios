@@ -232,7 +232,7 @@ const Courses = () => {
         }
 
         .course-desc {
-          color: #94a3b8;
+          color: var(--text-main);
           font-size: clamp(0.82rem, 1.5vw, 0.92rem);
           line-height: 1.5;
           margin-bottom: 12px;

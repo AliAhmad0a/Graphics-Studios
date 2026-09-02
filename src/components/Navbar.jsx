@@ -294,7 +294,7 @@ const Navbar = () => {
         }
 
         .nav-link {
-          color: #cbd5e1;
+          color: var(--text-muted);
           font-weight: 500;
           font-size: 0.85rem;
           position: relative;

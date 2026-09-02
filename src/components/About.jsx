@@ -151,7 +151,7 @@ const About = () => {
         .about-text-sub {
           font-size: clamp(0.8rem, 1.5vw, 0.94rem);
           line-height: 1.55;
-          color: #94a3b8;
+          color: var(--text-main);
           margin: 0;
           overflow-wrap: break-word;
         }
@@ -191,7 +191,7 @@ const About = () => {
         }
 
         .stat-label {
-          color: #94a3b8;
+          color: var(--text-main);
           font-size: clamp(0.7rem, 1.4vw, 0.85rem);
           margin: 0;
           line-height: 1.3;

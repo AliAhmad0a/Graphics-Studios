@@ -150,7 +150,7 @@ const Hero = () => {
 
         .hero-p {
           font-size: clamp(16px, 2vw, 18px);
-          color: #94a3b8;
+          color: var(--text-main);
           line-height: 1.5;
           max-width: min(95%, 600px);
           width: 100%;
