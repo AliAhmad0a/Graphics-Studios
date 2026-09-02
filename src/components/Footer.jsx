@@ -64,8 +64,8 @@ const Footer = () => {
         .footer-section {
           background: #020617;
           border-top: 1px solid rgba(255, 255, 255, 0.06);
-          padding-top: clamp(26px, 3.5vw, 38px);
-          padding-bottom: 16px;
+          padding-top: clamp(28px, 3.8vw, 42px);
+          padding-bottom: 18px;
           width: 100%;
           max-width: 100vw;
           box-sizing: border-box;
@@ -75,12 +75,12 @@ const Footer = () => {
         }
 
         .footer-container {
-          max-width: 900px;
+          max-width: 1020px;
           margin: 0 auto;
           padding: 0 5%;
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
-          gap: clamp(16px, 2.5vw, 24px);
+          grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+          gap: clamp(18px, 2.8vw, 28px);
           box-sizing: border-box;
           width: 100%;
         }
@@ -93,28 +93,28 @@ const Footer = () => {
         }
 
         .footer-brand-title {
-          font-size: clamp(0.98rem, 1.8vw, 1.15rem);
+          font-size: clamp(1.08rem, 2vw, 1.25rem);
           font-weight: 700;
-          margin-bottom: 8px;
+          margin-bottom: 9px;
           color: #ffffff;
         }
 
         .footer-brand-tagline {
           color: #94a3b8;
-          line-height: 1.45;
-          margin-bottom: 11px;
-          font-size: clamp(0.68rem, 1.2vw, 0.74rem);
+          line-height: 1.5;
+          margin-bottom: 12px;
+          font-size: clamp(0.74rem, 1.3vw, 0.82rem);
         }
 
         .footer-social-links {
           display: flex;
-          gap: 8px;
+          gap: 9px;
           flex-wrap: wrap;
         }
 
         .footer-social-btn {
-          width: 28px;
-          height: 28px;
+          width: 31px;
+          height: 31px;
           border-radius: 50%;
           background: rgba(255, 255, 255, 0.04);
           display: flex;
@@ -123,7 +123,7 @@ const Footer = () => {
           color: #ffffff;
           transition: all 0.25s ease;
           border: 1px solid rgba(255, 255, 255, 0.08);
-          font-size: 0.7rem;
+          font-size: 0.78rem;
         }
 
         .footer-social-btn:hover {
@@ -133,8 +133,8 @@ const Footer = () => {
         }
 
         .footer-col-title {
-          font-size: clamp(0.82rem, 1.5vw, 0.92rem);
-          margin-bottom: clamp(8px, 1.6vw, 11px);
+          font-size: clamp(0.9rem, 1.6vw, 1rem);
+          margin-bottom: clamp(9px, 1.8vw, 13px);
           color: #ffffff;
           font-weight: 600;
         }
@@ -142,12 +142,12 @@ const Footer = () => {
         .footer-nav-list {
           display: flex;
           flex-direction: column;
-          gap: 6px;
+          gap: 7px;
         }
 
         .footer-nav-link {
           color: #94a3b8;
-          font-size: clamp(0.66rem, 1.2vw, 0.72rem);
+          font-size: clamp(0.72rem, 1.3vw, 0.8rem);
           transition: color 0.2s ease;
           display: inline-block;
         }
@@ -159,7 +159,7 @@ const Footer = () => {
         .footer-contact-list {
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 9px;
           width: 100%;
           min-width: 0;
         }
@@ -178,13 +178,13 @@ const Footer = () => {
 
         .footer-contact-label {
           color: #94a3b8;
-          font-size: clamp(0.6rem, 1.1vw, 0.66rem);
+          font-size: clamp(0.66rem, 1.2vw, 0.72rem);
         }
 
         .footer-contact-val {
           color: #ffffff;
           font-weight: 500;
-          font-size: clamp(0.66rem, 1.2vw, 0.72rem);
+          font-size: clamp(0.74rem, 1.3vw, 0.82rem);
           overflow-wrap: anywhere !important;
           word-break: break-all !important;
           display: block;
@@ -194,19 +194,19 @@ const Footer = () => {
         .footer-bottom-bar {
           text-align: center;
           border-top: 1px solid rgba(255, 255, 255, 0.05);
-          margin-top: clamp(18px, 2.5vw, 26px);
-          padding-top: 12px;
-          padding-left: 12px;
-          padding-right: 12px;
+          margin-top: clamp(20px, 2.8vw, 28px);
+          padding-top: 14px;
+          padding-left: 14px;
+          padding-right: 14px;
           color: #64748b;
-          font-size: clamp(0.62rem, 1.2vw, 0.68rem);
-          line-height: 1.4;
+          font-size: clamp(0.68rem, 1.3vw, 0.76rem);
+          line-height: 1.45;
         }
 
         @media (max-width: 600px) {
           .footer-container {
             grid-template-columns: 1fr;
-            gap: 16px;
+            gap: 18px;
           }
         }
       `}</style>

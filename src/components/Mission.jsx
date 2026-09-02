@@ -16,13 +16,13 @@ const Mission = () => {
           initial={{ opacity: 0, scale: 0.96, filter: 'blur(5px)' }}
           whileInView={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.65, ease: "easeOut" }}
           className="glass-card mission-card"
         >
           <motion.h2 
-            initial={{ y: 12, opacity: 0 }} 
+            initial={{ y: 14, opacity: 0 }} 
             whileInView={{ y: 0, opacity: 1 }} 
-            transition={{ delay: 0.12 }}
+            transition={{ delay: 0.14 }}
             className="mission-title"
           >
             Our <span className="gradient-text">Mission</span>
@@ -30,15 +30,15 @@ const Mission = () => {
           
           <motion.div 
             initial={{ width: 0 }} 
-            whileInView={{ width: '45px' }} 
-            transition={{ delay: 0.25, duration: 0.6 }}
+            whileInView={{ width: '52px' }} 
+            transition={{ delay: 0.28, duration: 0.65 }}
             className="mission-divider"
           ></motion.div>
           
           <motion.p 
-            initial={{ y: 12, opacity: 0 }} 
+            initial={{ y: 14, opacity: 0 }} 
             whileInView={{ y: 0, opacity: 1 }} 
-            transition={{ delay: 0.38 }}
+            transition={{ delay: 0.42 }}
             className="mission-quote"
           >
             "To help businesses and individuals grow through creative design, modern digital solutions, strategic marketing, and innovative AI technology."
@@ -48,12 +48,12 @@ const Mission = () => {
 
       <style>{`
         .mission-section {
-          min-height: 45vh;
+          min-height: 50vh;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          padding: 46px 5%;
+          padding: 52px 5%;
           width: 100%;
           max-width: 100%;
           overflow: hidden !important;
@@ -61,7 +61,7 @@ const Mission = () => {
         }
 
         .mission-container {
-          max-width: 620px;
+          max-width: 700px;
           margin: 0 auto;
           text-align: center;
           position: relative;
@@ -73,18 +73,18 @@ const Mission = () => {
         }
 
         .mission-card {
-          border-radius: clamp(12px, 2.5vw, 18px);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+          border-radius: clamp(14px, 2.8vw, 20px);
+          box-shadow: 0 22px 45px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
           background: rgba(11, 17, 32, 0.6);
-          padding: clamp(18px, 3vw, 34px);
+          padding: clamp(20px, 3.5vw, 38px);
           box-sizing: border-box;
           width: 100%;
           overflow: hidden !important;
         }
 
         .mission-title {
-          font-size: clamp(1.2rem, 2.6vw, 1.85rem);
-          margin-bottom: clamp(8px, 1.6vw, 12px);
+          font-size: clamp(1.38rem, 3vw, 2.15rem);
+          margin-bottom: clamp(9px, 1.8vw, 14px);
           font-weight: 800;
           letter-spacing: -0.4px;
           line-height: 1.15;
@@ -93,19 +93,19 @@ const Mission = () => {
         .mission-divider {
           height: 2.5px;
           background: var(--accent);
-          margin: 0 auto clamp(10px, 2vw, 18px) auto;
+          margin: 0 auto clamp(12px, 2.2vw, 22px) auto;
           border-radius: 2px;
-          box-shadow: 0 0 10px var(--accent);
+          box-shadow: 0 0 11px var(--accent);
         }
 
         .mission-quote {
-          font-size: clamp(0.76rem, 1.5vw, 0.92rem);
-          line-height: 1.6;
+          font-size: clamp(0.86rem, 1.7vw, 1.05rem);
+          line-height: 1.65;
           color: #e2e8f0;
           font-style: italic;
           font-weight: 300;
           margin: 0;
-          padding: 0 4px;
+          padding: 0 5px;
         }
 
         .light-beam {
@@ -141,20 +141,20 @@ const Mission = () => {
           width: 100%;
           height: 100%;
           background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
-          background-size: 24px 24px;
+          background-size: 26px 26px;
           animation: moveBg 20s linear infinite;
           opacity: 0.2;
         }
 
         @keyframes moveBg {
           0% { background-position: 0 0; }
-          100% { background-position: 80px 80px; }
+          100% { background-position: 90px 90px; }
         }
 
         @media (max-width: 768px) {
           .mission-section {
             min-height: auto;
-            padding: 30px 12px;
+            padding: 35px 14px;
           }
           .light-beam {
             display: none !important;

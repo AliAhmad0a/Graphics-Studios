@@ -23,10 +23,10 @@ const CourseCard = ({ course, index }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.96, y: 20 }}
+      initial={{ opacity: 0, scale: 0.96, y: 22 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
+      transition={{ duration: 0.42, delay: index * 0.05 }}
       onMouseMove={(e) => {
         if (window.innerWidth < 1024) return;
         const rect = e.currentTarget.getBoundingClientRect();
@@ -41,7 +41,7 @@ const CourseCard = ({ course, index }) => {
         style={{ 
           rotateX, rotateY,
         }}
-        whileHover={{ scale: 1.02, boxShadow: '0 12px 24px rgba(59, 130, 246, 0.16)' }}
+        whileHover={{ scale: 1.02, boxShadow: '0 14px 28px rgba(59, 130, 246, 0.16)' }}
       >
         <div className="course-accent-bar"></div>
         <div className="course-glow"></div>
@@ -79,10 +79,10 @@ const Courses = () => {
   return (
     <section id="courses" className="section" style={{ position: 'relative' }}>
       <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
+        initial={{ opacity: 0, y: 22 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
-        style={{ width: '100%', maxWidth: '900px', margin: '0 auto' }}
+        style={{ width: '100%', maxWidth: '1020px', margin: '0 auto' }}
       >
         <div className="section-title">Professional <span className="gradient-text">Training Courses</span></div>
         <p className="section-subtitle">
@@ -99,10 +99,10 @@ const Courses = () => {
       <style>{`
         .courses-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
-          gap: clamp(10px, 1.6vw, 15px);
-          margin-top: clamp(14px, 2.5vw, 24px);
-          max-width: 900px;
+          grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+          gap: clamp(12px, 1.8vw, 18px);
+          margin-top: clamp(16px, 2.8vw, 28px);
+          max-width: 1020px;
           margin-left: auto;
           margin-right: auto;
           width: 100%;
@@ -124,14 +124,14 @@ const Courses = () => {
           display: flex;
           flex-direction: column;
           transform-style: preserve-3d;
-          border-radius: clamp(10px, 1.6vw, 14px);
+          border-radius: clamp(11px, 1.8vw, 16px);
         }
 
         .course-accent-bar {
           position: absolute;
           top: 0;
           left: 0;
-          width: 2.5px;
+          width: 3px;
           height: 100%;
           background: linear-gradient(to bottom, #3b82f6, #0a42db);
           z-index: 10;
@@ -141,8 +141,8 @@ const Courses = () => {
           position: absolute;
           top: 0;
           right: 0;
-          width: 90px;
-          height: 90px;
+          width: 105px;
+          height: 105px;
           background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
           border-radius: 50%;
           opacity: 0;
@@ -155,7 +155,7 @@ const Courses = () => {
         }
 
         .course-img-container {
-          height: clamp(95px, 12vw, 125px);
+          height: clamp(110px, 14vw, 145px);
           width: 100%;
           overflow: hidden;
           position: relative;
@@ -173,7 +173,7 @@ const Courses = () => {
         }
 
         .course-content {
-          padding: clamp(10px, 1.6vw, 14px);
+          padding: clamp(11px, 1.8vw, 16px);
           flex: 1;
           display: flex;
           flex-direction: column;
@@ -182,28 +182,28 @@ const Courses = () => {
         .course-level {
           display: inline-block;
           align-self: flex-start;
-          padding: 2px 8px;
+          padding: 3px 9px;
           background: rgba(59, 130, 246, 0.1);
           color: #60a5fa;
-          border-radius: 12px;
-          font-size: 0.58rem;
+          border-radius: 13px;
+          font-size: 0.65rem;
           font-weight: 600;
-          margin-bottom: 5px;
+          margin-bottom: 6px;
           border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .course-title {
-          font-size: clamp(0.78rem, 1.4vw, 0.92rem);
-          margin-bottom: 4px;
+          font-size: clamp(0.88rem, 1.6vw, 1.05rem);
+          margin-bottom: 5px;
           font-weight: 700;
           line-height: 1.25;
         }
 
         .course-desc {
           color: #94a3b8;
-          font-size: clamp(0.66rem, 1.1vw, 0.72rem);
-          line-height: 1.45;
-          margin-bottom: 10px;
+          font-size: clamp(0.74rem, 1.3vw, 0.82rem);
+          line-height: 1.48;
+          margin-bottom: 12px;
           flex: 1;
         }
 
@@ -216,8 +216,8 @@ const Courses = () => {
           width: 100%;
           display: flex;
           text-align: center;
-          padding: 6px 11px;
-          font-size: 0.68rem;
+          padding: 7px 13px;
+          font-size: 0.76rem;
           transition: all 0.25s ease;
         }
 
@@ -229,10 +229,10 @@ const Courses = () => {
         @media (max-width: 480px) {
           .courses-grid {
             grid-template-columns: 1fr;
-            gap: 10px;
+            gap: 11px;
           }
           .course-img-container {
-            height: 115px;
+            height: 130px;
           }
         }
       `}</style>

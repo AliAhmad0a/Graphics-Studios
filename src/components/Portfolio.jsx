@@ -28,14 +28,14 @@ const Portfolio = () => {
     <section id="portfolio" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Contained background glow */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden', pointerEvents: 'none', zIndex: -1 }}>
-        <div style={{ position: 'absolute', top: '10%', right: '5%', width: 'clamp(130px, 16vw, 240px)', height: 'clamp(130px, 16vw, 240px)', background: 'rgba(59, 130, 246, 0.05)', borderRadius: '50%', filter: 'blur(55px)' }}></div>
+        <div style={{ position: 'absolute', top: '10%', right: '5%', width: 'clamp(145px, 18vw, 270px)', height: 'clamp(145px, 18vw, 270px)', background: 'rgba(59, 130, 246, 0.05)', borderRadius: '50%', filter: 'blur(60px)' }}></div>
       </div>
 
       <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
+        initial={{ opacity: 0, y: 22 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
-        style={{ width: '100%', maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 1 }}
+        style={{ width: '100%', maxWidth: '1020px', margin: '0 auto', position: 'relative', zIndex: 1 }}
       >
         <div className="section-title">Our <span className="gradient-text">Masterpieces</span></div>
         <p className="section-subtitle">
@@ -48,14 +48,14 @@ const Portfolio = () => {
           {projects.map((project) => (
             <motion.div
               layout
-              initial={{ opacity: 0, scale: 0.96, y: 20 }}
+              initial={{ opacity: 0, scale: 0.96, y: 22 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.96, y: -20 }}
-              transition={{ duration: 0.4 }}
+              exit={{ opacity: 0, scale: 0.96, y: -22 }}
+              transition={{ duration: 0.42 }}
               key={project.id}
               className="glass-card portfolio-item"
               onClick={() => { if(project.link) window.open(project.link, '_blank'); }}
-              whileHover={{ scale: 1.02, boxShadow: '0 12px 24px rgba(59, 130, 246, 0.16)' }}
+              whileHover={{ scale: 1.02, boxShadow: '0 14px 28px rgba(59, 130, 246, 0.16)' }}
             >
               <div className="portfolio-img-container">
                 <img src={project.img} alt={project.title} className="portfolio-img" />
@@ -80,10 +80,10 @@ const Portfolio = () => {
       <style>{`
         .portfolio-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
-          gap: clamp(10px, 1.6vw, 15px);
-          max-width: 900px;
-          margin: clamp(14px, 2.5vw, 24px) auto 0 auto;
+          grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+          gap: clamp(12px, 1.8vw, 18px);
+          max-width: 1020px;
+          margin: clamp(16px, 2.8vw, 28px) auto 0 auto;
           width: 100%;
         }
 
@@ -94,13 +94,13 @@ const Portfolio = () => {
           display: flex;
           flex-direction: column;
           height: 100%;
-          border-radius: clamp(10px, 1.6vw, 14px);
+          border-radius: clamp(11px, 1.8vw, 16px);
           padding: 0;
           box-sizing: border-box;
         }
 
         .portfolio-img-container {
-          height: clamp(105px, 13vw, 140px);
+          height: clamp(120px, 15vw, 160px);
           width: 100%;
           overflow: hidden;
           position: relative;
@@ -118,7 +118,7 @@ const Portfolio = () => {
         }
 
         .portfolio-content {
-          padding: clamp(9px, 1.5vw, 14px);
+          padding: clamp(11px, 1.8vw, 16px);
           display: flex;
           flex-direction: column;
           flex: 1;
@@ -127,31 +127,31 @@ const Portfolio = () => {
         .portfolio-category {
           display: inline-block;
           align-self: flex-start;
-          padding: 2px 8px;
+          padding: 3px 9px;
           background: rgba(59, 130, 246, 0.1);
           color: #60a5fa;
-          border-radius: 12px;
-          font-size: 0.58rem;
+          border-radius: 13px;
+          font-size: 0.65rem;
           font-weight: 600;
-          margin-bottom: 5px;
+          margin-bottom: 6px;
           border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .portfolio-title {
-          font-size: clamp(0.78rem, 1.4vw, 0.9rem);
-          margin-bottom: 4px;
+          font-size: clamp(0.88rem, 1.6vw, 1.04rem);
+          margin-bottom: 5px;
           font-weight: 700;
           line-height: 1.25;
         }
 
         .portfolio-footer {
           margin-top: auto;
-          padding-top: 6px;
+          padding-top: 8px;
         }
 
         .view-btn {
           color: var(--cyan);
-          font-size: 0.64rem;
+          font-size: 0.72rem;
           font-weight: 600;
           text-transform: uppercase;
           transition: all 0.25s ease;
@@ -168,10 +168,10 @@ const Portfolio = () => {
         @media (max-width: 480px) {
           .portfolio-grid {
             grid-template-columns: 1fr;
-            gap: 10px;
+            gap: 11px;
           }
           .portfolio-img-container {
-            height: 125px;
+            height: 140px;
           }
         }
       `}</style>
