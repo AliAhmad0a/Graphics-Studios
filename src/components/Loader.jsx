@@ -15,7 +15,7 @@ const Loader = () => {
         maxWidth: '100%',
         height: '100vh',
         height: '100dvh',
-        background: 'var(--background)',
+        background: 'var(--page-bg)',
         zIndex: 99999,
         display: 'flex',
         flexDirection: 'column',
