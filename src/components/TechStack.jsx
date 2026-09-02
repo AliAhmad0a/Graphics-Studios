@@ -3,6 +3,13 @@ import { motion } from 'framer-motion';
 import { FaReact, FaNodeJs, FaAws, FaPython, FaDocker, FaFigma } from 'react-icons/fa';
 import { SiVite, SiTensorflow, SiNextdotjs, SiTailwindcss, SiUnrealengine, SiBlender } from 'react-icons/si';
 
+const AdobeIcon = ({ text }) => (
+  <svg viewBox="0 0 24 24" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg">
+    <rect x="2" y="2" width="20" height="20" rx="5" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="2" />
+    <text x="12" y="16.5" fontFamily="system-ui, -apple-system, sans-serif" fontSize="10.5" fontWeight="800" fill="currentColor" textAnchor="middle">{text}</text>
+  </svg>
+);
+
 const techData = [
   { icon: <FaReact />, name: 'React', color: '#61DAFB' },
   { icon: <SiNextdotjs />, name: 'Next.js', color: '#ffffff' },
@@ -15,7 +22,14 @@ const techData = [
   { icon: <SiTailwindcss />, name: 'Tailwind CSS', color: '#06B6D4' },
   { icon: <SiUnrealengine />, name: 'Unreal Engine', color: '#ffffff' },
   { icon: <SiBlender />, name: 'Blender', color: '#F5792A' },
-  { icon: <FaFigma />, name: 'Figma', color: '#F24E1E' }
+  { icon: <FaFigma />, name: 'Figma', color: '#F24E1E' },
+  { icon: <AdobeIcon text="Ps" />, name: 'Photoshop', color: '#31A8FF' },
+  { icon: <AdobeIcon text="Ai" />, name: 'Illustrator', color: '#FF9A00' },
+  { icon: <AdobeIcon text="Pr" />, name: 'Premiere Pro', color: '#9999FF' },
+  { icon: <AdobeIcon text="Ae" />, name: 'After Effects', color: '#9999FF' },
+  { icon: <AdobeIcon text="Lr" />, name: 'Lightroom', color: '#31A8FF' },
+  { icon: <AdobeIcon text="Id" />, name: 'InDesign', color: '#FF3366' },
+  { icon: <AdobeIcon text="Xd" />, name: 'Adobe XD', color: '#FF61F6' }
 ];
 
 const TechStack = () => {
