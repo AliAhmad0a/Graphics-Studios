@@ -296,13 +296,6 @@ p, span, div, a, button, input, textarea, select {
   background-clip: text;
 }
 
-[data-theme="light"] .gradient-text {
-  background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 50%, #1e3a8a 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 /* ============================================================
    BUTTONS
    ============================================================ */
@@ -590,10 +583,11 @@ input:focus, textarea:focus, select:focus {
 }
 
 [data-theme="light"] .gradient-text {
-  background: linear-gradient(135deg, #0f172a 15%, #1d4ed8 60%, #0284c7 100%) !important;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 55%, #2563eb 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
+  display: inline-block !important;
 }
 
 [data-theme="light"] p {
