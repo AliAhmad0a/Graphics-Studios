@@ -16,7 +16,7 @@ import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 import Loader from './components/Loader';
 
-const TechBackground = lazy(() => import('./components/TechBackground'));
+const AnimatedBackground = lazy(() => import('./components/AnimatedBackground'));
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -32,7 +32,7 @@ function App() {
         {loading && <Loader />}
       </AnimatePresence>
       <Suspense fallback={null}>
-        <TechBackground />
+        <AnimatedBackground />
       </Suspense>
       <div className="app-container">
         <CustomCursor />
