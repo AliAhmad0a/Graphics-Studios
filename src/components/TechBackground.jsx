@@ -254,7 +254,7 @@ const TechBackground = () => {
           z-index: -2;
           pointer-events: none;
           touch-action: none;
-          background-color: #020617;
+          background-color: var(--background);
           overflow: hidden !important;
           clip-path: inset(0);
           -webkit-clip-path: inset(0);

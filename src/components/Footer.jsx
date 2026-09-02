@@ -79,7 +79,7 @@ const Footer = () => {
 
       <style>{`
         .footer-section {
-          background: rgba(2, 6, 23, 0.75);
+          background: var(--background-alpha-75);
           backdrop-filter: blur(16px);
           -webkit-backdrop-filter: blur(16px);
           border-top: 1px solid var(--white-alpha-08);

@@ -345,7 +345,7 @@ const Contact = () => {
         .neon-input:focus {
           border-color: var(--cyan);
           box-shadow: 0 0 14px rgba(6, 182, 212, 0.35);
-          background: rgba(2, 6, 23, 0.8);
+          background: var(--background-alpha-80);
         }
 
         .neon-input::placeholder {

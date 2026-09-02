@@ -383,7 +383,7 @@ const Navbar = () => {
           max-width: 100%;
           height: 100vh;
           height: 100dvh;
-          background: rgba(2, 6, 23, 0.98);
+          background: var(--background-alpha-98);
           backdrop-filter: blur(25px);
           -webkit-backdrop-filter: blur(25px);
           z-index: 10000;
