@@ -11,23 +11,23 @@ const AdobeIcon = ({ text }) => (
 );
 
 const techData = [
-  { icon: <FaReact />, name: 'React', color: '#61DAFB' },
+  { icon: <FaReact />, name: 'React', color: 'var(--cyan)' },
   { icon: <SiNextdotjs />, name: 'Next.js', color: 'var(--strong-text)' },
   { icon: <FaNodeJs />, name: 'Node.js', color: '#339933' },
-  { icon: <FaPython />, name: 'Python', color: '#3776AB' },
+  { icon: <FaPython />, name: 'Python', color: 'var(--blue)' },
   { icon: <SiTensorflow />, name: 'TensorFlow', color: '#FF6F00' },
   { icon: <FaAws />, name: 'AWS', color: '#FF9900' },
-  { icon: <FaDocker />, name: 'Docker', color: '#2496ED' },
-  { icon: <SiVite />, name: 'Vite', color: '#646CFF' },
-  { icon: <SiTailwindcss />, name: 'Tailwind CSS', color: '#06B6D4' },
+  { icon: <FaDocker />, name: 'Docker', color: 'var(--blue)' },
+  { icon: <SiVite />, name: 'Vite', color: 'var(--blue)' },
+  { icon: <SiTailwindcss />, name: 'Tailwind CSS', color: 'var(--cyan)' },
   { icon: <SiUnrealengine />, name: 'Unreal Engine', color: 'var(--strong-text)' },
   { icon: <SiBlender />, name: 'Blender', color: '#F5792A' },
   { icon: <FaFigma />, name: 'Figma', color: '#F24E1E' },
-  { icon: <AdobeIcon text="Ps" />, name: 'Photoshop', color: '#31A8FF' },
+  { icon: <AdobeIcon text="Ps" />, name: 'Photoshop', color: 'var(--blue)' },
   { icon: <AdobeIcon text="Ai" />, name: 'Illustrator', color: '#FF9A00' },
   { icon: <AdobeIcon text="Pr" />, name: 'Premiere Pro', color: '#9999FF' },
   { icon: <AdobeIcon text="Ae" />, name: 'After Effects', color: '#9999FF' },
-  { icon: <AdobeIcon text="Lr" />, name: 'Lightroom', color: '#31A8FF' },
+  { icon: <AdobeIcon text="Lr" />, name: 'Lightroom', color: 'var(--blue)' },
   { icon: <AdobeIcon text="Id" />, name: 'InDesign', color: '#FF3366' },
   { icon: <AdobeIcon text="Xd" />, name: 'Adobe XD', color: '#FF61F6' }
 ];

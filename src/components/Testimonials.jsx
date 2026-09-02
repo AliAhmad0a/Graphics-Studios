@@ -123,15 +123,17 @@ const Testimonials = () => {
           top: clamp(8px, 1.5vw, 14px);
           right: clamp(12px, 2vw, 18px);
           font-size: clamp(2rem, 4vw, 3rem);
-          color: rgba(59, 130, 246, 0.12);
+          color: var(--blue);
+          opacity: 0.15;
           font-family: serif;
           line-height: 1;
           pointer-events: none;
-          transition: color 0.3s ease;
+          transition: color 0.3s ease, opacity 0.3s ease;
         }
 
         .testimonial-card:hover .quote-mark {
-          color: rgba(34, 211, 238, 0.25);
+          color: var(--cyan);
+          opacity: 0.3;
         }
 
         .testimonial-content {
