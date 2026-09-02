@@ -17,8 +17,8 @@ const Mission = () => {
           whileInView={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="glass-card"
-          style={{ padding: '60px', borderRadius: '30px', boxShadow: '0 30px 60px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.1)', background: 'rgba(11, 17, 32, 0.6)' }}
+          className="glass-card mission-card"
+          style={{ borderRadius: '30px', boxShadow: '0 30px 60px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.1)', background: 'rgba(11, 17, 32, 0.6)' }}
         >
           <motion.h2 
             initial={{ y: 20, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.3 }}
@@ -54,6 +54,18 @@ const Mission = () => {
           background-size: 30px 30px; animation: moveBg 20s linear infinite; opacity: 0.2;
         }
         @keyframes moveBg { 0% { background-position: 0 0; } 100% { background-position: 100px 100px; } }
+        
+        .mission-card { padding: 60px; }
+        @media (max-width: 768px) {
+          .mission-card { padding: 32px 20px !important; }
+          .mission-card h2 { font-size: 2.2rem !important; }
+          .mission-card p { font-size: 1.1rem !important; }
+        }
+        @media (max-width: 480px) {
+          .mission-card { padding: 24px 14px !important; }
+          .mission-card h2 { font-size: 1.8rem !important; }
+          .mission-card p { font-size: 1rem !important; }
+        }
       `}</style>
     </section>
   );

@@ -62,6 +62,19 @@ const TechStack = () => {
           </motion.div>
         ))}
       </div>
+
+      <style>{`
+        .tech-card { transition: border-color 0.3s ease; }
+        @media (max-width: 768px) {
+          .tech-card { width: 95px !important; height: 95px !important; }
+          .tech-card div { font-size: 2.2rem !important; }
+          .tech-card span { font-size: 0.75rem !important; }
+        }
+        @media (max-width: 480px) {
+          .tech-card { width: 82px !important; height: 82px !important; }
+          .tech-card div { font-size: 1.9rem !important; }
+        }
+      `}</style>
     </section>
   );
 };

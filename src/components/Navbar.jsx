@@ -133,10 +133,13 @@ const Navbar = () => {
           background: #3b82f6; transform: scaleX(0); transform-origin: right; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .nav-link:hover .nav-underline { transform: scaleX(1); transform-origin: left; }
-        @media (max-width: 992px) {
+        @media (max-width: 900px) {
           .desktop-nav { display: none !important; }
           .mobile-toggle { display: block !important; }
           .hide-mobile { display: none !important; }
+        }
+        @media (max-width: 480px) {
+          nav { left: 3% !important; right: 3% !important; padding: 10px 16px !important; }
         }
       `}</style>
     </motion.nav>

@@ -1,5 +1,7 @@
+/* ============================================================
+   GLOBAL VARIABLES & BASE STYLES
+   ============================================================ */
 :root {
-  /* Minimal SaaS AI Palette */
   --navy: #020617;
   --charcoal: #0a0f1c;
   --text-main: #a1a1aa;
@@ -7,25 +9,18 @@
   --cyan: #22d3ee;
   --blue: #3b82f6;
   --electric: #8b5cf6;
-  
   --bg: var(--navy);
   --border: rgba(255, 255, 255, 0.08);
   --glass: rgba(10, 15, 28, 0.4);
   --glass-border: rgba(255, 255, 255, 0.06);
-
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  
-  font: 14px/1.7 var(--sans);
+  font: 15px/1.7 var(--sans);
   color-scheme: dark;
   color: var(--text-main);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 14px;
-  }
 }
 
 body {
@@ -46,18 +41,6 @@ body {
   flex-direction: column;
 }
 
-@media (max-width: 768px) {
-  :root {
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 480px) {
-  :root {
-    font-size: 12px;
-  }
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading);
   color: var(--text-h);
@@ -66,21 +49,16 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.03em;
 }
 
-a {
-  color: var(--cyan);
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
+a { color: var(--cyan); text-decoration: none; transition: all 0.2s ease; }
+a:hover { color: #fff; }
 
-a:hover {
-  color: #fff;
-}
-
-/* Linear-style minimalist cards */
+/* ============================================================
+   GLASS CARD
+   ============================================================ */
 .glass-card {
   background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
   border: 1px solid var(--glass-border);
-  box-shadow: 0 4px 24px -8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 24px -8px rgba(0,0,0,0.5);
   border-radius: 12px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -88,7 +66,6 @@ a:hover {
   overflow: hidden;
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
-
 .glass-card::before {
   content: '';
   position: absolute;
@@ -97,16 +74,46 @@ a:hover {
   opacity: 0;
   transition: opacity 0.4s ease;
 }
-
 .glass-card:hover {
-  border-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(59, 130, 246, 0.15);
+  border-color: rgba(255,255,255,0.15);
+  box-shadow: 0 8px 32px -8px rgba(0,0,0,0.8), 0 0 20px rgba(59,130,246,0.15);
   transform: translateY(-2px);
 }
-.glass-card:hover::before {
-  opacity: 1;
-}
+.glass-card:hover::before { opacity: 1; }
 
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 0.92rem;
+  font-family: var(--heading);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: #fff; color: #000;
+  border: 1px solid transparent;
+  box-shadow: 0 4px 14px 0 rgba(255,255,255,0.1);
+}
+.btn-primary:hover {
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 6px 20px rgba(255,255,255,0.15);
+  color: #000; transform: translateY(-1px);
+}
+.btn-outline { background: #000; color: #fff; border: 1px solid #333; }
+.btn-outline:hover { background: #111; border-color: #555; color: #fff; }
+
+/* ============================================================
+   GRADIENT TEXT
+   ============================================================ */
 .gradient-text {
   background: linear-gradient(to right, #fff 20%, #9ca3af 100%);
   -webkit-background-clip: text;
@@ -114,86 +121,100 @@ a:hover {
   background-clip: text;
 }
 
-/* Vercel-style clean buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 24px;
-  border-radius: 6px;
-  font-weight: 500;
-  font-size: 0.95rem;
-  font-family: var(--heading);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  letter-spacing: 0;
-}
-
-.btn-primary {
-  background: #fff;
-  color: #000;
-  border: 1px solid transparent;
-  box-shadow: 0 4px 14px 0 rgba(255,255,255,0.1);
-}
-
-.btn-primary:hover {
-  background: rgba(255,255,255,0.9);
-  box-shadow: 0 6px 20px rgba(255,255,255,0.15);
-  color: #000;
-  transform: translateY(-1px);
-}
-
-.btn-outline {
-  background: #000;
-  color: #fff;
-  border: 1px solid #333;
-}
-
-.btn-outline:hover {
-  background: #111;
-  border-color: #555;
-  color: #fff;
-}
-
+/* ============================================================
+   SECTIONS — DESKTOP DEFAULT
+   ============================================================ */
 .section {
   padding: 80px 5%;
   position: relative;
 }
-
 .section-title {
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 16px;
   letter-spacing: -0.04em;
 }
-
 .section-subtitle {
   text-align: center;
   max-width: 600px;
-  margin: 0 auto 64px auto;
-  font-size: 1.15rem;
+  margin: 0 auto 56px auto;
+  font-size: 1.1rem;
   color: var(--text-main);
   line-height: 1.6;
 }
 
-@media (max-width: 768px) {
-  .section {
-    padding: 60px 20px;
-  }
-  .section-title {
-    font-size: 2rem;
-  }
-  .section-subtitle {
-    font-size: 1.05rem;
-    margin-bottom: 40px;
-  }
+/* Card internals — desktop defaults */
+.portfolio-img-container  { height: 240px; width: 100%; overflow: hidden; }
+.portfolio-content        { padding: 24px; display: flex; flex-direction: column; flex: 1; }
+.course-img-container     { height: 200px; width: 100%; overflow: hidden; }
+.course-content           { padding: 28px; flex: 1; display: flex; flex-direction: column; }
+.service-img-container    { height: 220px; overflow: hidden; }
+.service-content          { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+.about-card               { padding: 56px; }
+.founder-card             { padding: 48px; }
+.contact-card             { padding: 38px; }
+
+/* ============================================================
+   TABLET  ≤ 900px
+   ============================================================ */
+@media (max-width: 900px) {
+  .section { padding: 64px 24px; }
+  .section-title { font-size: 2.1rem; }
+  .section-subtitle { font-size: 1.03rem; margin-bottom: 44px; }
 }
 
+/* ============================================================
+   MOBILE  ≤ 768px
+   ============================================================ */
+@media (max-width: 768px) {
+  :root { font-size: 13.5px; }
+
+  .section { padding: 52px 16px; }
+  .section-title { font-size: 1.8rem; }
+  .section-subtitle { font-size: 0.97rem; margin-bottom: 34px; }
+
+  /* Card images */
+  .portfolio-img-container  { height: 170px !important; }
+  .course-img-container     { height: 155px !important; }
+  .service-img-container    { height: 160px !important; }
+
+  /* Card content */
+  .portfolio-content  { padding: 16px !important; }
+  .course-content     { padding: 18px !important; }
+  .service-content    { padding: 16px !important; }
+  .portfolio-content h3 { font-size: 1.1rem !important; }
+  .course-content h3    { font-size: 1.1rem !important; }
+
+  /* About */
+  .about-card { padding: 28px 18px !important; }
+  .about-card p { font-size: 1rem !important; }
+
+  /* Team founder */
+  .founder-card { padding: 28px 18px !important; flex-direction: column !important; gap: 20px !important; justify-content: center !important; }
+  .founder-card h3 { font-size: 1.65rem !important; }
+
+  /* Contact */
+  .contact-card { padding: 22px 16px !important; }
+
+  /* Buttons */
+  .btn { padding: 9px 18px; font-size: 0.87rem; }
+}
+
+/* ============================================================
+   PHONE  ≤ 480px
+   ============================================================ */
 @media (max-width: 480px) {
-  .section {
-    padding: 50px 15px;
-  }
-  .section-title {
-    font-size: 1.75rem;
-  }
+  :root { font-size: 12.5px; }
+
+  .section { padding: 42px 12px; }
+  .section-title { font-size: 1.55rem; }
+  .section-subtitle { font-size: 0.9rem; margin-bottom: 26px; }
+
+  .portfolio-img-container  { height: 150px !important; }
+  .course-img-container     { height: 140px !important; }
+  .service-img-container    { height: 145px !important; }
+
+  .about-card   { padding: 20px 12px !important; }
+  .founder-card { padding: 20px 12px !important; }
+  .contact-card { padding: 18px 12px !important; }
 }

@@ -4,7 +4,7 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from 're
 const Footer = () => {
   return (
     <footer style={{ background: '#020617', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '60px', paddingBottom: '20px' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 5%', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '40px' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 5%', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '36px' }}>
         
         {/* Brand Info */}
         <div>
@@ -46,9 +46,22 @@ const Footer = () => {
         
       </div>
       
-      <div style={{ textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', marginTop: '40px', paddingTop: '20px', color: '#64748b', fontSize: '0.9rem' }}>
+      <div style={{ textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', marginTop: '40px', paddingTop: '20px', color: '#64748b', fontSize: '0.9rem', padding: '20px 16px 0' }}>
         &copy; {new Date().getFullYear()} Graphics Studios Media Agency. All rights reserved.
       </div>
+
+      <style>{`
+        footer { padding-top: 56px; }
+        @media (max-width: 768px) {
+          footer { padding-top: 40px !important; }
+          footer > div:first-child { padding: 0 16px !important; gap: 28px !important; }
+          footer h3 { font-size: 1.25rem !important; }
+          footer h4 { font-size: 1rem !important; }
+        }
+        @media (max-width: 480px) {
+          footer > div:first-child { padding: 0 12px !important; }
+        }
+      `}</style>
     </footer>
   );
 };

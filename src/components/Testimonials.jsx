@@ -37,8 +37,8 @@ const Testimonials = () => {
 
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-        gap: '40px',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+        gap: '28px',
         maxWidth: '1200px',
         margin: '0 auto'
       }}>
@@ -50,7 +50,8 @@ const Testimonials = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.15, duration: 0.6 }}
-            style={{ padding: '40px 30px', position: 'relative' }}
+            style={{ position: 'relative' }}
+            className="glass-card testimonial-card"
           >
             {/* Quote Icon */}
             <div style={{ position: 'absolute', top: '20px', right: '30px', fontSize: '4rem', color: 'rgba(255, 255, 255, 0.05)', fontFamily: 'serif', lineHeight: 1 }}>"</div>
@@ -69,6 +70,16 @@ const Testimonials = () => {
           </motion.div>
         ))}
       </div>
+
+      <style>{`
+        .testimonial-card { padding: 36px 28px; }
+        @media (max-width: 768px) {
+          .testimonial-card { padding: 24px 18px !important; }
+        }
+        @media (max-width: 480px) {
+          .testimonial-card { padding: 20px 14px !important; }
+        }
+      `}</style>
     </section>
   );
 };
