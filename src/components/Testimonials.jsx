@@ -27,14 +27,14 @@ const Testimonials = () => {
     <section id="testimonials" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Contained Background glow */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden', pointerEvents: 'none', zIndex: -1 }}>
-        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '60%', height: '50%', background: 'rgba(59, 130, 246, 0.05)', filter: 'blur(70px)' }}></div>
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '50%', height: '40%', background: 'rgba(59, 130, 246, 0.04)', filter: 'blur(60px)' }}></div>
       </div>
 
       <motion.div 
-        initial={{ opacity: 0, y: 30 }} 
+        initial={{ opacity: 0, y: 25 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
-        style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}
+        style={{ width: '100%', maxWidth: '1000px', margin: '0 auto', position: 'relative', zIndex: 1 }}
       >
         <div className="section-title">Client <span className="gradient-text">Testimonials</span></div>
         <p className="section-subtitle">
@@ -47,10 +47,10 @@ const Testimonials = () => {
           <motion.div
             key={i}
             className="glass-card testimonial-card"
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.12, duration: 0.6 }}
+            transition={{ delay: i * 0.08, duration: 0.5 }}
           >
             {/* Quote Icon */}
             <div className="quote-mark">"</div>
@@ -73,41 +73,41 @@ const Testimonials = () => {
       <style>{`
         .testimonials-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
-          gap: clamp(16px, 3vw, 24px);
-          max-width: 1200px;
-          margin: clamp(24px, 4vw, 40px) auto 0 auto;
+          grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+          gap: clamp(14px, 2vw, 20px);
+          max-width: 1000px;
+          margin: clamp(18px, 3vw, 32px) auto 0 auto;
           width: 100%;
           position: relative;
           z-index: 1;
         }
 
         .testimonial-card {
-          padding: clamp(22px, 4vw, 36px) clamp(18px, 3.5vw, 28px);
+          padding: clamp(16px, 2.5vw, 24px) clamp(14px, 2vw, 20px);
           position: relative;
           display: flex;
           flex-direction: column;
-          border-radius: clamp(16px, 3vw, 22px);
+          border-radius: clamp(12px, 2vw, 16px);
           box-sizing: border-box;
           height: 100%;
         }
 
         .quote-mark {
           position: absolute;
-          top: clamp(12px, 2.5vw, 20px);
-          right: clamp(16px, 3vw, 28px);
-          font-size: clamp(2.5rem, 6vw, 4rem);
-          color: rgba(255, 255, 255, 0.05);
+          top: clamp(8px, 1.5vw, 14px);
+          right: clamp(12px, 2vw, 18px);
+          font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+          color: rgba(255, 255, 255, 0.04);
           font-family: serif;
           line-height: 1;
           pointer-events: none;
         }
 
         .testimonial-content {
-          font-size: clamp(0.88rem, 2vw, 1rem);
-          line-height: 1.65;
+          font-size: clamp(0.8rem, 1.4vw, 0.88rem);
+          line-height: 1.55;
           color: var(--text-main);
-          margin-bottom: clamp(18px, 3vw, 30px);
+          margin-bottom: clamp(14px, 2vw, 20px);
           position: relative;
           z-index: 1;
           flex: 1;
@@ -116,16 +116,16 @@ const Testimonials = () => {
         .testimonial-author {
           display: flex;
           align-items: center;
-          gap: clamp(10px, 2.5vw, 15px);
+          gap: 10px;
           position: relative;
           z-index: 1;
         }
 
         .testimonial-avatar {
-          width: clamp(42px, 8vw, 50px);
-          height: clamp(42px, 8vw, 50px);
+          width: 38px;
+          height: 38px;
           border-radius: 50%;
-          border: 2px solid var(--blue);
+          border: 1.5px solid var(--blue);
           flex-shrink: 0;
           object-fit: cover;
         }
@@ -136,21 +136,21 @@ const Testimonials = () => {
         }
 
         .testimonial-author-name {
-          margin: 0 0 2px 0;
-          font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+          margin: 0 0 1px 0;
+          font-size: clamp(0.85rem, 1.5vw, 0.95rem);
           color: var(--text-h);
           font-weight: 600;
         }
 
         .testimonial-author-role {
-          font-size: clamp(0.75rem, 1.8vw, 0.85rem);
+          font-size: 0.72rem;
           color: var(--cyan);
         }
 
         @media (max-width: 480px) {
           .testimonials-grid {
             grid-template-columns: 1fr;
-            gap: 14px;
+            gap: 12px;
           }
         }
       `}</style>

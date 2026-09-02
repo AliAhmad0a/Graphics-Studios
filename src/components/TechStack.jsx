@@ -22,10 +22,10 @@ const TechStack = () => {
   return (
     <section id="tech-stack" className="section" style={{ position: 'relative' }}>
       <motion.div 
-        initial={{ opacity: 0, y: 30 }} 
+        initial={{ opacity: 0, y: 25 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
-        style={{ width: '100%', maxWidth: '1000px', margin: '0 auto' }}
+        style={{ width: '100%', maxWidth: '900px', margin: '0 auto' }}
       >
         <div className="section-title">Powered by <span className="gradient-text">Next-Gen Tech</span></div>
         <p className="section-subtitle">
@@ -38,10 +38,10 @@ const TechStack = () => {
           <motion.div
             key={index}
             className="glass-card tech-card"
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.85 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: index * 0.04, type: 'spring', stiffness: 200, damping: 20 }}
+            transition={{ delay: index * 0.03, type: 'spring', stiffness: 220, damping: 22 }}
           >
             <div className="tech-icon" style={{ color: tech.color }}>
               {tech.icon}
@@ -56,8 +56,8 @@ const TechStack = () => {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
-          gap: clamp(10px, 2.5vw, 20px);
-          max-width: 1000px;
+          gap: clamp(8px, 1.8vw, 14px);
+          max-width: 860px;
           margin: 0 auto;
           width: 100%;
           box-sizing: border-box;
@@ -68,31 +68,31 @@ const TechStack = () => {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          width: clamp(90px, 14vw, 120px);
-          height: clamp(90px, 14vw, 120px);
+          width: clamp(74px, 10vw, 92px);
+          height: clamp(74px, 10vw, 92px);
           cursor: pointer;
-          transition: border-color 0.3s ease, transform 0.3s ease;
-          border-radius: clamp(14px, 2.5vw, 18px);
-          padding: 10px;
+          transition: border-color 0.25s ease, transform 0.25s ease;
+          border-radius: clamp(10px, 1.8vw, 14px);
+          padding: 8px 6px;
           box-sizing: border-box;
           flex-shrink: 0;
         }
 
         .tech-icon {
-          font-size: clamp(2rem, 4.5vw, 3rem);
-          margin-bottom: clamp(6px, 1.5vw, 10px);
+          font-size: clamp(1.6rem, 3vw, 2.1rem);
+          margin-bottom: 4px;
           display: flex;
           align-items: center;
           justify-content: center;
-          transition: transform 0.3s ease;
+          transition: transform 0.25s ease;
         }
 
         .tech-card:hover .tech-icon {
-          transform: scale(1.15);
+          transform: scale(1.12);
         }
 
         .tech-name {
-          font-size: clamp(0.72rem, 1.8vw, 0.85rem);
+          font-size: clamp(0.68rem, 1.4vw, 0.76rem);
           font-weight: 600;
           color: var(--text-main);
           text-align: center;
@@ -105,22 +105,22 @@ const TechStack = () => {
         @media (max-width: 480px) {
           .tech-grid-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-          }
-          .tech-card {
-            width: 100%;
-            height: 95px;
-          }
-        }
-
-        @media (max-width: 340px) {
-          .tech-grid-container {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 8px;
           }
           .tech-card {
-            height: 88px;
+            width: 100%;
+            height: 76px;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .tech-grid-container {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 7px;
+          }
+          .tech-card {
+            height: 72px;
           }
         }
       `}</style>

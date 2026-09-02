@@ -25,7 +25,7 @@ const Contact = () => {
     <section id="contact" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Contained Background Glow */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden', pointerEvents: 'none', zIndex: -1 }}>
-        <div style={{ position: 'absolute', bottom: '5%', right: '5%', width: 'clamp(200px, 25vw, 350px)', height: 'clamp(200px, 25vw, 350px)', background: 'rgba(59, 130, 246, 0.12)', borderRadius: '50%', filter: 'blur(80px)' }}></div>
+        <div style={{ position: 'absolute', bottom: '5%', right: '5%', width: 'clamp(180px, 22vw, 300px)', height: 'clamp(180px, 22vw, 300px)', background: 'rgba(59, 130, 246, 0.08)', borderRadius: '50%', filter: 'blur(70px)' }}></div>
       </div>
 
       <div className="section-title">Get In <span className="gradient-text">Touch</span></div>
@@ -37,10 +37,10 @@ const Contact = () => {
         
         {/* Contact Info */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           style={{ height: '100%', width: '100%', minWidth: 0, maxWidth: '100%' }}
         >
           <div className="glass-card contact-card">
@@ -92,23 +92,23 @@ const Contact = () => {
 
         {/* Contact Form */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          transition={{ duration: 0.5, delay: 0.08 }}
           style={{ height: '100%', width: '100%', minWidth: 0, maxWidth: '100%' }}
         >
           <div className="glass-card contact-card">
             {submitted ? (
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.92 }}
                 animate={{ opacity: 1, scale: 1 }}
                 className="contact-submitted"
               >
-                <FaCheckCircle style={{ fontSize: '3rem', color: '#22d3ee' }} />
-                <h3 style={{ fontSize: '1.4rem', margin: 0 }}>Message Sent!</h3>
-                <p style={{ color: '#94a3b8', margin: 0, fontSize: '0.95rem' }}>We've received your enquiry and will get back to you shortly via WhatsApp.</p>
-                <button className="btn btn-outline" onClick={() => { setSubmitted(false); setFormState({ name: '', email: '', phone: '', service: '', message: '' }); }}>
+                <FaCheckCircle style={{ fontSize: '2.4rem', color: '#22d3ee' }} />
+                <h3 style={{ fontSize: '1.2rem', margin: 0 }}>Message Sent!</h3>
+                <p style={{ color: '#94a3b8', margin: 0, fontSize: '0.86rem' }}>We've received your enquiry and will get back to you shortly via WhatsApp.</p>
+                <button className="btn btn-outline" onClick={() => { setSubmitted(false); setFormState({ name: '', email: '', phone: '', service: '', message: '' }); }} style={{ padding: '7px 16px', fontSize: '0.82rem' }}>
                   Send Another
                 </button>
               </motion.div>
@@ -132,7 +132,7 @@ const Contact = () => {
                     <option value="Training Courses">Training Courses</option>
                   </select>
                 </div>
-                <textarea name="message" placeholder="Your Message" rows="4" required className="neon-input" value={formState.message} onChange={handleChange}></textarea>
+                <textarea name="message" placeholder="Your Message" rows="3" required className="neon-input" value={formState.message} onChange={handleChange}></textarea>
                 <button type="submit" className="btn btn-primary contact-submit-btn" disabled={sending}>
                   {sending ? 'Sending...' : 'Send Message →'}
                 </button>
@@ -145,17 +145,17 @@ const Contact = () => {
       <style>{`
         .contact-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-          gap: clamp(20px, 3.5vw, 32px);
-          max-width: 1100px;
-          margin: clamp(24px, 4vw, 40px) auto 0 auto;
+          grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+          gap: clamp(16px, 2.5vw, 24px);
+          max-width: 980px;
+          margin: clamp(18px, 3vw, 32px) auto 0 auto;
           width: 100%;
           box-sizing: border-box;
         }
 
         .contact-card {
-          padding: clamp(20px, 4vw, 40px);
-          border-radius: clamp(16px, 3vw, 24px);
+          padding: clamp(18px, 3vw, 28px);
+          border-radius: clamp(14px, 2.5vw, 20px);
           box-sizing: border-box;
           height: 100%;
           width: 100%;
@@ -166,15 +166,15 @@ const Contact = () => {
         }
 
         .contact-card-title {
-          font-size: clamp(1.3rem, 3vw, 1.8rem);
-          margin-bottom: clamp(18px, 3vw, 30px);
+          font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+          margin-bottom: clamp(14px, 2vw, 22px);
           font-weight: 700;
         }
 
         .contact-items-list {
           display: flex;
           flex-direction: column;
-          gap: clamp(16px, 3vw, 25px);
+          gap: clamp(12px, 2vw, 18px);
           width: 100%;
           max-width: 100%;
         }
@@ -182,7 +182,7 @@ const Contact = () => {
         .contact-item-row {
           display: flex;
           align-items: center;
-          gap: clamp(10px, 2.5vw, 16px);
+          gap: clamp(10px, 2vw, 14px);
           text-decoration: none;
           color: inherit;
           width: 100%;
@@ -192,15 +192,15 @@ const Contact = () => {
         }
 
         .contact-icon-box {
-          width: clamp(38px, 8vw, 46px);
-          height: clamp(38px, 8vw, 46px);
+          width: clamp(34px, 7vw, 40px);
+          height: clamp(34px, 7vw, 40px);
           border-radius: 50%;
           background: rgba(59, 130, 246, 0.1);
           display: flex;
           align-items: center;
           justify-content: center;
           color: #3b82f6;
-          font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+          font-size: clamp(0.88rem, 2vw, 1.05rem);
           flex-shrink: 0;
           border: 1px solid rgba(59, 130, 246, 0.2);
         }
@@ -210,20 +210,20 @@ const Contact = () => {
           flex: 1 1 auto;
           overflow-wrap: anywhere !important;
           word-break: break-all !important;
-          max-width: calc(100% - 50px);
+          max-width: calc(100% - 46px);
         }
 
         .contact-item-label {
           color: #94a3b8;
-          font-size: clamp(0.78rem, 1.8vw, 0.88rem);
-          margin: 0 0 2px 0;
+          font-size: clamp(0.72rem, 1.5vw, 0.8rem);
+          margin: 0 0 1px 0;
         }
 
         .contact-item-value {
           font-weight: 500;
           color: var(--text-h);
-          font-size: clamp(0.82rem, 2vw, 0.95rem);
-          line-height: 1.4;
+          font-size: clamp(0.78rem, 1.6vw, 0.88rem);
+          line-height: 1.35;
           display: block;
           overflow-wrap: anywhere !important;
           word-break: break-all !important;
@@ -233,14 +233,14 @@ const Contact = () => {
         .contact-form {
           display: flex;
           flex-direction: column;
-          gap: clamp(12px, 2.5vw, 18px);
+          gap: clamp(10px, 2vw, 14px);
           width: 100%;
           height: 100%;
         }
 
         .form-row {
           display: flex;
-          gap: clamp(10px, 2vw, 16px);
+          gap: clamp(8px, 1.8vw, 12px);
           width: 100%;
         }
 
@@ -248,31 +248,31 @@ const Contact = () => {
           flex: 1;
           min-width: 0;
           width: 100%;
-          padding: clamp(11px, 2.2vw, 14px) clamp(12px, 2.5vw, 16px);
+          padding: clamp(9px, 1.8vw, 12px) clamp(10px, 2vw, 14px);
           background: rgba(2, 6, 23, 0.5);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 12px;
+          border: 1px solid rgba(255, 255, 255, 0.09);
+          border-radius: 9px;
           color: white;
           font-family: var(--sans);
-          font-size: clamp(0.85rem, 2vw, 0.95rem);
-          transition: all 0.3s ease;
+          font-size: clamp(0.8rem, 1.6vw, 0.88rem);
+          transition: all 0.25s ease;
           outline: none;
           box-sizing: border-box;
         }
 
         .neon-select {
           appearance: none;
-          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
           background-repeat: no-repeat;
-          background-position: right 14px center;
-          background-size: 14px;
-          padding-right: 36px;
+          background-position: right 12px center;
+          background-size: 12px;
+          padding-right: 32px;
         }
 
         .neon-input:focus {
           border-color: var(--cyan);
-          box-shadow: 0 0 12px rgba(6, 182, 212, 0.3);
-          background: rgba(2, 6, 23, 0.8);
+          box-shadow: 0 0 10px rgba(6, 182, 212, 0.25);
+          background: rgba(2, 6, 23, 0.75);
         }
 
         .neon-input::placeholder {
@@ -286,8 +286,9 @@ const Contact = () => {
 
         .contact-submit-btn {
           width: 100%;
-          padding: clamp(12px, 2.5vw, 15px);
-          margin-top: 4px;
+          padding: clamp(10px, 2vw, 13px);
+          margin-top: 2px;
+          font-size: 0.85rem;
         }
 
         .contact-submitted {
@@ -295,10 +296,10 @@ const Contact = () => {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          gap: 16px;
-          min-height: 280px;
+          gap: 12px;
+          min-height: 220px;
           text-align: center;
-          padding: 20px;
+          padding: 16px;
         }
 
         @media (max-width: 600px) {
@@ -307,7 +308,7 @@ const Contact = () => {
           }
           .form-row {
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
           }
         }
       `}</style>

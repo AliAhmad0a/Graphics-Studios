@@ -64,8 +64,8 @@ const Footer = () => {
         .footer-section {
           background: #020617;
           border-top: 1px solid rgba(255, 255, 255, 0.06);
-          padding-top: clamp(40px, 6vw, 60px);
-          padding-bottom: 24px;
+          padding-top: clamp(32px, 4vw, 48px);
+          padding-bottom: 20px;
           width: 100%;
           max-width: 100vw;
           box-sizing: border-box;
@@ -75,12 +75,12 @@ const Footer = () => {
         }
 
         .footer-container {
-          max-width: 1200px;
+          max-width: 1100px;
           margin: 0 auto;
           padding: 0 5%;
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
-          gap: clamp(24px, 4vw, 36px);
+          grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+          gap: clamp(20px, 3vw, 30px);
           box-sizing: border-box;
           width: 100%;
         }
@@ -93,37 +93,37 @@ const Footer = () => {
         }
 
         .footer-brand-title {
-          font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+          font-size: clamp(1.15rem, 2vw, 1.35rem);
           font-weight: 700;
-          margin-bottom: 12px;
+          margin-bottom: 10px;
           color: #ffffff;
         }
 
         .footer-brand-tagline {
           color: #94a3b8;
-          line-height: 1.6;
-          margin-bottom: 18px;
-          font-size: clamp(0.85rem, 2vw, 0.95rem);
+          line-height: 1.5;
+          margin-bottom: 14px;
+          font-size: clamp(0.8rem, 1.5vw, 0.88rem);
         }
 
         .footer-social-links {
           display: flex;
-          gap: 12px;
+          gap: 10px;
           flex-wrap: wrap;
         }
 
         .footer-social-btn {
-          width: 38px;
-          height: 38px;
+          width: 34px;
+          height: 34px;
           border-radius: 50%;
-          background: rgba(255, 255, 255, 0.05);
+          background: rgba(255, 255, 255, 0.04);
           display: flex;
           align-items: center;
           justify-content: center;
           color: #ffffff;
-          transition: all 0.3s ease;
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          font-size: 0.9rem;
+          transition: all 0.25s ease;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          font-size: 0.82rem;
         }
 
         .footer-social-btn:hover {
@@ -133,8 +133,8 @@ const Footer = () => {
         }
 
         .footer-col-title {
-          font-size: clamp(1.05rem, 2vw, 1.2rem);
-          margin-bottom: clamp(12px, 2.5vw, 18px);
+          font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+          margin-bottom: clamp(10px, 2vw, 14px);
           color: #ffffff;
           font-weight: 600;
         }
@@ -142,13 +142,13 @@ const Footer = () => {
         .footer-nav-list {
           display: flex;
           flex-direction: column;
-          gap: 10px;
+          gap: 8px;
         }
 
         .footer-nav-link {
           color: #94a3b8;
-          font-size: clamp(0.85rem, 2vw, 0.95rem);
-          transition: color 0.3s ease;
+          font-size: clamp(0.78rem, 1.4vw, 0.86rem);
+          transition: color 0.2s ease;
           display: inline-block;
         }
 
@@ -159,7 +159,7 @@ const Footer = () => {
         .footer-contact-list {
           display: flex;
           flex-direction: column;
-          gap: 14px;
+          gap: 10px;
           width: 100%;
           min-width: 0;
         }
@@ -178,13 +178,13 @@ const Footer = () => {
 
         .footer-contact-label {
           color: #94a3b8;
-          font-size: clamp(0.78rem, 1.8vw, 0.85rem);
+          font-size: clamp(0.72rem, 1.4vw, 0.78rem);
         }
 
         .footer-contact-val {
           color: #ffffff;
           font-weight: 500;
-          font-size: clamp(0.82rem, 2vw, 0.92rem);
+          font-size: clamp(0.78rem, 1.5vw, 0.86rem);
           overflow-wrap: anywhere !important;
           word-break: break-all !important;
           display: block;
@@ -193,20 +193,20 @@ const Footer = () => {
 
         .footer-bottom-bar {
           text-align: center;
-          border-top: 1px solid rgba(255, 255, 255, 0.06);
-          margin-top: clamp(28px, 4vw, 40px);
-          padding-top: 20px;
-          padding-left: 16px;
-          padding-right: 16px;
+          border-top: 1px solid rgba(255, 255, 255, 0.05);
+          margin-top: clamp(22px, 3vw, 32px);
+          padding-top: 16px;
+          padding-left: 14px;
+          padding-right: 14px;
           color: #64748b;
-          font-size: clamp(0.78rem, 1.8vw, 0.88rem);
-          line-height: 1.5;
+          font-size: clamp(0.72rem, 1.4vw, 0.8rem);
+          line-height: 1.4;
         }
 
         @media (max-width: 600px) {
           .footer-container {
             grid-template-columns: 1fr;
-            gap: 24px;
+            gap: 20px;
           }
         }
       `}</style>

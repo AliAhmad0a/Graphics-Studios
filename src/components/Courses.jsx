@@ -18,17 +18,17 @@ const coursesList = [
 const CourseCard = ({ course, index }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const rotateX = useTransform(y, [-100, 100], [10, -10]);
-  const rotateY = useTransform(x, [-100, 100], [-10, 10]);
+  const rotateX = useTransform(y, [-100, 100], [6, -6]);
+  const rotateY = useTransform(x, [-100, 100], [-6, 6]);
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95, y: 30 }}
+      initial={{ opacity: 0, scale: 0.96, y: 25 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
+      transition={{ duration: 0.45, delay: index * 0.06 }}
       onMouseMove={(e) => {
-        if (window.innerWidth < 768) return;
+        if (window.innerWidth < 1024) return;
         const rect = e.currentTarget.getBoundingClientRect();
         x.set(e.clientX - rect.left - rect.width / 2);
         y.set(e.clientY - rect.top - rect.height / 2);
@@ -41,7 +41,7 @@ const CourseCard = ({ course, index }) => {
         style={{ 
           rotateX, rotateY,
         }}
-        whileHover={{ scale: 1.02, boxShadow: '0 20px 40px rgba(59, 130, 246, 0.2)' }}
+        whileHover={{ scale: 1.02, boxShadow: '0 15px 30px rgba(59, 130, 246, 0.18)' }}
       >
         <div className="course-accent-bar"></div>
         <div className="course-glow"></div>
@@ -80,10 +80,10 @@ const Courses = () => {
   return (
     <section id="courses" className="section" style={{ position: 'relative' }}>
       <motion.div 
-        initial={{ opacity: 0, y: 30 }} 
+        initial={{ opacity: 0, y: 25 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
-        style={{ width: '100%', maxWidth: '1200px', margin: '0 auto' }}
+        style={{ width: '100%', maxWidth: '1100px', margin: '0 auto' }}
       >
         <div className="section-title">Professional <span className="gradient-text">Training Courses</span></div>
         <p className="section-subtitle">
@@ -100,10 +100,10 @@ const Courses = () => {
       <style>{`
         .courses-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
-          gap: clamp(16px, 3vw, 24px);
-          margin-top: clamp(24px, 4vw, 40px);
-          max-width: 1200px;
+          grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+          gap: clamp(14px, 2vw, 20px);
+          margin-top: clamp(18px, 3vw, 32px);
+          max-width: 1100px;
           margin-left: auto;
           margin-right: auto;
           width: 100%;
@@ -125,14 +125,14 @@ const Courses = () => {
           display: flex;
           flex-direction: column;
           transform-style: preserve-3d;
-          border-radius: clamp(16px, 3vw, 24px);
+          border-radius: clamp(12px, 2vw, 18px);
         }
 
         .course-accent-bar {
           position: absolute;
           top: 0;
           left: 0;
-          width: 4px;
+          width: 3px;
           height: 100%;
           background: linear-gradient(to bottom, #3b82f6, #0a42db);
           z-index: 10;
@@ -142,9 +142,9 @@ const Courses = () => {
           position: absolute;
           top: 0;
           right: 0;
-          width: 150px;
-          height: 150px;
-          background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, transparent 70%);
+          width: 120px;
+          height: 120px;
+          background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
           border-radius: 50%;
           opacity: 0;
           transition: opacity 0.3s ease;
@@ -156,7 +156,7 @@ const Courses = () => {
         }
 
         .course-img-container {
-          height: clamp(140px, 22vw, 200px);
+          height: clamp(120px, 15vw, 155px);
           width: 100%;
           overflow: hidden;
           position: relative;
@@ -166,15 +166,15 @@ const Courses = () => {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .course-card-wrapper:hover .course-img {
-          transform: scale(1.08);
+          transform: scale(1.06);
         }
 
         .course-content {
-          padding: clamp(16px, 3.5vw, 26px);
+          padding: clamp(13px, 2vw, 18px);
           flex: 1;
           display: flex;
           flex-direction: column;
@@ -183,28 +183,28 @@ const Courses = () => {
         .course-level {
           display: inline-block;
           align-self: flex-start;
-          padding: 5px 14px;
+          padding: 3px 10px;
           background: rgba(59, 130, 246, 0.1);
           color: #60a5fa;
-          border-radius: 20px;
-          font-size: clamp(0.72rem, 1.8vw, 0.8rem);
+          border-radius: 14px;
+          font-size: 0.7rem;
           font-weight: 600;
-          margin-bottom: clamp(10px, 2vw, 16px);
+          margin-bottom: 8px;
           border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .course-title {
-          font-size: clamp(1.15rem, 2.5vw, 1.45rem);
-          margin-bottom: clamp(8px, 1.8vw, 12px);
+          font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+          margin-bottom: 6px;
           font-weight: 700;
           line-height: 1.25;
         }
 
         .course-desc {
           color: #94a3b8;
-          font-size: clamp(0.85rem, 2vw, 0.95rem);
-          line-height: 1.6;
-          margin-bottom: clamp(16px, 3vw, 24px);
+          font-size: clamp(0.78rem, 1.4vw, 0.86rem);
+          line-height: 1.5;
+          margin-bottom: 14px;
           flex: 1;
         }
 
@@ -219,8 +219,8 @@ const Courses = () => {
           overflow: hidden;
           display: flex;
           text-align: center;
-          padding: clamp(10px, 2.5vw, 12px) 16px;
-          font-size: clamp(0.85rem, 2vw, 0.92rem);
+          padding: 8px 14px;
+          font-size: 0.8rem;
         }
 
         .btn-progress {
@@ -229,8 +229,8 @@ const Courses = () => {
           left: -100%;
           width: 100%;
           height: 100%;
-          background: rgba(59, 130, 246, 0.2);
-          transition: left 0.4s ease;
+          background: rgba(59, 130, 246, 0.18);
+          transition: left 0.35s ease;
           z-index: 0;
         }
 
@@ -241,10 +241,10 @@ const Courses = () => {
         @media (max-width: 480px) {
           .courses-grid {
             grid-template-columns: 1fr;
-            gap: 16px;
+            gap: 12px;
           }
           .course-img-container {
-            height: 160px;
+            height: 145px;
           }
         }
       `}</style>
