@@ -16,7 +16,7 @@ const Footer = () => {
           transition={{ duration: 0.5 }}
         >
           <h3 className="footer-brand-title">
-            Graphics Studios
+            Graphics Studios Media Agency
           </h3>
           <p className="footer-brand-tagline">
             "Where Creativity Meets Strategy." <br/>

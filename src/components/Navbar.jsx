@@ -94,7 +94,7 @@ const Navbar = () => {
               <div className="logo-glow"></div>
             </div>
             <span className="logo-text hide-mobile">
-              Graphics Studios
+              Graphics Studios Media Agency
             </span>
           </div>
 
@@ -146,7 +146,7 @@ const Navbar = () => {
                 <div className="logo-wrapper">
                   <img src={logo} alt="Graphics Studios Logo" className="logo-img-mobile" />
                 </div>
-                <span className="logo-text">Graphics Studios</span>
+                <span className="logo-text">Graphics Studios Media Agency</span>
               </div>
               <button 
                 className="mobile-close-btn"
@@ -290,7 +290,7 @@ const Navbar = () => {
 
         .logo-text {
           font-family: var(--heading);
-          font-size: clamp(0.95rem, 2vw, 1.12rem);
+          font-size: clamp(0.85rem, 1.8vw, 1.05rem);
           font-weight: 700;
           color: var(--strong-text);
           letter-spacing: -0.25px;
