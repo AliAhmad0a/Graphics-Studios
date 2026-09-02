@@ -6,6 +6,13 @@ import logo from '../assets/logo/logo.jpeg';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -95,10 +102,10 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             style={{
-              position: 'absolute', top: '120%', left: 0, right: 0,
+              position: 'fixed', top: 0, left: 0, right: 0, height: '100vh',
               background: 'rgba(2, 6, 23, 0.95)', backdropFilter: 'blur(20px)',
-              padding: '20px', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.1)',
-              display: 'flex', flexDirection: 'column', gap: '15px', boxShadow: '0 20px 40px rgba(0,0,0,0.5)'
+              padding: '80px 20px 20px 20px', borderRadius: '0', border: '1px solid rgba(255,255,255,0.1)',
+              display: 'flex', flexDirection: 'column', gap: '15px', boxShadow: '0 20px 40px rgba(0,0,0,0.5)', overflowY: 'auto',
             }}
           >
             {navLinks.map((link) => (
