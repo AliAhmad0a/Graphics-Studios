@@ -450,7 +450,7 @@ const Navbar = () => {
         .mobile-nav-link:hover, .mobile-nav-link:active {
           background: rgba(59, 130, 246, 0.1);
           border-color: rgba(59, 130, 246, 0.3);
-          color: #38bdf8;
+          color: var(--cyan);
         }
 
         .mobile-nav-index {

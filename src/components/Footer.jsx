@@ -171,7 +171,7 @@ const Footer = () => {
         }
 
         .footer-nav-link:hover {
-          color: #38bdf8;
+          color: var(--cyan);
           transform: translateX(4px);
         }
 
@@ -198,7 +198,7 @@ const Footer = () => {
         }
 
         .footer-contact-link:hover .footer-contact-val {
-          color: #38bdf8;
+          color: var(--cyan);
         }
 
         .footer-contact-label {

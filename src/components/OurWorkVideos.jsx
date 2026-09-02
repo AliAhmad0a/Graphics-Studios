@@ -178,7 +178,7 @@ const OurWorkVideos = () => {
           align-self: flex-start;
           padding: 3px 9px;
           background: rgba(59, 130, 246, 0.1);
-          color: #60a5fa;
+          color: var(--cyan);
           border-radius: 14px;
           font-size: 0.72rem;
           font-weight: 600;

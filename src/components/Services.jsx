@@ -232,7 +232,7 @@ const Services = () => {
         }
 
         .service-explore {
-          color: #60a5fa;
+          color: var(--cyan);
           font-weight: 600;
           display: flex;
           align-items: center;

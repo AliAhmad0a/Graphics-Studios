@@ -38,7 +38,7 @@ const AnimatedSoftwareBackground = () => {
                     fpsLimit: 60,
                     interactivity: {
                         events: { onHover: { enable: true, mode: "grab" }, resize: true },
-                        modes: { grab: { distance: 150, links: { opacity: 0.6, color: "#3b82f6" } } }
+                        modes: { grab: { distance: 150, links: { opacity: 0.6, color: 'var(--blue)' } } }
                     },
                     particles: {
                         color: { value: ["#3b82f6", "#60a5fa"] },

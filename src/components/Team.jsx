@@ -210,7 +210,7 @@ const Team = () => {
           background: rgba(59, 130, 246, 0.1);
           border-radius: 16px;
           font-size: clamp(0.72rem, 1.4vw, 0.82rem);
-          color: #60a5fa;
+          color: var(--cyan);
           border: 1px solid rgba(59, 130, 246, 0.2);
           font-weight: 500;
         }
@@ -327,7 +327,7 @@ const Team = () => {
 
         .team-member-role {
           font-size: 0.78rem;
-          color: #3b82f6;
+          color: var(--blue);
           font-weight: 600;
           margin-bottom: 5px;
           transition: color 0.2s ease;

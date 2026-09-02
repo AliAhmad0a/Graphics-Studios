@@ -183,7 +183,7 @@ const About = () => {
 
         .stat-number {
           font-size: clamp(1.3rem, 3vw, 2rem);
-          color: #3b82f6;
+          color: var(--blue);
           margin-bottom: 2px;
           font-family: var(--heading);
           line-height: 1.1;
