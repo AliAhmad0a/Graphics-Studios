@@ -73,12 +73,6 @@ const Testimonials = () => {
 
       <style>{`
         .testimonial-card { padding: 36px 28px; }
-        @media (max-width: 768px) {
-          .testimonial-card { padding: 24px 18px !important; }
-        }
-        @media (max-width: 480px) {
-          .testimonial-card { padding: 20px 14px !important; }
-        }
       `}</style>
     </section>
   );

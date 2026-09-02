@@ -126,14 +126,6 @@ const Team = () => {
         .vision-pro-glass:hover .team-glow { opacity: 1; }
         .founder-card { padding: 50px; }
         .team-workspace { height: 420px; }
-        @media (max-width: 768px) {
-          .founder-card { padding: 28px 18px !important; flex-direction: column !important; gap: 20px !important; }
-          .founder-card h3 { font-size: 1.65rem !important; }
-          .team-workspace { height: 260px !important; }
-        }
-        @media (max-width: 480px) {
-          .team-workspace { height: 200px !important; }
-        }
       `}</style>
     </section>
   );

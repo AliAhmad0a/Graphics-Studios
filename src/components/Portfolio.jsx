@@ -90,11 +90,6 @@ const Portfolio = () => {
         .portfolio-item:hover .view-btn { color: #fff; }
         .portfolio-img-container { height: 240px; }
         .portfolio-content { padding: 25px; }
-        @media (max-width: 768px) {
-          .portfolio-img-container { height: 180px !important; }
-          .portfolio-content { padding: 18px !important; }
-          .portfolio-content h3 { font-size: 1.2rem !important; }
-        }
       `}</style>
     </section>
   );

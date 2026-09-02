@@ -109,10 +109,6 @@ const Services = () => {
         
         .service-img-container { height: 220px; overflow: hidden; transform: translateZ(30px); }
         .service-content { padding: 25px; flex: 1; display: flex; flexDirection: column; transform: translateZ(40px); }
-        @media (max-width: 768px) {
-          .service-img-container { height: 170px !important; }
-          .service-content { padding: 18px !important; }
-        }
       `}</style>
     </section>
   );

@@ -56,16 +56,6 @@ const Mission = () => {
         @keyframes moveBg { 0% { background-position: 0 0; } 100% { background-position: 100px 100px; } }
         
         .mission-card { padding: 60px; }
-        @media (max-width: 768px) {
-          .mission-card { padding: 32px 20px !important; }
-          .mission-card h2 { font-size: 2.2rem !important; }
-          .mission-card p { font-size: 1.1rem !important; }
-        }
-        @media (max-width: 480px) {
-          .mission-card { padding: 24px 14px !important; }
-          .mission-card h2 { font-size: 1.8rem !important; }
-          .mission-card p { font-size: 1rem !important; }
-        }
       `}</style>
     </section>
   );

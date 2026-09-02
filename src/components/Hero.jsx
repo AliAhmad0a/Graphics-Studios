@@ -52,22 +52,7 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      <style>{`
-        @media (max-width: 900px) {
-          h1 { font-size: 3rem !important; }
-        }
-        @media (max-width: 768px) {
-          #home { padding: 0 16px !important; }
-          h1 { font-size: 2.4rem !important; line-height: 1.15 !important; }
-          .hero-p { font-size: 0.98rem !important; }
-        }
-        @media (max-width: 480px) {
-          h1 { font-size: 2rem !important; }
-          .hero-btns { flex-direction: column !important; width: 100% !important; padding: 0 !important; }
-          .hero-btns .btn { width: 100% !important; justify-content: center !important; }
-          .hero-badge { font-size: 0.78rem !important; padding: 5px 12px !important; }
-        }
-      `}</style>
+      
     </section>
   );
 };

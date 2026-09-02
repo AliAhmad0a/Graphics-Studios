@@ -103,11 +103,6 @@ const Courses = () => {
         
         .course-img-container { height: 200px; transform: translateZ(20px); width: 100%; overflow: hidden; }
         .course-content { padding: 30px; flex: 1; display: flex; flexDirection: column; transform: translateZ(30px); }
-        @media (max-width: 768px) {
-          .course-img-container { height: 160px !important; }
-          .course-content { padding: 20px !important; }
-          .course-content h3 { font-size: 1.25rem !important; }
-        }
       `}</style>
     </section>
   );

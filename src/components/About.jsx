@@ -51,21 +51,9 @@ const About = () => {
           </div>
         </div>
       </motion.div>
-
+      
       <style>{`
         .about-card { padding: 52px; }
-        @media (max-width: 768px) {
-          .about-card { padding: 24px 16px !important; }
-          .about-card p { font-size: 0.95rem !important; }
-          .about-stat { padding: 18px 10px !important; }
-          .about-stat h3 { font-size: 2.2rem !important; }
-          .about-stat p { font-size: 0.9rem !important; }
-        }
-        @media (max-width: 480px) {
-          .about-card { padding: 18px 10px !important; }
-          .about-stat { padding: 14px 8px !important; }
-          .about-stat h3 { font-size: 1.8rem !important; }
-        }
       `}</style>
     </section>
   );

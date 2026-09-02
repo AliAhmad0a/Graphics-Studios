@@ -52,15 +52,6 @@ const Footer = () => {
 
       <style>{`
         footer { padding-top: 56px; }
-        @media (max-width: 768px) {
-          footer { padding-top: 40px !important; }
-          footer > div:first-child { padding: 0 16px !important; gap: 28px !important; }
-          footer h3 { font-size: 1.25rem !important; }
-          footer h4 { font-size: 1rem !important; }
-        }
-        @media (max-width: 480px) {
-          footer > div:first-child { padding: 0 12px !important; }
-        }
       `}</style>
     </footer>
   );
