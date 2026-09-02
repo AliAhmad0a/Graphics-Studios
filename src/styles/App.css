@@ -653,7 +653,10 @@ input:focus, textarea:focus, select:focus {
 [data-theme="light"] .portfolio-item,
 [data-theme="light"] .team-card,
 [data-theme="light"] .testimonial-card,
-[data-theme="light"] .about-card {
+[data-theme="light"] .about-card,
+[data-theme="light"] .mission-card,
+[data-theme="light"] .contact-card,
+[data-theme="light"] .team-banner {
   background: #ffffff !important;
   border: 1px solid rgba(15, 23, 42, 0.08) !important;
   box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04) !important;
@@ -665,7 +668,9 @@ input:focus, textarea:focus, select:focus {
 [data-theme="light"] .course-card-wrapper:hover,
 [data-theme="light"] .portfolio-item:hover,
 [data-theme="light"] .team-card:hover,
-[data-theme="light"] .testimonial-card:hover {
+[data-theme="light"] .testimonial-card:hover,
+[data-theme="light"] .mission-card:hover,
+[data-theme="light"] .contact-card:hover {
   border-color: rgba(37, 99, 235, 0.35) !important;
   box-shadow: 0 16px 36px -4px rgba(37, 99, 235, 0.12), 0 0 0 1px rgba(37, 99, 235, 0.15) !important;
 }

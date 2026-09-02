@@ -7,7 +7,14 @@ import logo from '../assets/logo/logo.jpeg';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState(() => {
+    try {
+      const saved = localStorage.getItem('gs_theme');
+      return saved || 'light';
+    } catch {
+      return 'light';
+    }
+  });
 
   useEffect(() => {
     if (theme === 'light') {
@@ -15,6 +22,9 @@ const Navbar = () => {
     } else {
       document.documentElement.removeAttribute('data-theme');
     }
+    try {
+      localStorage.setItem('gs_theme', theme);
+    } catch {}
   }, [theme]);
 
   const toggleTheme = () => {
