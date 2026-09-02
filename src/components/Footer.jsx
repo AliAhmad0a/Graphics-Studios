@@ -67,9 +67,11 @@ const Footer = () => {
           padding-top: clamp(40px, 6vw, 60px);
           padding-bottom: 24px;
           width: 100%;
+          max-width: 100vw;
           box-sizing: border-box;
           position: relative;
           z-index: 10;
+          overflow: hidden !important;
         }
 
         .footer-container {
@@ -86,6 +88,8 @@ const Footer = () => {
         .footer-col {
           display: flex;
           flex-direction: column;
+          min-width: 0;
+          max-width: 100%;
         }
 
         .footer-brand-title {
@@ -156,6 +160,8 @@ const Footer = () => {
           display: flex;
           flex-direction: column;
           gap: 14px;
+          width: 100%;
+          min-width: 0;
         }
 
         .footer-contact-link {
@@ -163,8 +169,11 @@ const Footer = () => {
           flex-direction: column;
           text-decoration: none;
           gap: 2px;
-          overflow-wrap: anywhere;
-          word-break: break-word;
+          overflow-wrap: anywhere !important;
+          word-break: break-all !important;
+          width: 100%;
+          min-width: 0;
+          max-width: 100%;
         }
 
         .footer-contact-label {
@@ -175,9 +184,11 @@ const Footer = () => {
         .footer-contact-val {
           color: #ffffff;
           font-weight: 500;
-          font-size: clamp(0.85rem, 2vw, 0.92rem);
-          overflow-wrap: anywhere;
-          word-break: break-word;
+          font-size: clamp(0.82rem, 2vw, 0.92rem);
+          overflow-wrap: anywhere !important;
+          word-break: break-all !important;
+          display: block;
+          max-width: 100%;
         }
 
         .footer-bottom-bar {

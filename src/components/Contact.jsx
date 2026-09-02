@@ -41,7 +41,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          style={{ height: '100%' }}
+          style={{ height: '100%', width: '100%', minWidth: 0, maxWidth: '100%' }}
         >
           <div className="glass-card contact-card">
             <h3 className="contact-card-title">Contact Information</h3>
@@ -96,7 +96,7 @@ const Contact = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          style={{ height: '100%' }}
+          style={{ height: '100%', width: '100%', minWidth: 0, maxWidth: '100%' }}
         >
           <div className="glass-card contact-card">
             {submitted ? (
@@ -145,11 +145,12 @@ const Contact = () => {
       <style>{`
         .contact-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
           gap: clamp(20px, 3.5vw, 32px);
           max-width: 1100px;
           margin: clamp(24px, 4vw, 40px) auto 0 auto;
           width: 100%;
+          box-sizing: border-box;
         }
 
         .contact-card {
@@ -157,8 +158,11 @@ const Contact = () => {
           border-radius: clamp(16px, 3vw, 24px);
           box-sizing: border-box;
           height: 100%;
+          width: 100%;
+          max-width: 100%;
           display: flex;
           flex-direction: column;
+          overflow: hidden !important;
         }
 
         .contact-card-title {
@@ -171,35 +175,42 @@ const Contact = () => {
           display: flex;
           flex-direction: column;
           gap: clamp(16px, 3vw, 25px);
+          width: 100%;
+          max-width: 100%;
         }
 
         .contact-item-row {
           display: flex;
           align-items: center;
-          gap: clamp(12px, 2.5vw, 16px);
+          gap: clamp(10px, 2.5vw, 16px);
           text-decoration: none;
           color: inherit;
+          width: 100%;
+          max-width: 100%;
+          min-width: 0;
+          box-sizing: border-box;
         }
 
         .contact-icon-box {
-          width: clamp(40px, 8vw, 46px);
-          height: clamp(40px, 8vw, 46px);
+          width: clamp(38px, 8vw, 46px);
+          height: clamp(38px, 8vw, 46px);
           border-radius: 50%;
           background: rgba(59, 130, 246, 0.1);
           display: flex;
           align-items: center;
           justify-content: center;
           color: #3b82f6;
-          font-size: clamp(1rem, 2.5vw, 1.2rem);
+          font-size: clamp(0.95rem, 2.5vw, 1.2rem);
           flex-shrink: 0;
           border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .contact-item-text {
           min-width: 0;
-          flex: 1;
-          overflow-wrap: anywhere;
-          word-break: break-word;
+          flex: 1 1 auto;
+          overflow-wrap: anywhere !important;
+          word-break: break-all !important;
+          max-width: calc(100% - 50px);
         }
 
         .contact-item-label {
@@ -211,9 +222,12 @@ const Contact = () => {
         .contact-item-value {
           font-weight: 500;
           color: var(--text-h);
-          font-size: clamp(0.85rem, 2vw, 0.95rem);
+          font-size: clamp(0.82rem, 2vw, 0.95rem);
           line-height: 1.4;
           display: block;
+          overflow-wrap: anywhere !important;
+          word-break: break-all !important;
+          max-width: 100%;
         }
 
         .contact-form {

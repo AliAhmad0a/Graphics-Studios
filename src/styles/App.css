@@ -38,12 +38,13 @@
 }
 
 /* ============================================================
-   GLOBAL RESET & COMPLETE HORIZONTAL OVERFLOW & CENTERING
+   GLOBAL RESET & COMPLETE HORIZONTAL OVERFLOW PREVENTION
    ============================================================ */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  max-width: 100%;
 }
 
 html {
@@ -62,7 +63,7 @@ body {
   padding: 0;
   width: 100%;
   min-width: 100%;
-  max-width: 100%;
+  max-width: 100vw;
   overflow-x: hidden !important;
   background-color: var(--background-dark);
   color: var(--text-dark);
@@ -72,6 +73,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  -webkit-overflow-scrolling: touch;
 }
 
 #root {
@@ -110,7 +112,7 @@ main {
 /* Images & Media Global Constraints */
 img, picture, video, canvas, svg {
   display: block;
-  max-width: 100%;
+  max-width: 100% !important;
   height: auto;
 }
 
@@ -119,12 +121,14 @@ a {
   color: inherit;
   text-decoration: none;
   transition: all 0.2s ease;
+  max-width: 100%;
 }
 
 ul, ol {
   list-style: none;
   padding: 0;
   margin: 0;
+  max-width: 100%;
 }
 
 /* Typography Defaults */
@@ -135,12 +139,13 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.2;
-  overflow-wrap: break-word;
-  word-break: break-word;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+  max-width: 100%;
 }
 
-p {
-  overflow-wrap: break-word;
+p, span, div, a {
+  overflow-wrap: anywhere;
   word-break: break-word;
 }
 
@@ -155,10 +160,11 @@ p {
   border-radius: 20px;
   box-shadow: var(--shadow-soft);
   position: relative;
-  overflow: hidden;
+  overflow: hidden !important;
   transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
   width: 100%;
   max-width: 100%;
+  box-sizing: border-box;
 }
 
 .glass-card::before {
@@ -183,6 +189,8 @@ p {
   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.02), 0 20px 40px rgba(0, 0, 0, 0.4);
   width: 100%;
   max-width: 100%;
+  overflow: hidden !important;
+  box-sizing: border-box;
 }
 
 .glow-text {
@@ -213,7 +221,7 @@ p {
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   border: 1px solid transparent;
   text-align: center;
-  white-space: nowrap;
+  white-space: normal;
   max-width: 100%;
   box-sizing: border-box;
 }
@@ -259,10 +267,12 @@ p {
   align-items: center;
   justify-content: center;
   text-align: center;
+  contain: paint;
 }
 
 .section > * {
   width: 100%;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
@@ -276,7 +286,8 @@ p {
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1.15;
-  word-break: break-word;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
   width: 100%;
 }
 
@@ -290,11 +301,13 @@ p {
   padding: 0 10px;
   width: 100%;
   box-sizing: border-box;
+  overflow-wrap: anywhere;
 }
 
 /* Form Controls */
 input, textarea, select {
   width: 100%;
+  max-width: 100%;
   padding: 12px 16px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -322,10 +335,21 @@ input:focus, textarea:focus, select:focus {
    RESPONSIVE BREAKPOINTS (TABLET & MOBILE)
    ============================================================ */
 
-/* Tablet & Smaller Laptops ≤ 1024px */
+/* Disable 3D transforms that break 2D overflow clipping on touch devices */
 @media (max-width: 1024px) {
   .section {
     padding: 75px 4%;
+  }
+
+  .service-card-outer, .course-card-outer, .team-card-outer {
+    perspective: none !important;
+    -webkit-perspective: none !important;
+  }
+
+  .service-card, .course-card-wrapper, .team-card {
+    transform-style: flat !important;
+    -webkit-transform-style: flat !important;
+    transform: none !important;
   }
 }
 
@@ -350,7 +374,7 @@ input:focus, textarea:focus, select:focus {
   }
 
   .section {
-    padding: 56px 18px;
+    padding: 56px 16px;
   }
 
   .section-title {
@@ -365,7 +389,7 @@ input:focus, textarea:focus, select:focus {
   }
 
   .btn {
-    padding: 10px 22px;
+    padding: 10px 20px;
     font-size: 0.9rem;
   }
 }
@@ -373,7 +397,7 @@ input:focus, textarea:focus, select:focus {
 /* Mobile ≤ 600px */
 @media (max-width: 600px) {
   .section {
-    padding: 48px 16px;
+    padding: 48px 14px;
   }
 }
 
@@ -399,7 +423,7 @@ input:focus, textarea:focus, select:focus {
   }
 
   .btn {
-    padding: 10px 18px;
+    padding: 10px 16px;
     font-size: 0.85rem;
     border-radius: 8px;
   }
@@ -425,9 +449,8 @@ input:focus, textarea:focus, select:focus {
   }
 
   .btn {
-    padding: 9px 14px;
+    padding: 9px 12px;
     font-size: 0.82rem;
-    letter-spacing: -0.2px;
   }
 }
 
@@ -442,7 +465,7 @@ input:focus, textarea:focus, select:focus {
   }
 
   .btn {
-    padding: 8px 12px;
+    padding: 8px 10px;
     font-size: 0.78rem;
   }
 }

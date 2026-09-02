@@ -50,9 +50,14 @@ const Mission = () => {
         .mission-section {
           min-height: 70vh;
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
           padding: 80px 5%;
+          width: 100%;
+          max-width: 100%;
+          overflow: hidden !important;
+          contain: paint;
         }
 
         .mission-container {
@@ -62,6 +67,9 @@ const Mission = () => {
           position: relative;
           z-index: 1;
           width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
 
         .mission-card {
@@ -71,6 +79,7 @@ const Mission = () => {
           padding: clamp(26px, 5vw, 60px);
           box-sizing: border-box;
           width: 100%;
+          overflow: hidden !important;
         }
 
         .mission-title {
@@ -121,8 +130,8 @@ const Mission = () => {
         }
 
         @keyframes sweep {
-          0% { transform: translateX(-30vw) rotate(45deg); }
-          100% { transform: translateX(130vw) rotate(45deg); }
+          0% { transform: translateX(-20%) rotate(45deg); }
+          100% { transform: translateX(120%) rotate(45deg); }
         }
 
         .particles-overlay {
@@ -145,7 +154,10 @@ const Mission = () => {
         @media (max-width: 768px) {
           .mission-section {
             min-height: auto;
-            padding: 50px 18px;
+            padding: 50px 16px;
+          }
+          .light-beam {
+            display: none !important;
           }
         }
       `}</style>
