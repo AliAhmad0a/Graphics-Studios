@@ -91,7 +91,7 @@ const Mission = () => {
         .mission-card {
           border-radius: clamp(14px, 3vw, 20px);
           box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), inset 0 0 0 1px var(--white-alpha-08);
-          background: rgba(11, 17, 32, 0.65);
+          background: var(--glass-bg);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           padding: clamp(20px, 3.8vw, 40px);
@@ -121,7 +121,7 @@ const Mission = () => {
         .mission-quote {
           font-size: clamp(0.9rem, 1.8vw, 1.12rem);
           line-height: 1.65;
-          color: #e2e8f0;
+          color: var(--text-dark);
           font-style: italic;
           font-weight: 300;
           margin: 0;

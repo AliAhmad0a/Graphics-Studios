@@ -224,7 +224,7 @@ const Footer = () => {
           padding-top: 16px;
           padding-left: 14px;
           padding-right: 14px;
-          color: #64748b;
+          color: var(--text-muted);
           font-size: clamp(0.74rem, 1.4vw, 0.85rem);
           line-height: 1.5;
         }

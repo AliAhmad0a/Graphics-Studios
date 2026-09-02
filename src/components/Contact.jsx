@@ -349,7 +349,7 @@ const Contact = () => {
         }
 
         .neon-input::placeholder {
-          color: #64748b;
+          color: var(--text-muted);
         }
 
         select.neon-input option {

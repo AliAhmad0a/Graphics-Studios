@@ -396,9 +396,9 @@ input, textarea, select {
   min-width: 0;
   padding: 10px 14px;
   background: var(--white-alpha-04);
-  border: 1px solid rgba(255, 255, 255, 0.09);
+  border: 1px solid var(--border);
   border-radius: 9px;
-  color: white;
+  color: var(--text-h);
   font-family: inherit;
   font-size: clamp(0.82rem, 1.8vw, 0.94rem);
   transition: all 0.25s ease;

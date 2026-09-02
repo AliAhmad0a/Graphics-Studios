@@ -142,7 +142,7 @@ const About = () => {
         .about-text-lead {
           font-size: clamp(0.9rem, 1.8vw, 1.08rem);
           line-height: 1.6;
-          color: #e2e8f0;
+          color: var(--text-dark);
           font-weight: 300;
           margin: 0;
           overflow-wrap: break-word;
