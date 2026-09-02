@@ -66,8 +66,7 @@ const CourseCard = ({ course, index }) => {
               rel="noopener noreferrer"
               className="btn btn-outline course-enroll-btn"
             >
-              <span style={{ position: 'relative', zIndex: 1 }}>Enroll Now</span>
-              <div className="btn-progress"></div>
+              Enroll Now
             </a>
           </div>
         </div>
@@ -215,27 +214,16 @@ const Courses = () => {
 
         .course-enroll-btn {
           width: 100%;
-          position: relative;
-          overflow: hidden;
           display: flex;
           text-align: center;
           padding: 8px 14px;
           font-size: 0.8rem;
+          transition: all 0.25s ease;
         }
 
-        .btn-progress {
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: rgba(59, 130, 246, 0.18);
-          transition: left 0.35s ease;
-          z-index: 0;
-        }
-
-        .course-enroll-btn:hover .btn-progress {
-          left: 0;
+        .course-enroll-btn:hover {
+          background: rgba(59, 130, 246, 0.2);
+          border-color: #3b82f6;
         }
 
         @media (max-width: 480px) {

@@ -8,14 +8,14 @@ const About = () => {
       {/* Animated Blue Glass Waves Background */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, overflow: 'hidden', pointerEvents: 'none' }}>
         <motion.div 
-          animate={{ x: ['-3%', '3%', '-3%'], y: ['-2%', '2%', '-2%'] }} 
-          transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ position: 'absolute', top: '10%', left: '0%', width: '100%', height: '240px', background: 'rgba(10, 66, 219, 0.08)', filter: 'blur(60px)', borderRadius: '50%', transform: 'rotate(-10deg)' }}
+          animate={{ y: ['-5%', '5%', '-5%'] }} 
+          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+          style={{ position: 'absolute', top: '10%', left: '5%', width: '90%', maxWidth: '600px', height: '200px', background: 'rgba(10, 66, 219, 0.07)', filter: 'blur(50px)', borderRadius: '50%' }}
         />
         <motion.div 
-          animate={{ x: ['3%', '-3%', '3%'], y: ['2%', '-2%', '2%'] }} 
-          transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ position: 'absolute', bottom: '-5%', right: '0%', width: '100%', height: '260px', background: 'rgba(59, 130, 246, 0.08)', filter: 'blur(60px)', borderRadius: '50%', transform: 'rotate(10deg)' }}
+          animate={{ y: ['5%', '-5%', '5%'] }} 
+          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+          style={{ position: 'absolute', bottom: '5%', right: '5%', width: '90%', maxWidth: '600px', height: '220px', background: 'rgba(59, 130, 246, 0.07)', filter: 'blur(50px)', borderRadius: '50%' }}
         />
       </div>
 

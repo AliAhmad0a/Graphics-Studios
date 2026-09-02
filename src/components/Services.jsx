@@ -45,9 +45,6 @@ const ServiceCard = ({ service, index }) => {
           rotateX, rotateY,
         }}
       >
-        {/* Animated Shine Effect */}
-        <div className="shine-effect"></div>
-
         <div className="service-img-container">
           <img src={service.img} alt={service.title} className="service-img" />
         </div>
@@ -200,26 +197,6 @@ const Services = () => {
           margin-top: auto;
           text-transform: uppercase;
           letter-spacing: 0.6px;
-        }
-
-        .shine-effect {
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 50%;
-          height: 100%;
-          background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%);
-          transform: skewX(-20deg);
-          z-index: 10;
-          pointer-events: none;
-        }
-
-        .service-card:hover .shine-effect {
-          animation: shine 0.9s ease forwards;
-        }
-
-        @keyframes shine {
-          100% { left: 200%; }
         }
 
         @media (max-width: 480px) {

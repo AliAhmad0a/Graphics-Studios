@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <meta name="theme-color" content="#020617" />
     <meta name="description" content="Graphics Studios Media Agency — Premium Graphic Design, UI/UX, Video Editing, Digital Marketing, AI Solutions, Web Development & 3D Design." />
     <meta name="keywords" content="graphics design, UI/UX, video editing, digital marketing, web development, AI solutions, 3D design, media agency" />
@@ -16,38 +16,39 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-      html {
-        scroll-behavior: smooth;
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100% !important;
+        max-width: 100% !important;
         overflow-x: hidden !important;
-        width: 100%;
-        max-width: 100vw;
-        overscroll-behavior-x: none;
+        overflow-x: clip !important;
+        position: relative;
         touch-action: pan-y;
-        -webkit-text-size-adjust: 100%;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: none;
       }
       body {
         background: #020617;
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden !important;
-        width: 100%;
-        max-width: 100%;
-        position: relative;
-        overscroll-behavior-x: none;
-        touch-action: pan-y;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
       }
       #root {
+        width: 100% !important;
+        max-width: 100% !important;
         overflow-x: hidden !important;
-        width: 100%;
-        max-width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        overflow-x: clip !important;
+        position: relative;
       }
     </style>
+    <script>
+      // Immediate failsafe to prevent any horizontal scroll on mobile
+      if (typeof window !== 'undefined') {
+        window.addEventListener('scroll', function() {
+          if (window.scrollX !== 0 || window.pageXOffset !== 0) {
+            window.scrollTo(0, window.scrollY || window.pageYOffset);
+          }
+        }, { passive: true });
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
