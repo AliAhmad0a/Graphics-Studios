@@ -8,7 +8,7 @@ const CustomCursor = () => {
 
   useEffect(() => {
     const checkDevice = () => {
-      // Check if it's a touch device or mobile/tablet screen
+      // Only enable on desktop with fine mouse pointer
       const isTouch = 
         'ontouchstart' in window || 
         navigator.maxTouchPoints > 0 || 
@@ -29,9 +29,15 @@ const CustomCursor = () => {
 
     if (!isCapable) return;
 
+    let targetX = -100;
+    let targetY = -100;
+    let currentX = -100;
+    let currentY = -100;
+    let animationFrameId;
+
     const onMove = (e) => {
-      if (!cursorRef.current) return;
-      cursorRef.current.style.transform = `translate3d(${e.clientX - 10}px, ${e.clientY - 10}px, 0)`;
+      targetX = e.clientX;
+      targetY = e.clientY;
       if (!isVisible) setIsVisible(true);
     };
 
@@ -49,12 +55,25 @@ const CustomCursor = () => {
       setEnabled(active);
     };
 
+    // Smooth lerp follower loop
+    const renderFollower = () => {
+      if (cursorRef.current) {
+        currentX += (targetX - currentX) * 0.2;
+        currentY += (targetY - currentY) * 0.2;
+        cursorRef.current.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+      }
+      animationFrameId = requestAnimationFrame(renderFollower);
+    };
+
     window.addEventListener('mousemove', onMove, { passive: true });
     window.addEventListener('mouseover', onOver, { passive: true });
     document.addEventListener('mouseleave', onLeave, { passive: true });
     window.addEventListener('resize', onResize, { passive: true });
 
+    animationFrameId = requestAnimationFrame(renderFollower);
+
     return () => {
+      cancelAnimationFrame(animationFrameId);
       window.removeEventListener('mousemove', onMove);
       window.removeEventListener('mouseover', onOver);
       document.removeEventListener('mouseleave', onLeave);
@@ -62,40 +81,45 @@ const CustomCursor = () => {
     };
   }, [isVisible]);
 
-  // Completely unmount on phone / touch / small screens
+  // Unmount completely on touch / mobile devices
   if (!enabled) return null;
 
   return (
     <>
       <style>{`
-        @media (pointer: fine) and (hover: hover) and (min-width: 1025px) {
-          body, a, button, [role="button"] { cursor: none !important; }
+        /* NEVER hide standard OS mouse cursor — always keep default & pointer cursors fully visible */
+        html, body, *, *::before, *::after {
+          cursor: auto !important;
         }
-        @media (max-width: 1024px), (pointer: coarse), (hover: none) {
-          body, a, button, [role="button"], * { cursor: auto !important; }
-          .custom-cursor-element { display: none !important; }
+        a, button, [role="button"], input[type="submit"], select, .btn, .glass-card, .service-card, .tech-card, .portfolio-item, .logo-container {
+          cursor: pointer !important;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], textarea {
+          cursor: text !important;
         }
       `}</style>
+      
+      {/* Subtle Glowing Cyan/Blue Halo Following the Visible Mouse Pointer */}
       <div
         ref={cursorRef}
-        className="custom-cursor-element"
+        className="cursor-ambient-glow"
         style={{
           position: 'fixed',
           top: 0,
           left: 0,
-          width: isHovered ? '48px' : '20px',
-          height: isHovered ? '48px' : '20px',
+          width: isHovered ? '40px' : '24px',
+          height: isHovered ? '40px' : '24px',
           borderRadius: '50%',
-          background: isHovered ? 'rgba(59, 130, 246, 0.12)' : 'rgba(59, 130, 246, 0.85)',
-          border: isHovered ? '1px solid rgba(59, 130, 246, 0.8)' : 'none',
-          boxShadow: '0 0 15px rgba(59, 130, 246, 0.6)',
+          background: isHovered ? 'rgba(34, 211, 238, 0.25)' : 'rgba(59, 130, 246, 0.2)',
+          border: isHovered ? '1.5px solid rgba(34, 211, 238, 0.6)' : '1px solid rgba(59, 130, 246, 0.4)',
+          boxShadow: isHovered ? '0 0 16px rgba(34, 211, 238, 0.5)' : '0 0 10px rgba(59, 130, 246, 0.3)',
           pointerEvents: 'none',
           zIndex: 99999,
           opacity: isVisible ? 1 : 0,
-          transition: 'width 0.15s ease, height 0.15s ease, background 0.15s ease, border 0.15s ease, opacity 0.2s ease',
+          marginLeft: isHovered ? '-20px' : '-12px',
+          marginTop: isHovered ? '-20px' : '-12px',
+          transition: 'width 0.2s ease, height 0.2s ease, background 0.2s ease, border 0.2s ease, margin 0.2s ease, opacity 0.2s ease',
           willChange: 'transform',
-          marginTop: isHovered ? '-14px' : '0',
-          marginLeft: isHovered ? '-14px' : '0',
         }}
       />
     </>

@@ -59,6 +59,15 @@ html {
   overscroll-behavior-x: none;
   touch-action: pan-y;
   -webkit-text-size-adjust: 100%;
+  cursor: default;
+}
+
+a, button, [role="button"], input[type="submit"], select, .btn, .glass-card, .service-card, .tech-card, .portfolio-item, .logo-container {
+  cursor: pointer;
+}
+
+input[type="text"], input[type="email"], input[type="tel"], textarea {
+  cursor: text;
 }
 
 body {
