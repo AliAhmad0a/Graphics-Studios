@@ -79,7 +79,7 @@ const Hero = () => {
           align-items: center;
           justify-content: center;
           position: relative;
-          padding: clamp(75px, 12vh, 100px) clamp(10px, 4%, 30px) clamp(35px, 6vh, 50px) clamp(10px, 4%, 30px);
+          padding: clamp(75px, 12vh, 100px) clamp(20px, 4%, 30px) clamp(35px, 6vh, 50px) clamp(20px, 4%, 30px);
           overflow: hidden !important;
           width: 100% !important;
           max-width: 100% !important;
@@ -92,7 +92,7 @@ const Hero = () => {
         .hero-content {
           z-index: 1;
           text-align: center;
-          max-width: min(100%, 780px);
+          max-width: 900px;
           width: 100%;
           margin: 0 auto;
           display: flex;
@@ -134,64 +134,79 @@ const Hero = () => {
         }
 
         .hero-title {
-          font-size: clamp(1.6rem, 5.2vw, 3.1rem);
+          font-size: clamp(42px, 5.5vw, 68px);
           line-height: 1.15;
-          margin: 0 auto clamp(10px, 2vw, 15px) auto;
+          margin: 0 auto clamp(12px, 2vw, 18px) auto;
           letter-spacing: -0.025em;
           font-weight: 700;
-          width: 100%;
+          width: 95%;
           max-width: 100%;
-          word-break: break-word;
-          overflow-wrap: break-word;
           text-align: center;
           box-sizing: border-box;
+          white-space: normal;
+          overflow-wrap: normal;
+          word-break: keep-all;
         }
 
         .hero-p {
-          font-size: clamp(0.82rem, 2vw, 1.05rem);
+          font-size: clamp(16px, 2vw, 18px);
           color: #94a3b8;
-          line-height: 1.55;
-          max-width: min(92%, 560px);
+          line-height: 1.5;
+          max-width: min(95%, 600px);
           width: 100%;
-          margin: 0 auto clamp(18px, 3.2vw, 30px) auto;
-          padding: 0 4px;
+          margin: 0 auto clamp(20px, 3.5vw, 36px) auto;
+          padding: 0 20px;
           box-sizing: border-box;
           text-align: center;
-          overflow-wrap: break-word;
         }
 
         .hero-btns {
           display: flex;
-          gap: 12px;
+          gap: 16px;
           justify-content: center;
           align-items: center;
           flex-wrap: wrap;
           width: 100%;
-          max-width: 420px;
+          max-width: 460px;
           margin: 0 auto;
           box-sizing: border-box;
         }
 
         @media (max-width: 768px) {
           .hero-section {
-            padding: 68px 12px 28px 12px;
-            min-height: 75vh;
+            padding: 110px 24px 40px 24px;
+            min-height: auto;
+          }
+          .hero-title {
+            font-size: clamp(38px, 8vw, 52px);
           }
         }
 
         @media (max-width: 480px) {
           .hero-section {
-            padding: 62px 10px 22px 10px;
+            padding: 120px 20px 40px 20px;
             min-height: auto;
+          }
+          .hero-content {
+            width: 100%;
+          }
+          .hero-title {
+            font-size: clamp(36px, 10vw, 46px);
+            width: 100%;
+          }
+          .hero-p {
+            font-size: 16px;
+            padding: 0 10px;
+            max-width: 100%;
           }
           .hero-btns {
             flex-direction: column;
             width: 100%;
-            gap: 8px;
+            gap: 12px;
           }
           .hero-btns .btn {
             width: 100%;
-            max-width: 220px;
+            max-width: none;
           }
         }
       `}</style>

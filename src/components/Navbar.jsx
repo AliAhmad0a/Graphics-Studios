@@ -418,7 +418,6 @@ const Navbar = () => {
           width: 100%;
         }
 
-        /* Responsive Breakpoints */
         @media (max-width: 900px) {
           .desktop-nav {
             display: none !important;
@@ -439,14 +438,17 @@ const Navbar = () => {
             display: none !important;
           }
           .navbar-fixed-wrapper {
-            padding: 8px 8px 0 8px;
+            padding: 8px 12px 0 12px;
           }
           .main-navbar {
-            padding: 6px 12px;
+            padding: 6px 14px;
           }
           .logo-img {
-            height: 28px;
-            width: 28px;
+            height: 24px;
+            width: 24px;
+          }
+          .mobile-toggle {
+            padding: 5px;
           }
         }
       `}</style>

@@ -31,11 +31,11 @@ function App() {
       <AnimatePresence>
         {loading && <Loader />}
       </AnimatePresence>
+      <Suspense fallback={null}>
+        <TechBackground />
+      </Suspense>
       <div className="app-container">
         <CustomCursor />
-        <Suspense fallback={null}>
-          <TechBackground />
-        </Suspense>
         <Navbar />
         <main>
           <Hero />

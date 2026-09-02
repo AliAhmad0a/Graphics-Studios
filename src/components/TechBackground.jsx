@@ -134,7 +134,7 @@ const TechBackground = () => {
       
       // Draw Grid Lines
       ctx.lineWidth = 0.75;
-      ctx.strokeStyle = 'rgba(59, 130, 246, 0.085)';
+      ctx.strokeStyle = isMobile ? 'rgba(59, 130, 246, 0.035)' : 'rgba(59, 130, 246, 0.085)';
 
       // Vertical grid lines
       for (let x = gridOffsetX; x <= width + gridSize; x += gridSize) {
@@ -156,7 +156,7 @@ const TechBackground = () => {
       scanLineY = (scanLineY + 1.2) % (height + 200);
       const scanGrad = ctx.createLinearGradient(0, scanLineY - 60, 0, scanLineY + 60);
       scanGrad.addColorStop(0, 'rgba(34, 211, 238, 0)');
-      scanGrad.addColorStop(0.5, 'rgba(34, 211, 238, 0.07)');
+      scanGrad.addColorStop(0.5, isMobile ? 'rgba(34, 211, 238, 0.025)' : 'rgba(34, 211, 238, 0.07)');
       scanGrad.addColorStop(1, 'rgba(34, 211, 238, 0)');
       ctx.fillStyle = scanGrad;
       ctx.fillRect(0, scanLineY - 60, width, 120);
@@ -314,7 +314,7 @@ const TechBackground = () => {
 
         @media (max-width: 768px) {
           .bg-glow-spot {
-            opacity: 0.16;
+            opacity: 0.08;
             filter: blur(55px);
             -webkit-filter: blur(55px);
           }

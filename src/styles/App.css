@@ -108,7 +108,6 @@ body {
   z-index: 1;
   overflow-x: hidden !important;
   overflow-x: clip !important;
-  contain: paint;
   margin: 0 auto !important;
 }
 
@@ -120,7 +119,6 @@ main {
   overflow-x: hidden !important;
   overflow-x: clip !important;
   position: relative;
-  contain: paint;
   margin: 0 auto !important;
 }
 
@@ -289,7 +287,6 @@ p, span, div, a, button, input, textarea, select {
   align-items: center;
   justify-content: center;
   text-align: center;
-  contain: paint;
   margin: 0 auto !important;
 }
 
