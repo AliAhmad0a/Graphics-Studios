@@ -15,6 +15,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 import Loader from './components/Loader';
+import OurWorkVideos from './components/OurWorkVideos';
 
 const AnimatedSoftwareBackground = lazy(() => import('./components/AnimatedSoftwareBackground'));
 
@@ -39,6 +40,7 @@ function App() {
         <Navbar />
         <main>
           <Hero />
+          <OurWorkVideos />
           <About />
           <Services />
           <TechStack />
