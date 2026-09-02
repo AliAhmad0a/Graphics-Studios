@@ -106,12 +106,12 @@
   --background-alpha-80: rgba(255, 255, 255, 0.80);
   --background-alpha-75: rgba(255, 255, 255, 0.75);
 
-  --matrix-grid-line: rgba(37, 99, 235, 0.08);
-  --digital-box-bg: rgba(37, 99, 235, 0.08);
-  --digital-box-border: rgba(37, 99, 235, 0.28);
-  --digital-box-glow: 0 0 18px rgba(37, 99, 235, 0.15), inset 0 0 10px rgba(37, 99, 235, 0.06);
-  --digital-box-corner: #2563eb;
-  --digital-box-dot: #1d4ed8;
+  --matrix-grid-line: rgba(30, 58, 138, 0.12);
+  --digital-box-bg: rgba(29, 78, 216, 0.12);
+  --digital-box-border: rgba(29, 78, 216, 0.42);
+  --digital-box-glow: 0 0 20px rgba(29, 78, 216, 0.22), inset 0 0 10px rgba(29, 78, 216, 0.10);
+  --digital-box-corner: #1d4ed8;
+  --digital-box-dot: #1e40af;
 
   color-scheme: light;
 }
@@ -904,13 +904,13 @@ input:focus, textarea:focus, select:focus {
 /* 15. Background Animation Elements */
 [data-theme="light"] .perspective-grid {
   background-image: 
-    linear-gradient(to right, rgba(37, 99, 235, 0.08) 1px, transparent 1px),
-    linear-gradient(to top, rgba(37, 99, 235, 0.08) 1px, transparent 1px) !important;
-  opacity: 0.38 !important;
+    linear-gradient(to right, rgba(29, 78, 216, 0.14) 1px, transparent 1px),
+    linear-gradient(to top, rgba(29, 78, 216, 0.14) 1px, transparent 1px) !important;
+  opacity: 0.48 !important;
 }
 
 [data-theme="light"] .data-stream {
-  background: linear-gradient(to bottom, transparent, rgba(37, 99, 235, 0.35), transparent) !important;
+  background: linear-gradient(to bottom, transparent, rgba(29, 78, 216, 0.52), transparent) !important;
 }
 
 [data-theme="light"] .bubble-glass {

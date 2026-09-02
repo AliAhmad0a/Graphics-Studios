@@ -46,7 +46,7 @@ const AnimatedSoftwareBackground = () => {
             <div style={{
                 position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
                 background: isLight 
-                    ? 'radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.09) 0%, rgba(2, 132, 199, 0.04) 45%, transparent 70%)'
+                    ? 'radial-gradient(circle at 50% 0%, rgba(29, 78, 216, 0.12) 0%, rgba(37, 99, 235, 0.05) 45%, transparent 70%)'
                     : 'radial-gradient(circle at 50% 0%, rgba(10, 66, 219, 0.15) 0%, transparent 70%)'
             }}></div>
 
@@ -104,19 +104,19 @@ const AnimatedSoftwareBackground = () => {
                         modes: { grab: { distance: 150, links: { opacity: isLight ? 0.45 : 0.6, color: isLight ? '#2563eb' : 'var(--blue)' } } }
                     },
                     particles: {
-                        color: { value: isLight ? ["#2563eb", "#0284c7", "#60a5fa"] : ["#3b82f6", "#60a5fa"] },
+                        color: { value: isLight ? ["#1d4ed8", "#1e40af", "#2563eb"] : ["#3b82f6", "#60a5fa"] },
                         links: { 
-                            color: isLight ? "#93c5fd" : "#1e3a8a", 
+                            color: isLight ? "#3b82f6" : "#1e3a8a", 
                             distance: 130, 
                             enable: true, 
-                            opacity: isLight ? 0.35 : 0.5, 
+                            opacity: isLight ? 0.45 : 0.5, 
                             width: 1 
                         },
                         move: { enable: true, speed: 0.6, direction: "none", random: false, straight: false, outModes: { default: "bounce" } },
-                        number: { density: { enable: true, area: 850 }, value: isLight ? 60 : 70 },
-                        opacity: { value: isLight ? 0.55 : 0.6 },
+                        number: { density: { enable: true, area: 850 }, value: isLight ? 65 : 70 },
+                        opacity: { value: isLight ? 0.7 : 0.6 },
                         shape: { type: "circle" },
-                        size: { value: { min: 1, max: isLight ? 2.8 : 2.5 } }
+                        size: { value: { min: 1.2, max: isLight ? 3 : 2.5 } }
                     },
                     detectRetina: true,
                 }}
