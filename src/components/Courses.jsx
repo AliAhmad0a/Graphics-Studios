@@ -18,15 +18,15 @@ const coursesList = [
 const CourseCard = ({ course, index }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const rotateX = useTransform(y, [-100, 100], [6, -6]);
-  const rotateY = useTransform(x, [-100, 100], [-6, 6]);
+  const rotateX = useTransform(y, [-100, 100], [5, -5]);
+  const rotateY = useTransform(x, [-100, 100], [-5, 5]);
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.96, y: 25 }}
+      initial={{ opacity: 0, scale: 0.96, y: 20 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.45, delay: index * 0.06 }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
       onMouseMove={(e) => {
         if (window.innerWidth < 1024) return;
         const rect = e.currentTarget.getBoundingClientRect();
@@ -41,7 +41,7 @@ const CourseCard = ({ course, index }) => {
         style={{ 
           rotateX, rotateY,
         }}
-        whileHover={{ scale: 1.02, boxShadow: '0 15px 30px rgba(59, 130, 246, 0.18)' }}
+        whileHover={{ scale: 1.02, boxShadow: '0 12px 24px rgba(59, 130, 246, 0.16)' }}
       >
         <div className="course-accent-bar"></div>
         <div className="course-glow"></div>
@@ -79,10 +79,10 @@ const Courses = () => {
   return (
     <section id="courses" className="section" style={{ position: 'relative' }}>
       <motion.div 
-        initial={{ opacity: 0, y: 25 }} 
+        initial={{ opacity: 0, y: 20 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
-        style={{ width: '100%', maxWidth: '1100px', margin: '0 auto' }}
+        style={{ width: '100%', maxWidth: '900px', margin: '0 auto' }}
       >
         <div className="section-title">Professional <span className="gradient-text">Training Courses</span></div>
         <p className="section-subtitle">
@@ -99,10 +99,10 @@ const Courses = () => {
       <style>{`
         .courses-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
-          gap: clamp(14px, 2vw, 20px);
-          margin-top: clamp(18px, 3vw, 32px);
-          max-width: 1100px;
+          grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
+          gap: clamp(10px, 1.6vw, 15px);
+          margin-top: clamp(14px, 2.5vw, 24px);
+          max-width: 900px;
           margin-left: auto;
           margin-right: auto;
           width: 100%;
@@ -124,14 +124,14 @@ const Courses = () => {
           display: flex;
           flex-direction: column;
           transform-style: preserve-3d;
-          border-radius: clamp(12px, 2vw, 18px);
+          border-radius: clamp(10px, 1.6vw, 14px);
         }
 
         .course-accent-bar {
           position: absolute;
           top: 0;
           left: 0;
-          width: 3px;
+          width: 2.5px;
           height: 100%;
           background: linear-gradient(to bottom, #3b82f6, #0a42db);
           z-index: 10;
@@ -141,9 +141,9 @@ const Courses = () => {
           position: absolute;
           top: 0;
           right: 0;
-          width: 120px;
-          height: 120px;
-          background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+          width: 90px;
+          height: 90px;
+          background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
           border-radius: 50%;
           opacity: 0;
           transition: opacity 0.3s ease;
@@ -155,7 +155,7 @@ const Courses = () => {
         }
 
         .course-img-container {
-          height: clamp(120px, 15vw, 155px);
+          height: clamp(95px, 12vw, 125px);
           width: 100%;
           overflow: hidden;
           position: relative;
@@ -169,11 +169,11 @@ const Courses = () => {
         }
 
         .course-card-wrapper:hover .course-img {
-          transform: scale(1.06);
+          transform: scale(1.05);
         }
 
         .course-content {
-          padding: clamp(13px, 2vw, 18px);
+          padding: clamp(10px, 1.6vw, 14px);
           flex: 1;
           display: flex;
           flex-direction: column;
@@ -182,28 +182,28 @@ const Courses = () => {
         .course-level {
           display: inline-block;
           align-self: flex-start;
-          padding: 3px 10px;
+          padding: 2px 8px;
           background: rgba(59, 130, 246, 0.1);
           color: #60a5fa;
-          border-radius: 14px;
-          font-size: 0.7rem;
+          border-radius: 12px;
+          font-size: 0.58rem;
           font-weight: 600;
-          margin-bottom: 8px;
+          margin-bottom: 5px;
           border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .course-title {
-          font-size: clamp(0.95rem, 1.8vw, 1.15rem);
-          margin-bottom: 6px;
+          font-size: clamp(0.78rem, 1.4vw, 0.92rem);
+          margin-bottom: 4px;
           font-weight: 700;
           line-height: 1.25;
         }
 
         .course-desc {
           color: #94a3b8;
-          font-size: clamp(0.78rem, 1.4vw, 0.86rem);
-          line-height: 1.5;
-          margin-bottom: 14px;
+          font-size: clamp(0.66rem, 1.1vw, 0.72rem);
+          line-height: 1.45;
+          margin-bottom: 10px;
           flex: 1;
         }
 
@@ -216,8 +216,8 @@ const Courses = () => {
           width: 100%;
           display: flex;
           text-align: center;
-          padding: 8px 14px;
-          font-size: 0.8rem;
+          padding: 6px 11px;
+          font-size: 0.68rem;
           transition: all 0.25s ease;
         }
 
@@ -229,10 +229,10 @@ const Courses = () => {
         @media (max-width: 480px) {
           .courses-grid {
             grid-template-columns: 1fr;
-            gap: 12px;
+            gap: 10px;
           }
           .course-img-container {
-            height: 145px;
+            height: 115px;
           }
         }
       `}</style>

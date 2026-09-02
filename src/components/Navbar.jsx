@@ -19,7 +19,7 @@ const Navbar = () => {
   }, [isOpen]);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 30);
+    const handleScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -39,7 +39,7 @@ const Navbar = () => {
     setIsOpen(false);
     const element = document.querySelector(href);
     if (element) {
-      const navHeight = 70;
+      const navHeight = 58;
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - navHeight;
       window.scrollTo({
@@ -53,9 +53,9 @@ const Navbar = () => {
     <>
       <div className="navbar-fixed-wrapper">
         <motion.nav 
-          initial={{ y: -80 }}
+          initial={{ y: -65 }}
           animate={{ y: 0 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className={`main-navbar ${scrolled ? 'nav-scrolled' : ''}`}
         >
           <div 
@@ -90,7 +90,7 @@ const Navbar = () => {
             aria-label={isOpen ? "Close Navigation Menu" : "Open Navigation Menu"}
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <HiX size={22} /> : <HiMenuAlt3 size={22} />}
+            {isOpen ? <HiX size={18} /> : <HiMenuAlt3 size={18} />}
           </button>
         </motion.nav>
       </div>
@@ -100,10 +100,10 @@ const Navbar = () => {
         {isOpen && (
           <motion.div
             className="mobile-nav-overlay"
-            initial={{ opacity: 0, y: -15 }}
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
           >
             <div className="mobile-nav-header">
               <div className="logo-container" onClick={(e) => scrollToSection(e, '#home')}>
@@ -117,7 +117,7 @@ const Navbar = () => {
                 aria-label="Close Navigation"
                 onClick={() => setIsOpen(false)}
               >
-                <HiX size={24} />
+                <HiX size={20} />
               </button>
             </div>
 
@@ -128,9 +128,9 @@ const Navbar = () => {
                   href={link.href}
                   onClick={(e) => scrollToSection(e, link.href)}
                   className="mobile-nav-link"
-                  initial={{ opacity: 0, x: -15 }}
+                  initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.04 * idx, duration: 0.25 }}
+                  transition={{ delay: 0.03 * idx, duration: 0.22 }}
                 >
                   <span className="mobile-nav-index">0{idx + 1}</span>
                   <span className="mobile-nav-title">{link.name}</span>
@@ -143,7 +143,7 @@ const Navbar = () => {
                 href="#contact" 
                 onClick={(e) => scrollToSection(e, '#contact')}
                 className="btn btn-primary"
-                style={{ width: '100%', padding: '10px' }}
+                style={{ width: '100%', padding: '8px', fontSize: '0.78rem' }}
               >
                 Get in Touch
               </a>
@@ -163,12 +163,12 @@ const Navbar = () => {
           align-items: center;
           z-index: 999;
           pointer-events: none;
-          padding: 16px 0 0 0;
+          padding: 12px 0 0 0;
           box-sizing: border-box;
         }
 
         .main-navbar {
-          width: min(90%, 1080px);
+          width: min(88%, 880px);
           margin: 0 auto;
           pointer-events: auto;
           transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -177,7 +177,7 @@ const Navbar = () => {
           -webkit-backdrop-filter: none;
           border: 1px solid transparent;
           border-radius: 100px;
-          padding: 10px 22px;
+          padding: 7px 18px;
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -185,18 +185,18 @@ const Navbar = () => {
         }
 
         .main-navbar.nav-scrolled {
-          background: rgba(10, 15, 28, 0.8);
-          backdrop-filter: blur(18px);
-          -webkit-backdrop-filter: blur(18px);
+          background: rgba(10, 15, 28, 0.85);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
           border-color: rgba(255, 255, 255, 0.09);
-          box-shadow: 0 8px 30px -5px rgba(0, 0, 0, 0.55);
-          padding: 8px 20px;
+          box-shadow: 0 6px 24px -5px rgba(0, 0, 0, 0.55);
+          padding: 6px 16px;
         }
 
         .logo-container {
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: 8px;
           cursor: pointer;
           user-select: none;
         }
@@ -209,8 +209,8 @@ const Navbar = () => {
         }
 
         .logo-img {
-          height: 36px;
-          width: 36px;
+          height: 28px;
+          width: 28px;
           border-radius: 50%;
           position: relative;
           z-index: 2;
@@ -219,8 +219,8 @@ const Navbar = () => {
         }
 
         .logo-img-mobile {
-          height: 34px;
-          width: 34px;
+          height: 26px;
+          width: 26px;
           border-radius: 50%;
           object-fit: cover;
           border: 1px solid rgba(255, 255, 255, 0.2);
@@ -234,7 +234,7 @@ const Navbar = () => {
           height: 100%;
           transform: translate(-50%, -50%);
           background: var(--blue);
-          filter: blur(10px);
+          filter: blur(8px);
           opacity: 0;
           transition: opacity 0.3s ease;
           z-index: 1;
@@ -247,25 +247,25 @@ const Navbar = () => {
 
         .logo-text {
           font-family: var(--heading);
-          font-size: 1.1rem;
+          font-size: 0.92rem;
           font-weight: 700;
           color: #ffffff;
-          letter-spacing: -0.3px;
+          letter-spacing: -0.2px;
         }
 
         .desktop-nav {
           display: flex;
-          gap: 26px;
+          gap: 20px;
           align-items: center;
         }
 
         .nav-link {
           color: #cbd5e1;
           font-weight: 500;
-          font-size: 0.86rem;
+          font-size: 0.76rem;
           position: relative;
-          padding: 4px 0;
-          transition: color 0.25s ease;
+          padding: 3px 0;
+          transition: color 0.2s ease;
         }
 
         .nav-link:hover {
@@ -294,8 +294,8 @@ const Navbar = () => {
           background: rgba(255, 255, 255, 0.05);
           border: 1px solid rgba(255, 255, 255, 0.1);
           color: #ffffff;
-          border-radius: 10px;
-          padding: 7px;
+          border-radius: 8px;
+          padding: 6px;
           cursor: pointer;
           align-items: center;
           justify-content: center;
@@ -320,7 +320,7 @@ const Navbar = () => {
           z-index: 10000;
           display: flex;
           flex-direction: column;
-          padding: 18px 18px 26px 18px;
+          padding: 14px 14px 22px 14px;
           box-sizing: border-box;
           overflow-y: auto;
           pointer-events: auto;
@@ -330,18 +330,18 @@ const Navbar = () => {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding-bottom: 16px;
+          padding-bottom: 12px;
           border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-          margin-bottom: 20px;
+          margin-bottom: 16px;
         }
 
         .mobile-close-btn {
           background: rgba(255, 255, 255, 0.06);
           border: 1px solid rgba(255, 255, 255, 0.12);
           color: #ffffff;
-          width: 38px;
-          height: 38px;
-          border-radius: 10px;
+          width: 32px;
+          height: 32px;
+          border-radius: 8px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -356,16 +356,16 @@ const Navbar = () => {
         .mobile-nav-links {
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 6px;
           flex: 1;
         }
 
         .mobile-nav-link {
           display: flex;
           align-items: center;
-          gap: 12px;
-          padding: 12px 16px;
-          border-radius: 12px;
+          gap: 10px;
+          padding: 10px 14px;
+          border-radius: 10px;
           background: rgba(255, 255, 255, 0.02);
           border: 1px solid transparent;
           color: #ffffff;
@@ -380,19 +380,19 @@ const Navbar = () => {
 
         .mobile-nav-index {
           font-family: var(--heading);
-          font-size: 0.75rem;
+          font-size: 0.68rem;
           color: var(--cyan);
           font-weight: 700;
         }
 
         .mobile-nav-title {
-          font-size: 1.05rem;
+          font-size: 0.95rem;
           font-weight: 600;
         }
 
         .mobile-nav-footer {
-          margin-top: 20px;
-          padding-top: 16px;
+          margin-top: 16px;
+          padding-top: 12px;
           border-top: 1px solid rgba(255, 255, 255, 0.08);
         }
 
@@ -405,11 +405,11 @@ const Navbar = () => {
             display: flex !important;
           }
           .navbar-fixed-wrapper {
-            padding-top: 10px;
+            padding-top: 8px;
           }
           .main-navbar {
-            width: min(94%, 1080px);
-            padding: 8px 16px;
+            width: min(92%, 880px);
+            padding: 6px 14px;
           }
         }
 
@@ -418,22 +418,15 @@ const Navbar = () => {
             display: none !important;
           }
           .navbar-fixed-wrapper {
-            padding-top: 8px;
+            padding-top: 6px;
           }
           .main-navbar {
-            width: min(94%, 1080px);
-            padding: 6px 12px;
+            width: min(92%, 880px);
+            padding: 5px 10px;
           }
           .logo-img {
-            height: 32px;
-            width: 32px;
-          }
-        }
-
-        @media (max-width: 360px) {
-          .main-navbar {
-            width: 96%;
-            padding: 5px 10px;
+            height: 24px;
+            width: 24px;
           }
         }
       `}</style>

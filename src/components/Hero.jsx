@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Hero = () => {
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 80]);
+  const y1 = useTransform(scrollY, [0, 500], [0, 60]);
 
   return (
     <section id="home" className="hero-section">
@@ -13,9 +13,9 @@ const Hero = () => {
       >
         <motion.div
           className="hero-badge"
-          initial={{ opacity: 0, y: -15 }}
+          initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.65, ease: "easeOut" }}
         >
           <span className="hero-badge-dot"></span>
           Graphics Studios Media Agency
@@ -25,7 +25,7 @@ const Hero = () => {
           className="hero-title"
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.65, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
           Building the future of <br />
           <span className="gradient-text">digital experiences.</span>
@@ -33,18 +33,18 @@ const Hero = () => {
         
         <motion.p 
           className="hero-p"
-          initial={{ opacity: 0, y: 8 }}
+          initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.25, duration: 0.7 }}
+          transition={{ delay: 0.22, duration: 0.65 }}
         >
           A premium software house and media agency delivering high-end UI/UX, robust full-stack development, and AI-driven creative solutions.
         </motion.p>
         
         <motion.div 
           className="hero-btns"
-          initial={{ opacity: 0, y: 8 }}
+          initial={{ opacity: 0, y: 6 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.7 }}
+          transition={{ delay: 0.35, duration: 0.65 }}
         >
           <a href="#services" className="btn btn-primary">Explore Services</a>
           <a href="#portfolio" className="btn btn-outline">Our Portfolio</a>
@@ -53,14 +53,14 @@ const Hero = () => {
 
       <style>{`
         .hero-section {
-          min-height: 90vh;
-          min-height: 90dvh;
+          min-height: 80vh;
+          min-height: 80dvh;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           position: relative;
-          padding: 85px 5% 45px 5%;
+          padding: 70px 5% 35px 5%;
           overflow: hidden;
           width: 100%;
           max-width: 100%;
@@ -72,7 +72,7 @@ const Hero = () => {
         .hero-content {
           z-index: 1;
           text-align: center;
-          max-width: 760px;
+          max-width: 620px;
           width: 100%;
           margin: 0 auto;
           display: flex;
@@ -86,32 +86,32 @@ const Hero = () => {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          margin: 0 auto clamp(12px, 2.5vw, 18px) auto;
-          padding: 5px 14px;
+          margin: 0 auto clamp(10px, 2vw, 15px) auto;
+          padding: 4px 11px;
           background: rgba(255, 255, 255, 0.04);
           border: 1px solid rgba(255, 255, 255, 0.09);
           border-radius: 100px;
-          font-size: clamp(0.72rem, 1.8vw, 0.8rem);
+          font-size: clamp(0.62rem, 1.4vw, 0.72rem);
           color: var(--text-main);
           max-width: 95%;
           letter-spacing: 0.2px;
         }
 
         .hero-badge-dot {
-          width: 7px;
-          height: 7px;
+          width: 6px;
+          height: 6px;
           background: var(--cyan);
           border-radius: 50%;
           display: inline-block;
-          margin-right: 7px;
-          box-shadow: 0 0 8px var(--cyan);
+          margin-right: 6px;
+          box-shadow: 0 0 6px var(--cyan);
           flex-shrink: 0;
         }
 
         .hero-title {
-          font-size: clamp(1.75rem, 4.2vw, 3.2rem);
-          line-height: 1.1;
-          margin: 0 auto clamp(12px, 2.5vw, 18px) auto;
+          font-size: clamp(1.4rem, 3.4vw, 2.5rem);
+          line-height: 1.12;
+          margin: 0 auto clamp(10px, 2vw, 15px) auto;
           letter-spacing: -0.035em;
           font-weight: 700;
           width: 100%;
@@ -120,60 +120,48 @@ const Hero = () => {
         }
 
         .hero-p {
-          font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+          font-size: clamp(0.72rem, 1.4vw, 0.86rem);
           color: #94a3b8;
-          line-height: 1.55;
-          max-width: 580px;
+          line-height: 1.5;
+          max-width: 480px;
           width: 100%;
-          margin: 0 auto clamp(22px, 3.5vw, 36px) auto;
-          padding: 0 10px;
+          margin: 0 auto clamp(18px, 2.8vw, 28px) auto;
+          padding: 0 8px;
           box-sizing: border-box;
           text-align: center;
         }
 
         .hero-btns {
           display: flex;
-          gap: 10px;
+          gap: 8px;
           justify-content: center;
           align-items: center;
           flex-wrap: wrap;
           width: 100%;
-          max-width: 420px;
+          max-width: 340px;
           margin: 0 auto;
         }
 
         @media (max-width: 768px) {
           .hero-section {
-            padding: 75px 16px 35px 16px;
-            min-height: 85vh;
+            padding: 60px 14px 28px 14px;
+            min-height: 75vh;
           }
         }
 
         @media (max-width: 480px) {
           .hero-section {
-            padding: 70px 12px 25px 12px;
+            padding: 55px 10px 20px 10px;
             min-height: auto;
           }
           .hero-btns {
             flex-direction: column;
             width: 100%;
-            gap: 9px;
+            gap: 7px;
           }
           .hero-btns .btn {
             width: 100%;
-            max-width: 240px;
-          }
-        }
-
-        @media (max-width: 360px) {
-          .hero-section {
-            padding-top: 65px;
-          }
-          .hero-title {
-            font-size: 1.55rem;
-          }
-          .hero-p {
-            font-size: 0.82rem;
+            max-width: 200px;
           }
         }
       `}</style>

@@ -1,5 +1,5 @@
 /* ============================================================
-   GLOBAL VARIABLES & COMPACT PROFESSIONAL DESIGN SYSTEM
+   GLOBAL VARIABLES & 20% REDUCED PRO COMPACT DESIGN SYSTEM
    ============================================================ */
 :root {
   --primary: #0a42db;
@@ -16,19 +16,19 @@
   --blue: #3b82f6;
   --electric: #8b5cf6;
   --accent: #3b82f6;
-  --accent-glow: rgba(59, 130, 246, 0.4);
+  --accent-glow: rgba(59, 130, 246, 0.35);
   --border: rgba(255, 255, 255, 0.08);
   --glass: rgba(10, 15, 28, 0.6);
   --glass-bg: rgba(11, 17, 32, 0.65);
   --glass-border: rgba(255, 255, 255, 0.08);
-  --shadow-soft: 0 10px 35px -10px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 18px rgba(10, 66, 219, 0.35);
+  --shadow-soft: 0 8px 25px -8px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 14px rgba(10, 66, 219, 0.3);
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   --heading: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   
   font-family: var(--sans);
-  font-size: 14.5px;
-  line-height: 1.6;
+  font-size: 12px;
+  line-height: 1.55;
   color-scheme: dark;
   color: var(--text-main);
   background-color: var(--background-dark);
@@ -134,7 +134,7 @@ ul, ol {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading);
   color: var(--text-h);
-  margin: 0 0 0.6rem 0;
+  margin: 0 0 0.5rem 0;
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.2;
@@ -153,14 +153,14 @@ p, span, div, a {
    ============================================================ */
 .glass-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  border-radius: 12px;
   box-shadow: var(--shadow-soft);
   position: relative;
   overflow: hidden !important;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -170,9 +170,9 @@ p, span, div, a {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease;
   pointer-events: none;
 }
 
@@ -182,10 +182,10 @@ p, span, div, a {
 
 .vision-pro-glass {
   background: rgba(11, 17, 32, 0.45);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.07);
-  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.015), 0 15px 35px rgba(0, 0, 0, 0.35);
+  box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.015), 0 12px 28px rgba(0, 0, 0, 0.3);
   width: 100%;
   max-width: 100%;
   overflow: hidden !important;
@@ -193,7 +193,7 @@ p, span, div, a {
 }
 
 .glow-text {
-  text-shadow: 0 0 10px var(--accent-glow);
+  text-shadow: 0 0 8px var(--accent-glow);
 }
 
 .gradient-text {
@@ -204,17 +204,17 @@ p, span, div, a {
 }
 
 /* ============================================================
-   BUTTONS
+   BUTTONS (20% REDUCED)
    ============================================================ */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 9px 22px;
-  border-radius: 8px;
+  gap: 5px;
+  padding: 7px 18px;
+  border-radius: 7px;
   font-weight: 600;
-  font-size: 0.88rem;
+  font-size: 0.78rem;
   font-family: var(--heading);
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -234,7 +234,7 @@ p, span, div, a {
 
 .btn-primary:hover {
   transform: translateY(-1.5px);
-  box-shadow: 0 0 25px var(--accent-glow);
+  box-shadow: 0 0 20px var(--accent-glow);
   color: #ffffff;
 }
 
@@ -252,10 +252,10 @@ p, span, div, a {
 }
 
 /* ============================================================
-   SECTIONS & CONTAINERS
+   SECTIONS & CONTAINERS (20% REDUCED)
    ============================================================ */
 .section {
-  padding: 68px 5%;
+  padding: 54px 5%;
   position: relative;
   width: 100%;
   max-width: 100%;
@@ -280,8 +280,8 @@ p, span, div, a {
 
 .section-title {
   font-family: var(--heading);
-  font-size: clamp(1.5rem, 3.2vw, 2.2rem);
-  margin-bottom: 10px;
+  font-size: clamp(1.25rem, 2.6vw, 1.75rem);
+  margin-bottom: 8px;
   text-align: center;
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -294,11 +294,11 @@ p, span, div, a {
 .section-subtitle {
   text-align: center;
   color: #94a3b8;
-  max-width: 580px;
-  margin: 0 auto clamp(24px, 3.5vw, 42px) auto;
-  font-size: clamp(0.85rem, 1.8vw, 0.98rem);
-  line-height: 1.55;
-  padding: 0 10px;
+  max-width: 480px;
+  margin: 0 auto clamp(18px, 2.8vw, 32px) auto;
+  font-size: clamp(0.72rem, 1.4vw, 0.82rem);
+  line-height: 1.5;
+  padding: 0 8px;
   width: 100%;
   box-sizing: border-box;
   overflow-wrap: anywhere;
@@ -308,13 +308,13 @@ p, span, div, a {
 input, textarea, select {
   width: 100%;
   max-width: 100%;
-  padding: 10px 14px;
+  padding: 8px 12px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 8px;
+  border-radius: 7px;
   color: white;
   font-family: inherit;
-  font-size: 0.88rem;
+  font-size: 0.78rem;
   transition: all 0.25s ease;
   box-sizing: border-box;
 }
@@ -322,14 +322,14 @@ input, textarea, select {
 input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.25);
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.25);
 }
 
 .digital-grid {
-  background-size: 40px 40px;
+  background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
 }
 
 /* ============================================================
@@ -339,7 +339,7 @@ input:focus, textarea:focus, select:focus {
 /* Disable 3D transforms that break 2D overflow clipping on touch devices */
 @media (max-width: 1024px) {
   .section {
-    padding: 58px 4%;
+    padding: 46px 4%;
   }
 
   .service-card-outer, .course-card-outer, .team-card-outer {
@@ -357,115 +357,115 @@ input:focus, textarea:focus, select:focus {
 /* Tablet ≤ 900px */
 @media (max-width: 900px) {
   .section {
-    padding: 50px 4%;
+    padding: 40px 4%;
   }
   .section-title {
-    font-size: clamp(1.4rem, 3.5vw, 1.95rem);
+    font-size: clamp(1.15rem, 2.8vw, 1.55rem);
   }
   .section-subtitle {
-    font-size: 0.9rem;
-    margin-bottom: 28px;
+    font-size: 0.76rem;
+    margin-bottom: 22px;
   }
 }
 
 /* Main Tablet / Mobile Breakpoint ≤ 768px */
 @media (max-width: 768px) {
   :root {
-    font-size: 13.5px;
+    font-size: 11.5px;
   }
 
   .section {
-    padding: 44px 14px;
+    padding: 35px 12px;
   }
 
   .section-title {
-    font-size: clamp(1.35rem, 4.5vw, 1.75rem);
-    margin-bottom: 8px;
+    font-size: clamp(1.1rem, 3.6vw, 1.45rem);
+    margin-bottom: 6px;
   }
 
   .section-subtitle {
-    font-size: 0.88rem;
-    margin-bottom: 22px;
+    font-size: 0.74rem;
+    margin-bottom: 18px;
     padding: 0 4px;
   }
 
   .btn {
-    padding: 9px 18px;
-    font-size: 0.84rem;
+    padding: 7px 15px;
+    font-size: 0.74rem;
   }
 }
 
 /* Mobile ≤ 600px */
 @media (max-width: 600px) {
   .section {
-    padding: 38px 12px;
+    padding: 30px 10px;
   }
 }
 
 /* Mobile Screens ≤ 480px */
 @media (max-width: 480px) {
   :root {
-    font-size: 13px;
+    font-size: 11px;
   }
 
   .section {
-    padding: 34px 10px;
-  }
-
-  .section-title {
-    font-size: 1.3rem;
-  }
-
-  .section-subtitle {
-    font-size: 0.82rem;
-    line-height: 1.5;
-    margin-bottom: 18px;
-  }
-
-  .btn {
-    padding: 8px 15px;
-    font-size: 0.8rem;
-    border-radius: 7px;
-  }
-}
-
-/* Very Small Mobile Screens ≤ 360px */
-@media (max-width: 360px) {
-  :root {
-    font-size: 12.5px;
-  }
-
-  .section {
-    padding: 28px 8px;
-  }
-
-  .section-title {
-    font-size: 1.2rem;
-  }
-
-  .section-subtitle {
-    font-size: 0.78rem;
-    margin-bottom: 15px;
-  }
-
-  .btn {
-    padding: 7px 12px;
-    font-size: 0.78rem;
-  }
-}
-
-/* Extra Small Screens ≤ 320px */
-@media (max-width: 320px) {
-  .section {
-    padding: 24px 6px;
+    padding: 26px 8px;
   }
 
   .section-title {
     font-size: 1.15rem;
   }
 
+  .section-subtitle {
+    font-size: 0.7rem;
+    line-height: 1.45;
+    margin-bottom: 15px;
+  }
+
   .btn {
-    padding: 7px 10px;
-    font-size: 0.75rem;
+    padding: 7px 13px;
+    font-size: 0.72rem;
+    border-radius: 6px;
+  }
+}
+
+/* Very Small Mobile Screens ≤ 360px */
+@media (max-width: 360px) {
+  :root {
+    font-size: 10.5px;
+  }
+
+  .section {
+    padding: 22px 6px;
+  }
+
+  .section-title {
+    font-size: 1.05rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.68rem;
+    margin-bottom: 12px;
+  }
+
+  .btn {
+    padding: 6px 10px;
+    font-size: 0.68rem;
+  }
+}
+
+/* Extra Small Screens ≤ 320px */
+@media (max-width: 320px) {
+  .section {
+    padding: 18px 5px;
+  }
+
+  .section-title {
+    font-size: 0.98rem;
+  }
+
+  .btn {
+    padding: 6px 9px;
+    font-size: 0.66rem;
   }
 }

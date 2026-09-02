@@ -27,14 +27,14 @@ const Testimonials = () => {
     <section id="testimonials" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Contained Background glow */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden', pointerEvents: 'none', zIndex: -1 }}>
-        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '50%', height: '40%', background: 'rgba(59, 130, 246, 0.04)', filter: 'blur(60px)' }}></div>
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '50%', height: '40%', background: 'rgba(59, 130, 246, 0.04)', filter: 'blur(50px)' }}></div>
       </div>
 
       <motion.div 
-        initial={{ opacity: 0, y: 25 }} 
+        initial={{ opacity: 0, y: 20 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
-        style={{ width: '100%', maxWidth: '1000px', margin: '0 auto', position: 'relative', zIndex: 1 }}
+        style={{ width: '100%', maxWidth: '850px', margin: '0 auto', position: 'relative', zIndex: 1 }}
       >
         <div className="section-title">Client <span className="gradient-text">Testimonials</span></div>
         <p className="section-subtitle">
@@ -47,10 +47,10 @@ const Testimonials = () => {
           <motion.div
             key={i}
             className="glass-card testimonial-card"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.08, duration: 0.5 }}
+            transition={{ delay: i * 0.06, duration: 0.4 }}
           >
             {/* Quote Icon */}
             <div className="quote-mark">"</div>
@@ -73,30 +73,30 @@ const Testimonials = () => {
       <style>{`
         .testimonials-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
-          gap: clamp(14px, 2vw, 20px);
-          max-width: 1000px;
-          margin: clamp(18px, 3vw, 32px) auto 0 auto;
+          grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
+          gap: clamp(10px, 1.6vw, 15px);
+          max-width: 850px;
+          margin: clamp(14px, 2.5vw, 24px) auto 0 auto;
           width: 100%;
           position: relative;
           z-index: 1;
         }
 
         .testimonial-card {
-          padding: clamp(16px, 2.5vw, 24px) clamp(14px, 2vw, 20px);
+          padding: clamp(12px, 2vw, 18px) clamp(10px, 1.6vw, 15px);
           position: relative;
           display: flex;
           flex-direction: column;
-          border-radius: clamp(12px, 2vw, 16px);
+          border-radius: clamp(10px, 1.6vw, 13px);
           box-sizing: border-box;
           height: 100%;
         }
 
         .quote-mark {
           position: absolute;
-          top: clamp(8px, 1.5vw, 14px);
-          right: clamp(12px, 2vw, 18px);
-          font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+          top: clamp(6px, 1.2vw, 11px);
+          right: clamp(10px, 1.6vw, 14px);
+          font-size: clamp(1.4rem, 2.6vw, 2rem);
           color: rgba(255, 255, 255, 0.04);
           font-family: serif;
           line-height: 1;
@@ -104,10 +104,10 @@ const Testimonials = () => {
         }
 
         .testimonial-content {
-          font-size: clamp(0.8rem, 1.4vw, 0.88rem);
-          line-height: 1.55;
+          font-size: clamp(0.66rem, 1.1vw, 0.74rem);
+          line-height: 1.5;
           color: var(--text-main);
-          margin-bottom: clamp(14px, 2vw, 20px);
+          margin-bottom: clamp(10px, 1.6vw, 15px);
           position: relative;
           z-index: 1;
           flex: 1;
@@ -116,14 +116,14 @@ const Testimonials = () => {
         .testimonial-author {
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: 8px;
           position: relative;
           z-index: 1;
         }
 
         .testimonial-avatar {
-          width: 38px;
-          height: 38px;
+          width: 30px;
+          height: 30px;
           border-radius: 50%;
           border: 1.5px solid var(--blue);
           flex-shrink: 0;
@@ -137,20 +137,20 @@ const Testimonials = () => {
 
         .testimonial-author-name {
           margin: 0 0 1px 0;
-          font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+          font-size: clamp(0.72rem, 1.2vw, 0.78rem);
           color: var(--text-h);
           font-weight: 600;
         }
 
         .testimonial-author-role {
-          font-size: 0.72rem;
+          font-size: 0.6rem;
           color: var(--cyan);
         }
 
         @media (max-width: 480px) {
           .testimonials-grid {
             grid-template-columns: 1fr;
-            gap: 12px;
+            gap: 10px;
           }
         }
       `}</style>

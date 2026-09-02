@@ -21,15 +21,15 @@ const servicesList = [
 const ServiceCard = ({ service, index }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const rotateX = useTransform(y, [-100, 100], [6, -6]);
-  const rotateY = useTransform(x, [-100, 100], [-6, 6]);
+  const rotateX = useTransform(y, [-100, 100], [5, -5]);
+  const rotateY = useTransform(x, [-100, 100], [-5, 5]);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30, scale: 0.96 }}
+      initial={{ opacity: 0, y: 25, scale: 0.96 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.45, delay: index * 0.06 }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
       onMouseMove={(e) => {
         if (window.innerWidth < 1024) return;
         const rect = e.currentTarget.getBoundingClientRect();
@@ -73,15 +73,15 @@ const Services = () => {
     <section id="services" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Contained background glow */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden', pointerEvents: 'none', zIndex: 0 }}>
-        <div style={{ position: 'absolute', top: '5%', right: '5%', width: 'clamp(160px, 20vw, 300px)', height: 'clamp(160px, 20vw, 300px)', background: 'rgba(34, 211, 238, 0.035)', borderRadius: '50%', filter: 'blur(70px)' }}></div>
-        <div style={{ position: 'absolute', bottom: '5%', left: '5%', width: 'clamp(140px, 18vw, 260px)', height: 'clamp(140px, 18vw, 260px)', background: 'rgba(99, 102, 241, 0.035)', borderRadius: '50%', filter: 'blur(70px)' }}></div>
+        <div style={{ position: 'absolute', top: '5%', right: '5%', width: 'clamp(130px, 16vw, 240px)', height: 'clamp(130px, 16vw, 240px)', background: 'rgba(34, 211, 238, 0.035)', borderRadius: '50%', filter: 'blur(55px)' }}></div>
+        <div style={{ position: 'absolute', bottom: '5%', left: '5%', width: 'clamp(110px, 14vw, 210px)', height: 'clamp(110px, 14vw, 210px)', background: 'rgba(99, 102, 241, 0.035)', borderRadius: '50%', filter: 'blur(55px)' }}></div>
       </div>
       
       <motion.div 
-        initial={{ opacity: 0, y: 25 }} 
+        initial={{ opacity: 0, y: 20 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
-        style={{ width: '100%', maxWidth: '1100px', margin: '0 auto', position: 'relative', zIndex: 1 }}
+        style={{ width: '100%', maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 1 }}
       >
         <div className="section-title">Our <span className="gradient-text">Expertise</span></div>
         <p className="section-subtitle">
@@ -98,11 +98,11 @@ const Services = () => {
       <style>{`
         .services-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
-          gap: clamp(12px, 2vw, 18px);
+          grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+          gap: clamp(10px, 1.6vw, 14px);
           position: relative;
           z-index: 1;
-          max-width: 1100px;
+          max-width: 900px;
           margin: 0 auto;
           width: 100%;
         }
@@ -123,11 +123,11 @@ const Services = () => {
           transform-style: preserve-3d;
           cursor: pointer;
           position: relative;
-          border-radius: clamp(12px, 2vw, 16px);
+          border-radius: clamp(10px, 1.6vw, 13px);
         }
 
         .service-img-container {
-          height: clamp(120px, 16vw, 155px);
+          height: clamp(95px, 12vw, 125px);
           width: 100%;
           overflow: hidden;
           position: relative;
@@ -141,11 +141,11 @@ const Services = () => {
         }
 
         .service-card:hover .service-img {
-          transform: scale(1.06);
+          transform: scale(1.05);
         }
 
         .service-content {
-          padding: clamp(13px, 2vw, 17px);
+          padding: clamp(10px, 1.6vw, 13px);
           flex: 1;
           display: flex;
           flex-direction: column;
@@ -154,26 +154,26 @@ const Services = () => {
         .service-header {
           display: flex;
           align-items: center;
-          gap: 10px;
-          margin-bottom: 8px;
+          gap: 8px;
+          margin-bottom: 6px;
         }
 
         .service-icon {
-          width: 36px;
-          height: 36px;
-          border-radius: 10px;
+          width: 28px;
+          height: 28px;
+          border-radius: 8px;
           background: rgba(6, 182, 212, 0.1);
           display: flex;
           align-items: center;
           justify-content: center;
           color: var(--cyan);
-          font-size: 1.05rem;
-          box-shadow: inset 0 0 10px rgba(6, 182, 212, 0.2);
+          font-size: 0.85rem;
+          box-shadow: inset 0 0 8px rgba(6, 182, 212, 0.2);
           flex-shrink: 0;
         }
 
         .service-title {
-          font-size: clamp(0.92rem, 1.8vw, 1.05rem);
+          font-size: clamp(0.76rem, 1.4vw, 0.86rem);
           font-weight: 700;
           margin: 0;
           line-height: 1.25;
@@ -181,9 +181,9 @@ const Services = () => {
 
         .service-desc {
           color: #94a3b8;
-          line-height: 1.5;
-          font-size: clamp(0.78rem, 1.4vw, 0.85rem);
-          margin-bottom: 12px;
+          line-height: 1.45;
+          font-size: clamp(0.66rem, 1.1vw, 0.72rem);
+          margin-bottom: 9px;
           flex: 1;
         }
 
@@ -192,20 +192,20 @@ const Services = () => {
           font-weight: 600;
           display: flex;
           align-items: center;
-          gap: 6px;
-          font-size: 0.74rem;
+          gap: 5px;
+          font-size: 0.62rem;
           margin-top: auto;
           text-transform: uppercase;
-          letter-spacing: 0.6px;
+          letter-spacing: 0.5px;
         }
 
         @media (max-width: 480px) {
           .services-grid {
             grid-template-columns: 1fr;
-            gap: 12px;
+            gap: 10px;
           }
           .service-img-container {
-            height: 140px;
+            height: 115px;
           }
         }
       `}</style>

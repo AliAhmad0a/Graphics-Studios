@@ -10,21 +10,21 @@ const About = () => {
         <motion.div 
           animate={{ y: ['-5%', '5%', '-5%'] }} 
           transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ position: 'absolute', top: '10%', left: '5%', width: '90%', maxWidth: '600px', height: '200px', background: 'rgba(10, 66, 219, 0.07)', filter: 'blur(50px)', borderRadius: '50%' }}
+          style={{ position: 'absolute', top: '10%', left: '5%', width: '90%', maxWidth: '500px', height: '160px', background: 'rgba(10, 66, 219, 0.07)', filter: 'blur(45px)', borderRadius: '50%' }}
         />
         <motion.div 
           animate={{ y: ['5%', '-5%', '5%'] }} 
           transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-          style={{ position: 'absolute', bottom: '5%', right: '5%', width: '90%', maxWidth: '600px', height: '220px', background: 'rgba(59, 130, 246, 0.07)', filter: 'blur(50px)', borderRadius: '50%' }}
+          style={{ position: 'absolute', bottom: '5%', right: '5%', width: '90%', maxWidth: '500px', height: '180px', background: 'rgba(59, 130, 246, 0.07)', filter: 'blur(45px)', borderRadius: '50%' }}
         />
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: 35 }}
+        initial={{ opacity: 0, y: 28 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.7 }}
-        style={{ width: '100%', maxWidth: '820px', margin: '0 auto' }}
+        transition={{ duration: 0.6 }}
+        style={{ width: '100%', maxWidth: '660px', margin: '0 auto' }}
       >
         <h2 className="section-title">About <span className="gradient-text">Us</span></h2>
         
@@ -57,42 +57,42 @@ const About = () => {
         .about-card {
           display: flex;
           flex-direction: column;
-          gap: clamp(14px, 2.5vw, 22px);
+          gap: clamp(12px, 2vw, 18px);
           text-align: center;
-          max-width: 800px;
-          margin: clamp(16px, 3vw, 30px) auto 0 auto;
-          border-radius: clamp(16px, 3vw, 24px);
-          padding: clamp(18px, 3.5vw, 36px);
+          max-width: 640px;
+          margin: clamp(12px, 2.5vw, 24px) auto 0 auto;
+          border-radius: clamp(12px, 2.5vw, 18px);
+          padding: clamp(14px, 2.8vw, 28px);
           box-sizing: border-box;
         }
 
         .about-text-lead {
-          font-size: clamp(0.88rem, 1.6vw, 1.05rem);
-          line-height: 1.6;
+          font-size: clamp(0.74rem, 1.3vw, 0.86rem);
+          line-height: 1.55;
           color: #e2e8f0;
           font-weight: 300;
           margin: 0;
         }
 
         .about-text-sub {
-          font-size: clamp(0.82rem, 1.4vw, 0.92rem);
-          line-height: 1.55;
+          font-size: clamp(0.68rem, 1.1vw, 0.76rem);
+          line-height: 1.5;
           color: #94a3b8;
           margin: 0;
         }
 
         .about-stats-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(min(100%, 120px), 1fr));
-          gap: clamp(10px, 2vw, 14px);
-          margin-top: clamp(8px, 1.8vw, 16px);
+          grid-template-columns: repeat(auto-fit, minmax(min(100%, 95px), 1fr));
+          gap: clamp(8px, 1.5vw, 11px);
+          margin-top: clamp(6px, 1.4vw, 12px);
           width: 100%;
         }
 
         .about-stat {
-          padding: clamp(10px, 2vw, 16px) clamp(8px, 1.5vw, 12px);
+          padding: clamp(8px, 1.5vw, 12px) clamp(6px, 1.2vw, 10px);
           background: rgba(255, 255, 255, 0.02);
-          border-radius: clamp(10px, 2vw, 14px);
+          border-radius: clamp(8px, 1.5vw, 11px);
           border: 1px solid rgba(255, 255, 255, 0.05);
           text-align: center;
           display: flex;
@@ -102,27 +102,27 @@ const About = () => {
         }
 
         .stat-number {
-          font-size: clamp(1.4rem, 3vw, 2.1rem);
+          font-size: clamp(1.15rem, 2.4vw, 1.65rem);
           color: #3b82f6;
-          margin-bottom: 3px;
+          margin-bottom: 2px;
           font-family: var(--heading);
           line-height: 1.1;
         }
 
         .stat-label {
           color: #94a3b8;
-          font-size: clamp(0.75rem, 1.5vw, 0.84rem);
+          font-size: clamp(0.62rem, 1.2vw, 0.7rem);
           margin: 0;
-          line-height: 1.35;
+          line-height: 1.3;
         }
 
         @media (max-width: 480px) {
           .about-stats-grid {
             grid-template-columns: 1fr;
-            gap: 8px;
+            gap: 6px;
           }
           .about-stat {
-            padding: 10px 10px;
+            padding: 8px 8px;
           }
         }
       `}</style>
