@@ -1,5 +1,5 @@
 /* ============================================================
-   GRAPHICS STUDIOS MEDIA AGENCY — FULL RESPONSIVE DESIGN SYSTEM
+   GRAPHICS STUDIOS MEDIA AGENCY — BULLETPROOF RESPONSIVE SYSTEM
    ============================================================ */
 :root {
   --primary: #0a42db;
@@ -52,19 +52,21 @@ html {
   overflow-x: hidden !important;
   overflow-x: clip !important;
   scroll-behavior: smooth;
-  width: 100%;
-  max-width: 100vw;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
   overscroll-behavior-x: none;
   touch-action: pan-y;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-width: 100%;
-  max-width: 100vw;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
   overflow-x: hidden !important;
   overflow-x: clip !important;
   background-color: var(--background-dark);
@@ -76,38 +78,41 @@ body {
 }
 
 #root {
-  width: 100%;
-  max-width: 100vw;
+  width: 100% !important;
+  max-width: 100% !important;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   overflow-x: hidden !important;
   overflow-x: clip !important;
   position: relative;
+  margin: 0 auto !important;
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  width: 100%;
-  max-width: 100vw;
+  width: 100% !important;
+  max-width: 100% !important;
   position: relative;
   z-index: 1;
   overflow-x: hidden !important;
   overflow-x: clip !important;
   contain: paint;
+  margin: 0 auto !important;
 }
 
 main {
-  width: 100%;
-  max-width: 100vw;
+  width: 100% !important;
+  max-width: 100% !important;
   display: flex;
   flex-direction: column;
   overflow-x: hidden !important;
   overflow-x: clip !important;
   position: relative;
   contain: paint;
+  margin: 0 auto !important;
 }
 
 /* Images & Media Global Constraints */
@@ -133,7 +138,7 @@ ul, ol {
   max-width: 100%;
 }
 
-/* Typography System */
+/* Typography System with Universal Overflow Break */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading);
   color: var(--text-h);
@@ -141,14 +146,14 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.2;
-  overflow-wrap: break-word !important;
+  overflow-wrap: anywhere !important;
   word-break: break-word !important;
   max-width: 100%;
 }
 
-p, span, div, a {
-  overflow-wrap: break-word;
-  word-break: break-word;
+p, span, div, a, button, input, textarea, select {
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
   max-width: 100%;
 }
 
@@ -217,10 +222,10 @@ p, span, div, a {
   align-items: center;
   justify-content: center;
   gap: 7px;
-  padding: 9px 22px;
+  padding: 9px 20px;
   border-radius: 9px;
   font-weight: 600;
-  font-size: clamp(0.85rem, 2vw, 0.96rem);
+  font-size: clamp(0.82rem, 2vw, 0.94rem);
   font-family: var(--heading);
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -263,19 +268,20 @@ p, span, div, a {
    SECTIONS & CONTAINERS
    ============================================================ */
 .section {
-  padding: clamp(45px, 8vw, 78px) clamp(12px, 4vw, 5%);
+  padding: clamp(45px, 8vw, 75px) clamp(12px, 4%, 40px);
   position: relative;
-  width: 100%;
-  max-width: 100vw;
+  width: 100% !important;
+  max-width: 100% !important;
   box-sizing: border-box;
   overflow: hidden !important;
-  overflow: clip !important;
+  overflow-x: clip !important;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
   contain: paint;
+  margin: 0 auto !important;
 }
 
 .section > * {
@@ -289,13 +295,13 @@ p, span, div, a {
 
 .section-title {
   font-family: var(--heading);
-  font-size: clamp(1.45rem, 4.5vw, 2.45rem);
+  font-size: clamp(1.4rem, 4.5vw, 2.4rem);
   margin-bottom: clamp(8px, 1.6vw, 12px);
   text-align: center;
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.2;
-  overflow-wrap: break-word !important;
+  overflow-wrap: anywhere !important;
   word-break: break-word !important;
   width: 100%;
   max-width: 100%;
@@ -304,14 +310,14 @@ p, span, div, a {
 .section-subtitle {
   text-align: center;
   color: #94a3b8;
-  max-width: min(92%, 640px);
-  margin: 0 auto clamp(20px, 3.5vw, 40px) auto;
-  font-size: clamp(0.85rem, 2vw, 1.05rem);
+  max-width: min(92%, 620px);
+  margin: 0 auto clamp(20px, 3.5vw, 38px) auto;
+  font-size: clamp(0.82rem, 1.8vw, 1rem);
   line-height: 1.55;
-  padding: 0 6px;
+  padding: 0 4px;
   width: 100%;
   box-sizing: border-box;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere !important;
 }
 
 /* Form Controls */
@@ -325,7 +331,7 @@ input, textarea, select {
   border-radius: 9px;
   color: white;
   font-family: inherit;
-  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  font-size: clamp(0.82rem, 1.8vw, 0.94rem);
   transition: all 0.25s ease;
   box-sizing: border-box;
 }
@@ -364,59 +370,59 @@ input:focus, textarea:focus, select:focus {
 /* Tablet ≤ 900px */
 @media (max-width: 900px) {
   :root {
-    font-size: 15.5px;
+    font-size: 15px;
   }
 }
 
 /* Main Mobile Breakpoint ≤ 768px */
 @media (max-width: 768px) {
   :root {
-    font-size: 15px;
+    font-size: 14.5px;
   }
 
   .section {
-    padding: 42px 14px;
+    padding: 38px 12px;
   }
 
   .section-title {
-    font-size: clamp(1.4rem, 5.5vw, 1.85rem);
+    font-size: clamp(1.35rem, 5.2vw, 1.75rem);
   }
 
   .section-subtitle {
-    font-size: 0.88rem;
-    margin-bottom: 22px;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
     padding: 0 4px;
   }
 
   .btn {
-    padding: 8px 18px;
-    font-size: 0.88rem;
+    padding: 8px 16px;
+    font-size: 0.85rem;
   }
 }
 
 /* Mobile Screens ≤ 480px */
 @media (max-width: 480px) {
   :root {
-    font-size: 14.5px;
+    font-size: 14px;
   }
 
   .section {
-    padding: 35px 12px;
+    padding: 32px 10px;
   }
 
   .section-title {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
   }
 
   .section-subtitle {
-    font-size: 0.84rem;
+    font-size: 0.82rem;
     line-height: 1.5;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
   }
 
   .btn {
-    padding: 8px 16px;
-    font-size: 0.84rem;
+    padding: 8px 14px;
+    font-size: 0.82rem;
     border-radius: 8px;
   }
 }
@@ -424,25 +430,25 @@ input:focus, textarea:focus, select:focus {
 /* Very Small Mobile Screens ≤ 375px */
 @media (max-width: 375px) {
   :root {
-    font-size: 14px;
+    font-size: 13.5px;
   }
 
   .section {
-    padding: 30px 10px;
+    padding: 28px 8px;
   }
 
   .section-title {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 
   .section-subtitle {
-    font-size: 0.8rem;
-    margin-bottom: 15px;
+    font-size: 0.78rem;
+    margin-bottom: 14px;
   }
 
   .btn {
-    padding: 7px 14px;
-    font-size: 0.8rem;
+    padding: 7px 12px;
+    font-size: 0.78rem;
   }
 }
 
@@ -453,19 +459,19 @@ input:focus, textarea:focus, select:focus {
   }
 
   .section {
-    padding: 26px 8px;
+    padding: 24px 6px;
   }
 
   .section-title {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
   }
 
   .section-subtitle {
-    font-size: 0.76rem;
+    font-size: 0.74rem;
   }
 
   .btn {
-    padding: 6px 12px;
-    font-size: 0.76rem;
+    padding: 6px 10px;
+    font-size: 0.74rem;
   }
 }

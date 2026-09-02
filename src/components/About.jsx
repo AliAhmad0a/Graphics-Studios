@@ -5,7 +5,7 @@ const About = () => {
   return (
     <section id="about" className="section about-section" style={{ position: 'relative', overflow: 'hidden' }}>
       
-      {/* Animated Blue Glass Waves Background - Strictly Contained */}
+      {/* Animated Blue Glass Waves Background - Strictly Contained with clip-path */}
       <div className="about-bg-wrapper">
         <motion.div 
           animate={{ y: ['-4%', '4%', '-4%'] }} 
@@ -57,8 +57,8 @@ const About = () => {
         .about-section {
           contain: paint;
           overflow: hidden !important;
-          width: 100%;
-          max-width: 100vw;
+          width: 100% !important;
+          max-width: 100% !important;
           box-sizing: border-box;
         }
 
@@ -71,22 +71,24 @@ const About = () => {
           overflow: hidden !important;
           pointer-events: none;
           contain: strict;
+          clip-path: inset(0);
+          -webkit-clip-path: inset(0);
         }
 
         .about-blur-wave {
           position: absolute;
           border-radius: 50%;
           pointer-events: none;
-          filter: blur(45px);
-          -webkit-filter: blur(45px);
+          filter: blur(40px);
+          -webkit-filter: blur(40px);
         }
 
         .wave-top {
           top: 10%;
           left: 50%;
           transform: translateX(-50%);
-          width: min(90%, 500px);
-          height: 180px;
+          width: min(85%, 480px);
+          height: 160px;
           background: rgba(10, 66, 219, 0.08);
         }
 
@@ -94,8 +96,8 @@ const About = () => {
           bottom: 10%;
           left: 50%;
           transform: translateX(-50%);
-          width: min(90%, 500px);
-          height: 180px;
+          width: min(85%, 480px);
+          height: 160px;
           background: rgba(59, 130, 246, 0.08);
         }
 
@@ -113,16 +115,16 @@ const About = () => {
           gap: clamp(14px, 2.5vw, 22px);
           text-align: center;
           max-width: 100%;
-          margin: clamp(14px, 3vw, 28px) auto 0 auto;
+          margin: clamp(14px, 3vw, 26px) auto 0 auto;
           border-radius: clamp(14px, 3vw, 20px);
-          padding: clamp(16px, 3.5vw, 34px);
+          padding: clamp(16px, 3.5vw, 32px);
           box-sizing: border-box;
           width: 100%;
           min-width: 0;
         }
 
         .about-text-lead {
-          font-size: clamp(0.92rem, 1.8vw, 1.1rem);
+          font-size: clamp(0.9rem, 1.8vw, 1.08rem);
           line-height: 1.6;
           color: #e2e8f0;
           font-weight: 300;
@@ -131,7 +133,7 @@ const About = () => {
         }
 
         .about-text-sub {
-          font-size: clamp(0.82rem, 1.5vw, 0.96rem);
+          font-size: clamp(0.8rem, 1.5vw, 0.94rem);
           line-height: 1.55;
           color: #94a3b8;
           margin: 0;
@@ -148,7 +150,7 @@ const About = () => {
         }
 
         .about-stat {
-          padding: clamp(10px, 2vw, 16px) clamp(6px, 1.5vw, 12px);
+          padding: clamp(10px, 2vw, 15px) clamp(6px, 1.5vw, 10px);
           background: rgba(255, 255, 255, 0.02);
           border-radius: clamp(10px, 2vw, 14px);
           border: 1px solid rgba(255, 255, 255, 0.05);
@@ -162,7 +164,7 @@ const About = () => {
         }
 
         .stat-number {
-          font-size: clamp(1.35rem, 3.2vw, 2.1rem);
+          font-size: clamp(1.3rem, 3vw, 2rem);
           color: #3b82f6;
           margin-bottom: 2px;
           font-family: var(--heading);
@@ -172,7 +174,7 @@ const About = () => {
 
         .stat-label {
           color: #94a3b8;
-          font-size: clamp(0.72rem, 1.4vw, 0.88rem);
+          font-size: clamp(0.7rem, 1.4vw, 0.85rem);
           margin: 0;
           line-height: 1.3;
           word-break: break-word;

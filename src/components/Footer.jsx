@@ -66,8 +66,8 @@ const Footer = () => {
           border-top: 1px solid rgba(255, 255, 255, 0.06);
           padding-top: clamp(32px, 4.5vw, 48px);
           padding-bottom: 20px;
-          width: 100%;
-          max-width: 100vw;
+          width: 100% !important;
+          max-width: 100% !important;
           box-sizing: border-box;
           position: relative;
           z-index: 10;
@@ -78,7 +78,7 @@ const Footer = () => {
         .footer-container {
           max-width: 1140px;
           margin: 0 auto;
-          padding: 0 clamp(14px, 4vw, 5%);
+          padding: 0 clamp(14px, 4%, 40px);
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
           gap: clamp(20px, 3vw, 32px);
@@ -174,7 +174,7 @@ const Footer = () => {
           flex-direction: column;
           text-decoration: none;
           gap: 3px;
-          overflow-wrap: break-word !important;
+          overflow-wrap: anywhere !important;
           word-break: break-all !important;
           width: 100%;
           min-width: 0;
@@ -191,7 +191,7 @@ const Footer = () => {
           color: #ffffff;
           font-weight: 500;
           font-size: clamp(0.82rem, 1.5vw, 0.92rem);
-          overflow-wrap: break-word !important;
+          overflow-wrap: anywhere !important;
           word-break: break-all !important;
           display: block;
           max-width: 100%;

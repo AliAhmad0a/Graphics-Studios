@@ -26,10 +26,10 @@ const ServiceCard = ({ service, index }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 25, scale: 0.96 }}
+      initial={{ opacity: 0, y: 20, scale: 0.97 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.42, delay: index * 0.05 }}
+      transition={{ duration: 0.4, delay: index * 0.04 }}
       onMouseMove={(e) => {
         if (window.innerWidth < 1024) return;
         const rect = e.currentTarget.getBoundingClientRect();
@@ -71,10 +71,10 @@ const ServiceCard = ({ service, index }) => {
 const Services = () => {
   return (
     <section id="services" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
-      {/* Contained background glow */}
-      <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', overflow: 'hidden', pointerEvents: 'none', zIndex: 0, contain: 'strict' }}>
-        <div style={{ position: 'absolute', top: '5%', right: '5%', width: 'min(50%, 260px)', height: 'min(50%, 260px)', background: 'rgba(34, 211, 238, 0.035)', borderRadius: '50%', filter: 'blur(50px)' }}></div>
-        <div style={{ position: 'absolute', bottom: '5%', left: '5%', width: 'min(50%, 240px)', height: 'min(50%, 240px)', background: 'rgba(99, 102, 241, 0.035)', borderRadius: '50%', filter: 'blur(50px)' }}></div>
+      {/* Contained background glow with clip-path */}
+      <div className="services-bg-glow">
+        <div style={{ position: 'absolute', top: '5%', right: '5%', width: 'min(45%, 240px)', height: 'min(45%, 240px)', background: 'rgba(34, 211, 238, 0.035)', borderRadius: '50%', filter: 'blur(45px)' }}></div>
+        <div style={{ position: 'absolute', bottom: '5%', left: '5%', width: 'min(45%, 220px)', height: 'min(45%, 220px)', background: 'rgba(99, 102, 241, 0.035)', borderRadius: '50%', filter: 'blur(45px)' }}></div>
       </div>
       
       <motion.div 
@@ -96,6 +96,19 @@ const Services = () => {
       </div>
 
       <style>{`
+        .services-bg-glow {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden !important;
+          pointer-events: none;
+          z-index: 0;
+          contain: strict;
+          clip-path: inset(0);
+          -webkit-clip-path: inset(0);
+        }
+
         .services-grid {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr));

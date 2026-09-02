@@ -12,9 +12,11 @@ const Navbar = () => {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
+      document.body.style.overflowX = 'hidden';
     }
     return () => {
       document.body.style.overflow = '';
+      document.body.style.overflowX = 'hidden';
     };
   }, [isOpen]);
 
@@ -39,7 +41,7 @@ const Navbar = () => {
     setIsOpen(false);
     const element = document.querySelector(href);
     if (element) {
-      const navHeight = 70;
+      const navHeight = 65;
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - navHeight;
       window.scrollTo({
@@ -100,10 +102,10 @@ const Navbar = () => {
         {isOpen && (
           <motion.div
             className="mobile-nav-overlay"
-            initial={{ opacity: 0, y: -14 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -14 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.22, ease: 'easeOut' }}
           >
             <div className="mobile-nav-header">
               <div className="logo-container" onClick={(e) => scrollToSection(e, '#home')}>
@@ -128,9 +130,9 @@ const Navbar = () => {
                   href={link.href}
                   onClick={(e) => scrollToSection(e, link.href)}
                   className="mobile-nav-link"
-                  initial={{ opacity: 0, x: -14 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.035 * idx, duration: 0.25 }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.03 * idx, duration: 0.2 }}
                 >
                   <span className="mobile-nav-index">0{idx + 1}</span>
                   <span className="mobile-nav-title">{link.name}</span>
@@ -143,7 +145,7 @@ const Navbar = () => {
                 href="#contact" 
                 onClick={(e) => scrollToSection(e, '#contact')}
                 className="btn btn-primary"
-                style={{ width: '100%', padding: '10px', fontSize: '0.92rem' }}
+                style={{ width: '100%', padding: '10px', fontSize: '0.9rem' }}
               >
                 Get in Touch
               </a>
@@ -157,16 +159,18 @@ const Navbar = () => {
           position: fixed;
           top: 0;
           left: 0;
+          right: 0;
           width: 100%;
-          max-width: 100vw;
+          max-width: 100%;
           display: flex;
           justify-content: center;
           align-items: center;
           z-index: 999;
           pointer-events: none;
-          padding: 14px 12px 0 12px;
+          padding: 12px 10px 0 10px;
           box-sizing: border-box;
           overflow: hidden;
+          margin: 0 auto;
         }
 
         .main-navbar {
@@ -179,7 +183,7 @@ const Navbar = () => {
           -webkit-backdrop-filter: none;
           border: 1px solid transparent;
           border-radius: 100px;
-          padding: 10px 22px;
+          padding: 9px 20px;
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -188,7 +192,7 @@ const Navbar = () => {
         }
 
         .main-navbar.nav-scrolled {
-          background: rgba(10, 15, 28, 0.85);
+          background: rgba(10, 15, 28, 0.88);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           border-color: rgba(255, 255, 255, 0.1);
@@ -214,8 +218,8 @@ const Navbar = () => {
         }
 
         .logo-img {
-          height: 34px;
-          width: 34px;
+          height: 32px;
+          width: 32px;
           border-radius: 50%;
           position: relative;
           z-index: 2;
@@ -224,8 +228,8 @@ const Navbar = () => {
         }
 
         .logo-img-mobile {
-          height: 30px;
-          width: 30px;
+          height: 28px;
+          width: 28px;
           border-radius: 50%;
           object-fit: cover;
           border: 1px solid rgba(255, 255, 255, 0.2);
@@ -239,7 +243,7 @@ const Navbar = () => {
           height: 100%;
           transform: translate(-50%, -50%);
           background: var(--blue);
-          filter: blur(10px);
+          filter: blur(8px);
           opacity: 0;
           transition: opacity 0.3s ease;
           z-index: 1;
@@ -252,7 +256,7 @@ const Navbar = () => {
 
         .logo-text {
           font-family: var(--heading);
-          font-size: clamp(1rem, 2.2vw, 1.15rem);
+          font-size: clamp(0.95rem, 2vw, 1.12rem);
           font-weight: 700;
           color: #ffffff;
           letter-spacing: -0.25px;
@@ -261,14 +265,14 @@ const Navbar = () => {
 
         .desktop-nav {
           display: flex;
-          gap: 22px;
+          gap: 20px;
           align-items: center;
         }
 
         .nav-link {
           color: #cbd5e1;
           font-weight: 500;
-          font-size: 0.88rem;
+          font-size: 0.85rem;
           position: relative;
           padding: 4px 0;
           transition: color 0.2s ease;
@@ -318,8 +322,10 @@ const Navbar = () => {
           position: fixed;
           top: 0;
           left: 0;
+          right: 0;
+          bottom: 0;
           width: 100%;
-          max-width: 100vw;
+          max-width: 100%;
           height: 100vh;
           height: 100dvh;
           background: rgba(2, 6, 23, 0.98);
@@ -401,7 +407,7 @@ const Navbar = () => {
         }
 
         .mobile-nav-title {
-          font-size: 1.05rem;
+          font-size: 1.02rem;
           font-weight: 600;
         }
 
@@ -433,7 +439,7 @@ const Navbar = () => {
             display: none !important;
           }
           .navbar-fixed-wrapper {
-            padding: 8px 10px 0 10px;
+            padding: 8px 8px 0 8px;
           }
           .main-navbar {
             padding: 6px 12px;

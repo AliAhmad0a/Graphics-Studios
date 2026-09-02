@@ -25,9 +25,9 @@ const testimonials = [
 const Testimonials = () => {
   return (
     <section id="testimonials" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
-      {/* Contained Background glow */}
-      <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', overflow: 'hidden', pointerEvents: 'none', zIndex: -1, contain: 'strict' }}>
-        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 'min(50%, 300px)', height: 'min(50%, 250px)', background: 'rgba(59, 130, 246, 0.04)', filter: 'blur(50px)' }}></div>
+      {/* Contained Background glow with clip-path */}
+      <div className="testimonials-bg-glow">
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 'min(45%, 280px)', height: 'min(45%, 230px)', background: 'rgba(59, 130, 246, 0.04)', filter: 'blur(45px)' }}></div>
       </div>
 
       <motion.div 
@@ -71,6 +71,19 @@ const Testimonials = () => {
       </div>
 
       <style>{`
+        .testimonials-bg-glow {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden !important;
+          pointer-events: none;
+          z-index: -1;
+          contain: strict;
+          clip-path: inset(0);
+          -webkit-clip-path: inset(0);
+        }
+
         .testimonials-grid {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));

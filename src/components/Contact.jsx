@@ -23,9 +23,9 @@ const Contact = () => {
 
   return (
     <section id="contact" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
-      {/* Contained Background Glow */}
-      <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', overflow: 'hidden', pointerEvents: 'none', zIndex: -1, contain: 'strict' }}>
-        <div style={{ position: 'absolute', bottom: '5%', right: '5%', width: 'min(50%, 280px)', height: 'min(50%, 280px)', background: 'rgba(59, 130, 246, 0.08)', borderRadius: '50%', filter: 'blur(50px)' }}></div>
+      {/* Contained Background Glow with clip-path */}
+      <div className="contact-bg-glow">
+        <div style={{ position: 'absolute', bottom: '5%', right: '5%', width: 'min(45%, 260px)', height: 'min(45%, 260px)', background: 'rgba(59, 130, 246, 0.08)', borderRadius: '50%', filter: 'blur(45px)' }}></div>
       </div>
 
       <div className="section-title">Get In <span className="gradient-text">Touch</span></div>
@@ -143,6 +143,19 @@ const Contact = () => {
 
       </div>
       <style>{`
+        .contact-bg-glow {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden !important;
+          pointer-events: none;
+          z-index: -1;
+          contain: strict;
+          clip-path: inset(0);
+          -webkit-clip-path: inset(0);
+        }
+
         .contact-grid {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
@@ -218,7 +231,7 @@ const Contact = () => {
         .contact-item-text {
           min-width: 0;
           flex: 1 1 auto;
-          overflow-wrap: break-word !important;
+          overflow-wrap: anywhere !important;
           word-break: break-all !important;
           max-width: calc(100% - 46px);
         }
@@ -235,7 +248,7 @@ const Contact = () => {
           font-size: clamp(0.8rem, 1.5vw, 0.92rem);
           line-height: 1.35;
           display: block;
-          overflow-wrap: break-word !important;
+          overflow-wrap: anywhere !important;
           word-break: break-all !important;
           max-width: 100%;
         }

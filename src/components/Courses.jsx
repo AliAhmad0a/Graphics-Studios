@@ -26,7 +26,7 @@ const CourseCard = ({ course, index }) => {
       initial={{ opacity: 0, scale: 0.96, y: 20 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
+      transition={{ duration: 0.4, delay: index * 0.04 }}
       onMouseMove={(e) => {
         if (window.innerWidth < 1024) return;
         const rect = e.currentTarget.getBoundingClientRect();

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const Mission = () => {
   return (
     <section className="section mission-section" style={{ position: 'relative', overflow: 'hidden' }}>
-      {/* Light Beams and Particles Background - Strictly Contained */}
+      {/* Light Beams and Particles Background - Strictly Contained with clip-path */}
       <div className="mission-bg-wrapper">
          <div className="light-beam beam-1"></div>
          <div className="light-beam beam-2"></div>
@@ -53,9 +53,9 @@ const Mission = () => {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          padding: clamp(50px, 8vh, 75px) clamp(12px, 4vw, 5%);
-          width: 100%;
-          max-width: 100vw;
+          padding: clamp(45px, 8vh, 70px) clamp(10px, 4%, 30px);
+          width: 100% !important;
+          max-width: 100% !important;
           overflow: hidden !important;
           contain: paint;
           box-sizing: border-box;
@@ -70,6 +70,8 @@ const Mission = () => {
           overflow: hidden !important;
           pointer-events: none;
           contain: strict;
+          clip-path: inset(0);
+          -webkit-clip-path: inset(0);
         }
 
         .mission-container {
@@ -96,7 +98,7 @@ const Mission = () => {
         }
 
         .mission-title {
-          font-size: clamp(1.5rem, 3.5vw, 2.3rem);
+          font-size: clamp(1.45rem, 3.5vw, 2.2rem);
           margin-bottom: clamp(10px, 1.8vw, 15px);
           font-weight: 800;
           letter-spacing: -0.025em;
@@ -113,7 +115,7 @@ const Mission = () => {
         }
 
         .mission-quote {
-          font-size: clamp(0.92rem, 1.8vw, 1.15rem);
+          font-size: clamp(0.9rem, 1.8vw, 1.12rem);
           line-height: 1.65;
           color: #e2e8f0;
           font-style: italic;
@@ -167,7 +169,7 @@ const Mission = () => {
 
         @media (max-width: 768px) {
           .mission-section {
-            padding: 38px 14px;
+            padding: 38px 12px;
           }
           .light-beam {
             display: none !important;

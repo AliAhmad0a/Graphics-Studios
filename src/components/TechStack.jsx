@@ -68,19 +68,19 @@ const TechStack = () => {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          width: clamp(72px, 10vw, 92px);
-          height: clamp(72px, 10vw, 92px);
+          width: clamp(70px, 9.5vw, 90px);
+          height: clamp(70px, 9.5vw, 90px);
           cursor: pointer;
           transition: border-color 0.25s ease, transform 0.25s ease;
           border-radius: clamp(10px, 1.8vw, 14px);
-          padding: 8px 5px;
+          padding: 8px 4px;
           box-sizing: border-box;
           flex-shrink: 0;
           min-width: 0;
         }
 
         .tech-icon {
-          font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+          font-size: clamp(1.45rem, 3vw, 2rem);
           margin-bottom: 4px;
           display: flex;
           align-items: center;
@@ -94,7 +94,7 @@ const TechStack = () => {
         }
 
         .tech-name {
-          font-size: clamp(0.68rem, 1.3vw, 0.8rem);
+          font-size: clamp(0.68rem, 1.3vw, 0.78rem);
           font-weight: 600;
           color: var(--text-main);
           text-align: center;

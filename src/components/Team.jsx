@@ -147,11 +147,13 @@ const Team = () => {
           height: 100%;
           background: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 60%);
           pointer-events: none;
+          clip-path: inset(0);
+          -webkit-clip-path: inset(0);
         }
 
         .founder-image-wrapper {
-          width: clamp(95px, 14vw, 135px);
-          height: clamp(95px, 14vw, 135px);
+          width: clamp(90px, 14vw, 130px);
+          height: clamp(90px, 14vw, 130px);
           border-radius: 50%;
           background: linear-gradient(135deg, #3b82f6, #0a42db);
           padding: 3px;
@@ -176,7 +178,7 @@ const Team = () => {
         }
 
         .founder-name {
-          font-size: clamp(1.25rem, 2.5vw, 1.85rem);
+          font-size: clamp(1.2rem, 2.5vw, 1.8rem);
           margin-bottom: 5px;
           font-weight: 700;
           line-height: 1.2;
@@ -270,8 +272,8 @@ const Team = () => {
         }
 
         .team-avatar-wrapper {
-          width: clamp(56px, 9vw, 72px);
-          height: clamp(56px, 9vw, 72px);
+          width: clamp(56px, 9vw, 70px);
+          height: clamp(56px, 9vw, 70px);
           border-radius: 50%;
           background: rgba(59, 130, 246, 0.1);
           display: flex;
