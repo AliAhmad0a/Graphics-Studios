@@ -6,17 +6,21 @@ import logo from '../assets/logo/logo.jpeg';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = '';
     }
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [isOpen]);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -35,121 +39,394 @@ const Navbar = () => {
     setIsOpen(false);
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const navHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navHeight;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
   return (
+    <>
       <motion.nav 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      style={{
-        position: 'fixed',
-        top: scrolled ? '15px' : '25px',
-        left: '5%',
-        right: '5%',
-        zIndex: 100,
-        transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
-        background: scrolled ? 'var(--glass)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(20px)' : 'none',
-        WebkitBackdropFilter: scrolled ? 'blur(20px)' : 'none',
-        border: scrolled ? '1px solid var(--glass-border)' : '1px solid transparent',
-        boxShadow: scrolled ? '0 10px 40px rgba(0,0,0,0.5)' : 'none',
-        borderRadius: '100px',
-        padding: '15px 30px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-      }}
-    >
-      <div 
-        style={{ display: 'flex', alignItems: 'center', gap: '15px', cursor: 'pointer' }} 
-        onClick={(e) => scrollToSection(e, '#home')}
-        className="logo-container"
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className={`main-navbar ${scrolled ? 'nav-scrolled' : ''}`}
       >
-        <div style={{ position: 'relative' }}>
-          <img src={logo} alt="Logo" style={{ height: '45px', borderRadius: '50%', position: 'relative', zIndex: 2 }} />
-          <div className="logo-glow"></div>
+        <div 
+          className="logo-container"
+          onClick={(e) => scrollToSection(e, '#home')}
+        >
+          <div className="logo-wrapper">
+            <img src={logo} alt="Graphics Studios Logo" className="logo-img" />
+            <div className="logo-glow"></div>
+          </div>
+          <span className="logo-text hide-mobile">
+            Graphics Studios
+          </span>
         </div>
-        <span style={{ fontSize: '1.3rem', fontWeight: '800', color: 'white', letterSpacing: '-0.5px' }} className="hide-mobile">
-          Graphics Studios
-        </span>
-      </div>
 
-      <div style={{ display: 'flex', gap: '35px', alignItems: 'center' }} className="desktop-nav">
-        {navLinks.map((link) => (
-          <a
-            key={link.name}
-            href={link.href}
-            onClick={(e) => scrollToSection(e, link.href)}
-            className="nav-link"
-          >
-            {link.name}
-            <div className="nav-underline"></div>
-          </a>
-        ))}
-      </div>
+        <div className="desktop-nav">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={(e) => scrollToSection(e, link.href)}
+              className="nav-link"
+            >
+              {link.name}
+              <div className="nav-underline"></div>
+            </a>
+          ))}
+        </div>
 
-      <div className="mobile-toggle" style={{ display: 'none', cursor: 'pointer', color: 'white' }} onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? <HiX size={30} /> : <HiMenuAlt3 size={30} />}
-      </div>
+        <button 
+          className="mobile-toggle"
+          aria-label={isOpen ? "Close Navigation Menu" : "Open Navigation Menu"}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <HiX size={26} /> : <HiMenuAlt3 size={26} />}
+        </button>
+      </motion.nav>
 
+      {/* Fullscreen Mobile Navigation Menu Overlay (Rendered outside transformed nav) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            style={{
-              position: 'fixed', top: 0, left: 0, right: 0, height: '100vh',
-              background: 'rgba(2, 6, 23, 0.95)', backdropFilter: 'blur(20px)',
-              padding: '80px 20px 20px 20px', borderRadius: '0', border: '1px solid rgba(255,255,255,0.1)',
-              display: 'flex', flexDirection: 'column', gap: '15px', boxShadow: '0 20px 40px rgba(0,0,0,0.5)', overflowY: 'auto',
-            }}
+            className="mobile-nav-overlay"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
           >
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => scrollToSection(e, link.href)}
-                style={{ color: 'white', fontSize: '1.2rem', fontWeight: '600', padding: '10px 20px', borderRadius: '12px', transition: 'background 0.3s' }}
-                onMouseEnter={(e) => e.target.style.background = 'rgba(255,255,255,0.05)'}
-                onMouseLeave={(e) => e.target.style.background = 'transparent'}
+            <div className="mobile-nav-header">
+              <div className="logo-container" onClick={(e) => scrollToSection(e, '#home')}>
+                <div className="logo-wrapper">
+                  <img src={logo} alt="Graphics Studios Logo" className="logo-img-mobile" />
+                </div>
+                <span className="logo-text">Graphics Studios</span>
+              </div>
+              <button 
+                className="mobile-close-btn"
+                aria-label="Close Navigation"
+                onClick={() => setIsOpen(false)}
               >
-                {link.name}
+                <HiX size={28} />
+              </button>
+            </div>
+
+            <div className="mobile-nav-links">
+              {navLinks.map((link, idx) => (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => scrollToSection(e, link.href)}
+                  className="mobile-nav-link"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05 * idx, duration: 0.3 }}
+                >
+                  <span className="mobile-nav-index">0{idx + 1}</span>
+                  <span className="mobile-nav-title">{link.name}</span>
+                </motion.a>
+              ))}
+            </div>
+
+            <div className="mobile-nav-footer">
+              <a 
+                href="#contact" 
+                onClick={(e) => scrollToSection(e, '#contact')}
+                className="btn btn-primary"
+                style={{ width: '100%', padding: '12px' }}
+              >
+                Get in Touch
               </a>
-            ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
 
       <style>{`
+        .main-navbar {
+          position: fixed;
+          top: 24px;
+          left: 5%;
+          right: 5%;
+          max-width: 1200px;
+          margin: 0 auto;
+          z-index: 999;
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          background: transparent;
+          backdrop-filter: none;
+          -webkit-backdrop-filter: none;
+          border: 1px solid transparent;
+          border-radius: 100px;
+          padding: 14px 28px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          box-sizing: border-box;
+        }
+
+        .main-navbar.nav-scrolled {
+          top: 14px;
+          background: rgba(10, 15, 28, 0.75);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border-color: rgba(255, 255, 255, 0.1);
+          box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.6);
+        }
+
+        .logo-container {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          cursor: pointer;
+          user-select: none;
+        }
+
+        .logo-wrapper {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .logo-img {
+          height: 42px;
+          width: 42px;
+          border-radius: 50%;
+          position: relative;
+          z-index: 2;
+          object-fit: cover;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .logo-img-mobile {
+          height: 38px;
+          width: 38px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
         .logo-glow {
-          position: absolute; top: 50%; left: 50%; width: 100%; height: 100%;
-          transform: translate(-50%, -50%); background: #3b82f6; filter: blur(15px);
-          opacity: 0; transition: opacity 0.3s; z-index: 1; border-radius: 50%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 100%;
+          height: 100%;
+          transform: translate(-50%, -50%);
+          background: var(--blue);
+          filter: blur(12px);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          z-index: 1;
+          border-radius: 50%;
         }
-        .logo-container:hover .logo-glow { opacity: 0.8; }
+
+        .logo-container:hover .logo-glow {
+          opacity: 0.8;
+        }
+
+        .logo-text {
+          font-family: var(--heading);
+          font-size: 1.25rem;
+          font-weight: 800;
+          color: #ffffff;
+          letter-spacing: -0.5px;
+        }
+
+        .desktop-nav {
+          display: flex;
+          gap: 32px;
+          align-items: center;
+        }
+
         .nav-link {
-          color: #cbd5e1; font-weight: 500; font-size: 0.95rem; position: relative; padding: 5px 0; transition: color 0.3s;
+          color: #cbd5e1;
+          font-weight: 500;
+          font-size: 0.95rem;
+          position: relative;
+          padding: 6px 0;
+          transition: color 0.3s ease;
         }
-        .nav-link:hover { color: white; }
+
+        .nav-link:hover {
+          color: #ffffff;
+        }
+
         .nav-underline {
-          position: absolute; bottom: 0; left: 0; width: 100%; height: 2px;
-          background: #3b82f6; transform: scaleX(0); transform-origin: right; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: var(--blue);
+          transform: scaleX(0);
+          transform-origin: right;
+          transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .nav-link:hover .nav-underline { transform: scaleX(1); transform-origin: left; }
+
+        .nav-link:hover .nav-underline {
+          transform: scaleX(1);
+          transform-origin: left;
+        }
+
+        .mobile-toggle {
+          display: none;
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          color: #ffffff;
+          border-radius: 12px;
+          padding: 8px;
+          cursor: pointer;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s ease;
+        }
+
+        .mobile-toggle:hover {
+          background: rgba(255, 255, 255, 0.1);
+          border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Mobile Menu Fullscreen Sheet */
+        .mobile-nav-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          height: 100dvh;
+          background: rgba(2, 6, 23, 0.97);
+          backdrop-filter: blur(25px);
+          -webkit-backdrop-filter: blur(25px);
+          z-index: 10000;
+          display: flex;
+          flex-direction: column;
+          padding: 20px 20px 30px 20px;
+          box-sizing: border-box;
+          overflow-y: auto;
+        }
+
+        .mobile-nav-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-bottom: 20px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+          margin-bottom: 24px;
+        }
+
+        .mobile-close-btn {
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          color: #ffffff;
+          width: 44px;
+          height: 44px;
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .mobile-close-btn:hover {
+          background: rgba(255, 255, 255, 0.15);
+        }
+
+        .mobile-nav-links {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          flex: 1;
+        }
+
+        .mobile-nav-link {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          padding: 14px 18px;
+          border-radius: 14px;
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid transparent;
+          color: #ffffff;
+          transition: all 0.2s ease;
+        }
+
+        .mobile-nav-link:hover, .mobile-nav-link:active {
+          background: rgba(59, 130, 246, 0.1);
+          border-color: rgba(59, 130, 246, 0.3);
+          color: #38bdf8;
+        }
+
+        .mobile-nav-index {
+          font-family: var(--heading);
+          font-size: 0.8rem;
+          color: var(--cyan);
+          font-weight: 700;
+        }
+
+        .mobile-nav-title {
+          font-size: 1.15rem;
+          font-weight: 600;
+        }
+
+        .mobile-nav-footer {
+          margin-top: 24px;
+          padding-top: 20px;
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Responsive Breakpoints */
         @media (max-width: 900px) {
-          .desktop-nav { display: none !important; }
-          .mobile-toggle { display: block !important; }
-          .hide-mobile { display: none !important; }
+          .desktop-nav {
+            display: none !important;
+          }
+          .mobile-toggle {
+            display: flex !important;
+          }
+          .main-navbar {
+            left: 4%;
+            right: 4%;
+            padding: 10px 18px;
+          }
         }
-        @media (max-width: 480px) {
-          nav { left: 3% !important; right: 3% !important; padding: 10px 16px !important; }
+
+        @media (max-width: 600px) {
+          .hide-mobile {
+            display: none !important;
+          }
+          .main-navbar {
+            top: 12px;
+            left: 3%;
+            right: 3%;
+            padding: 8px 14px;
+          }
+          .main-navbar.nav-scrolled {
+            top: 8px;
+          }
+          .logo-img {
+            height: 36px;
+            width: 36px;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .main-navbar {
+            left: 2%;
+            right: 2%;
+            padding: 6px 12px;
+          }
         }
       `}</style>
-    </motion.nav>
+    </>
   );
 };
 

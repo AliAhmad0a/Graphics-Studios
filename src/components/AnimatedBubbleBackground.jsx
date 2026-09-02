@@ -50,7 +50,7 @@ const AnimatedBubbleBackground = () => {
         y: (e.clientY / window.innerHeight - 0.5) * 20
       });
     };
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
@@ -84,7 +84,7 @@ const AnimatedBubbleBackground = () => {
 
       <style>{`
         .bubble-bg-container {
-          position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+          position: fixed; top: 0; left: 0; width: 100%; height: 100%;
           z-index: -2; overflow: hidden; pointer-events: none;
         }
         .bubble-gradient-bg {

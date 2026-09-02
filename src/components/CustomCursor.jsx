@@ -3,13 +3,13 @@ import React, { useEffect, useState, useRef } from 'react';
 const CustomCursor = () => {
   const cursorRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    // Don't show custom cursor on touch/mobile devices
-    const isTouch = window.matchMedia('(pointer: coarse)').matches;
-    setIsTouchDevice(isTouch);
-    if (isTouch) return;
+    // Only enable on desktop with fine pointer
+    const isFinePointer = window.matchMedia('(pointer: fine)').matches && window.innerWidth > 1024;
+    setEnabled(isFinePointer);
+    if (!isFinePointer) return;
 
     const onMove = (e) => {
       if (!cursorRef.current) return;
@@ -18,7 +18,7 @@ const CustomCursor = () => {
 
     const onOver = (e) => {
       const el = e.target;
-      setIsHovered(!!(el.closest('a') || el.closest('button') || el.closest('.glass-card')));
+      setIsHovered(!!(el.closest('a') || el.closest('button') || el.closest('.glass-card') || el.closest('.service-card') || el.closest('.tech-card') || el.closest('.portfolio-item')));
     };
 
     window.addEventListener('mousemove', onMove, { passive: true });
@@ -30,12 +30,12 @@ const CustomCursor = () => {
     };
   }, []);
 
-  if (isTouchDevice) return null;
+  if (!enabled) return null;
 
   return (
     <>
       <style>{`
-        @media (pointer: fine) {
+        @media (pointer: fine) and (min-width: 1025px) {
           body, a, button { cursor: none !important; }
         }
       `}</style>
@@ -44,18 +44,18 @@ const CustomCursor = () => {
         style={{
           position: 'fixed',
           top: 0, left: 0,
-          width: isHovered ? '50px' : '20px',
-          height: isHovered ? '50px' : '20px',
+          width: isHovered ? '48px' : '20px',
+          height: isHovered ? '48px' : '20px',
           borderRadius: '50%',
           background: isHovered ? 'rgba(59,130,246,0.12)' : 'rgba(59,130,246,0.85)',
           border: isHovered ? '1px solid rgba(59,130,246,0.8)' : 'none',
           boxShadow: '0 0 15px rgba(59,130,246,0.6)',
           pointerEvents: 'none',
-          zIndex: 9999,
+          zIndex: 99999,
           transition: 'width 0.15s ease, height 0.15s ease, background 0.15s ease, border 0.15s ease',
           willChange: 'transform',
-          marginTop: isHovered ? '-15px' : '0',
-          marginLeft: isHovered ? '-15px' : '0',
+          marginTop: isHovered ? '-14px' : '0',
+          marginLeft: isHovered ? '-14px' : '0',
         }}
       />
     </>

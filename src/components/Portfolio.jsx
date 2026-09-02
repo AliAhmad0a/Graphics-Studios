@@ -25,23 +25,25 @@ const projects = [
 
 const Portfolio = () => {
   return (
-    <section id="portfolio" className="section" style={{ position: 'relative' }}>
-      <div style={{ position: 'absolute', top: '10%', right: '-10%', width: '400px', height: '400px', background: 'rgba(59, 130, 246, 0.1)', borderRadius: '50%', filter: 'blur(150px)', zIndex: -1 }}></div>
+    <section id="portfolio" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Contained background glow */}
+      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden', pointerEvents: 'none', zIndex: -1 }}>
+        <div style={{ position: 'absolute', top: '10%', right: '5%', width: 'clamp(180px, 25vw, 350px)', height: 'clamp(180px, 25vw, 350px)', background: 'rgba(59, 130, 246, 0.08)', borderRadius: '50%', filter: 'blur(80px)' }}></div>
+      </div>
 
-      <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }} 
+        whileInView={{ opacity: 1, y: 0 }} 
+        viewport={{ once: true }}
+        style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}
+      >
         <div className="section-title">Our <span className="gradient-text">Masterpieces</span></div>
         <p className="section-subtitle">
           A glimpse into our creative journey and successful digital transformations.
         </p>
       </motion.div>
 
-      {/* Standard Grid */}
-      <motion.div layout style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', 
-        gap: '24px',
-        marginTop: '40px'
-      }}>
+      <motion.div layout className="portfolio-grid">
         <AnimatePresence>
           {projects.map((project) => (
             <motion.div
@@ -53,25 +55,20 @@ const Portfolio = () => {
               key={project.id}
               className="glass-card portfolio-item"
               onClick={() => { if(project.link) window.open(project.link, '_blank'); }}
-              style={{ 
-                overflow: 'hidden', position: 'relative', cursor: 'pointer',
-                display: 'flex', flexDirection: 'column', height: '100%',
-                borderRadius: '24px', padding: 0
-              }}
               whileHover={{ scale: 1.02, boxShadow: '0 20px 40px rgba(59, 130, 246, 0.2)' }}
             >
-              <div className="portfolio-img-container" style={{ width: '100%', overflow: 'hidden' }}>
-                <img src={project.img} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} className="portfolio-img" />
+              <div className="portfolio-img-container">
+                <img src={project.img} alt={project.title} className="portfolio-img" />
               </div>
               
-              <div className="portfolio-content" style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
-                <span style={{ display: 'inline-block', alignSelf: 'flex-start', padding: '6px 16px', background: 'rgba(59, 130, 246, 0.1)', color: '#60a5fa', borderRadius: '20px', fontSize: '0.8rem', fontWeight: '600', marginBottom: '15px', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
+              <div className="portfolio-content">
+                <span className="portfolio-category">
                   {project.category}
                 </span>
-                <h3 style={{ fontSize: '1.4rem', marginBottom: '10px', fontWeight: '700' }}>
+                <h3 className="portfolio-title">
                   {project.title}
                 </h3>
-                <div style={{ marginTop: 'auto', paddingTop: '20px' }}>
+                <div className="portfolio-footer">
                   <div className="view-btn">View Project &rarr;</div>
                 </div>
               </div>
@@ -81,15 +78,101 @@ const Portfolio = () => {
       </motion.div>
 
       <style>{`
-        .portfolio-img { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-        .portfolio-item:hover .portfolio-img { transform: scale(1.1); }
-        .view-btn {
-          color: var(--cyan); font-size: 0.9rem; font-weight: 600; text-transform: uppercase;
-          transition: all 0.3s; display: inline-flex; alignItems: center; gap: 8px;
+        .portfolio-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
+          gap: clamp(16px, 3vw, 24px);
+          max-width: 1200px;
+          margin: clamp(24px, 4vw, 40px) auto 0 auto;
+          width: 100%;
         }
-        .portfolio-item:hover .view-btn { color: #fff; }
-        .portfolio-img-container { height: 240px; }
-        .portfolio-content { padding: 25px; }
+
+        .portfolio-item {
+          overflow: hidden;
+          position: relative;
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+          border-radius: clamp(16px, 3vw, 24px);
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        .portfolio-img-container {
+          height: clamp(160px, 24vw, 240px);
+          width: 100%;
+          overflow: hidden;
+          position: relative;
+        }
+
+        .portfolio-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .portfolio-item:hover .portfolio-img {
+          transform: scale(1.08);
+        }
+
+        .portfolio-content {
+          padding: clamp(16px, 3.5vw, 24px);
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+        }
+
+        .portfolio-category {
+          display: inline-block;
+          align-self: flex-start;
+          padding: 5px 14px;
+          background: rgba(59, 130, 246, 0.1);
+          color: #60a5fa;
+          border-radius: 20px;
+          font-size: clamp(0.72rem, 1.8vw, 0.8rem);
+          font-weight: 600;
+          margin-bottom: clamp(10px, 2vw, 15px);
+          border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .portfolio-title {
+          font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+          margin-bottom: 8px;
+          font-weight: 700;
+          line-height: 1.25;
+        }
+
+        .portfolio-footer {
+          margin-top: auto;
+          padding-top: clamp(12px, 2.5vw, 18px);
+        }
+
+        .view-btn {
+          color: var(--cyan);
+          font-size: clamp(0.8rem, 2vw, 0.9rem);
+          font-weight: 600;
+          text-transform: uppercase;
+          transition: all 0.3s ease;
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+        }
+
+        .portfolio-item:hover .view-btn {
+          color: #ffffff;
+        }
+
+        @media (max-width: 480px) {
+          .portfolio-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+          }
+          .portfolio-img-container {
+            height: 180px;
+          }
+        }
       `}</style>
     </section>
   );

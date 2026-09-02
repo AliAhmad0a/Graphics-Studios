@@ -22,7 +22,7 @@ const ParticleNetwork = ({ count }) => {
   const maxConnections = count * count;
   const linePositions = useMemo(() => new Float32Array(maxConnections * 3), [maxConnections]);
   
-  const pulseCount = 15;
+  const pulseCount = 10;
   const pulses = useRef(Array.from({ length: pulseCount }, () => ({
     active: false, p1: 0, p2: 0, progress: 0, speed: Math.random() * 0.01 + 0.01
   })));
@@ -134,7 +134,7 @@ const GlassObjects = () => {
   return (
     <group>
       <Float speed={1} rotationIntensity={0.5} floatIntensity={1.5}>
-        <Sphere args={[1.2, 64, 64]} position={[4, 1, -2]}>
+        <Sphere args={[1.2, 32, 32]} position={[4, 1, -2]}>
           <meshPhysicalMaterial 
             color="#2563EB" 
             transparent 
@@ -150,7 +150,7 @@ const GlassObjects = () => {
       </Float>
       
       <Float speed={1.5} rotationIntensity={1} floatIntensity={2}>
-        <Sphere args={[0.8, 64, 64]} position={[-3, -2, -4]}>
+        <Sphere args={[0.8, 32, 32]} position={[-3, -2, -4]}>
           <meshPhysicalMaterial 
             color="#00D9FF" 
             transparent 
@@ -166,7 +166,7 @@ const GlassObjects = () => {
       </Float>
 
       <Float speed={0.8} rotationIntensity={0.8} floatIntensity={1}>
-        <Sphere args={[2, 64, 64]} position={[-5, 3, -6]}>
+        <Sphere args={[2, 32, 32]} position={[-5, 3, -6]}>
           <meshPhysicalMaterial 
             color="#ffffff" 
             transparent 
@@ -185,6 +185,7 @@ const GlassObjects = () => {
 
 const CameraParallax = () => {
     useFrame((state) => {
+        if (typeof window !== 'undefined' && window.innerWidth < 768) return;
         state.camera.position.x = THREE.MathUtils.lerp(state.camera.position.x, (state.mouse.x * 2), 0.05);
         state.camera.position.y = THREE.MathUtils.lerp(state.camera.position.y, (state.mouse.y * 2), 0.05);
         state.camera.lookAt(0, 0, 0);
@@ -207,18 +208,17 @@ const TechBackgroundScene = ({ count }) => {
 }
 
 const TechBackground = () => {
-    const [particleCount, setParticleCount] = useState(100);
+    const [particleCount, setParticleCount] = useState(80);
     
     useEffect(() => {
-        // Optimize for mobile
         if (window.innerWidth < 768) {
-            setParticleCount(50);
+            setParticleCount(35);
         }
     }, []);
 
     return (
         <div className="digital-grid" style={{
-            position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
+            position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
             zIndex: -2, pointerEvents: 'none', backgroundColor: '#020617', overflow: 'hidden'
         }}>
             <Suspense fallback={null}>
