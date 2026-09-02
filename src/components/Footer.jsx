@@ -81,8 +81,10 @@ const Footer = () => {
 
       <style>{`
         .footer-section {
-          background: #020617;
-          border-top: 1px solid rgba(255, 255, 255, 0.06);
+          background: rgba(2, 6, 23, 0.75);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
           padding-top: clamp(32px, 4.5vw, 48px);
           padding-bottom: 20px;
           width: 100% !important;
