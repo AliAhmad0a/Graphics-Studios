@@ -28,7 +28,7 @@ const TeamCard = ({ name, role, detail, image, link, delay }) => {
       initial={{ opacity: 0, scale: 0.96 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.42, delay }}
+      transition={{ duration: 0.45, delay }}
       onClick={() => { if(link) window.open(link, '_blank'); }}
       onMouseMove={(e) => {
         if (window.innerWidth < 1024) return;
@@ -68,10 +68,10 @@ const Team = () => {
 
       {/* Founder Section */}
       <motion.div 
-        initial={{ opacity: 0, y: 22 }} 
+        initial={{ opacity: 0, y: 26 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }} 
-        transition={{ duration: 0.52 }}
+        transition={{ duration: 0.55 }}
         className="vision-pro-glass founder-card"
       >
         <div className="founder-bg-glow"></div>
@@ -116,7 +116,7 @@ const Team = () => {
       </div>
       
       <motion.div 
-        initial={{ opacity: 0, y: 28 }} 
+        initial={{ opacity: 0, y: 32 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }} 
         transition={{ duration: 0.65 }}
@@ -127,15 +127,15 @@ const Team = () => {
 
       <style>{`
         .founder-card {
-          max-width: 700px;
-          margin: 0 auto clamp(25px, 3.5vw, 42px) auto;
+          max-width: 880px;
+          margin: 0 auto clamp(30px, 4.5vw, 50px) auto;
           display: flex;
-          gap: clamp(16px, 2.8vw, 28px);
+          gap: clamp(20px, 3.5vw, 36px);
           align-items: center;
-          border-radius: clamp(16px, 2.8vw, 22px);
+          border-radius: clamp(18px, 3.5vw, 26px);
           position: relative;
           overflow: hidden;
-          padding: clamp(18px, 3.2vw, 34px);
+          padding: clamp(22px, 4vw, 42px);
           box-sizing: border-box;
           width: 100%;
         }
@@ -151,11 +151,11 @@ const Team = () => {
         }
 
         .founder-image-wrapper {
-          width: clamp(90px, 13vw, 122px);
-          height: clamp(90px, 13vw, 122px);
+          width: clamp(115px, 16vw, 150px);
+          height: clamp(115px, 16vw, 150px);
           border-radius: 50%;
           background: linear-gradient(135deg, #3b82f6, #0a42db);
-          padding: 2.8px;
+          padding: 3.5px;
           flex-shrink: 0;
           position: relative;
           box-sizing: border-box;
@@ -176,24 +176,24 @@ const Team = () => {
         }
 
         .founder-name {
-          font-size: clamp(1.18rem, 2.3vw, 1.68rem);
-          margin-bottom: 5px;
+          font-size: clamp(1.45rem, 2.8vw, 2.05rem);
+          margin-bottom: 6px;
           font-weight: 700;
           line-height: 1.2;
         }
 
         .founder-badges {
           display: flex;
-          gap: 7px;
+          gap: 9px;
           flex-wrap: wrap;
-          margin-bottom: clamp(9px, 1.7vw, 13px);
+          margin-bottom: clamp(11px, 2vw, 16px);
         }
 
         .founder-badge {
-          padding: 3px 10px;
+          padding: 4px 13px;
           background: rgba(59, 130, 246, 0.1);
-          border-radius: 15px;
-          font-size: clamp(0.7rem, 1.4vw, 0.76rem);
+          border-radius: 18px;
+          font-size: clamp(0.85rem, 1.6vw, 0.94rem);
           color: #60a5fa;
           border: 1px solid rgba(59, 130, 246, 0.2);
           font-weight: 500;
@@ -201,23 +201,23 @@ const Team = () => {
 
         .founder-bio {
           color: #94a3b8;
-          line-height: 1.5;
-          font-size: clamp(0.76rem, 1.4vw, 0.86rem);
-          margin-bottom: clamp(11px, 1.8vw, 16px);
+          line-height: 1.55;
+          font-size: clamp(0.95rem, 1.7vw, 1.08rem);
+          margin-bottom: clamp(14px, 2.2vw, 20px);
         }
 
         .founder-btn {
-          padding: 7px 16px;
-          font-size: 0.78rem;
+          padding: 9px 20px;
+          font-size: 0.96rem;
         }
 
         .team-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
-          gap: clamp(11px, 1.8vw, 16px);
+          grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+          gap: clamp(14px, 2.2vw, 20px);
           position: relative;
           z-index: 1;
-          max-width: 1020px;
+          max-width: 1200px;
           margin: 0 auto;
           width: 100%;
         }
@@ -230,13 +230,13 @@ const Team = () => {
         }
 
         .team-card {
-          padding: clamp(14px, 2.2vw, 18px);
+          padding: clamp(18px, 2.6vw, 24px);
           text-align: center;
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 7px;
-          border-radius: clamp(11px, 1.8vw, 16px);
+          gap: 9px;
+          border-radius: clamp(14px, 2.2vw, 20px);
           cursor: pointer;
           height: 100%;
           width: 100%;
@@ -250,8 +250,8 @@ const Team = () => {
           position: absolute;
           top: 0;
           right: 0;
-          width: 70px;
-          height: 70px;
+          width: 85px;
+          height: 85px;
           background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
           opacity: 0;
           transition: opacity 0.3s ease;
@@ -263,16 +263,16 @@ const Team = () => {
         }
 
         .team-avatar-wrapper {
-          width: clamp(52px, 8.5vw, 64px);
-          height: clamp(52px, 8.5vw, 64px);
+          width: clamp(66px, 10vw, 80px);
+          height: clamp(66px, 10vw, 80px);
           border-radius: 50%;
           background: rgba(59, 130, 246, 0.1);
           display: flex;
           align-items: center;
           justify-content: center;
           overflow: hidden;
-          padding: 2px;
-          border: 1.5px solid rgba(59, 130, 246, 0.3);
+          padding: 2.5px;
+          border: 2px solid rgba(59, 130, 246, 0.3);
           flex-shrink: 0;
         }
 
@@ -288,33 +288,33 @@ const Team = () => {
         }
 
         .team-member-name {
-          font-size: clamp(0.86rem, 1.6vw, 0.98rem);
+          font-size: clamp(1.06rem, 1.9vw, 1.22rem);
           font-weight: 600;
-          margin-bottom: 2px;
+          margin-bottom: 3px;
         }
 
         .team-member-role {
-          font-size: 0.7rem;
+          font-size: 0.88rem;
           color: #3b82f6;
           font-weight: 600;
-          margin-bottom: 5px;
+          margin-bottom: 6px;
         }
 
         .team-member-detail {
-          font-size: clamp(0.7rem, 1.2vw, 0.78rem);
+          font-size: clamp(0.88rem, 1.5vw, 0.98rem);
           color: #94a3b8;
-          line-height: 1.42;
+          line-height: 1.45;
           margin: 0;
         }
 
         .team-workspace {
-          margin-top: clamp(22px, 3.5vw, 38px);
-          border-radius: clamp(13px, 2.2vw, 20px);
+          margin-top: clamp(28px, 4.5vw, 48px);
+          border-radius: clamp(16px, 2.6vw, 24px);
           overflow: hidden;
-          box-shadow: 0 18px 36px rgba(0, 0, 0, 0.4);
-          height: clamp(140px, 20vw, 255px);
+          box-shadow: 0 22px 45px rgba(0, 0, 0, 0.4);
+          height: clamp(170px, 24vw, 310px);
           width: 100%;
-          max-width: 920px;
+          max-width: 1100px;
           margin-left: auto;
           margin-right: auto;
         }
@@ -330,7 +330,7 @@ const Team = () => {
           .founder-card {
             flex-direction: column;
             text-align: center;
-            padding: 20px 14px;
+            padding: 24px 16px;
           }
           .founder-content {
             text-align: center;
@@ -343,10 +343,10 @@ const Team = () => {
         @media (max-width: 480px) {
           .team-grid {
             grid-template-columns: repeat(2, 1fr);
-            gap: 9px;
+            gap: 11px;
           }
           .team-card {
-            padding: 11px 7px;
+            padding: 14px 9px;
           }
         }
 

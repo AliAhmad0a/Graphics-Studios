@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Hero = () => {
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 70]);
+  const y1 = useTransform(scrollY, [0, 500], [0, 80]);
 
   return (
     <section id="home" className="hero-section">
@@ -13,7 +13,7 @@ const Hero = () => {
       >
         <motion.div
           className="hero-badge"
-          initial={{ opacity: 0, y: -14 }}
+          initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, ease: "easeOut" }}
         >
@@ -33,7 +33,7 @@ const Hero = () => {
         
         <motion.p 
           className="hero-p"
-          initial={{ opacity: 0, y: 7 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.22, duration: 0.65 }}
         >
@@ -42,7 +42,7 @@ const Hero = () => {
         
         <motion.div 
           className="hero-btns"
-          initial={{ opacity: 0, y: 7 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.35, duration: 0.65 }}
         >
@@ -53,14 +53,14 @@ const Hero = () => {
 
       <style>{`
         .hero-section {
-          min-height: 85vh;
-          min-height: 85dvh;
+          min-height: 90vh;
+          min-height: 90dvh;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           position: relative;
-          padding: 78px 5% 38px 5%;
+          padding: 95px 5% 48px 5%;
           overflow: hidden;
           width: 100%;
           max-width: 100%;
@@ -72,7 +72,7 @@ const Hero = () => {
         .hero-content {
           z-index: 1;
           text-align: center;
-          max-width: 700px;
+          max-width: 860px;
           width: 100%;
           margin: 0 auto;
           display: flex;
@@ -86,32 +86,32 @@ const Hero = () => {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          margin: 0 auto clamp(11px, 2.2vw, 16px) auto;
-          padding: 5px 13px;
+          margin: 0 auto clamp(14px, 2.6vw, 20px) auto;
+          padding: 6px 16px;
           background: rgba(255, 255, 255, 0.04);
           border: 1px solid rgba(255, 255, 255, 0.09);
           border-radius: 100px;
-          font-size: clamp(0.7rem, 1.6vw, 0.78rem);
+          font-size: clamp(0.85rem, 1.8vw, 0.95rem);
           color: var(--text-main);
           max-width: 95%;
           letter-spacing: 0.2px;
         }
 
         .hero-badge-dot {
-          width: 6.5px;
-          height: 6.5px;
+          width: 8px;
+          height: 8px;
           background: var(--cyan);
           border-radius: 50%;
           display: inline-block;
-          margin-right: 7px;
-          box-shadow: 0 0 7px var(--cyan);
+          margin-right: 8px;
+          box-shadow: 0 0 8px var(--cyan);
           flex-shrink: 0;
         }
 
         .hero-title {
-          font-size: clamp(1.6rem, 3.8vw, 2.9rem);
+          font-size: clamp(2.1rem, 5vw, 3.8rem);
           line-height: 1.1;
-          margin: 0 auto clamp(11px, 2.2vw, 16px) auto;
+          margin: 0 auto clamp(14px, 2.6vw, 20px) auto;
           letter-spacing: -0.035em;
           font-weight: 700;
           width: 100%;
@@ -120,48 +120,48 @@ const Hero = () => {
         }
 
         .hero-p {
-          font-size: clamp(0.82rem, 1.6vw, 0.98rem);
+          font-size: clamp(1.05rem, 2.1vw, 1.25rem);
           color: #94a3b8;
-          line-height: 1.55;
-          max-width: 530px;
+          line-height: 1.6;
+          max-width: 660px;
           width: 100%;
-          margin: 0 auto clamp(20px, 3.2vw, 32px) auto;
-          padding: 0 9px;
+          margin: 0 auto clamp(24px, 3.8vw, 40px) auto;
+          padding: 0 10px;
           box-sizing: border-box;
           text-align: center;
         }
 
         .hero-btns {
           display: flex;
-          gap: 9px;
+          gap: 12px;
           justify-content: center;
           align-items: center;
           flex-wrap: wrap;
           width: 100%;
-          max-width: 390px;
+          max-width: 480px;
           margin: 0 auto;
         }
 
         @media (max-width: 768px) {
           .hero-section {
-            padding: 68px 15px 32px 15px;
-            min-height: 80vh;
+            padding: 85px 16px 38px 16px;
+            min-height: 85vh;
           }
         }
 
         @media (max-width: 480px) {
           .hero-section {
-            padding: 62px 12px 24px 12px;
+            padding: 78px 14px 30px 14px;
             min-height: auto;
           }
           .hero-btns {
             flex-direction: column;
             width: 100%;
-            gap: 8px;
+            gap: 10px;
           }
           .hero-btns .btn {
             width: 100%;
-            max-width: 230px;
+            max-width: 270px;
           }
         }
       `}</style>

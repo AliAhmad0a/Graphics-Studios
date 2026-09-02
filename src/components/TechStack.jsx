@@ -22,10 +22,10 @@ const TechStack = () => {
   return (
     <section id="tech-stack" className="section" style={{ position: 'relative' }}>
       <motion.div 
-        initial={{ opacity: 0, y: 22 }} 
+        initial={{ opacity: 0, y: 26 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
-        style={{ width: '100%', maxWidth: '800px', margin: '0 auto' }}
+        style={{ width: '100%', maxWidth: '1000px', margin: '0 auto' }}
       >
         <div className="section-title">Powered by <span className="gradient-text">Next-Gen Tech</span></div>
         <p className="section-subtitle">
@@ -56,8 +56,8 @@ const TechStack = () => {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
-          gap: clamp(7px, 1.6vw, 12px);
-          max-width: 800px;
+          gap: clamp(9px, 1.8vw, 15px);
+          max-width: 980px;
           margin: 0 auto;
           width: 100%;
           box-sizing: border-box;
@@ -68,19 +68,19 @@ const TechStack = () => {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          width: clamp(66px, 9vw, 84px);
-          height: clamp(66px, 9vw, 84px);
+          width: clamp(82px, 11vw, 105px);
+          height: clamp(82px, 11vw, 105px);
           cursor: pointer;
           transition: border-color 0.25s ease, transform 0.25s ease;
-          border-radius: clamp(9px, 1.6vw, 13px);
-          padding: 7px 5px;
+          border-radius: clamp(11px, 1.8vw, 16px);
+          padding: 9px 6px;
           box-sizing: border-box;
           flex-shrink: 0;
         }
 
         .tech-icon {
-          font-size: clamp(1.42rem, 2.8vw, 1.9rem);
-          margin-bottom: 3.5px;
+          font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+          margin-bottom: 4px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -92,7 +92,7 @@ const TechStack = () => {
         }
 
         .tech-name {
-          font-size: clamp(0.64rem, 1.2vw, 0.72rem);
+          font-size: clamp(0.78rem, 1.4vw, 0.88rem);
           font-weight: 600;
           color: var(--text-main);
           text-align: center;
@@ -106,21 +106,21 @@ const TechStack = () => {
           .tech-grid-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 7px;
+            gap: 8px;
           }
           .tech-card {
             width: 100%;
-            height: 68px;
+            height: 82px;
           }
         }
 
         @media (max-width: 360px) {
           .tech-grid-container {
             grid-template-columns: repeat(3, 1fr);
-            gap: 6px;
+            gap: 7px;
           }
           .tech-card {
-            height: 64px;
+            height: 76px;
           }
         }
       `}</style>

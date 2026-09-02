@@ -26,10 +26,10 @@ const ServiceCard = ({ service, index }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 28, scale: 0.96 }}
+      initial={{ opacity: 0, y: 32, scale: 0.96 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.42, delay: index * 0.05 }}
+      transition={{ duration: 0.45, delay: index * 0.05 }}
       onMouseMove={(e) => {
         if (window.innerWidth < 1024) return;
         const rect = e.currentTarget.getBoundingClientRect();
@@ -73,15 +73,15 @@ const Services = () => {
     <section id="services" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Contained background glow */}
       <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden', pointerEvents: 'none', zIndex: 0 }}>
-        <div style={{ position: 'absolute', top: '5%', right: '5%', width: 'clamp(145px, 18vw, 270px)', height: 'clamp(145px, 18vw, 270px)', background: 'rgba(34, 211, 238, 0.035)', borderRadius: '50%', filter: 'blur(60px)' }}></div>
-        <div style={{ position: 'absolute', bottom: '5%', left: '5%', width: 'clamp(125px, 16vw, 235px)', height: 'clamp(125px, 16vw, 235px)', background: 'rgba(99, 102, 241, 0.035)', borderRadius: '50%', filter: 'blur(60px)' }}></div>
+        <div style={{ position: 'absolute', top: '5%', right: '5%', width: 'clamp(180px, 22vw, 340px)', height: 'clamp(180px, 22vw, 340px)', background: 'rgba(34, 211, 238, 0.035)', borderRadius: '50%', filter: 'blur(70px)' }}></div>
+        <div style={{ position: 'absolute', bottom: '5%', left: '5%', width: 'clamp(160px, 20vw, 300px)', height: 'clamp(160px, 20vw, 300px)', background: 'rgba(99, 102, 241, 0.035)', borderRadius: '50%', filter: 'blur(70px)' }}></div>
       </div>
       
       <motion.div 
-        initial={{ opacity: 0, y: 22 }} 
+        initial={{ opacity: 0, y: 26 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
-        style={{ width: '100%', maxWidth: '1020px', margin: '0 auto', position: 'relative', zIndex: 1 }}
+        style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}
       >
         <div className="section-title">Our <span className="gradient-text">Expertise</span></div>
         <p className="section-subtitle">
@@ -98,11 +98,11 @@ const Services = () => {
       <style>{`
         .services-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr));
-          gap: clamp(11px, 1.8vw, 16px);
+          grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+          gap: clamp(14px, 2.2vw, 22px);
           position: relative;
           z-index: 1;
-          max-width: 1020px;
+          max-width: 1200px;
           margin: 0 auto;
           width: 100%;
         }
@@ -123,11 +123,11 @@ const Services = () => {
           transform-style: preserve-3d;
           cursor: pointer;
           position: relative;
-          border-radius: clamp(11px, 1.8vw, 15px);
+          border-radius: clamp(14px, 2.2vw, 18px);
         }
 
         .service-img-container {
-          height: clamp(110px, 14vw, 145px);
+          height: clamp(140px, 17vw, 185px);
           width: 100%;
           overflow: hidden;
           position: relative;
@@ -145,7 +145,7 @@ const Services = () => {
         }
 
         .service-content {
-          padding: clamp(12px, 1.8vw, 15px);
+          padding: clamp(15px, 2.2vw, 20px);
           flex: 1;
           display: flex;
           flex-direction: column;
@@ -154,26 +154,26 @@ const Services = () => {
         .service-header {
           display: flex;
           align-items: center;
-          gap: 9px;
-          margin-bottom: 7px;
+          gap: 11px;
+          margin-bottom: 9px;
         }
 
         .service-icon {
-          width: 32px;
-          height: 32px;
-          border-radius: 9px;
+          width: 38px;
+          height: 38px;
+          border-radius: 11px;
           background: rgba(6, 182, 212, 0.1);
           display: flex;
           align-items: center;
           justify-content: center;
           color: var(--cyan);
-          font-size: 0.96rem;
-          box-shadow: inset 0 0 9px rgba(6, 182, 212, 0.2);
+          font-size: 1.15rem;
+          box-shadow: inset 0 0 11px rgba(6, 182, 212, 0.2);
           flex-shrink: 0;
         }
 
         .service-title {
-          font-size: clamp(0.86rem, 1.6vw, 0.98rem);
+          font-size: clamp(1.05rem, 1.9vw, 1.22rem);
           font-weight: 700;
           margin: 0;
           line-height: 1.25;
@@ -181,9 +181,9 @@ const Services = () => {
 
         .service-desc {
           color: #94a3b8;
-          line-height: 1.48;
-          font-size: clamp(0.74rem, 1.3vw, 0.82rem);
-          margin-bottom: 10px;
+          line-height: 1.5;
+          font-size: clamp(0.92rem, 1.6vw, 1.02rem);
+          margin-bottom: 12px;
           flex: 1;
         }
 
@@ -192,8 +192,8 @@ const Services = () => {
           font-weight: 600;
           display: flex;
           align-items: center;
-          gap: 5px;
-          font-size: 0.7rem;
+          gap: 6px;
+          font-size: 0.86rem;
           margin-top: auto;
           text-transform: uppercase;
           letter-spacing: 0.5px;
@@ -202,10 +202,10 @@ const Services = () => {
         @media (max-width: 480px) {
           .services-grid {
             grid-template-columns: 1fr;
-            gap: 11px;
+            gap: 14px;
           }
           .service-img-container {
-            height: 130px;
+            height: 160px;
           }
         }
       `}</style>

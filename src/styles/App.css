@@ -1,5 +1,5 @@
 /* ============================================================
-   GLOBAL VARIABLES & PRO COMPACT BALANCED DESIGN SYSTEM
+   GLOBAL VARIABLES & PRO COMPACT BALANCED DESIGN SYSTEM (+30%)
    ============================================================ */
 :root {
   --primary: #0a42db;
@@ -16,19 +16,19 @@
   --blue: #3b82f6;
   --electric: #8b5cf6;
   --accent: #3b82f6;
-  --accent-glow: rgba(59, 130, 246, 0.38);
+  --accent-glow: rgba(59, 130, 246, 0.4);
   --border: rgba(255, 255, 255, 0.08);
   --glass: rgba(10, 15, 28, 0.6);
   --glass-bg: rgba(11, 17, 32, 0.65);
   --glass-border: rgba(255, 255, 255, 0.08);
-  --shadow-soft: 0 9px 30px -9px rgba(0, 0, 0, 0.5);
-  --shadow-glow: 0 0 16px rgba(10, 66, 219, 0.32);
+  --shadow-soft: 0 10px 35px -10px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(10, 66, 219, 0.35);
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   --heading: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   
   font-family: var(--sans);
-  font-size: 13.8px;
-  line-height: 1.58;
+  font-size: 16.5px;
+  line-height: 1.6;
   color-scheme: dark;
   color: var(--text-main);
   background-color: var(--background-dark);
@@ -134,7 +134,7 @@ ul, ol {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading);
   color: var(--text-h);
-  margin: 0 0 0.55rem 0;
+  margin: 0 0 0.65rem 0;
   font-weight: 700;
   letter-spacing: -0.025em;
   line-height: 1.2;
@@ -153,10 +153,10 @@ p, span, div, a {
    ============================================================ */
 .glass-card {
   background: var(--glass-bg);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
-  border-radius: 14px;
+  border-radius: 18px;
   box-shadow: var(--shadow-soft);
   position: relative;
   overflow: hidden !important;
@@ -170,7 +170,7 @@ p, span, div, a {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.13), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -182,10 +182,10 @@ p, span, div, a {
 
 .vision-pro-glass {
   background: rgba(11, 17, 32, 0.45);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  box-shadow: inset 0 0 14px rgba(255, 255, 255, 0.015), 0 14px 32px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 16px rgba(255, 255, 255, 0.02), 0 16px 36px rgba(0, 0, 0, 0.35);
   width: 100%;
   max-width: 100%;
   overflow: hidden !important;
@@ -193,7 +193,7 @@ p, span, div, a {
 }
 
 .glow-text {
-  text-shadow: 0 0 9px var(--accent-glow);
+  text-shadow: 0 0 10px var(--accent-glow);
 }
 
 .gradient-text {
@@ -210,11 +210,11 @@ p, span, div, a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 8px 20px;
-  border-radius: 8px;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 10px;
   font-weight: 600;
-  font-size: 0.84rem;
+  font-size: 0.96rem;
   font-family: var(--heading);
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -233,8 +233,8 @@ p, span, div, a {
 }
 
 .btn-primary:hover {
-  transform: translateY(-1.5px);
-  box-shadow: 0 0 22px var(--accent-glow);
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px var(--accent-glow);
   color: #ffffff;
 }
 
@@ -247,7 +247,7 @@ p, span, div, a {
 .btn-outline:hover {
   background: rgba(59, 130, 246, 0.12);
   border-color: var(--accent);
-  transform: translateY(-1.5px);
+  transform: translateY(-2px);
   color: #ffffff;
 }
 
@@ -255,7 +255,7 @@ p, span, div, a {
    SECTIONS & CONTAINERS
    ============================================================ */
 .section {
-  padding: 62px 5%;
+  padding: 80px 5%;
   position: relative;
   width: 100%;
   max-width: 100%;
@@ -280,8 +280,8 @@ p, span, div, a {
 
 .section-title {
   font-family: var(--heading);
-  font-size: clamp(1.42rem, 3vw, 2.05rem);
-  margin-bottom: 9px;
+  font-size: clamp(1.85rem, 4vw, 2.65rem);
+  margin-bottom: 12px;
   text-align: center;
   font-weight: 700;
   letter-spacing: -0.03em;
@@ -294,11 +294,11 @@ p, span, div, a {
 .section-subtitle {
   text-align: center;
   color: #94a3b8;
-  max-width: 540px;
-  margin: 0 auto clamp(20px, 3.2vw, 36px) auto;
-  font-size: clamp(0.82rem, 1.6vw, 0.94rem);
+  max-width: 680px;
+  margin: 0 auto clamp(26px, 4.2vw, 46px) auto;
+  font-size: clamp(1.05rem, 2.1vw, 1.22rem);
   line-height: 1.55;
-  padding: 0 9px;
+  padding: 0 10px;
   width: 100%;
   box-sizing: border-box;
   overflow-wrap: anywhere;
@@ -308,13 +308,13 @@ p, span, div, a {
 input, textarea, select {
   width: 100%;
   max-width: 100%;
-  padding: 9px 13px;
+  padding: 11px 16px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 8px;
+  border-radius: 10px;
   color: white;
   font-family: inherit;
-  font-size: 0.84rem;
+  font-size: 0.98rem;
   transition: all 0.25s ease;
   box-sizing: border-box;
 }
@@ -322,11 +322,11 @@ input, textarea, select {
 input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 9px rgba(59, 130, 246, 0.25);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.25);
 }
 
 .digital-grid {
-  background-size: 36px 36px;
+  background-size: 44px 44px;
   background-image: 
     linear-gradient(to right, rgba(59, 130, 246, 0.045) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(59, 130, 246, 0.045) 1px, transparent 1px);
@@ -339,7 +339,7 @@ input:focus, textarea:focus, select:focus {
 /* Disable 3D transforms that break 2D overflow clipping on touch devices */
 @media (max-width: 1024px) {
   .section {
-    padding: 52px 4%;
+    padding: 68px 4%;
   }
 
   .service-card-outer, .course-card-outer, .team-card-outer {
@@ -357,115 +357,115 @@ input:focus, textarea:focus, select:focus {
 /* Tablet ≤ 900px */
 @media (max-width: 900px) {
   .section {
-    padding: 45px 4%;
+    padding: 58px 4%;
   }
   .section-title {
-    font-size: clamp(1.3rem, 3.2vw, 1.8rem);
+    font-size: clamp(1.65rem, 4vw, 2.3rem);
   }
   .section-subtitle {
-    font-size: 0.85rem;
-    margin-bottom: 25px;
+    font-size: 1.05rem;
+    margin-bottom: 32px;
   }
 }
 
 /* Main Tablet / Mobile Breakpoint ≤ 768px */
 @media (max-width: 768px) {
   :root {
-    font-size: 13px;
+    font-size: 15.5px;
   }
 
   .section {
-    padding: 40px 14px;
+    padding: 50px 16px;
   }
 
   .section-title {
-    font-size: clamp(1.25rem, 4.2vw, 1.62rem);
-    margin-bottom: 7px;
+    font-size: clamp(1.55rem, 5.2vw, 2.1rem);
+    margin-bottom: 10px;
   }
 
   .section-subtitle {
-    font-size: 0.82rem;
-    margin-bottom: 20px;
-    padding: 0 4px;
+    font-size: 0.98rem;
+    margin-bottom: 26px;
+    padding: 0 6px;
   }
 
   .btn {
-    padding: 8px 17px;
-    font-size: 0.8rem;
+    padding: 10px 22px;
+    font-size: 0.94rem;
   }
 }
 
 /* Mobile ≤ 600px */
 @media (max-width: 600px) {
   .section {
-    padding: 34px 12px;
+    padding: 44px 14px;
   }
 }
 
 /* Mobile Screens ≤ 480px */
 @media (max-width: 480px) {
   :root {
-    font-size: 12.5px;
+    font-size: 15px;
   }
 
   .section {
-    padding: 30px 10px;
+    padding: 38px 12px;
   }
 
   .section-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
 
   .section-subtitle {
-    font-size: 0.78rem;
-    line-height: 1.48;
-    margin-bottom: 16px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
   }
 
   .btn {
-    padding: 7px 15px;
-    font-size: 0.78rem;
-    border-radius: 7px;
+    padding: 9px 18px;
+    font-size: 0.9rem;
+    border-radius: 8px;
   }
 }
 
 /* Very Small Mobile Screens ≤ 360px */
 @media (max-width: 360px) {
   :root {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .section {
-    padding: 25px 8px;
+    padding: 32px 10px;
   }
 
   .section-title {
-    font-size: 1.15rem;
+    font-size: 1.35rem;
   }
 
   .section-subtitle {
-    font-size: 0.74rem;
-    margin-bottom: 14px;
+    font-size: 0.88rem;
+    margin-bottom: 16px;
   }
 
   .btn {
-    padding: 6px 12px;
-    font-size: 0.74rem;
+    padding: 8px 15px;
+    font-size: 0.85rem;
   }
 }
 
 /* Extra Small Screens ≤ 320px */
 @media (max-width: 320px) {
   .section {
-    padding: 20px 6px;
+    padding: 26px 8px;
   }
 
   .section-title {
-    font-size: 1.08rem;
+    font-size: 1.25rem;
   }
 
   .btn {
-    padding: 6px 10px;
-    font-size: 0.72rem;
+    padding: 7px 12px;
+    font-size: 0.8rem;
   }
 }
