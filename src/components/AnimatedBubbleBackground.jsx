@@ -89,7 +89,7 @@ const AnimatedBubbleBackground = () => {
         }
         .bubble-gradient-bg {
           position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-          background: linear-gradient(135deg, var(--background), #071A3D, #0A2463, var(--background));
+          background: linear-gradient(135deg, var(--background), var(--navy), var(--charcoal), var(--background));
           background-size: 400% 400%;
           animation: gradientShift 20s ease infinite;
         }

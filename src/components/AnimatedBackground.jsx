@@ -36,7 +36,7 @@ const AnimatedBackground = () => {
                         }
                     },
                     particles: {
-                        color: { value: ["#ffffff", "#22d3ee", "#8b5cf6"] },
+                        color: { value: ["#3b82f6", "#22d3ee", "#8b5cf6"] },
                         links: { 
                             color: "#22d3ee", distance: 150, enable: true, opacity: 0.15, width: 1,
                             triangles: { enable: true, opacity: 0.03 } 

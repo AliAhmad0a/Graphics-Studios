@@ -42,9 +42,9 @@ const Loader = () => {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
-        style={{ fontFamily: 'Space Grotesk', fontSize: '1rem', color: 'white', letterSpacing: '2px' }}
+        style={{ fontFamily: 'Space Grotesk', fontSize: '1rem', color: 'var(--text-h)', letterSpacing: '2px' }}
       >
-        INITIALIZING <span style={{ color: '#3b82f6' }}>AI ENGINE</span>
+        INITIALIZING <span style={{ color: 'var(--accent)' }}>AI ENGINE</span>
       </motion.div>
     </motion.div>
   );

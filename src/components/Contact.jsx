@@ -322,10 +322,10 @@ const Contact = () => {
           min-width: 0;
           width: 100%;
           padding: clamp(9px, 1.6vw, 12px) clamp(10px, 1.8vw, 14px);
-          background: rgba(2, 6, 23, 0.5);
-          border: 1px solid rgba(255, 255, 255, 0.09);
+          background: var(--white-alpha-04);
+          border: 1px solid var(--border);
           border-radius: 9px;
-          color: white;
+          color: var(--text-h);
           font-family: var(--sans);
           font-size: clamp(0.85rem, 1.5vw, 0.94rem);
           transition: all 0.25s ease;
@@ -354,7 +354,7 @@ const Contact = () => {
 
         select.neon-input option {
           background: var(--navy);
-          color: white;
+          color: var(--text-h);
         }
 
         .contact-submit-btn {
