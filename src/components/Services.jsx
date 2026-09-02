@@ -26,10 +26,10 @@ const ServiceCard = ({ service, index }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 32, scale: 0.96 }}
+      initial={{ opacity: 0, y: 25, scale: 0.96 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.45, delay: index * 0.05 }}
+      transition={{ duration: 0.42, delay: index * 0.05 }}
       onMouseMove={(e) => {
         if (window.innerWidth < 1024) return;
         const rect = e.currentTarget.getBoundingClientRect();
@@ -72,16 +72,16 @@ const Services = () => {
   return (
     <section id="services" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Contained background glow */}
-      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden', pointerEvents: 'none', zIndex: 0 }}>
-        <div style={{ position: 'absolute', top: '5%', right: '5%', width: 'clamp(180px, 22vw, 340px)', height: 'clamp(180px, 22vw, 340px)', background: 'rgba(34, 211, 238, 0.035)', borderRadius: '50%', filter: 'blur(70px)' }}></div>
-        <div style={{ position: 'absolute', bottom: '5%', left: '5%', width: 'clamp(160px, 20vw, 300px)', height: 'clamp(160px, 20vw, 300px)', background: 'rgba(99, 102, 241, 0.035)', borderRadius: '50%', filter: 'blur(70px)' }}></div>
+      <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', overflow: 'hidden', pointerEvents: 'none', zIndex: 0, contain: 'strict' }}>
+        <div style={{ position: 'absolute', top: '5%', right: '5%', width: 'min(50%, 260px)', height: 'min(50%, 260px)', background: 'rgba(34, 211, 238, 0.035)', borderRadius: '50%', filter: 'blur(50px)' }}></div>
+        <div style={{ position: 'absolute', bottom: '5%', left: '5%', width: 'min(50%, 240px)', height: 'min(50%, 240px)', background: 'rgba(99, 102, 241, 0.035)', borderRadius: '50%', filter: 'blur(50px)' }}></div>
       </div>
       
       <motion.div 
-        initial={{ opacity: 0, y: 26 }} 
+        initial={{ opacity: 0, y: 20 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
-        style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}
+        style={{ width: '100%', maxWidth: '1140px', margin: '0 auto', position: 'relative', zIndex: 1, boxSizing: 'border-box' }}
       >
         <div className="section-title">Our <span className="gradient-text">Expertise</span></div>
         <p className="section-subtitle">
@@ -98,13 +98,14 @@ const Services = () => {
       <style>{`
         .services-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
-          gap: clamp(14px, 2.2vw, 22px);
+          grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr));
+          gap: clamp(12px, 2vw, 18px);
           position: relative;
           z-index: 1;
-          max-width: 1200px;
+          max-width: 1140px;
           margin: 0 auto;
           width: 100%;
+          box-sizing: border-box;
         }
 
         .service-card-outer {
@@ -112,25 +113,31 @@ const Services = () => {
           -webkit-perspective: 1000px;
           height: 100%;
           display: flex;
+          width: 100%;
+          min-width: 0;
+          box-sizing: border-box;
         }
 
         .service-card {
-          overflow: hidden;
+          overflow: hidden !important;
           display: flex;
           flex-direction: column;
           height: 100%;
           width: 100%;
+          min-width: 0;
           transform-style: preserve-3d;
           cursor: pointer;
           position: relative;
-          border-radius: clamp(14px, 2.2vw, 18px);
+          border-radius: clamp(12px, 2vw, 16px);
+          box-sizing: border-box;
         }
 
         .service-img-container {
-          height: clamp(140px, 17vw, 185px);
+          height: clamp(120px, 16vw, 160px);
           width: 100%;
           overflow: hidden;
           position: relative;
+          box-sizing: border-box;
         }
 
         .service-img {
@@ -145,46 +152,53 @@ const Services = () => {
         }
 
         .service-content {
-          padding: clamp(15px, 2.2vw, 20px);
+          padding: clamp(12px, 2vw, 18px);
           flex: 1;
           display: flex;
           flex-direction: column;
+          min-width: 0;
+          box-sizing: border-box;
         }
 
         .service-header {
           display: flex;
           align-items: center;
-          gap: 11px;
-          margin-bottom: 9px;
+          gap: 10px;
+          margin-bottom: 8px;
+          min-width: 0;
         }
 
         .service-icon {
-          width: 38px;
-          height: 38px;
-          border-radius: 11px;
+          width: 34px;
+          height: 34px;
+          border-radius: 9px;
           background: rgba(6, 182, 212, 0.1);
           display: flex;
           align-items: center;
           justify-content: center;
           color: var(--cyan);
-          font-size: 1.15rem;
-          box-shadow: inset 0 0 11px rgba(6, 182, 212, 0.2);
+          font-size: 1rem;
+          box-shadow: inset 0 0 9px rgba(6, 182, 212, 0.2);
           flex-shrink: 0;
         }
 
         .service-title {
-          font-size: clamp(1.05rem, 1.9vw, 1.22rem);
+          font-size: clamp(0.92rem, 1.8vw, 1.08rem);
           font-weight: 700;
           margin: 0;
           line-height: 1.25;
+          overflow-wrap: break-word;
+          word-break: break-word;
+          min-width: 0;
         }
 
         .service-desc {
           color: #94a3b8;
           line-height: 1.5;
-          font-size: clamp(0.92rem, 1.6vw, 1.02rem);
+          font-size: clamp(0.82rem, 1.5vw, 0.92rem);
           margin-bottom: 12px;
           flex: 1;
+          overflow-wrap: break-word;
         }
 
         .service-explore {
@@ -192,20 +206,20 @@ const Services = () => {
           font-weight: 600;
           display: flex;
           align-items: center;
-          gap: 6px;
-          font-size: 0.86rem;
+          gap: 5px;
+          font-size: 0.76rem;
           margin-top: auto;
           text-transform: uppercase;
           letter-spacing: 0.5px;
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
           .services-grid {
-            grid-template-columns: 1fr;
-            gap: 14px;
+            grid-template-columns: 1fr !important;
+            gap: 12px;
           }
           .service-img-container {
-            height: 160px;
+            height: 140px;
           }
         }
       `}</style>

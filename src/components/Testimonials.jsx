@@ -26,15 +26,15 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Contained Background glow */}
-      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', overflow: 'hidden', pointerEvents: 'none', zIndex: -1 }}>
-        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '50%', height: '40%', background: 'rgba(59, 130, 246, 0.04)', filter: 'blur(65px)' }}></div>
+      <div style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', overflow: 'hidden', pointerEvents: 'none', zIndex: -1, contain: 'strict' }}>
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 'min(50%, 300px)', height: 'min(50%, 250px)', background: 'rgba(59, 130, 246, 0.04)', filter: 'blur(50px)' }}></div>
       </div>
 
       <motion.div 
-        initial={{ opacity: 0, y: 26 }} 
+        initial={{ opacity: 0, y: 20 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
-        style={{ width: '100%', maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}
+        style={{ width: '100%', maxWidth: '1140px', margin: '0 auto', position: 'relative', zIndex: 1, boxSizing: 'border-box' }}
       >
         <div className="section-title">Client <span className="gradient-text">Testimonials</span></div>
         <p className="section-subtitle">
@@ -47,10 +47,10 @@ const Testimonials = () => {
           <motion.div
             key={i}
             className="glass-card testimonial-card"
-            initial={{ opacity: 0, y: 32 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.06, duration: 0.48 }}
+            transition={{ delay: i * 0.06, duration: 0.45 }}
           >
             {/* Quote Icon */}
             <div className="quote-mark">"</div>
@@ -73,30 +73,34 @@ const Testimonials = () => {
       <style>{`
         .testimonials-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
-          gap: clamp(15px, 2.2vw, 22px);
-          max-width: 1200px;
-          margin: clamp(20px, 3.5vw, 36px) auto 0 auto;
+          grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+          gap: clamp(14px, 2.2vw, 20px);
+          max-width: 1140px;
+          margin: clamp(16px, 3vw, 30px) auto 0 auto;
           width: 100%;
           position: relative;
           z-index: 1;
+          box-sizing: border-box;
         }
 
         .testimonial-card {
-          padding: clamp(18px, 2.6vw, 25px) clamp(15px, 2.2vw, 22px);
+          padding: clamp(15px, 2.5vw, 22px) clamp(14px, 2vw, 18px);
           position: relative;
           display: flex;
           flex-direction: column;
-          border-radius: clamp(14px, 2.2vw, 18px);
+          border-radius: clamp(12px, 2vw, 16px);
           box-sizing: border-box;
           height: 100%;
+          width: 100%;
+          min-width: 0;
+          overflow: hidden !important;
         }
 
         .quote-mark {
           position: absolute;
-          top: clamp(9px, 1.8vw, 15px);
-          right: clamp(14px, 2.2vw, 20px);
-          font-size: clamp(2.1rem, 3.8vw, 3rem);
+          top: clamp(8px, 1.5vw, 14px);
+          right: clamp(12px, 2vw, 18px);
+          font-size: clamp(1.8rem, 3.5vw, 2.6rem);
           color: rgba(255, 255, 255, 0.04);
           font-family: serif;
           line-height: 1;
@@ -104,28 +108,30 @@ const Testimonials = () => {
         }
 
         .testimonial-content {
-          font-size: clamp(0.96rem, 1.7vw, 1.08rem);
-          line-height: 1.6;
+          font-size: clamp(0.82rem, 1.5vw, 0.95rem);
+          line-height: 1.55;
           color: var(--text-main);
-          margin-bottom: clamp(15px, 2.2vw, 22px);
+          margin-bottom: clamp(14px, 2vw, 18px);
           position: relative;
           z-index: 1;
           flex: 1;
+          overflow-wrap: break-word;
         }
 
         .testimonial-author {
           display: flex;
           align-items: center;
-          gap: 12px;
+          gap: 10px;
           position: relative;
           z-index: 1;
+          min-width: 0;
         }
 
         .testimonial-avatar {
-          width: 44px;
-          height: 44px;
+          width: 38px;
+          height: 38px;
           border-radius: 50%;
-          border: 2px solid var(--blue);
+          border: 1.5px solid var(--blue);
           flex-shrink: 0;
           object-fit: cover;
         }
@@ -133,24 +139,26 @@ const Testimonials = () => {
         .testimonial-author-info {
           display: flex;
           flex-direction: column;
+          min-width: 0;
         }
 
         .testimonial-author-name {
           margin: 0 0 2px 0;
-          font-size: clamp(1rem, 1.8vw, 1.12rem);
+          font-size: clamp(0.88rem, 1.6vw, 1rem);
           color: var(--text-h);
           font-weight: 600;
+          overflow-wrap: break-word;
         }
 
         .testimonial-author-role {
-          font-size: 0.86rem;
+          font-size: 0.74rem;
           color: var(--cyan);
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
           .testimonials-grid {
-            grid-template-columns: 1fr;
-            gap: 14px;
+            grid-template-columns: 1fr !important;
+            gap: 12px;
           }
         }
       `}</style>

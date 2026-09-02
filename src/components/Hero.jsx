@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Hero = () => {
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 80]);
+  const y1 = useTransform(scrollY, [0, 500], [0, 50]);
 
   return (
     <section id="home" className="hero-section">
@@ -13,12 +13,12 @@ const Hero = () => {
       >
         <motion.div
           className="hero-badge"
-          initial={{ opacity: 0, y: -16 }}
+          initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, ease: "easeOut" }}
         >
           <span className="hero-badge-dot"></span>
-          Graphics Studios Media Agency
+          <span>Graphics Studios Media Agency</span>
         </motion.div>
         
         <motion.h1 
@@ -53,26 +53,27 @@ const Hero = () => {
 
       <style>{`
         .hero-section {
-          min-height: 90vh;
-          min-height: 90dvh;
+          min-height: 85vh;
+          min-height: 85dvh;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           position: relative;
-          padding: 95px 5% 48px 5%;
-          overflow: hidden;
+          padding: clamp(75px, 12vh, 105px) 4% clamp(35px, 6vh, 55px) 4%;
+          overflow: hidden !important;
           width: 100%;
-          max-width: 100%;
+          max-width: 100vw;
           margin: 0 auto;
           box-sizing: border-box;
           text-align: center;
+          contain: paint;
         }
 
         .hero-content {
           z-index: 1;
           text-align: center;
-          max-width: 860px;
+          max-width: min(100%, 780px);
           width: 100%;
           margin: 0 auto;
           display: flex;
@@ -80,88 +81,95 @@ const Hero = () => {
           align-items: center;
           justify-content: center;
           box-sizing: border-box;
+          min-width: 0;
         }
 
         .hero-badge {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          margin: 0 auto clamp(14px, 2.6vw, 20px) auto;
-          padding: 6px 16px;
+          margin: 0 auto clamp(10px, 2vw, 16px) auto;
+          padding: 5px 14px;
           background: rgba(255, 255, 255, 0.04);
           border: 1px solid rgba(255, 255, 255, 0.09);
           border-radius: 100px;
-          font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+          font-size: clamp(0.72rem, 2vw, 0.85rem);
           color: var(--text-main);
           max-width: 95%;
           letter-spacing: 0.2px;
+          box-sizing: border-box;
         }
 
         .hero-badge-dot {
-          width: 8px;
-          height: 8px;
+          width: 7px;
+          height: 7px;
           background: var(--cyan);
           border-radius: 50%;
           display: inline-block;
-          margin-right: 8px;
-          box-shadow: 0 0 8px var(--cyan);
+          margin-right: 7px;
+          box-shadow: 0 0 7px var(--cyan);
           flex-shrink: 0;
         }
 
         .hero-title {
-          font-size: clamp(2.1rem, 5vw, 3.8rem);
-          line-height: 1.1;
-          margin: 0 auto clamp(14px, 2.6vw, 20px) auto;
-          letter-spacing: -0.035em;
+          font-size: clamp(1.65rem, 5.5vw, 3.2rem);
+          line-height: 1.15;
+          margin: 0 auto clamp(10px, 2vw, 16px) auto;
+          letter-spacing: -0.025em;
           font-weight: 700;
           width: 100%;
+          max-width: 100%;
           word-break: break-word;
+          overflow-wrap: break-word;
           text-align: center;
+          box-sizing: border-box;
         }
 
         .hero-p {
-          font-size: clamp(1.05rem, 2.1vw, 1.25rem);
+          font-size: clamp(0.85rem, 2.2vw, 1.1rem);
           color: #94a3b8;
-          line-height: 1.6;
-          max-width: 660px;
+          line-height: 1.55;
+          max-width: min(92%, 580px);
           width: 100%;
-          margin: 0 auto clamp(24px, 3.8vw, 40px) auto;
-          padding: 0 10px;
+          margin: 0 auto clamp(20px, 3.5vw, 32px) auto;
+          padding: 0 4px;
           box-sizing: border-box;
           text-align: center;
+          overflow-wrap: break-word;
         }
 
         .hero-btns {
           display: flex;
-          gap: 12px;
+          gap: 10px;
           justify-content: center;
           align-items: center;
           flex-wrap: wrap;
           width: 100%;
-          max-width: 480px;
+          max-width: 440px;
           margin: 0 auto;
+          box-sizing: border-box;
         }
 
         @media (max-width: 768px) {
           .hero-section {
-            padding: 85px 16px 38px 16px;
-            min-height: 85vh;
+            padding: 70px 14px 30px 14px;
+            min-height: 78vh;
           }
         }
 
         @media (max-width: 480px) {
           .hero-section {
-            padding: 78px 14px 30px 14px;
+            padding: 65px 10px 24px 10px;
             min-height: auto;
           }
           .hero-btns {
             flex-direction: column;
             width: 100%;
-            gap: 10px;
+            gap: 8px;
           }
           .hero-btns .btn {
             width: 100%;
-            max-width: 270px;
+            max-width: 240px;
           }
         }
       `}</style>

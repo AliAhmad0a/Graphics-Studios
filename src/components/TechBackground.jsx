@@ -22,7 +22,7 @@ const ParticleNetwork = ({ count }) => {
   const maxConnections = count * count;
   const linePositions = useMemo(() => new Float32Array(maxConnections * 3), [maxConnections]);
   
-  const pulseCount = 10;
+  const pulseCount = 8;
   const pulses = useRef(Array.from({ length: pulseCount }, () => ({
     active: false, p1: 0, p2: 0, progress: 0, speed: Math.random() * 0.01 + 0.01
   })));
@@ -195,7 +195,10 @@ const CameraParallax = () => {
 
 const TechBackgroundScene = ({ count }) => {
     return (
-        <Canvas camera={{ position: [0, 0, 10], fov: 60 }} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+        <Canvas 
+          camera={{ position: [0, 0, 10], fov: 60 }} 
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', maxWidth: '100vw', pointerEvents: 'none' }}
+        >
             <ambientLight intensity={0.2} />
             <directionalLight position={[10, 10, 5]} intensity={1} color="#00D9FF" />
             <directionalLight position={[-10, -10, -5]} intensity={0.5} color="#2563EB" />
@@ -208,17 +211,17 @@ const TechBackgroundScene = ({ count }) => {
 }
 
 const TechBackground = () => {
-    const [particleCount, setParticleCount] = useState(80);
+    const [particleCount, setParticleCount] = useState(70);
     
     useEffect(() => {
         if (window.innerWidth < 768) {
-            setParticleCount(35);
+            setParticleCount(30);
         }
     }, []);
 
     return (
         <div className="digital-grid" style={{
-            position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
+            position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', maxWidth: '100vw',
             zIndex: -2, pointerEvents: 'none', backgroundColor: '#020617', overflow: 'hidden'
         }}>
             <Suspense fallback={null}>

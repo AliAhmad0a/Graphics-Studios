@@ -64,23 +64,24 @@ const Footer = () => {
         .footer-section {
           background: #020617;
           border-top: 1px solid rgba(255, 255, 255, 0.06);
-          padding-top: clamp(36px, 4.8vw, 54px);
-          padding-bottom: 24px;
+          padding-top: clamp(32px, 4.5vw, 48px);
+          padding-bottom: 20px;
           width: 100%;
           max-width: 100vw;
           box-sizing: border-box;
           position: relative;
           z-index: 10;
           overflow: hidden !important;
+          contain: paint;
         }
 
         .footer-container {
-          max-width: 1200px;
+          max-width: 1140px;
           margin: 0 auto;
-          padding: 0 5%;
+          padding: 0 clamp(14px, 4vw, 5%);
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-          gap: clamp(22px, 3.5vw, 36px);
+          grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+          gap: clamp(20px, 3vw, 32px);
           box-sizing: border-box;
           width: 100%;
         }
@@ -90,31 +91,34 @@ const Footer = () => {
           flex-direction: column;
           min-width: 0;
           max-width: 100%;
+          box-sizing: border-box;
         }
 
         .footer-brand-title {
-          font-size: clamp(1.35rem, 2.4vw, 1.55rem);
+          font-size: clamp(1.15rem, 2.2vw, 1.4rem);
           font-weight: 700;
-          margin-bottom: 12px;
+          margin-bottom: 10px;
           color: #ffffff;
+          overflow-wrap: break-word;
         }
 
         .footer-brand-tagline {
           color: #94a3b8;
-          line-height: 1.55;
-          margin-bottom: 15px;
-          font-size: clamp(0.92rem, 1.6vw, 1.02rem);
+          line-height: 1.5;
+          margin-bottom: 14px;
+          font-size: clamp(0.82rem, 1.5vw, 0.94rem);
+          overflow-wrap: break-word;
         }
 
         .footer-social-links {
           display: flex;
-          gap: 11px;
+          gap: 10px;
           flex-wrap: wrap;
         }
 
         .footer-social-btn {
-          width: 38px;
-          height: 38px;
+          width: 34px;
+          height: 34px;
           border-radius: 50%;
           background: rgba(255, 255, 255, 0.04);
           display: flex;
@@ -123,7 +127,8 @@ const Footer = () => {
           color: #ffffff;
           transition: all 0.25s ease;
           border: 1px solid rgba(255, 255, 255, 0.08);
-          font-size: 0.96rem;
+          font-size: 0.88rem;
+          flex-shrink: 0;
         }
 
         .footer-social-btn:hover {
@@ -133,8 +138,8 @@ const Footer = () => {
         }
 
         .footer-col-title {
-          font-size: clamp(1.1rem, 2vw, 1.25rem);
-          margin-bottom: clamp(11px, 2.2vw, 16px);
+          font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+          margin-bottom: clamp(10px, 1.8vw, 14px);
           color: #ffffff;
           font-weight: 600;
         }
@@ -142,12 +147,12 @@ const Footer = () => {
         .footer-nav-list {
           display: flex;
           flex-direction: column;
-          gap: 9px;
+          gap: 8px;
         }
 
         .footer-nav-link {
           color: #94a3b8;
-          font-size: clamp(0.9rem, 1.6vw, 1rem);
+          font-size: clamp(0.82rem, 1.5vw, 0.92rem);
           transition: color 0.2s ease;
           display: inline-block;
         }
@@ -159,7 +164,7 @@ const Footer = () => {
         .footer-contact-list {
           display: flex;
           flex-direction: column;
-          gap: 12px;
+          gap: 10px;
           width: 100%;
           min-width: 0;
         }
@@ -169,23 +174,24 @@ const Footer = () => {
           flex-direction: column;
           text-decoration: none;
           gap: 3px;
-          overflow-wrap: anywhere !important;
+          overflow-wrap: break-word !important;
           word-break: break-all !important;
           width: 100%;
           min-width: 0;
           max-width: 100%;
+          box-sizing: border-box;
         }
 
         .footer-contact-label {
           color: #94a3b8;
-          font-size: clamp(0.82rem, 1.4vw, 0.9rem);
+          font-size: clamp(0.72rem, 1.3vw, 0.8rem);
         }
 
         .footer-contact-val {
           color: #ffffff;
           font-weight: 500;
-          font-size: clamp(0.92rem, 1.6vw, 1.02rem);
-          overflow-wrap: anywhere !important;
+          font-size: clamp(0.82rem, 1.5vw, 0.92rem);
+          overflow-wrap: break-word !important;
           word-break: break-all !important;
           display: block;
           max-width: 100%;
@@ -194,19 +200,19 @@ const Footer = () => {
         .footer-bottom-bar {
           text-align: center;
           border-top: 1px solid rgba(255, 255, 255, 0.05);
-          margin-top: clamp(26px, 3.5vw, 36px);
-          padding-top: 18px;
-          padding-left: 16px;
-          padding-right: 16px;
+          margin-top: clamp(22px, 3vw, 32px);
+          padding-top: 16px;
+          padding-left: 14px;
+          padding-right: 14px;
           color: #64748b;
-          font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+          font-size: clamp(0.74rem, 1.4vw, 0.85rem);
           line-height: 1.5;
         }
 
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
           .footer-container {
             grid-template-columns: 1fr;
-            gap: 22px;
+            gap: 20px;
           }
         }
       `}</style>

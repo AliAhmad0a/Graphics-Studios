@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 const Mission = () => {
   return (
     <section className="section mission-section" style={{ position: 'relative', overflow: 'hidden' }}>
-      {/* Light Beams and Particles Background */}
-      <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1, overflow: 'hidden', pointerEvents: 'none' }}>
+      {/* Light Beams and Particles Background - Strictly Contained */}
+      <div className="mission-bg-wrapper">
          <div className="light-beam beam-1"></div>
          <div className="light-beam beam-2"></div>
          <div className="particles-overlay"></div>
@@ -15,14 +15,14 @@ const Mission = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.96, filter: 'blur(5px)' }}
           whileInView={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.65, ease: "easeOut" }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="glass-card mission-card"
         >
           <motion.h2 
-            initial={{ y: 16, opacity: 0 }} 
+            initial={{ y: 14, opacity: 0 }} 
             whileInView={{ y: 0, opacity: 1 }} 
-            transition={{ delay: 0.14 }}
+            transition={{ delay: 0.12 }}
             className="mission-title"
           >
             Our <span className="gradient-text">Mission</span>
@@ -30,15 +30,15 @@ const Mission = () => {
           
           <motion.div 
             initial={{ width: 0 }} 
-            whileInView={{ width: '68px' }} 
-            transition={{ delay: 0.28, duration: 0.65 }}
+            whileInView={{ width: '56px' }} 
+            transition={{ delay: 0.25, duration: 0.6 }}
             className="mission-divider"
           ></motion.div>
           
           <motion.p 
-            initial={{ y: 16, opacity: 0 }} 
+            initial={{ y: 14, opacity: 0 }} 
             whileInView={{ y: 0, opacity: 1 }} 
-            transition={{ delay: 0.42 }}
+            transition={{ delay: 0.38 }}
             className="mission-quote"
           >
             "To help businesses and individuals grow through creative design, modern digital solutions, strategic marketing, and innovative AI technology."
@@ -48,20 +48,32 @@ const Mission = () => {
 
       <style>{`
         .mission-section {
-          min-height: 55vh;
+          min-height: auto;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          padding: 65px 5%;
+          padding: clamp(50px, 8vh, 75px) clamp(12px, 4vw, 5%);
           width: 100%;
-          max-width: 100%;
+          max-width: 100vw;
           overflow: hidden !important;
           contain: paint;
+          box-sizing: border-box;
+        }
+
+        .mission-bg-wrapper {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          overflow: hidden !important;
+          pointer-events: none;
+          contain: strict;
         }
 
         .mission-container {
-          max-width: 880px;
+          max-width: min(100%, 780px);
           margin: 0 auto;
           text-align: center;
           position: relative;
@@ -70,51 +82,54 @@ const Mission = () => {
           display: flex;
           flex-direction: column;
           align-items: center;
+          box-sizing: border-box;
         }
 
         .mission-card {
-          border-radius: clamp(18px, 3.5vw, 24px);
-          box-shadow: 0 26px 52px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+          border-radius: clamp(14px, 3vw, 20px);
+          box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
           background: rgba(11, 17, 32, 0.6);
-          padding: clamp(24px, 4.2vw, 48px);
+          padding: clamp(20px, 3.8vw, 40px);
           box-sizing: border-box;
           width: 100%;
           overflow: hidden !important;
         }
 
         .mission-title {
-          font-size: clamp(1.75rem, 3.8vw, 2.75rem);
-          margin-bottom: clamp(11px, 2.2vw, 17px);
+          font-size: clamp(1.5rem, 3.5vw, 2.3rem);
+          margin-bottom: clamp(10px, 1.8vw, 15px);
           font-weight: 800;
-          letter-spacing: -0.4px;
-          line-height: 1.15;
+          letter-spacing: -0.025em;
+          line-height: 1.2;
+          overflow-wrap: break-word;
         }
 
         .mission-divider {
           height: 3px;
           background: var(--accent);
-          margin: 0 auto clamp(14px, 2.6vw, 26px) auto;
+          margin: 0 auto clamp(12px, 2.2vw, 22px) auto;
           border-radius: 3px;
-          box-shadow: 0 0 13px var(--accent);
+          box-shadow: 0 0 12px var(--accent);
         }
 
         .mission-quote {
-          font-size: clamp(1.08rem, 2.1vw, 1.32rem);
-          line-height: 1.7;
+          font-size: clamp(0.92rem, 1.8vw, 1.15rem);
+          line-height: 1.65;
           color: #e2e8f0;
           font-style: italic;
           font-weight: 300;
           margin: 0;
-          padding: 0 6px;
+          padding: 0 4px;
+          overflow-wrap: break-word;
         }
 
         .light-beam {
           position: absolute;
-          width: 2.5px;
+          width: 2px;
           height: 100%;
           background: linear-gradient(to bottom, rgba(59,130,246,0), rgba(59,130,246,0.35), rgba(59,130,246,0));
           transform: rotate(45deg);
-          filter: blur(5px);
+          filter: blur(4px);
           animation: sweep 8s infinite linear;
         }
 
@@ -136,25 +151,23 @@ const Mission = () => {
 
         .particles-overlay {
           position: absolute;
-          top: 0;
-          left: 0;
+          inset: 0;
           width: 100%;
           height: 100%;
           background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
-          background-size: 32px 32px;
+          background-size: 28px 28px;
           animation: moveBg 20s linear infinite;
           opacity: 0.2;
         }
 
         @keyframes moveBg {
           0% { background-position: 0 0; }
-          100% { background-position: 110px 110px; }
+          100% { background-position: 100px 100px; }
         }
 
         @media (max-width: 768px) {
           .mission-section {
-            min-height: auto;
-            padding: 44px 16px;
+            padding: 38px 14px;
           }
           .light-beam {
             display: none !important;

@@ -20,12 +20,12 @@ const techData = [
 
 const TechStack = () => {
   return (
-    <section id="tech-stack" className="section" style={{ position: 'relative' }}>
+    <section id="tech-stack" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       <motion.div 
-        initial={{ opacity: 0, y: 26 }} 
+        initial={{ opacity: 0, y: 20 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
-        style={{ width: '100%', maxWidth: '1000px', margin: '0 auto' }}
+        style={{ width: '100%', maxWidth: '900px', margin: '0 auto', boxSizing: 'border-box' }}
       >
         <div className="section-title">Powered by <span className="gradient-text">Next-Gen Tech</span></div>
         <p className="section-subtitle">
@@ -56,8 +56,8 @@ const TechStack = () => {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
-          gap: clamp(9px, 1.8vw, 15px);
-          max-width: 980px;
+          gap: clamp(8px, 1.8vw, 14px);
+          max-width: 900px;
           margin: 0 auto;
           width: 100%;
           box-sizing: border-box;
@@ -68,23 +68,25 @@ const TechStack = () => {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          width: clamp(82px, 11vw, 105px);
-          height: clamp(82px, 11vw, 105px);
+          width: clamp(72px, 10vw, 92px);
+          height: clamp(72px, 10vw, 92px);
           cursor: pointer;
           transition: border-color 0.25s ease, transform 0.25s ease;
-          border-radius: clamp(11px, 1.8vw, 16px);
-          padding: 9px 6px;
+          border-radius: clamp(10px, 1.8vw, 14px);
+          padding: 8px 5px;
           box-sizing: border-box;
           flex-shrink: 0;
+          min-width: 0;
         }
 
         .tech-icon {
-          font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+          font-size: clamp(1.5rem, 3.2vw, 2.1rem);
           margin-bottom: 4px;
           display: flex;
           align-items: center;
           justify-content: center;
           transition: transform 0.25s ease;
+          flex-shrink: 0;
         }
 
         .tech-card:hover .tech-icon {
@@ -92,7 +94,7 @@ const TechStack = () => {
         }
 
         .tech-name {
-          font-size: clamp(0.78rem, 1.4vw, 0.88rem);
+          font-size: clamp(0.68rem, 1.3vw, 0.8rem);
           font-weight: 600;
           color: var(--text-main);
           text-align: center;
@@ -102,25 +104,26 @@ const TechStack = () => {
           max-width: 100%;
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
           .tech-grid-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 8px;
+            width: 100%;
           }
           .tech-card {
             width: 100%;
-            height: 82px;
+            height: 72px;
           }
         }
 
         @media (max-width: 360px) {
           .tech-grid-container {
             grid-template-columns: repeat(3, 1fr);
-            gap: 7px;
+            gap: 6px;
           }
           .tech-card {
-            height: 76px;
+            height: 68px;
           }
         }
       `}</style>

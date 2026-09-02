@@ -23,10 +23,10 @@ const CourseCard = ({ course, index }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.96, y: 26 }}
+      initial={{ opacity: 0, scale: 0.96, y: 20 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.45, delay: index * 0.05 }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
       onMouseMove={(e) => {
         if (window.innerWidth < 1024) return;
         const rect = e.currentTarget.getBoundingClientRect();
@@ -41,7 +41,7 @@ const CourseCard = ({ course, index }) => {
         style={{ 
           rotateX, rotateY,
         }}
-        whileHover={{ scale: 1.02, boxShadow: '0 16px 32px rgba(59, 130, 246, 0.18)' }}
+        whileHover={{ scale: 1.02, boxShadow: '0 14px 28px rgba(59, 130, 246, 0.16)' }}
       >
         <div className="course-accent-bar"></div>
         <div className="course-glow"></div>
@@ -77,12 +77,12 @@ const CourseCard = ({ course, index }) => {
 
 const Courses = () => {
   return (
-    <section id="courses" className="section" style={{ position: 'relative' }}>
+    <section id="courses" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       <motion.div 
-        initial={{ opacity: 0, y: 26 }} 
+        initial={{ opacity: 0, y: 20 }} 
         whileInView={{ opacity: 1, y: 0 }} 
         viewport={{ once: true }}
-        style={{ width: '100%', maxWidth: '1200px', margin: '0 auto' }}
+        style={{ width: '100%', maxWidth: '1140px', margin: '0 auto', boxSizing: 'border-box' }}
       >
         <div className="section-title">Professional <span className="gradient-text">Training Courses</span></div>
         <p className="section-subtitle">
@@ -100,12 +100,13 @@ const Courses = () => {
         .courses-grid {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
-          gap: clamp(15px, 2.2vw, 22px);
-          margin-top: clamp(20px, 3.5vw, 36px);
-          max-width: 1200px;
+          gap: clamp(14px, 2.2vw, 20px);
+          margin-top: clamp(16px, 3vw, 30px);
+          max-width: 1140px;
           margin-left: auto;
           margin-right: auto;
           width: 100%;
+          box-sizing: border-box;
         }
 
         .course-card-outer {
@@ -113,25 +114,30 @@ const Courses = () => {
           -webkit-perspective: 1000px;
           height: 100%;
           display: flex;
+          width: 100%;
+          min-width: 0;
+          box-sizing: border-box;
         }
 
         .course-card-wrapper {
           padding: 0;
           position: relative;
-          overflow: hidden;
+          overflow: hidden !important;
           height: 100%;
           width: 100%;
+          min-width: 0;
           display: flex;
           flex-direction: column;
           transform-style: preserve-3d;
-          border-radius: clamp(14px, 2.2vw, 18px);
+          border-radius: clamp(12px, 2vw, 16px);
+          box-sizing: border-box;
         }
 
         .course-accent-bar {
           position: absolute;
           top: 0;
           left: 0;
-          width: 4px;
+          width: 3.5px;
           height: 100%;
           background: linear-gradient(to bottom, #3b82f6, #0a42db);
           z-index: 10;
@@ -141,8 +147,8 @@ const Courses = () => {
           position: absolute;
           top: 0;
           right: 0;
-          width: 130px;
-          height: 130px;
+          width: 110px;
+          height: 110px;
           background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
           border-radius: 50%;
           opacity: 0;
@@ -155,10 +161,11 @@ const Courses = () => {
         }
 
         .course-img-container {
-          height: clamp(140px, 17vw, 185px);
+          height: clamp(120px, 16vw, 160px);
           width: 100%;
           overflow: hidden;
           position: relative;
+          box-sizing: border-box;
         }
 
         .course-img {
@@ -173,38 +180,43 @@ const Courses = () => {
         }
 
         .course-content {
-          padding: clamp(14px, 2.2vw, 20px);
+          padding: clamp(12px, 2vw, 18px);
           flex: 1;
           display: flex;
           flex-direction: column;
+          min-width: 0;
+          box-sizing: border-box;
         }
 
         .course-level {
           display: inline-block;
           align-self: flex-start;
-          padding: 4px 11px;
+          padding: 3px 9px;
           background: rgba(59, 130, 246, 0.1);
           color: #60a5fa;
-          border-radius: 15px;
-          font-size: 0.8rem;
+          border-radius: 14px;
+          font-size: 0.72rem;
           font-weight: 600;
-          margin-bottom: 7px;
+          margin-bottom: 6px;
           border: 1px solid rgba(59, 130, 246, 0.2);
         }
 
         .course-title {
-          font-size: clamp(1.1rem, 2vw, 1.32rem);
-          margin-bottom: 6px;
+          font-size: clamp(0.96rem, 1.8vw, 1.15rem);
+          margin-bottom: 5px;
           font-weight: 700;
           line-height: 1.25;
+          overflow-wrap: break-word;
+          word-break: break-word;
         }
 
         .course-desc {
           color: #94a3b8;
-          font-size: clamp(0.92rem, 1.6vw, 1.02rem);
+          font-size: clamp(0.82rem, 1.5vw, 0.92rem);
           line-height: 1.5;
-          margin-bottom: 15px;
+          margin-bottom: 12px;
           flex: 1;
+          overflow-wrap: break-word;
         }
 
         .course-btn-wrapper {
@@ -216,8 +228,8 @@ const Courses = () => {
           width: 100%;
           display: flex;
           text-align: center;
-          padding: 9px 17px;
-          font-size: 0.94rem;
+          padding: 8px 14px;
+          font-size: 0.82rem;
           transition: all 0.25s ease;
         }
 
@@ -226,13 +238,13 @@ const Courses = () => {
           border-color: #3b82f6;
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
           .courses-grid {
-            grid-template-columns: 1fr;
-            gap: 14px;
+            grid-template-columns: 1fr !important;
+            gap: 12px;
           }
           .course-img-container {
-            height: 160px;
+            height: 140px;
           }
         }
       `}</style>
