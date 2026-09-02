@@ -51,47 +51,49 @@ const Navbar = () => {
 
   return (
     <>
-      <motion.nav 
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className={`main-navbar ${scrolled ? 'nav-scrolled' : ''}`}
-      >
-        <div 
-          className="logo-container"
-          onClick={(e) => scrollToSection(e, '#home')}
+      <div className="navbar-fixed-wrapper">
+        <motion.nav 
+          initial={{ y: -100 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className={`main-navbar ${scrolled ? 'nav-scrolled' : ''}`}
         >
-          <div className="logo-wrapper">
-            <img src={logo} alt="Graphics Studios Logo" className="logo-img" />
-            <div className="logo-glow"></div>
+          <div 
+            className="logo-container"
+            onClick={(e) => scrollToSection(e, '#home')}
+          >
+            <div className="logo-wrapper">
+              <img src={logo} alt="Graphics Studios Logo" className="logo-img" />
+              <div className="logo-glow"></div>
+            </div>
+            <span className="logo-text hide-mobile">
+              Graphics Studios
+            </span>
           </div>
-          <span className="logo-text hide-mobile">
-            Graphics Studios
-          </span>
-        </div>
 
-        <div className="desktop-nav">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={(e) => scrollToSection(e, link.href)}
-              className="nav-link"
-            >
-              {link.name}
-              <div className="nav-underline"></div>
-            </a>
-          ))}
-        </div>
+          <div className="desktop-nav">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => scrollToSection(e, link.href)}
+                className="nav-link"
+              >
+                {link.name}
+                <div className="nav-underline"></div>
+              </a>
+            ))}
+          </div>
 
-        <button 
-          className="mobile-toggle"
-          aria-label={isOpen ? "Close Navigation Menu" : "Open Navigation Menu"}
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <HiX size={26} /> : <HiMenuAlt3 size={26} />}
-        </button>
-      </motion.nav>
+          <button 
+            className="mobile-toggle"
+            aria-label={isOpen ? "Close Navigation Menu" : "Open Navigation Menu"}
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <HiX size={26} /> : <HiMenuAlt3 size={26} />}
+          </button>
+        </motion.nav>
+      </div>
 
       {/* Fullscreen Mobile Navigation Menu Overlay (Rendered outside transformed nav) */}
       <AnimatePresence>
@@ -151,14 +153,24 @@ const Navbar = () => {
       </AnimatePresence>
 
       <style>{`
-        .main-navbar {
+        .navbar-fixed-wrapper {
           position: fixed;
-          top: 24px;
-          left: 5%;
-          right: 5%;
-          max-width: 1200px;
-          margin: 0 auto;
+          top: 0;
+          left: 0;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
           z-index: 999;
+          pointer-events: none;
+          padding: 24px 0 0 0;
+          box-sizing: border-box;
+        }
+
+        .main-navbar {
+          width: min(92%, 1200px);
+          margin: 0 auto;
+          pointer-events: auto;
           transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
           background: transparent;
           backdrop-filter: none;
@@ -173,12 +185,12 @@ const Navbar = () => {
         }
 
         .main-navbar.nav-scrolled {
-          top: 14px;
           background: rgba(10, 15, 28, 0.75);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
           border-color: rgba(255, 255, 255, 0.1);
           box-shadow: 0 10px 35px -5px rgba(0, 0, 0, 0.6);
+          padding: 12px 24px;
         }
 
         .logo-container {
@@ -312,6 +324,7 @@ const Navbar = () => {
           padding: 20px 20px 30px 20px;
           box-sizing: border-box;
           overflow-y: auto;
+          pointer-events: auto;
         }
 
         .mobile-nav-header {
@@ -392,9 +405,11 @@ const Navbar = () => {
           .mobile-toggle {
             display: flex !important;
           }
+          .navbar-fixed-wrapper {
+            padding-top: 12px;
+          }
           .main-navbar {
-            left: 4%;
-            right: 4%;
+            width: min(94%, 1200px);
             padding: 10px 18px;
           }
         }
@@ -403,14 +418,12 @@ const Navbar = () => {
           .hide-mobile {
             display: none !important;
           }
-          .main-navbar {
-            top: 12px;
-            left: 3%;
-            right: 3%;
-            padding: 8px 14px;
+          .navbar-fixed-wrapper {
+            padding-top: 10px;
           }
-          .main-navbar.nav-scrolled {
-            top: 8px;
+          .main-navbar {
+            width: min(94%, 1200px);
+            padding: 8px 14px;
           }
           .logo-img {
             height: 36px;
@@ -420,8 +433,7 @@ const Navbar = () => {
 
         @media (max-width: 360px) {
           .main-navbar {
-            left: 2%;
-            right: 2%;
+            width: 96%;
             padding: 6px 12px;
           }
         }

@@ -56,13 +56,17 @@ const Hero = () => {
           min-height: 100vh;
           min-height: 100dvh;
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
           position: relative;
           padding: 100px 5% 60px 5%;
           overflow: hidden;
           width: 100%;
+          max-width: 100%;
+          margin: 0 auto;
           box-sizing: border-box;
+          text-align: center;
         }
 
         .hero-content {
@@ -74,12 +78,15 @@ const Hero = () => {
           display: flex;
           flex-direction: column;
           align-items: center;
+          justify-content: center;
+          box-sizing: border-box;
         }
 
         .hero-badge {
           display: inline-flex;
           align-items: center;
-          margin-bottom: clamp(16px, 3vw, 24px);
+          justify-content: center;
+          margin: 0 auto clamp(16px, 3vw, 24px) auto;
           padding: 6px 16px;
           background: rgba(255, 255, 255, 0.04);
           border: 1px solid rgba(255, 255, 255, 0.1);
@@ -104,11 +111,12 @@ const Hero = () => {
         .hero-title {
           font-size: clamp(2.1rem, 6.5vw, 4.2rem);
           line-height: 1.08;
-          margin-bottom: clamp(16px, 3vw, 24px);
+          margin: 0 auto clamp(16px, 3vw, 24px) auto;
           letter-spacing: -0.04em;
           font-weight: 700;
           width: 100%;
           word-break: break-word;
+          text-align: center;
         }
 
         .hero-p {
@@ -120,6 +128,7 @@ const Hero = () => {
           margin: 0 auto clamp(28px, 4vw, 50px) auto;
           padding: 0 10px;
           box-sizing: border-box;
+          text-align: center;
         }
 
         .hero-btns {
