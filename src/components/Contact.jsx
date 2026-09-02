@@ -13,7 +13,7 @@ const Contact = () => {
         Ready to transform your brand? Let's discuss your next big project.
       </p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '50px', marginTop: '40px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '50px', marginTop: '40px' }}>
         
         {/* Contact Info */}
         <motion.div
@@ -22,7 +22,7 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="glass-card" style={{ padding: '40px', height: '100%' }}>
+          <div className="glass-card contact-card" style={{ height: '100%' }}>
             <h3 style={{ fontSize: '1.8rem', marginBottom: '30px' }}>Contact Information</h3>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
@@ -30,7 +30,7 @@ const Contact = () => {
                 <div style={{ width: '45px', height: '45px', borderRadius: '50%', background: 'rgba(59, 130, 246, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#3b82f6', fontSize: '1.2rem', flexShrink: 0 }}>
                   <FaEnvelope />
                 </div>
-                <div>
+                <div style={{ wordBreak: 'break-all' }}>
                   <p style={{ color: '#94a3b8', fontSize: '0.9rem', margin: 0 }}>Email Us</p>
                   <span style={{ fontWeight: '500', color: 'var(--text-h)' }}>graphicsstudiosmediaagency@gmail.com</span>
                 </div>
@@ -76,7 +76,7 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="glass-card" style={{ padding: '40px' }}>
+          <div className="glass-card contact-card">
             <form className="contact-form" onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
                 <input type="text" placeholder="Your Name" required className="neon-input" />
@@ -106,6 +106,10 @@ const Contact = () => {
 
       </div>
       <style>{`
+        .contact-card { padding: 40px; }
+        @media (max-width: 768px) {
+          .contact-card { padding: 25px 20px; }
+        }
         .neon-input {
           flex: 1; min-width: 200px;
           padding: 15px 20px;

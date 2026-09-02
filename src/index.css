@@ -32,7 +32,6 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  zoom: 0.9; /* Decrease overall scale of the website */
   overflow-x: hidden;
 }
 
@@ -45,6 +44,18 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    font-size: 13px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -150,7 +161,7 @@ a:hover {
 }
 
 .section-title {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   text-align: center;
   margin-bottom: 16px;
   letter-spacing: -0.04em;
@@ -163,4 +174,26 @@ a:hover {
   font-size: 1.15rem;
   color: var(--text-main);
   line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 20px;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  .section-subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 50px 15px;
+  }
+  .section-title {
+    font-size: 1.75rem;
+  }
 }

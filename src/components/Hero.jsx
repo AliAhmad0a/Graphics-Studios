@@ -36,12 +36,14 @@ const Hero = () => {
         </motion.h1>
         
         <motion.p 
+          className="hero-p"
           initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 0.8 }}
           style={{ fontSize: '1.2rem', color: 'var(--text-main)', marginBottom: '50px', lineHeight: '1.6', maxWidth: '650px', margin: '0 auto 50px auto' }}>
           A premium software house and media agency delivering high-end UI/UX, robust full-stack development, and AI-driven creative solutions.
         </motion.p>
         
         <motion.div 
+          className="hero-btns"
           initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.8 }}
           style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
           <a href="#services" className="btn btn-primary">Explore Services</a>
@@ -52,6 +54,15 @@ const Hero = () => {
       <style>{`
         @media (max-width: 992px) {
           h1 { font-size: 3.5rem !important; }
+        }
+        @media (max-width: 768px) {
+          h1 { font-size: 2.8rem !important; }
+          .hero-p { font-size: 1.05rem !important; }
+        }
+        @media (max-width: 480px) {
+          h1 { font-size: 2.2rem !important; }
+          .hero-btns { flex-direction: column; width: 100%; padding: 0 10px; }
+          .hero-btns .btn { width: 100%; }
         }
       `}</style>
     </section>

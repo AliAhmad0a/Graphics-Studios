@@ -27,7 +27,7 @@ const About = () => {
       >
         <h2 className="section-title">About <span className="gradient-text">Us</span></h2>
         
-        <div className="vision-pro-glass" style={{ padding: '60px', display: 'flex', flexDirection: 'column', gap: '30px', textAlign: 'center', maxWidth: '900px', margin: '40px auto 0 auto', borderRadius: '30px' }}>
+        <div className="vision-pro-glass about-card" style={{ display: 'flex', flexDirection: 'column', gap: '30px', textAlign: 'center', maxWidth: '900px', margin: '40px auto 0 auto', borderRadius: '30px' }}>
           <p style={{ fontSize: '1.25rem', lineHeight: '1.8', color: '#e2e8f0', fontWeight: '300' }}>
             <strong style={{ color: 'white', fontWeight: '600' }}>Graphics Studios Media Agency</strong> is a creative digital media agency providing professional Graphic Design, Branding, UI/UX Design, Video Editing, Motion Graphics, Digital Marketing, AI Solutions, Automation, Web Development, and 3D Design services.
           </p>
@@ -51,6 +51,14 @@ const About = () => {
           </div>
         </div>
       </motion.div>
+
+      <style>{`
+        .about-card { padding: 60px; }
+        @media (max-width: 768px) {
+          .about-card { padding: 30px 20px; }
+          .about-card p { font-size: 1.05rem !important; }
+        }
+      `}</style>
     </section>
   );
 };

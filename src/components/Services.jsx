@@ -89,7 +89,7 @@ const Services = () => {
         </p>
       </motion.div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '40px', position: 'relative', zIndex: 1 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px', position: 'relative', zIndex: 1 }}>
         {servicesList.map((service, index) => (
           <ServiceCard key={service.id} service={service} index={index} />
         ))}

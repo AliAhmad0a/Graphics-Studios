@@ -69,8 +69,8 @@ const Team = () => {
       {/* Founder Section */}
       <motion.div 
         initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-        className="vision-pro-glass" 
-        style={{ maxWidth: '850px', margin: '0 auto 60px auto', padding: '50px', display: 'flex', gap: '40px', alignItems: 'center', flexWrap: 'wrap', borderRadius: '30px', position: 'relative', overflow: 'hidden' }}
+        className="vision-pro-glass founder-card" 
+        style={{ maxWidth: '850px', margin: '0 auto 60px auto', display: 'flex', gap: '40px', alignItems: 'center', flexWrap: 'wrap', borderRadius: '30px', position: 'relative', overflow: 'hidden' }}
       >
         <div style={{ position: 'absolute', top: 0, left: 0, width: '400px', height: '400px', background: 'rgba(59, 130, 246, 0.1)', filter: 'blur(100px)' }}></div>
         
@@ -124,6 +124,11 @@ const Team = () => {
       <style>{`
         .team-glow { position: absolute; top: 0; right: 0; width: 100px; height: 100px; background: radial-gradient(circle, rgba(59,130,246,0.2) 0%, transparent 70%); opacity: 0; transition: opacity 0.3s; }
         .vision-pro-glass:hover .team-glow { opacity: 1; }
+        .founder-card { padding: 50px; }
+        @media (max-width: 768px) {
+          .founder-card { padding: 30px 20px; flex-direction: column; gap: 20px; }
+          .founder-card h3 { font-size: 2rem !important; }
+        }
       `}</style>
     </section>
   );

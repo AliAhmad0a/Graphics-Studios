@@ -38,7 +38,7 @@ const Portfolio = () => {
       {/* Standard Grid */}
       <motion.div layout style={{ 
         display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
         gap: '30px',
         marginTop: '50px'
       }}>
