@@ -60,11 +60,11 @@ const Portfolio = () => {
               }}
               whileHover={{ scale: 1.02, boxShadow: '0 20px 40px rgba(59, 130, 246, 0.2)' }}
             >
-              <div style={{ height: '240px', width: '100%', overflow: 'hidden' }}>
+              <div className="portfolio-img-container" style={{ width: '100%', overflow: 'hidden' }}>
                 <img src={project.img} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} className="portfolio-img" />
               </div>
               
-              <div style={{ padding: '25px', display: 'flex', flexDirection: 'column', flex: 1 }}>
+              <div className="portfolio-content" style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
                 <span style={{ display: 'inline-block', alignSelf: 'flex-start', padding: '6px 16px', background: 'rgba(59, 130, 246, 0.1)', color: '#60a5fa', borderRadius: '20px', fontSize: '0.8rem', fontWeight: '600', marginBottom: '15px', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
                   {project.category}
                 </span>
@@ -88,6 +88,13 @@ const Portfolio = () => {
           transition: all 0.3s; display: inline-flex; alignItems: center; gap: 8px;
         }
         .portfolio-item:hover .view-btn { color: #fff; }
+        .portfolio-img-container { height: 240px; }
+        .portfolio-content { padding: 25px; }
+        @media (max-width: 768px) {
+          .portfolio-img-container { height: 180px !important; }
+          .portfolio-content { padding: 18px !important; }
+          .portfolio-content h3 { font-size: 1.2rem !important; }
+        }
       `}</style>
     </section>
   );

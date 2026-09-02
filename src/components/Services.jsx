@@ -49,10 +49,10 @@ const ServiceCard = ({ service, index }) => {
         {/* Animated Shine Effect */}
         <div className="shine-effect"></div>
 
-        <div style={{ height: '220px', overflow: 'hidden', transform: "translateZ(30px)" }}>
+        <div className="service-img-container">
           <img src={service.img} alt={service.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} className="service-img" />
         </div>
-        <div style={{ padding: '25px', flex: 1, display: 'flex', flexDirection: 'column', transform: "translateZ(40px)" }}>
+        <div className="service-content">
           <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px' }}>
             <motion.div 
               className="service-icon"
@@ -106,6 +106,13 @@ const Services = () => {
         }
         .service-card:hover .shine-effect { animation: shine 1s ease forwards; }
         @keyframes shine { 100% { left: 200%; } }
+        
+        .service-img-container { height: 220px; overflow: hidden; transform: translateZ(30px); }
+        .service-content { padding: 25px; flex: 1; display: flex; flexDirection: column; transform: translateZ(40px); }
+        @media (max-width: 768px) {
+          .service-img-container { height: 170px !important; }
+          .service-content { padding: 18px !important; }
+        }
       `}</style>
     </section>
   );

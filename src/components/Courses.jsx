@@ -46,11 +46,11 @@ const CourseCard = ({ course, index }) => {
         <div style={{ position: 'absolute', top: 0, left: 0, width: '4px', height: '100%', background: 'linear-gradient(to bottom, #3b82f6, #0a42db)', zIndex: 10 }}></div>
         <div className="course-glow"></div>
         
-        <div style={{ height: '200px', width: '100%', overflow: 'hidden', transform: 'translateZ(20px)' }}>
+        <div className="course-img-container">
            <img src={course.img} alt={course.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} className="course-img" />
         </div>
 
-        <div style={{ padding: '30px', flex: 1, display: 'flex', flexDirection: 'column', transform: 'translateZ(30px)' }}>
+        <div className="course-content">
           <span style={{ display: 'inline-block', alignSelf: 'flex-start', padding: '6px 16px', background: 'rgba(59, 130, 246, 0.1)', color: '#60a5fa', borderRadius: '20px', fontSize: '0.8rem', fontWeight: '600', marginBottom: '20px', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
             {course.level}
           </span>
@@ -100,6 +100,14 @@ const Courses = () => {
         .course-card-wrapper:hover .course-img { transform: scale(1.1); }
         .btn-progress { position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: rgba(59,130,246,0.2); transition: left 0.4s ease; z-index: 0; }
         .btn-outline:hover .btn-progress { left: 0; }
+        
+        .course-img-container { height: 200px; transform: translateZ(20px); width: 100%; overflow: hidden; }
+        .course-content { padding: 30px; flex: 1; display: flex; flexDirection: column; transform: translateZ(30px); }
+        @media (max-width: 768px) {
+          .course-img-container { height: 160px !important; }
+          .course-content { padding: 20px !important; }
+          .course-content h3 { font-size: 1.25rem !important; }
+        }
       `}</style>
     </section>
   );
