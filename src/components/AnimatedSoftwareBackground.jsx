@@ -1,8 +1,22 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
 
 const AnimatedSoftwareBackground = () => {
+    const [isLight, setIsLight] = useState(() => {
+        return typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme') === 'light';
+    });
+
+    useEffect(() => {
+        const checkTheme = () => {
+            setIsLight(document.documentElement.getAttribute('data-theme') === 'light');
+        };
+        checkTheme();
+        const observer = new MutationObserver(checkTheme);
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+        return () => observer.disconnect();
+    }, []);
+
     const particlesInit = useCallback(async engine => {
         await loadFull(engine);
     }, []);
@@ -12,10 +26,12 @@ const AnimatedSoftwareBackground = () => {
             position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
             zIndex: 0, overflow: 'hidden', pointerEvents: 'none', background: 'var(--page-bg)'
         }}>
-            {/* Deep Navy Gradient */}
+            {/* Ambient Atmosphere Gradient Glow */}
             <div style={{
                 position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-                background: 'radial-gradient(circle at 50% 0%, rgba(10, 66, 219, 0.15) 0%, transparent 70%)'
+                background: isLight 
+                    ? 'radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.09) 0%, rgba(2, 132, 199, 0.04) 45%, transparent 70%)'
+                    : 'radial-gradient(circle at 50% 0%, rgba(10, 66, 219, 0.15) 0%, transparent 70%)'
             }}></div>
 
             {/* 3D Perspective Digital Grid */}
@@ -30,6 +46,7 @@ const AnimatedSoftwareBackground = () => {
 
             {/* Tech Nodes Particle Network */}
             <Particles
+                key={isLight ? 'particles-light' : 'particles-dark'}
                 id="tsparticles-software"
                 init={particlesInit}
                 style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
@@ -38,16 +55,22 @@ const AnimatedSoftwareBackground = () => {
                     fpsLimit: 60,
                     interactivity: {
                         events: { onHover: { enable: true, mode: "grab" }, resize: true },
-                        modes: { grab: { distance: 150, links: { opacity: 0.6, color: 'var(--blue)' } } }
+                        modes: { grab: { distance: 150, links: { opacity: isLight ? 0.45 : 0.6, color: isLight ? '#2563eb' : 'var(--blue)' } } }
                     },
                     particles: {
-                        color: { value: ["#3b82f6", "#60a5fa"] },
-                        links: { color: "#1e3a8a", distance: 130, enable: true, opacity: 0.5, width: 1 },
+                        color: { value: isLight ? ["#2563eb", "#0284c7", "#60a5fa"] : ["#3b82f6", "#60a5fa"] },
+                        links: { 
+                            color: isLight ? "#93c5fd" : "#1e3a8a", 
+                            distance: 130, 
+                            enable: true, 
+                            opacity: isLight ? 0.35 : 0.5, 
+                            width: 1 
+                        },
                         move: { enable: true, speed: 0.6, direction: "none", random: false, straight: false, outModes: { default: "bounce" } },
-                        number: { density: { enable: true, area: 800 }, value: 70 },
-                        opacity: { value: 0.6 },
+                        number: { density: { enable: true, area: 850 }, value: isLight ? 60 : 70 },
+                        opacity: { value: isLight ? 0.55 : 0.6 },
                         shape: { type: "circle" },
-                        size: { value: { min: 1, max: 2.5 } }
+                        size: { value: { min: 1, max: isLight ? 2.8 : 2.5 } }
                     },
                     detectRetina: true,
                 }}
