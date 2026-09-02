@@ -38,9 +38,9 @@ const Portfolio = () => {
       {/* Standard Grid */}
       <motion.div layout style={{ 
         display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
-        gap: '30px',
-        marginTop: '50px'
+        gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', 
+        gap: '24px',
+        marginTop: '40px'
       }}>
         <AnimatePresence>
           {projects.map((project) => (

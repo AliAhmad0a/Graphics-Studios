@@ -37,8 +37,8 @@ const Testimonials = () => {
 
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-        gap: '28px',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+        gap: '20px',
         maxWidth: '1200px',
         margin: '0 auto'
       }}>

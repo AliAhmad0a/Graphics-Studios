@@ -87,7 +87,7 @@ const Courses = () => {
         </p>
       </motion.div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginTop: '50px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px', marginTop: '40px' }}>
         {coursesList.map((course, index) => (
           <CourseCard key={course.id} course={course} index={index} />
         ))}

@@ -31,7 +31,7 @@ const Contact = () => {
         Ready to transform your brand? Let's discuss your next big project.
       </p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '50px', marginTop: '40px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '32px', marginTop: '40px' }}>
         
         {/* Contact Info */}
         <motion.div
@@ -145,7 +145,7 @@ const Contact = () => {
         }
         .neon-input {
           flex: 1; min-width: 200px;
-          padding: 15px 20px;
+          padding: 14px 18px;
           background: rgba(2, 6, 23, 0.5);
           border: 1px solid rgba(255, 255, 255, 0.1);
           border-radius: 12px;
@@ -154,18 +154,19 @@ const Contact = () => {
           font-size: 0.95rem;
           transition: all 0.3s ease;
           outline: none;
+          width: 100%;
         }
         .neon-input:focus {
           border-color: var(--cyan);
           box-shadow: 0 0 15px rgba(6, 182, 212, 0.3);
           background: rgba(2, 6, 23, 0.8);
         }
-        .neon-input::placeholder {
-          color: #64748b;
-        }
-        select.neon-input option {
-          background: var(--navy);
-          color: white;
+        .neon-input::placeholder { color: #64748b; }
+        select.neon-input option { background: var(--navy); color: white; }
+        
+        @media (max-width: 480px) {
+          .neon-input { min-width: unset !important; width: 100% !important; padding: 12px 14px !important; }
+          .contact-form > div { flex-direction: column !important; }
         }
       `}</style>
     </section>

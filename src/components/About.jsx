@@ -35,28 +35,36 @@ const About = () => {
             We merge cutting-edge AI technology with unparalleled creative vision. From branding that resonates to immersive web experiences and data-driven marketing, we build solutions that elevate your brand in the digital future.
           </p>
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '30px', marginTop: '30px' }}>
-            <motion.div whileHover={{ scale: 1.05 }} style={{ padding: '30px', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.05)' }}>
-              <h3 style={{ fontSize: '3rem', color: '#3b82f6', marginBottom: '10px', fontFamily: 'Space Grotesk' }}>150+</h3>
-              <p style={{ color: '#94a3b8', fontSize: '1.1rem' }}>Projects Completed</p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '16px', marginTop: '24px' }}>
+            <motion.div whileHover={{ scale: 1.05 }} className="about-stat" style={{ padding: '24px 16px', background: 'rgba(255,255,255,0.02)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
+              <h3 style={{ fontSize: '2.8rem', color: '#3b82f6', marginBottom: '8px', fontFamily: 'Space Grotesk' }}>150+</h3>
+              <p style={{ color: '#94a3b8', fontSize: '1rem', margin: 0 }}>Projects Completed</p>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} style={{ padding: '30px', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.05)' }}>
-              <h3 style={{ fontSize: '3rem', color: '#3b82f6', marginBottom: '10px', fontFamily: 'Space Grotesk' }}>50+</h3>
-              <p style={{ color: '#94a3b8', fontSize: '1.1rem' }}>Global Clients</p>
+            <motion.div whileHover={{ scale: 1.05 }} className="about-stat" style={{ padding: '24px 16px', background: 'rgba(255,255,255,0.02)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
+              <h3 style={{ fontSize: '2.8rem', color: '#3b82f6', marginBottom: '8px', fontFamily: 'Space Grotesk' }}>50+</h3>
+              <p style={{ color: '#94a3b8', fontSize: '1rem', margin: 0 }}>Global Clients</p>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} style={{ padding: '30px', background: 'rgba(255,255,255,0.02)', borderRadius: '20px', border: '1px solid rgba(255,255,255,0.05)' }}>
-              <h3 style={{ fontSize: '3rem', color: '#3b82f6', marginBottom: '10px', fontFamily: 'Space Grotesk' }}>10+</h3>
-              <p style={{ color: '#94a3b8', fontSize: '1.1rem' }}>Expert Team Members</p>
+            <motion.div whileHover={{ scale: 1.05 }} className="about-stat" style={{ padding: '24px 16px', background: 'rgba(255,255,255,0.02)', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }}>
+              <h3 style={{ fontSize: '2.8rem', color: '#3b82f6', marginBottom: '8px', fontFamily: 'Space Grotesk' }}>10+</h3>
+              <p style={{ color: '#94a3b8', fontSize: '1rem', margin: 0 }}>Expert Team Members</p>
             </motion.div>
           </div>
         </div>
       </motion.div>
 
       <style>{`
-        .about-card { padding: 60px; }
+        .about-card { padding: 52px; }
         @media (max-width: 768px) {
-          .about-card { padding: 30px 20px; }
-          .about-card p { font-size: 1.05rem !important; }
+          .about-card { padding: 24px 16px !important; }
+          .about-card p { font-size: 0.95rem !important; }
+          .about-stat { padding: 18px 10px !important; }
+          .about-stat h3 { font-size: 2.2rem !important; }
+          .about-stat p { font-size: 0.9rem !important; }
+        }
+        @media (max-width: 480px) {
+          .about-card { padding: 18px 10px !important; }
+          .about-stat { padding: 14px 8px !important; }
+          .about-stat h3 { font-size: 1.8rem !important; }
         }
       `}</style>
     </section>

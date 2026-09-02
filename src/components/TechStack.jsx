@@ -32,7 +32,7 @@ const TechStack = () => {
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        gap: '30px',
+        gap: '20px',
         maxWidth: '1000px',
         margin: '0 auto'
       }}>

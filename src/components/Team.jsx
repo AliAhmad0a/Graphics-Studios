@@ -99,7 +99,7 @@ const Team = () => {
       </motion.div>
 
       {/* Teams Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', position: 'relative', zIndex: 1 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '24px', position: 'relative', zIndex: 1 }}>
         {teamMembers.map((member, index) => (
           <TeamCard 
             key={index} 
