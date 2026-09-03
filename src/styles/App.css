@@ -65,29 +65,29 @@
 }
 
 [data-theme="light"] {
-  --primary: #2563eb;
-  --secondary: #f8fafc;
+  --primary: #0f172a;
+  --secondary: #ffffff;
   --navy: #ffffff;
   --charcoal: #f8fafc;
   --background: #ffffff;
-  --background-dark: #ffffff;
-  --page-bg: linear-gradient(160deg, #dbeafe 0%, #eff6ff 28%, #e0f2fe 65%, #f0f9ff 100%);
-  --text-main: #334155;
+  --background-dark: #f8fafc;
+  --page-bg: #fafafa;
+  --text-main: #475569;
   --text-h: #0f172a;
   --text-dark: #1e293b;
-  --text-light: #475569;
-  --text-muted: #64748b;
-  --cyan: #0284c7;
+  --text-light: #64748b;
+  --text-muted: #94a3b8;
+  --cyan: #0ea5e9;
   --blue: #2563eb;
-  --electric: #6366f1;
+  --electric: #4f46e5;
   --accent: #2563eb;
-  --accent-glow: rgba(37, 99, 235, 0.2);
+  --accent-glow: rgba(15, 23, 42, 0.1);
   --border: rgba(15, 23, 42, 0.08);
   --glass: rgba(255, 255, 255, 0.95);
   --glass-bg: #ffffff;
   --glass-border: rgba(15, 23, 42, 0.08);
-  --shadow-soft: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
-  --shadow-glow: 0 4px 15px rgba(37, 99, 235, 0.2);
+  --shadow-soft: 0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.02);
+  --shadow-glow: 0 4px 15px rgba(15, 23, 42, 0.08);
 
   --white-alpha-02: rgba(15, 23, 42, 0.02);
   --white-alpha-04: rgba(15, 23, 42, 0.04);
@@ -106,12 +106,12 @@
   --background-alpha-80: rgba(255, 255, 255, 0.80);
   --background-alpha-75: rgba(255, 255, 255, 0.75);
 
-  --matrix-grid-line: rgba(30, 58, 138, 0.12);
-  --digital-box-bg: rgba(29, 78, 216, 0.12);
-  --digital-box-border: rgba(29, 78, 216, 0.42);
-  --digital-box-glow: 0 0 20px rgba(29, 78, 216, 0.22), inset 0 0 10px rgba(29, 78, 216, 0.10);
-  --digital-box-corner: #1d4ed8;
-  --digital-box-dot: #1e40af;
+  --matrix-grid-line: rgba(15, 23, 42, 0.04);
+  --digital-box-bg: rgba(15, 23, 42, 0.02);
+  --digital-box-border: rgba(15, 23, 42, 0.1);
+  --digital-box-glow: 0 0 15px rgba(15, 23, 42, 0.02), inset 0 0 5px rgba(15, 23, 42, 0.02);
+  --digital-box-corner: #475569;
+  --digital-box-dot: #64748b;
 
   color-scheme: light;
 }
@@ -599,7 +599,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 [data-theme="light"] .gradient-text {
-  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 55%, #2563eb 100%) !important;
+  background: linear-gradient(135deg, #0f172a 0%, #334155 55%, #1e293b 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
@@ -620,29 +620,29 @@ input:focus, textarea:focus, select:focus {
 }
 
 [data-theme="light"] .hero-badge {
-  background: rgba(255, 255, 255, 0.92) !important;
-  border: 1px solid rgba(37, 99, 235, 0.2) !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
   color: #1e293b !important;
-  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.08) !important;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.05) !important;
 }
 
 [data-theme="light"] .hero-badge-dot {
   background: #2563eb !important;
-  box-shadow: 0 0 8px rgba(37, 99, 235, 0.6) !important;
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.4) !important;
 }
 
 /* 4. Buttons */
 [data-theme="light"] .btn-primary {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+  background: #0f172a !important;
   color: #ffffff !important;
-  border: 1px solid rgba(255, 255, 255, 0.25) !important;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35) !important;
+  border: 1px solid rgba(15, 23, 42, 0.2) !important;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.1) !important;
 }
 
 [data-theme="light"] .btn-primary:hover {
-  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%) !important;
+  background: #1e293b !important;
   color: #ffffff !important;
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.48) !important;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.2) !important;
   transform: translateY(-2px);
 }
 
@@ -687,8 +687,8 @@ input:focus, textarea:focus, select:focus {
 [data-theme="light"] .testimonial-card:hover,
 [data-theme="light"] .mission-card:hover,
 [data-theme="light"] .contact-card:hover {
-  border-color: rgba(37, 99, 235, 0.35) !important;
-  box-shadow: 0 16px 36px -4px rgba(37, 99, 235, 0.12), 0 0 0 1px rgba(37, 99, 235, 0.15) !important;
+  border-color: rgba(15, 23, 42, 0.15) !important;
+  box-shadow: 0 16px 36px -4px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.05) !important;
 }
 
 /* 6. Tags, Badges & Labels */

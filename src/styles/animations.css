@@ -38,7 +38,7 @@
 }
 
 .animate-floating {
-  animation: floatingSmooth 4.5s ease-in-out infinite;
+  animation: floatingSmooth 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 /* 3. Shimmer Sheen on Buttons & Badges */
@@ -88,7 +88,7 @@
 }
 
 .hero-badge-dot {
-  animation: neonPulse 2.2s infinite cubic-bezier(0.66, 0, 0, 1) !important;
+  animation: neonPulse 3.5s infinite cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 /* 5. Card Border Glow & Elevation on Hover */
@@ -99,7 +99,7 @@
 }
 
 .glass-card:hover, .service-card:hover, .course-card-wrapper:hover, .portfolio-item:hover, .team-card:hover {
-  transform: translateY(-6px) !important;
+  transform: translateY(-4px) !important;
   border-color: rgba(59, 130, 246, 0.45) !important;
   box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.6), 0 0 22px rgba(59, 130, 246, 0.22) !important;
 }
