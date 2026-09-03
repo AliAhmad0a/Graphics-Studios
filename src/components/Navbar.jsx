@@ -276,8 +276,7 @@ const Navbar = () => {
           width: 100%;
           height: 100%;
           transform: translate(-50%, -50%);
-          background: var(--blue);
-          filter: blur(8px);
+          background: rgba(255, 255, 255, 0.5); filter: blur(8px);
           opacity: 0;
           transition: opacity 0.3s ease;
           z-index: 1;
@@ -317,8 +316,7 @@ const Navbar = () => {
           color: var(--strong-text);
         }
 
-        .nav-underline {
-          position: absolute;
+        .nav-underline { display: none; position: absolute;
           bottom: 0;
           left: 0;
           width: 100%;
@@ -458,16 +456,9 @@ const Navbar = () => {
           box-sizing: border-box;
         }
 
-        .mobile-nav-link:hover, .mobile-nav-link:active {
-          background: rgba(59, 130, 246, 0.1);
-          border-color: rgba(59, 130, 246, 0.3);
-          color: var(--cyan);
-        }
+        .mobile-nav-link:hover, .mobile-nav-link:active { background: rgba(255, 255, 255, 0.05); border-color: rgba(255, 255, 255, 0.1); color: var(--strong-text); }
 
-        .mobile-nav-index {
-          font-family: var(--heading);
-          font-size: 0.78rem;
-          color: var(--cyan);
+        .mobile-nav-index { font-family: var(--heading); font-size: 0.78rem; color: rgba(255, 255, 255, 0.5);
           font-weight: 700;
           flex-shrink: 0;
         }
@@ -523,3 +514,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
+

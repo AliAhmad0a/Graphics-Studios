@@ -830,10 +830,7 @@ input:focus, textarea:focus, select:focus {
   font-weight: 500 !important;
 }
 
-[data-theme="light"] .nav-link:hover,
-[data-theme="light"] .nav-link.active {
-  color: #2563eb !important;
-}
+[data-theme="light"] .nav-link:hover, [data-theme="light"] .nav-link.active { color: #ffffff !important; }
 
 [data-theme="light"] .logo-text {
   color: #0f172a !important;
@@ -952,5 +949,19 @@ input:focus, textarea:focus, select:focus {
 [data-theme="light"] .portfolio-img-container,
 [data-theme="light"] .video-container {
   background: #eff6ff !important;
+}
+
+
+/* Force navbar links to be white on laptop/desktop */
+@media (min-width: 1024px) {
+  .desktop-nav .nav-link,
+  .logo-text,
+  .theme-toggle-btn {
+    color: #ffffff !important;
+  }
+  
+  [data-theme="light"] .main-navbar.nav-scrolled {
+    background: rgba(10, 15, 28, 0.95) !important;
+  }
 }
 
