@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 
 const videos = [
   { id: 1, title: "Sabalon - Pakistan's Top Brand", category: 'Brand Collaboration', src: '/videos/brand-video1.mp4', link: 'https://sabalonpk.com/' },
-  { id: 2, title: 'AI Animation videos for brands', category: 'Brand Collaboration', src: '/videos/brand-video2.mp4' }
+  { id: 2, title: 'AI Animation videos for brands', category: 'Brand Collaboration', src: '/videos/brand-video2.mp4' },
+  { id: 3, title: 'Graphics Studio Agency', category: 'Agency Promotion', src: '/videos/graphics-studio-agency.mp4' }
 ];
 
 const VideoCard = ({ video, index }) => {
