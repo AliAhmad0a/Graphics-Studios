@@ -16,6 +16,7 @@ import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 import Loader from './components/Loader';
 import OurWorkVideos from './components/OurWorkVideos';
+import OurWorkTopBrands from './components/OurWorkTopBrands';
 
 const AnimatedSoftwareBackground = lazy(() => import('./components/AnimatedSoftwareBackground'));
 
@@ -40,6 +41,7 @@ function App() {
         <Navbar />
         <main>
           <Hero />
+          <OurWorkTopBrands />
           <OurWorkVideos />
           <About />
           <Services />
