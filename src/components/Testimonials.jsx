@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import imgAiman from '../assets/aiman.jpg';
-import imgDavid from '../assets/david.jpg';
+import imgMalaika from '../assets/malaika.jpg';
 import imgElena from '../assets/elena.jpg';
 
 const testimonials = [
@@ -12,10 +12,10 @@ const testimonials = [
     avatar: imgAiman
   },
   {
-    name: 'David Chen',
+    name: 'Malaika Khan',
     role: 'Founder, MetaVerse Dynamics',
     content: 'Their AR/VR and motion graphics capabilities completely blew our minds. We saw a 300% increase in user engagement after the redesign.',
-    avatar: imgDavid
+    avatar: imgMalaika
   },
   {
     name: 'Elena Rodriguez',
