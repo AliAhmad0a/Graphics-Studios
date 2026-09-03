@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const videos = [
-  { id: 1, title: 'Top Brand Campaign 1', category: 'Brand Collaboration', src: '/videos/brand-video1.mp4' },
+  { id: 1, title: "Sabalon - Pakistan's Top Brand", category: 'Brand Collaboration', src: '/videos/brand-video1.mp4' },
   { id: 2, title: 'Top Brand Campaign 2', category: 'Brand Collaboration', src: '/videos/brand-video2.mp4' }
 ];
 
