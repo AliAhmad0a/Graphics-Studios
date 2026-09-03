@@ -370,17 +370,17 @@ const Navbar = () => {
         }
         
         [data-theme="light"] .main-navbar.nav-scrolled, [data-theme="light"] .mobile-nav-overlay {
-          background: rgba(255, 255, 255, 0.95);
+          background: rgba(10, 15, 28, 0.95);
         }
         [data-theme="light"] .nav-link, [data-theme="light"] .logo-text, [data-theme="light"] .mobile-toggle, [data-theme="light"] .theme-toggle-btn, [data-theme="light"] .mobile-nav-link {
-          color: #1e293b;
+          color: #ffffff;
         }
         [data-theme="light"] .mobile-toggle, [data-theme="light"] .theme-toggle-btn, [data-theme="light"] .mobile-close-btn {
-          border-color: rgba(0,0,0,0.1);
-          color: #1e293b;
+          border-color: rgba(255, 255, 255, 0.2);
+          color: #ffffff;
         }
         [data-theme="light"] .mobile-toggle:hover, [data-theme="light"] .theme-toggle-btn:hover {
-          background: rgba(0,0,0,0.05);
+          background: rgba(255, 255, 255, 0.1);
         }
 
         /* Mobile Menu Fullscreen Sheet */
