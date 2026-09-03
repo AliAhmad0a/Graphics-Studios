@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import heroVideo from '../assets/hero_video.mp4';
+import heroVideoMobile from '../assets/hero_video_mobile.mp4';
 
 const Hero = () => {
   return (
@@ -14,7 +15,19 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        className="hero-video-bg"
+        className="hero-video-bg desktop-video"
+      />
+      
+      <motion.video 
+        src={heroVideoMobile}
+        autoPlay 
+        loop 
+        muted 
+        playsInline
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+        className="hero-video-bg mobile-video"
       />
 
       {/* Optional overlay to make navbar readable if needed, or just let video play */}
@@ -43,6 +56,19 @@ const Hero = () => {
           height: 100%;
           object-fit: cover;
           z-index: 0;
+        }
+
+        .mobile-video {
+          display: none;
+        }
+
+        @media (max-width: 768px) {
+          .desktop-video {
+            display: none;
+          }
+          .mobile-video {
+            display: block;
+          }
         }
 
         .hero-overlay {
