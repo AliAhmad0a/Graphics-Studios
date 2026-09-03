@@ -8,8 +8,8 @@ import imgLaiba from '../assets/laiba.jpg';
 import imgAli from '../assets/ali.jpg';
 
 const teamMembers = [
-  { name: "Haiqa", role: "Graphic Designer", detail: "Crafting stunning visual identities and creative digital graphics.", image: imgHaiqa, link: "https://www.behance.net/haiqazarbakht" },
-  { name: "Esha", role: "Graphic Designer", detail: "Designing visually striking and engaging brand graphics.", image: imgEsha, link: "https://www.linkedin.com/in/esha-imran-794b2a274/" },
+  { name: "Haiqa", role: "Graphic Designer", detail: "Crafting stunning visual identities and creative digital graphics.", image: imgHaiqa, link: "https://ha-fawn-nine.vercel.app/" },
+  { name: "Esha", role: "Graphic Designer", detail: "Designing visually striking and engaging brand graphics.", image: imgEsha, link: "https://ea-rosy.vercel.app/" },
   { name: "Laiba Shehzad", role: "Digital Marketer", detail: "Developing and executing innovative digital marketing campaigns.", image: imgLaiba, link: "https://la-five-olive.vercel.app/" },
   { name: "Ali Ahmad", role: "Website And App Developer", detail: "Building engaging and functional websites and applications.", image: imgAli, link: "https://my-portfolio-th1n.vercel.app/" }
 ];
