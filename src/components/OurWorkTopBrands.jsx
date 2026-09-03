@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const videos = [
-  { id: 1, title: "Sabalon - Pakistan's Top Brand", category: 'Brand Collaboration', src: '/videos/brand-video1.mp4' },
+  { id: 1, title: "Sabalon - Pakistan's Top Brand", category: 'Brand Collaboration', src: '/videos/brand-video1.mp4', link: 'https://sabalonpk.com/' },
   { id: 2, title: 'AI Animation videos for brands', category: 'Brand Collaboration', src: '/videos/brand-video2.mp4' }
 ];
 
@@ -19,6 +19,7 @@ const VideoCard = ({ video, index }) => {
       whileHover={{ y: -6, borderColor: 'rgba(34, 211, 238, 0.45)', boxShadow: '0 16px 36px rgba(59, 130, 246, 0.22)' }}
       onMouseEnter={() => videoRef.current?.play()}
       onMouseLeave={() => videoRef.current?.pause()}
+      onClick={() => { if(video.link) window.open(video.link, '_blank'); }}
     >
       <div className="video-container">
         <video 
