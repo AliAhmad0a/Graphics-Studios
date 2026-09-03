@@ -4,19 +4,12 @@ import imgTeam from '../assets/images/team_workspace_1788284064043.jpg';
 import imgSafia from '../assets/safia_mukhtar.jpg';
 import imgElena from '../assets/elena.jpg';
 import imgSarah from '../assets/sarah.jpg';
-import imgAisha from '../assets/aisha.jpg';
-import imgDavid from '../assets/david.jpg';
-import imgLiam from '../assets/liam.jpg';
 import imgLaiba from '../assets/laiba.jpg';
 import imgAli from '../assets/ali.jpg';
 
 const teamMembers = [
   { name: "Haiqa", role: "Graphic Designer", detail: "Crafting stunning visual identities and creative digital graphics.", image: imgElena, link: "https://www.behance.net/haiqazarbakht" },
   { name: "Esha", role: "Graphic Designer", detail: "Designing visually striking and engaging brand graphics.", image: imgSarah, link: "https://www.linkedin.com/in/esha-imran-794b2a274/" },
-  { name: "Sarah Jenkins", role: "Digital Marketing", detail: "Scaling brands through data-driven performance strategies.", image: imgSarah },
-  { name: "Dr. Aisha Rahman", role: "AI Solutions", detail: "Architecting next-generation artificial intelligence systems.", image: imgAisha },
-  { name: "David Kim", role: "Web Developer", detail: "Building robust, scalable full-stack web applications.", image: imgDavid },
-  { name: "Liam O'Connor", role: "3D Designer", detail: "Pushing boundaries with immersive 3D and WebGL environments.", image: imgLiam },
   { name: "Laiba Shehzad", role: "Digital Marketer", detail: "Developing and executing innovative digital marketing campaigns.", image: imgLaiba, link: "https://la-five-olive.vercel.app/" },
   { name: "Ali Ahmad", role: "Website And App Developer", detail: "Building engaging and functional websites and applications.", image: imgAli, link: "https://my-portfolio-th1n.vercel.app/" }
 ];
