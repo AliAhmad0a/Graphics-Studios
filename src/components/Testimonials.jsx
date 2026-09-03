@@ -1,15 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import imgSarah from '../assets/sarah.jpg';
+import imgAiman from '../assets/aiman.jpg';
 import imgDavid from '../assets/david.jpg';
 import imgElena from '../assets/elena.jpg';
 
 const testimonials = [
   {
-    name: 'Sarah Jenkins',
+    name: 'Aiman Nadeem',
     role: 'CEO, TechNova Solutions',
     content: 'The level of innovation and technical expertise is unmatched. They transformed our outdated platform into a next-generation experience.',
-    avatar: imgSarah
+    avatar: imgAiman
   },
   {
     name: 'David Chen',
