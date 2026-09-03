@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import imgAiman from '../assets/aiman.jpg';
 import imgMalaika from '../assets/malaika.jpg';
-import imgElena from '../assets/elena.jpg';
+import imgAmir from '../assets/amir.jpg';
 
 const testimonials = [
   {
@@ -18,10 +18,10 @@ const testimonials = [
     avatar: imgMalaika
   },
   {
-    name: 'Elena Rodriguez',
+    name: 'Amir',
     role: 'CMO, Quantum AI',
     content: 'A truly futuristic agency. From the sleek digital designs to the AI-driven marketing strategies, they are lightyears ahead of the competition.',
-    avatar: imgElena
+    avatar: imgAmir
   }
 ];
 
