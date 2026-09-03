@@ -67,9 +67,6 @@ const ServiceCard = ({ service, index }) => {
           <p className="service-desc">
             {service.desc}
           </p>
-          <div className="service-explore">
-            Explore <span className="explore-arrow">→</span>
-          </div>
         </div>
       </motion.div>
     </motion.div>
@@ -229,32 +226,6 @@ const Services = () => {
           margin-bottom: 12px;
           flex: 1;
           overflow-wrap: break-word;
-        }
-
-        .service-explore {
-          color: var(--cyan);
-          font-weight: 600;
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          font-size: 0.76rem;
-          margin-top: auto;
-          text-transform: uppercase;
-          letter-spacing: 0.5px;
-          transition: all 0.25s ease;
-        }
-
-        .explore-arrow {
-          display: inline-block;
-          transition: transform 0.25s ease;
-        }
-
-        .service-card:hover .explore-arrow {
-          transform: translateX(4px);
-        }
-
-        .service-card:hover .service-explore {
-          color: var(--cyan);
         }
 
         @media (max-width: 600px) {

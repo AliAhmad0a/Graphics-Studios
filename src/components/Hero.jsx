@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import heroVideo from '../assets/hero_video.mp4';
-import heroVideoMobile from '../assets/hero_video_mobile.mp4';
+import heroVideoMobileNew from '../assets/hero_video_mobile_new.mp4';
 
 const Hero = () => {
   return (
@@ -19,7 +19,7 @@ const Hero = () => {
       />
       
       <motion.video 
-        src={heroVideoMobile}
+        src={heroVideoMobileNew}
         autoPlay 
         loop 
         muted 
