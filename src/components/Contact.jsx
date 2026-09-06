@@ -1,24 +1,64 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaWhatsapp, FaCheckCircle } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaWhatsapp, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
+import { EMAILJS_CONFIG } from '../config/emailjs';
 
 const Contact = () => {
+  const formRef = useRef(null);
   const [formState, setFormState] = useState({ name: '', email: '', phone: '', service: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [status, setStatus] = useState({ type: '', message: '' });
 
   const handleChange = (e) => setFormState(prev => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
-    // Build WhatsApp message with form data
-    const msg = `New Enquiry from ${formState.name}%0AEmail: ${formState.email}%0APhone: ${formState.phone}%0AService: ${formState.service}%0AMessage: ${formState.message}`;
-    setTimeout(() => {
+    setStatus({ type: '', message: '' });
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || EMAILJS_CONFIG.SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || EMAILJS_CONFIG.TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || EMAILJS_CONFIG.PUBLIC_KEY;
+
+    // Check if configuration exists
+    if (!serviceId || !templateId || !publicKey) {
+      setSending(false);
+      setStatus({
+        type: 'error',
+        message: 'EmailJS credentials are not set. Please add VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY in your .env file.'
+      });
+      return;
+    }
+
+    const templateParams = {
+      name: formState.name,
+      user_name: formState.name,
+      from_name: formState.name,
+      email: formState.email,
+      user_email: formState.email,
+      reply_to: formState.email,
+      phone: formState.phone || 'Not provided',
+      user_phone: formState.phone || 'Not provided',
+      service: formState.service,
+      message: formState.message,
+    };
+
+    try {
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
       setSending(false);
       setSubmitted(true);
-      window.open(`https://api.whatsapp.com/send/?phone=03365821674&text=${msg}&type=phone_number&app_absent=0`, '_blank');
-    }, 800);
+      setFormState({ name: '', email: '', phone: '', service: '', message: '' });
+    } catch (err) {
+      console.error('EmailJS send error:', err);
+      setSending(false);
+      const errorDetail = err?.text || err?.message || 'Failed to send message. Please check your credentials or try again later.';
+      setStatus({
+        type: 'error',
+        message: `Failed to send email: ${errorDetail}`
+      });
+    }
   };
 
   return (
@@ -134,14 +174,16 @@ const Contact = () => {
                 className="contact-submitted"
               >
                 <FaCheckCircle style={{ fontSize: '2.5rem', color: 'var(--cyan)' }} />
-                <h3 style={{ fontSize: '1.25rem', margin: 0 }}>Message Sent!</h3>
-                <p style={{ color: 'var(--text-main)', margin: 0, fontSize: '0.86rem' }}>We've received your enquiry and will get back to you shortly via WhatsApp.</p>
-                <button className="btn btn-outline" onClick={() => { setSubmitted(false); setFormState({ name: '', email: '', phone: '', service: '', message: '' }); }} style={{ padding: '8px 16px', fontSize: '0.85rem' }}>
-                  Send Another
+                <h3 style={{ fontSize: '1.25rem', margin: 0 }}>Message Sent Successfully!</h3>
+                <p style={{ color: 'var(--text-main)', margin: 0, fontSize: '0.86rem' }}>
+                  Thank you! Your message has been sent via email. We will review your project details and get back to you shortly.
+                </p>
+                <button className="btn btn-outline" onClick={() => { setSubmitted(false); setStatus({ type: '', message: '' }); setFormState({ name: '', email: '', phone: '', service: '', message: '' }); }} style={{ padding: '8px 16px', fontSize: '0.85rem' }}>
+                  Send Another Message
                 </button>
               </motion.div>
             ) : (
-              <form className="contact-form" onSubmit={handleSubmit}>
+              <form ref={formRef} className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-row">
                   <input type="text" name="name" placeholder="Your Name" required className="neon-input" value={formState.name} onChange={handleChange} />
                   <input type="email" name="email" placeholder="Your Email" required className="neon-input" value={formState.email} onChange={handleChange} />
@@ -162,14 +204,43 @@ const Contact = () => {
                   </select>
                 </div>
                 <textarea name="message" placeholder="Your Message" rows="3" required className="neon-input" value={formState.message} onChange={handleChange}></textarea>
+                
+                {status.type === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    style={{
+                      padding: '10px 14px',
+                      borderRadius: '8px',
+                      background: 'rgba(239, 68, 68, 0.12)',
+                      border: '1px solid rgba(239, 68, 68, 0.35)',
+                      color: '#fca5a5',
+                      fontSize: '0.84rem',
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '8px',
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    <FaExclamationCircle style={{ marginTop: '2px', flexShrink: 0, color: '#ef4444' }} />
+                    <span>{status.message}</span>
+                  </motion.div>
+                )}
+
                 <motion.button 
                   type="submit" 
                   className="btn btn-primary contact-submit-btn" 
                   disabled={sending}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={!sending ? { scale: 1.02 } : {}}
+                  whileTap={!sending ? { scale: 0.98 } : {}}
+                  style={sending ? { opacity: 0.75, cursor: 'not-allowed' } : {}}
                 >
-                  {sending ? 'Sending...' : 'Send Message →'}
+                  {sending ? (
+                    <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                      <span className="contact-spinner" />
+                      Sending Message...
+                    </span>
+                  ) : 'Send Message →'}
                 </motion.button>
               </form>
             )}
@@ -362,6 +433,22 @@ const Contact = () => {
           padding: clamp(10px, 1.8vw, 13px);
           margin-top: 2px;
           font-size: 0.92rem;
+        }
+
+        .contact-spinner {
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          border: 2px solid rgba(255, 255, 255, 0.35);
+          border-top-color: #ffffff;
+          border-radius: 50%;
+          animation: contact-spin 0.8s linear infinite;
+        }
+
+        @keyframes contact-spin {
+          to {
+            transform: rotate(360deg);
+          }
         }
 
         .contact-submitted {
