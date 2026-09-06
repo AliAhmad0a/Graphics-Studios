@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { FaPlay, FaPause, FaVolumeUp, FaVolumeMute, FaExpand, FaCompress } from 'react-icons/fa';
 import teamVideo from '../assets/team_video.mp4';
 import imgSafia from '../assets/safia_mukhtar.jpg';
 import imgHaiqa from '../assets/haiqa.jpg';
@@ -51,6 +52,210 @@ const TeamCard = ({ name, role, detail, image, link, delay }) => {
           <p className="team-member-detail">{detail}</p>
         </div>
       </motion.div>
+    </motion.div>
+  );
+};
+
+const TeamWorkspaceVideo = () => {
+  const videoRef = useRef(null);
+  const containerRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [currentTime, setCurrentTime] = useState('0:00');
+  const [duration, setDuration] = useState('0:00');
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [showControls, setShowControls] = useState(true);
+  const controlsTimeoutRef = useRef(null);
+
+  const formatTime = (timeInSeconds) => {
+    if (isNaN(timeInSeconds)) return '0:00';
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+  };
+
+  const handleTimeUpdate = () => {
+    if (!videoRef.current) return;
+    const current = videoRef.current.currentTime;
+    const dur = videoRef.current.duration;
+    if (dur > 0) {
+      setProgress((current / dur) * 100);
+      setCurrentTime(formatTime(current));
+    }
+  };
+
+  const handleLoadedMetadata = () => {
+    if (!videoRef.current) return;
+    setDuration(formatTime(videoRef.current.duration));
+  };
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      // When played, enable sound!
+      videoRef.current.muted = false;
+      setIsMuted(false);
+      videoRef.current.play().catch(err => {
+        console.warn('Playback error:', err);
+      });
+      setIsPlaying(true);
+    } else {
+      // Stop/pause
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const toggleMute = (e) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    const nextMute = !videoRef.current.muted;
+    videoRef.current.muted = nextMute;
+    setIsMuted(nextMute);
+  };
+
+  const handleSeek = (e) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    const seekPercent = parseFloat(e.target.value);
+    const seekTo = (seekPercent / 100) * videoRef.current.duration;
+    videoRef.current.currentTime = seekTo;
+    setProgress(seekPercent);
+  };
+
+  const toggleFullscreen = (e) => {
+    e.stopPropagation();
+    if (!containerRef.current) return;
+    if (!document.fullscreenElement) {
+      containerRef.current.requestFullscreen?.().then(() => setIsFullscreen(true)).catch(() => {});
+    } else {
+      document.exitFullscreen?.().then(() => setIsFullscreen(false)).catch(() => {});
+    }
+  };
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
+
+  const handleMouseMove = () => {
+    setShowControls(true);
+    if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
+    controlsTimeoutRef.current = setTimeout(() => {
+      if (isPlaying) setShowControls(false);
+    }, 2800);
+  };
+
+  const handleEnded = () => {
+    setIsPlaying(false);
+    setProgress(0);
+    setCurrentTime('0:00');
+  };
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 30 }} 
+      whileInView={{ opacity: 1, y: 0 }} 
+      viewport={{ once: true, margin: "-40px" }} 
+      transition={{ duration: 0.65 }}
+      whileHover={{ scale: 1.01 }}
+      ref={containerRef}
+      className="glass-card team-workspace"
+      onClick={togglePlay}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={() => { if (isPlaying) setShowControls(false); }}
+    >
+      <video 
+        ref={videoRef}
+        src={teamVideo} 
+        playsInline 
+        preload="metadata"
+        onTimeUpdate={handleTimeUpdate}
+        onLoadedMetadata={handleLoadedMetadata}
+        onEnded={handleEnded}
+        className="team-workspace-video" 
+      />
+
+      {/* Center Play Overlay when stopped / paused */}
+      {!isPlaying && (
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="team-video-overlay"
+        >
+          <div className="team-video-center-btn">
+            <div className="team-video-play-icon">
+              <FaPlay style={{ marginLeft: '4px' }} />
+            </div>
+            <span className="team-video-play-label">Play Video (Sound On)</span>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Control Bar */}
+      <div 
+        className="team-video-controls"
+        style={{
+          opacity: showControls || !isPlaying ? 1 : 0,
+          pointerEvents: showControls || !isPlaying ? 'auto' : 'none',
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <input 
+          type="range" 
+          min="0" 
+          max="100" 
+          step="0.1" 
+          value={progress} 
+          onChange={handleSeek} 
+          className="team-video-timeline"
+          aria-label="Video Progress Timeline"
+        />
+
+        <div className="team-video-controls-row">
+          <div className="team-video-controls-left">
+            <button 
+              type="button" 
+              className="team-ctrl-btn" 
+              onClick={togglePlay}
+              title={isPlaying ? "Pause / Stop" : "Play (Enable Sound)"}
+              aria-label={isPlaying ? "Pause" : "Play"}
+            >
+              {isPlaying ? <FaPause /> : <FaPlay />}
+            </button>
+
+            <button 
+              type="button" 
+              className="team-ctrl-btn" 
+              onClick={toggleMute}
+              title={isMuted ? "Unmute Sound" : "Mute Sound"}
+              aria-label={isMuted ? "Unmute" : "Mute"}
+            >
+              {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
+            </button>
+
+            <span className="team-video-time">
+              {currentTime} / {duration}
+            </span>
+          </div>
+
+          <div className="team-video-controls-right">
+            <button 
+              type="button" 
+              className="team-ctrl-btn" 
+              onClick={toggleFullscreen}
+              title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
+              aria-label="Fullscreen"
+            >
+              {isFullscreen ? <FaCompress /> : <FaExpand />}
+            </button>
+          </div>
+        </div>
+      </div>
     </motion.div>
   );
 };
@@ -122,23 +327,7 @@ const Team = () => {
         ))}
       </div>
       
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }} 
-        whileInView={{ opacity: 1, y: 0 }} 
-        viewport={{ once: true, margin: "-40px" }} 
-        transition={{ duration: 0.65 }}
-        whileHover={{ scale: 1.01 }}
-        className="glass-card team-workspace"
-      >
-        <video 
-          src={teamVideo} 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          className="team-workspace-video" 
-        />
-      </motion.div>
+      <TeamWorkspaceVideo />
 
       <style>{`
         .founder-card {
@@ -363,7 +552,8 @@ const Team = () => {
           box-sizing: border-box;
           position: relative;
           background: #000;
-          transition: transform 0.5s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+          cursor: pointer;
+          transition: transform 0.4s ease, border-color 0.35s ease, box-shadow 0.35s ease;
         }
 
         .team-workspace:hover {
@@ -376,6 +566,141 @@ const Team = () => {
           height: 100%;
           object-fit: cover;
           display: block;
+        }
+
+        .team-video-overlay {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(0, 0, 0, 0.42);
+          backdrop-filter: blur(3px);
+          -webkit-backdrop-filter: blur(3px);
+          transition: all 0.3s ease;
+          pointer-events: auto;
+          z-index: 2;
+        }
+
+        .team-video-center-btn {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          cursor: pointer;
+          user-select: none;
+        }
+
+        .team-video-play-icon {
+          width: clamp(52px, 9vw, 72px);
+          height: clamp(52px, 9vw, 72px);
+          border-radius: 50%;
+          background: linear-gradient(135deg, var(--blue), var(--cyan));
+          color: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+          box-shadow: 0 0 26px rgba(6, 182, 212, 0.6);
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .team-video-center-btn:hover .team-video-play-icon {
+          transform: scale(1.1);
+          box-shadow: 0 0 36px rgba(6, 182, 212, 0.9);
+        }
+
+        .team-video-play-label {
+          font-size: clamp(0.8rem, 1.5vw, 0.92rem);
+          font-weight: 600;
+          color: #ffffff;
+          background: rgba(15, 23, 42, 0.85);
+          padding: 6px 16px;
+          border-radius: 20px;
+          border: 1px solid rgba(59, 130, 246, 0.35);
+          letter-spacing: 0.3px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .team-video-controls {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          padding: clamp(8px, 1.8vw, 14px) clamp(12px, 2.2vw, 20px);
+          background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 65%, transparent 100%);
+          display: flex;
+          flex-direction: column;
+          gap: 7px;
+          z-index: 3;
+          transition: opacity 0.35s ease;
+        }
+
+        .team-video-timeline {
+          width: 100%;
+          height: 4px;
+          -webkit-appearance: none;
+          appearance: none;
+          background: rgba(255, 255, 255, 0.25);
+          border-radius: 4px;
+          outline: none;
+          cursor: pointer;
+          transition: height 0.15s ease;
+        }
+
+        .team-video-timeline:hover {
+          height: 6px;
+        }
+
+        .team-video-timeline::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 13px;
+          height: 13px;
+          border-radius: 50%;
+          background: var(--cyan);
+          cursor: pointer;
+          box-shadow: 0 0 8px rgba(6, 182, 212, 0.8);
+        }
+
+        .team-video-controls-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          color: #ffffff;
+        }
+
+        .team-video-controls-left,
+        .team-video-controls-right {
+          display: flex;
+          align-items: center;
+          gap: clamp(8px, 1.6vw, 14px);
+        }
+
+        .team-ctrl-btn {
+          background: none;
+          border: none;
+          color: #ffffff;
+          cursor: pointer;
+          font-size: clamp(0.92rem, 1.6vw, 1.08rem);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 6px;
+          border-radius: 6px;
+          transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .team-ctrl-btn:hover {
+          color: var(--cyan);
+          transform: scale(1.15);
+        }
+
+        .team-video-time {
+          font-variant-numeric: tabular-nums;
+          color: rgba(255, 255, 255, 0.85);
+          font-size: clamp(0.74rem, 1.3vw, 0.84rem);
         }
 
         @media (max-width: 768px) {
