@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import imgTeam from '../assets/images/team_workspace_1788284064043.jpg';
+import teamVideo from '../assets/team_video.mp4';
 import imgSafia from '../assets/safia_mukhtar.jpg';
 import imgHaiqa from '../assets/haiqa.jpg';
 import imgEsha from '../assets/esha.jpg';
@@ -130,7 +130,14 @@ const Team = () => {
         whileHover={{ scale: 1.01 }}
         className="glass-card team-workspace"
       >
-         <img src={imgTeam} alt="Our Team Workspace" className="team-workspace-img" />
+        <video 
+          src={teamVideo} 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="team-workspace-video" 
+        />
       </motion.div>
 
       <style>{`
@@ -346,21 +353,29 @@ const Team = () => {
           margin-top: clamp(24px, 4vw, 40px);
           border-radius: clamp(14px, 2.5vw, 20px);
           overflow: hidden !important;
-          box-shadow: 0 18px 36px rgba(0, 0, 0, 0.4);
-          height: clamp(145px, 20vw, 270px);
+          box-shadow: 0 18px 36px rgba(0, 0, 0, 0.4), 0 0 25px rgba(59, 130, 246, 0.15);
+          border: 1px solid rgba(59, 130, 246, 0.25);
           width: 100%;
           max-width: min(100%, 980px);
+          aspect-ratio: 16 / 9;
           margin-left: auto;
           margin-right: auto;
           box-sizing: border-box;
-          transition: transform 0.5s ease;
+          position: relative;
+          background: #000;
+          transition: transform 0.5s ease, border-color 0.35s ease, box-shadow 0.35s ease;
         }
 
-        .team-workspace-img {
+        .team-workspace:hover {
+          border-color: rgba(34, 211, 238, 0.45);
+          box-shadow: 0 22px 42px rgba(0, 0, 0, 0.5), 0 0 30px rgba(59, 130, 246, 0.25);
+        }
+
+        .team-workspace-video {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          opacity: 0.88;
+          display: block;
         }
 
         @media (max-width: 768px) {
