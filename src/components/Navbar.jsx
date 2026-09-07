@@ -118,7 +118,7 @@ const Navbar = () => {
               onClick={toggleTheme}
               aria-label="Toggle Theme"
             >
-              {theme === 'dark' ? <FaSun size={18} /> : <FaMoon size={18} />}
+              {theme === 'dark' ? <FaSun size={18} /> : <FaMoon size={18} style={{ color: '#000000' }} />}
             </button>
             <button 
               className="mobile-toggle"
@@ -370,15 +370,29 @@ const Navbar = () => {
         [data-theme="light"] .main-navbar.nav-scrolled, [data-theme="light"] .mobile-nav-overlay {
           background: rgba(10, 15, 28, 0.95);
         }
-        [data-theme="light"] .nav-link, [data-theme="light"] .logo-text, [data-theme="light"] .mobile-toggle, [data-theme="light"] .theme-toggle-btn, [data-theme="light"] .mobile-nav-link {
+        [data-theme="light"] .nav-link, [data-theme="light"] .logo-text, [data-theme="light"] .mobile-toggle, [data-theme="light"] .mobile-nav-link {
           color: #ffffff !important;
         }
-        [data-theme="light"] .mobile-toggle, [data-theme="light"] .theme-toggle-btn, [data-theme="light"] .mobile-close-btn {
+        [data-theme="light"] .mobile-toggle, [data-theme="light"] .mobile-close-btn {
           border-color: rgba(255, 255, 255, 0.2);
           color: #ffffff;
         }
-        [data-theme="light"] .mobile-toggle:hover, [data-theme="light"] .theme-toggle-btn:hover {
+        [data-theme="light"] .mobile-toggle:hover {
           background: rgba(255, 255, 255, 0.1);
+        }
+        [data-theme="light"] .theme-toggle-btn {
+          background: #ffffff !important;
+          border: 1px solid #e2e8f0 !important;
+          color: #000000 !important;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+        }
+        [data-theme="light"] .theme-toggle-btn svg {
+          color: #000000 !important;
+          fill: #000000 !important;
+        }
+        [data-theme="light"] .theme-toggle-btn:hover {
+          background: #f1f5f9 !important;
+          border-color: #cbd5e1 !important;
         }
 
         /* Mobile Menu Fullscreen Sheet */
