@@ -34,10 +34,10 @@ const Testimonials = () => {
       </div>
 
       <motion.div 
-        initial={{ opacity: 0, y: 25 }} 
+        initial={{ opacity: 0, y: 16 }} 
         whileInView={{ opacity: 1, y: 0 }} 
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        viewport={{ once: true, margin: "0px 0px 100px 0px" }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         style={{ width: '100%', maxWidth: '1140px', margin: '0 auto', position: 'relative', zIndex: 1, boxSizing: 'border-box' }}
       >
         <div className="section-title">Client <span className="gradient-text">Testimonials</span></div>
@@ -51,10 +51,10 @@ const Testimonials = () => {
           <motion.div
             key={i}
             className="glass-card testimonial-card"
-            initial={{ opacity: 0, y: 30, scale: 0.96 }}
+            initial={{ opacity: 0, y: 16, scale: 0.98 }}
             whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-30px" }}
-            transition={{ delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true, margin: "0px 0px 100px 0px" }}
+            transition={{ delay: Math.min(i * 0.03, 0.1), duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             whileHover={{ y: -6, borderColor: 'rgba(59, 130, 246, 0.45)', boxShadow: '0 16px 36px rgba(59, 130, 246, 0.2)' }}
           >
             {/* Quote Icon */}

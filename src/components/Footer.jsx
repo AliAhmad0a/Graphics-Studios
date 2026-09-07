@@ -10,10 +10,10 @@ const Footer = () => {
         {/* Brand Info */}
         <motion.div 
           className="footer-col brand-col"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "0px 0px 60px 0px" }}
+          transition={{ duration: 0.35 }}
         >
           <h3 className="footer-brand-title">
             Graphics Studios Media Agency
@@ -31,10 +31,10 @@ const Footer = () => {
         {/* Quick Links */}
         <motion.div 
           className="footer-col links-col"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          viewport={{ once: true, margin: "0px 0px 60px 0px" }}
+          transition={{ duration: 0.35, delay: 0.05 }}
         >
           <h4 className="footer-col-title">Quick Links</h4>
           <ul className="footer-nav-list">
@@ -49,10 +49,10 @@ const Footer = () => {
         {/* Contact Info */}
         <motion.div 
           className="footer-col contact-col"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true, margin: "0px 0px 60px 0px" }}
+          transition={{ duration: 0.35, delay: 0.1 }}
         >
           <h4 className="footer-col-title">Contact</h4>
           <ul className="footer-contact-list">

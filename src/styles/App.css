@@ -833,7 +833,7 @@ input:focus, textarea:focus, select:focus {
 [data-theme="light"] .nav-link:hover, [data-theme="light"] .nav-link.active { color: #ffffff !important; }
 
 [data-theme="light"] .logo-text {
-  color: #0f172a !important;
+  color: #ffffff !important;
 }
 
 [data-theme="light"] .theme-toggle-btn {

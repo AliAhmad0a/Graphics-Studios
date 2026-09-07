@@ -146,10 +146,10 @@ const TechStack = () => {
   return (
     <section id="tech-stack" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       <motion.div 
-        initial={{ opacity: 0, y: 25 }} 
+        initial={{ opacity: 0, y: 16 }} 
         whileInView={{ opacity: 1, y: 0 }} 
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        viewport={{ once: true, margin: "0px 0px 100px 0px" }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         style={{ width: '100%', maxWidth: '960px', margin: '0 auto', boxSizing: 'border-box' }}
       >
         <div className="section-title">Powered by <span className="gradient-text">Next-Gen Tech</span></div>

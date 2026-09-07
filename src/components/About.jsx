@@ -26,20 +26,20 @@ const About = () => {
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
-        transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+        viewport={{ once: true, margin: "0px 0px 100px 0px" }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         className="about-inner"
       >
         <h2 className="section-title">About <span className="gradient-text">Us</span></h2>
         
         <motion.div 
           className="vision-pro-glass about-card"
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={{ once: true, margin: "0px 0px 100px 0px" }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           whileHover={{ borderColor: 'rgba(59, 130, 246, 0.4)' }}
         >
           <p className="about-text-lead">
@@ -53,10 +53,10 @@ const About = () => {
             {statsData.map((stat, i) => (
               <motion.div 
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: 0.2 + i * 0.1 }}
+                viewport={{ once: true, margin: "0px 0px 80px 0px" }}
+                transition={{ duration: 0.3, delay: i * 0.04 }}
                 whileHover={{ scale: 1.05, borderColor: 'rgba(34, 211, 238, 0.4)', boxShadow: '0 8px 24px rgba(34, 211, 238, 0.15)' }}
                 className="about-stat"
               >

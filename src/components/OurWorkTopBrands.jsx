@@ -12,10 +12,10 @@ const VideoCard = ({ video, index }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95, y: 25 }}
+      initial={{ opacity: 0, scale: 0.98, y: 16 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: 0.45, delay: index * 0.1 }}
+      viewport={{ once: true, margin: "0px 0px 100px 0px" }}
+      transition={{ duration: 0.35, delay: Math.min(index * 0.03, 0.1), ease: [0.22, 1, 0.36, 1] }}
       className="glass-card video-item"
       whileHover={{ y: -6, borderColor: 'rgba(34, 211, 238, 0.45)', boxShadow: '0 16px 36px rgba(59, 130, 246, 0.22)' }}
       onMouseEnter={() => videoRef.current?.play()}
@@ -53,10 +53,10 @@ const OurWorkTopBrands = () => {
       </div>
 
       <motion.div 
-        initial={{ opacity: 0, y: 25 }} 
+        initial={{ opacity: 0, y: 16 }} 
         whileInView={{ opacity: 1, y: 0 }} 
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        viewport={{ once: true, margin: "0px 0px 100px 0px" }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         style={{ width: '100%', maxWidth: '1140px', margin: '0 auto', position: 'relative', zIndex: 1, boxSizing: 'border-box' }}
       >
         <div className="section-title">Our Work With <span className="gradient-text">Top Brands</span></div>

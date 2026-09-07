@@ -23,10 +23,10 @@ const TeamCard = ({ name, role, detail, image, link, delay }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95, y: 25 }}
+      initial={{ opacity: 0, scale: 0.98, y: 16 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ once: true, margin: "-30px" }}
-      transition={{ duration: 0.45, delay, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once: true, margin: "0px 0px 100px 0px" }}
+      transition={{ duration: 0.35, delay: Math.min(delay, 0.12), ease: [0.22, 1, 0.36, 1] }}
       onClick={() => { if(link) window.open(link, '_blank'); }}
       onMouseMove={(e) => {
         if (window.innerWidth < 1024) return;
@@ -158,10 +158,10 @@ const TeamWorkspaceVideo = () => {
 
   return (
     <motion.div 
-      initial={{ opacity: 0, y: 30 }} 
+      initial={{ opacity: 0, y: 16 }} 
       whileInView={{ opacity: 1, y: 0 }} 
-      viewport={{ once: true, margin: "-40px" }} 
-      transition={{ duration: 0.65 }}
+      viewport={{ once: true, margin: "0px 0px 100px 0px" }} 
+      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ scale: 1.01 }}
       ref={containerRef}
       className="glass-card team-workspace"
@@ -264,10 +264,10 @@ const Team = () => {
   return (
     <section id="team" className="section" style={{ position: 'relative', overflow: 'hidden' }}>
       <motion.div
-        initial={{ opacity: 0, y: 25 }}
+        initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        viewport={{ once: true, margin: "0px 0px 100px 0px" }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="section-title">Meet Our <span className="gradient-text">Creative Team</span></div>
         <p className="section-subtitle">
@@ -277,10 +277,10 @@ const Team = () => {
 
       {/* Founder Section */}
       <motion.div 
-        initial={{ opacity: 0, y: 30, scale: 0.96 }} 
+        initial={{ opacity: 0, y: 16, scale: 0.98 }} 
         whileInView={{ opacity: 1, y: 0, scale: 1 }} 
-        viewport={{ once: true, margin: "-40px" }} 
-        transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+        viewport={{ once: true, margin: "0px 0px 100px 0px" }} 
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         whileHover={{ borderColor: 'rgba(59, 130, 246, 0.45)', boxShadow: '0 20px 45px rgba(59, 130, 246, 0.18)' }}
         className="vision-pro-glass founder-card"
       >

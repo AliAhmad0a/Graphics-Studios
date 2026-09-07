@@ -28,10 +28,10 @@ const ServiceCard = ({ service, index }) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      initial={{ opacity: 0, y: 16, scale: 0.98 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.5, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once: true, margin: "0px 0px 100px 0px" }}
+      transition={{ duration: 0.35, delay: Math.min(index * 0.025, 0.12), ease: [0.22, 1, 0.36, 1] }}
       onMouseMove={(e) => {
         if (window.innerWidth < 1024) return;
         const rect = e.currentTarget.getBoundingClientRect();
@@ -83,10 +83,10 @@ const Services = () => {
       </div>
       
       <motion.div 
-        initial={{ opacity: 0, y: 25 }} 
+        initial={{ opacity: 0, y: 16 }} 
         whileInView={{ opacity: 1, y: 0 }} 
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        viewport={{ once: true, margin: "0px 0px 100px 0px" }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         style={{ width: '100%', maxWidth: '1140px', margin: '0 auto', position: 'relative', zIndex: 1, boxSizing: 'border-box' }}
       >
         <div className="section-title">Our <span className="gradient-text">Expertise</span></div>

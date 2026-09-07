@@ -93,22 +93,15 @@
 
 /* 5. Card Border Glow & Elevation on Hover */
 .glass-card, .service-card, .course-card-wrapper, .portfolio-item, .team-card, .founder-card {
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.35s ease !important;
+  transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              background-color 0.3s ease;
+  will-change: transform, opacity;
 }
 
 .glass-card:hover, .service-card:hover, .course-card-wrapper:hover, .portfolio-item:hover, .team-card:hover {
-  transform: translateY(-4px) !important;
-  border-color: rgba(59, 130, 246, 0.45) !important;
-  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.6), 0 0 22px rgba(59, 130, 246, 0.22) !important;
-}
-
-/* Disable translateY on small touch screens to preserve layout flow */
-@media (max-width: 768px) {
-  .glass-card:hover, .service-card:hover, .course-card-wrapper:hover, .portfolio-item:hover, .team-card:hover {
-    transform: translateY(-2px) !important;
-  }
+  border-color: rgba(59, 130, 246, 0.45);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.6), 0 0 22px rgba(59, 130, 246, 0.22);
 }
 
 /* 6. Glowing Rotating Orb */

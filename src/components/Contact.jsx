@@ -69,10 +69,10 @@ const Contact = () => {
       </div>
 
       <motion.div
-        initial={{ opacity: 0, y: 25 }}
+        initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        viewport={{ once: true, margin: "0px 0px 100px 0px" }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
       >
         <div className="section-title">Get In <span className="gradient-text">Touch</span></div>
         <p className="section-subtitle">
@@ -84,10 +84,10 @@ const Contact = () => {
         
         {/* Contact Info */}
         <motion.div
-          initial={{ opacity: 0, x: -25 }}
+          initial={{ opacity: 0, x: -16 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, margin: "0px 0px 80px 0px" }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           className="contact-col-outer"
         >
           <div className="glass-card contact-card">
@@ -160,10 +160,10 @@ const Contact = () => {
 
         {/* Contact Form */}
         <motion.div
-          initial={{ opacity: 0, x: 25 }}
+          initial={{ opacity: 0, x: 16 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.55, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, margin: "0px 0px 80px 0px" }}
+          transition={{ duration: 0.35, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
           className="contact-col-outer"
         >
           <div className="glass-card contact-card">

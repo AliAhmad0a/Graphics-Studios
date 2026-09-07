@@ -371,7 +371,7 @@ const Navbar = () => {
           background: rgba(10, 15, 28, 0.95);
         }
         [data-theme="light"] .nav-link, [data-theme="light"] .logo-text, [data-theme="light"] .mobile-toggle, [data-theme="light"] .theme-toggle-btn, [data-theme="light"] .mobile-nav-link {
-          color: #ffffff;
+          color: #ffffff !important;
         }
         [data-theme="light"] .mobile-toggle, [data-theme="light"] .theme-toggle-btn, [data-theme="light"] .mobile-close-btn {
           border-color: rgba(255, 255, 255, 0.2);

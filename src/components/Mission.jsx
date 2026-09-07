@@ -13,17 +13,17 @@ const Mission = () => {
       
       <div className="mission-container">
         <motion.div
-          initial={{ opacity: 0, scale: 0.94, y: 30 }}
+          initial={{ opacity: 0, scale: 0.98, y: 16 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true, margin: "0px 0px 80px 0px" }}
+          transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
           whileHover={{ borderColor: 'rgba(59, 130, 246, 0.45)', boxShadow: '0 24px 50px rgba(0, 0, 0, 0.55), 0 0 25px rgba(59, 130, 246, 0.2)' }}
           className="glass-card mission-card"
         >
           <motion.h2 
-            initial={{ y: 16, opacity: 0 }} 
+            initial={{ y: 12, opacity: 0 }} 
             whileInView={{ y: 0, opacity: 1 }} 
-            transition={{ delay: 0.15, duration: 0.6 }}
+            transition={{ delay: 0.05, duration: 0.3 }}
             className="mission-title"
           >
             Our <span className="gradient-text">Mission</span>
@@ -32,14 +32,14 @@ const Mission = () => {
           <motion.div 
             initial={{ width: 0 }} 
             whileInView={{ width: '64px' }} 
-            transition={{ delay: 0.3, duration: 0.7 }}
+            transition={{ delay: 0.1, duration: 0.35 }}
             className="mission-divider"
           ></motion.div>
           
           <motion.p 
-            initial={{ y: 16, opacity: 0 }} 
+            initial={{ y: 12, opacity: 0 }} 
             whileInView={{ y: 0, opacity: 1 }} 
-            transition={{ delay: 0.42, duration: 0.6 }}
+            transition={{ delay: 0.15, duration: 0.3 }}
             className="mission-quote"
           >
             "To help businesses and individuals grow through creative design, modern digital solutions, strategic marketing, and innovative AI technology."

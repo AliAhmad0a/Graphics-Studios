@@ -32,10 +32,10 @@ const Portfolio = () => {
       </div>
 
       <motion.div 
-        initial={{ opacity: 0, y: 25 }} 
+        initial={{ opacity: 0, y: 16 }} 
         whileInView={{ opacity: 1, y: 0 }} 
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        viewport={{ once: true, margin: "0px 0px 100px 0px" }}
+        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
         style={{ width: '100%', maxWidth: '1140px', margin: '0 auto', position: 'relative', zIndex: 1, boxSizing: 'border-box' }}
       >
         <div className="section-title">Our <span className="gradient-text">Masterpieces</span></div>
@@ -49,10 +49,10 @@ const Portfolio = () => {
           {projects.map((project, idx) => (
             <motion.div
               layout
-              initial={{ opacity: 0, scale: 0.95, y: 25 }}
+              initial={{ opacity: 0, scale: 0.98, y: 16 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.45, delay: idx * 0.05 }}
+              viewport={{ once: true, margin: "0px 0px 100px 0px" }}
+              transition={{ duration: 0.35, delay: Math.min(idx * 0.025, 0.12), ease: [0.22, 1, 0.36, 1] }}
               key={project.id}
               className="glass-card portfolio-item"
               onClick={() => { if(project.link) window.open(project.link, '_blank'); }}
