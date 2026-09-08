@@ -367,7 +367,7 @@ const Navbar = () => {
           background: var(--white-alpha-10);
         }
         
-        [data-theme="light"] .main-navbar.nav-scrolled, [data-theme="light"] .mobile-nav-overlay {
+        [data-theme="light"] .main-navbar, [data-theme="light"] .mobile-nav-overlay {
           background: rgba(255, 255, 255, 0.95);
           box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
           border-color: rgba(15, 23, 42, 0.08);
@@ -377,7 +377,11 @@ const Navbar = () => {
         }
         [data-theme="light"] .mobile-toggle, [data-theme="light"] .mobile-close-btn {
           border-color: rgba(15, 23, 42, 0.15);
-          color: #0f172a;
+          color: #0f172a !important;
+        }
+        [data-theme="light"] .mobile-toggle svg, [data-theme="light"] .mobile-close-btn svg {
+          color: #0f172a !important;
+          fill: #0f172a !important;
         }
         [data-theme="light"] .mobile-toggle:hover {
           background: rgba(15, 23, 42, 0.05);
