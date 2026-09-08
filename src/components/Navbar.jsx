@@ -368,31 +368,44 @@ const Navbar = () => {
         }
         
         [data-theme="light"] .main-navbar.nav-scrolled, [data-theme="light"] .mobile-nav-overlay {
-          background: rgba(10, 15, 28, 0.95);
+          background: rgba(255, 255, 255, 0.95);
+          box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+          border-color: rgba(15, 23, 42, 0.08);
         }
         [data-theme="light"] .nav-link, [data-theme="light"] .logo-text, [data-theme="light"] .mobile-toggle, [data-theme="light"] .mobile-nav-link {
-          color: #ffffff !important;
+          color: #0f172a !important;
         }
         [data-theme="light"] .mobile-toggle, [data-theme="light"] .mobile-close-btn {
-          border-color: rgba(255, 255, 255, 0.2);
-          color: #ffffff;
+          border-color: rgba(15, 23, 42, 0.15);
+          color: #0f172a;
         }
         [data-theme="light"] .mobile-toggle:hover {
-          background: rgba(255, 255, 255, 0.1);
+          background: rgba(15, 23, 42, 0.05);
         }
         [data-theme="light"] .theme-toggle-btn {
           background: #ffffff !important;
           border: 1px solid #e2e8f0 !important;
-          color: #000000 !important;
+          color: #0f172a !important;
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
         }
         [data-theme="light"] .theme-toggle-btn svg {
-          color: #000000 !important;
-          fill: #000000 !important;
+          color: #0f172a !important;
+          fill: #0f172a !important;
         }
         [data-theme="light"] .theme-toggle-btn:hover {
           background: #f1f5f9 !important;
           border-color: #cbd5e1 !important;
+        }
+        [data-theme="light"] .mobile-nav-index {
+          color: rgba(15, 23, 42, 0.5);
+        }
+        [data-theme="light"] .mobile-nav-link:hover, [data-theme="light"] .mobile-nav-link:active {
+          background: rgba(15, 23, 42, 0.03);
+          border-color: rgba(15, 23, 42, 0.08);
+          color: #0f172a;
+        }
+        [data-theme="light"] .logo-glow {
+          background: rgba(15, 23, 42, 0.15);
         }
 
         /* Mobile Menu Fullscreen Sheet */
