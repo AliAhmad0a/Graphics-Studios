@@ -367,49 +367,79 @@ const Navbar = () => {
           background: var(--white-alpha-10);
         }
         
-        [data-theme="light"] .main-navbar, [data-theme="light"] .mobile-nav-overlay {
-          background: rgba(255, 255, 255, 0.95);
-          box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
-          border-color: rgba(15, 23, 42, 0.08);
+        [data-theme="light"] .main-navbar.nav-scrolled, [data-theme="light"] .mobile-nav-overlay {
+          background: rgba(10, 15, 28, 0.95) !important;
+          backdrop-filter: blur(20px) !important;
+          -webkit-backdrop-filter: blur(20px) !important;
+          border-color: var(--white-alpha-10) !important;
+          box-shadow: 0 8px 30px -5px rgba(0, 0, 0, 0.6) !important;
         }
         [data-theme="light"] .nav-link, [data-theme="light"] .logo-text, [data-theme="light"] .mobile-toggle, [data-theme="light"] .mobile-nav-link {
-          color: #0f172a !important;
+          color: #ffffff !important;
         }
         [data-theme="light"] .mobile-toggle, [data-theme="light"] .mobile-close-btn {
-          border-color: rgba(15, 23, 42, 0.15);
-          color: #0f172a !important;
+          border-color: rgba(255, 255, 255, 0.2) !important;
+          color: #ffffff !important;
         }
         [data-theme="light"] .mobile-toggle svg, [data-theme="light"] .mobile-close-btn svg {
-          color: #0f172a !important;
-          fill: #0f172a !important;
+          color: #ffffff !important;
+          fill: #ffffff !important;
         }
         [data-theme="light"] .mobile-toggle:hover {
-          background: rgba(15, 23, 42, 0.05);
+          background: rgba(255, 255, 255, 0.1) !important;
         }
         [data-theme="light"] .theme-toggle-btn {
           background: #ffffff !important;
           border: 1px solid #e2e8f0 !important;
-          color: #0f172a !important;
+          color: #000000 !important;
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
         }
         [data-theme="light"] .theme-toggle-btn svg {
-          color: #0f172a !important;
-          fill: #0f172a !important;
+          color: #000000 !important;
+          fill: #000000 !important;
         }
         [data-theme="light"] .theme-toggle-btn:hover {
           background: #f1f5f9 !important;
           border-color: #cbd5e1 !important;
         }
-        [data-theme="light"] .mobile-nav-index {
-          color: rgba(15, 23, 42, 0.5);
+        /* Mobile overlay light theme - dark like desktop */
+        [data-theme="light"] .mobile-nav-overlay .mobile-nav-header {
+          border-bottom-color: rgba(255, 255, 255, 0.08);
         }
-        [data-theme="light"] .mobile-nav-link:hover, [data-theme="light"] .mobile-nav-link:active {
-          background: rgba(15, 23, 42, 0.03);
-          border-color: rgba(15, 23, 42, 0.08);
-          color: #0f172a;
+        [data-theme="light"] .mobile-nav-overlay .mobile-close-btn {
+          background: rgba(255, 255, 255, 0.06);
+          border-color: rgba(255, 255, 255, 0.12);
+          color: #ffffff !important;
         }
-        [data-theme="light"] .logo-glow {
-          background: rgba(15, 23, 42, 0.15);
+        [data-theme="light"] .mobile-nav-overlay .mobile-close-btn svg {
+          color: #ffffff !important;
+          fill: #ffffff !important;
+        }
+        [data-theme="light"] .mobile-nav-overlay .mobile-close-btn:hover {
+          background: rgba(255, 255, 255, 0.15);
+        }
+        [data-theme="light"] .mobile-nav-overlay .mobile-nav-link {
+          background: rgba(255, 255, 255, 0.02);
+          border-color: transparent;
+          color: #ffffff !important;
+        }
+        [data-theme="light"] .mobile-nav-overlay .mobile-nav-link:hover,
+        [data-theme="light"] .mobile-nav-overlay .mobile-nav-link:active {
+          background: rgba(255, 255, 255, 0.08);
+          border-color: rgba(255, 255, 255, 0.1);
+          color: #ffffff !important;
+        }
+        [data-theme="light"] .mobile-nav-overlay .mobile-nav-index {
+          color: rgba(255, 255, 255, 0.5);
+        }
+        [data-theme="light"] .mobile-nav-overlay .mobile-nav-title {
+          color: #ffffff !important;
+        }
+        [data-theme="light"] .mobile-nav-overlay .mobile-nav-footer {
+          border-top-color: rgba(255, 255, 255, 0.08);
+        }
+        [data-theme="light"] .mobile-nav-overlay .logo-glow {
+          background: rgba(255, 255, 255, 0.15);
         }
 
         /* Mobile Menu Fullscreen Sheet */
