@@ -556,7 +556,7 @@ const Navbar = () => {
             padding: 8px 16px;
           }
           [data-theme="light"] .main-navbar {
-            background: #000000 !important;
+background: rgba(255, 255, 255, 0.1) !important;
             border: 1px solid rgba(255, 255, 255, 0.15) !important;
             box-shadow: 0 8px 30px -5px rgba(0, 0, 0, 0.6) !important;
             backdrop-filter: blur(20px) !important;
