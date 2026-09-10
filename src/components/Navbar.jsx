@@ -368,7 +368,7 @@ const Navbar = () => {
         }
         
         [data-theme="light"] .main-navbar.nav-scrolled, [data-theme="light"] .mobile-nav-overlay {
-          background: rgba(10, 15, 28, 0.95) !important;
+          background: rgba(0, 0, 0, 0.95) !important;
           backdrop-filter: blur(20px) !important;
           -webkit-backdrop-filter: blur(20px) !important;
           border-color: var(--white-alpha-10) !important;
