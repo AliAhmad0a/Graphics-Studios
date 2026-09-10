@@ -816,13 +816,22 @@ input:focus, textarea:focus, select:focus {
   color: #0f172a !important;
 }
 
-/* 13. Navbar */
 [data-theme="light"] .main-navbar.nav-scrolled {
-  background: rgba(0, 0, 0, 0.95) !important;
+  background: #000000 !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
-  border: 1px solid var(--white-alpha-10) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
   box-shadow: 0 8px 30px -5px rgba(0, 0, 0, 0.6) !important;
+}
+
+@media (max-width: 1040px) {
+  [data-theme="light"] .main-navbar {
+    background: #000000 !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 8px 30px -5px rgba(0, 0, 0, 0.6) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+  }
 }
 
 [data-theme="light"] .nav-link {
@@ -975,7 +984,7 @@ input:focus, textarea:focus, select:focus {
   }
   
   [data-theme="light"] .main-navbar.nav-scrolled {
-    background: rgba(10, 15, 28, 0.95) !important;
+    background: #000000 !important;
   }
 }
 

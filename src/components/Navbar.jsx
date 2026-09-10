@@ -367,11 +367,12 @@ const Navbar = () => {
           background: var(--white-alpha-10);
         }
         
-        [data-theme="light"] .main-navbar.nav-scrolled, [data-theme="light"] .mobile-nav-overlay {
-          background: rgba(0, 0, 0, 0.95) !important;
+        [data-theme="light"] .main-navbar.nav-scrolled, 
+        [data-theme="light"] .mobile-nav-overlay {
+          background: #000000 !important;
           backdrop-filter: blur(20px) !important;
           -webkit-backdrop-filter: blur(20px) !important;
-          border-color: var(--white-alpha-10) !important;
+          border-color: rgba(255, 255, 255, 0.15) !important;
           box-shadow: 0 8px 30px -5px rgba(0, 0, 0, 0.6) !important;
         }
         [data-theme="light"] .nav-link, [data-theme="light"] .logo-text, [data-theme="light"] .mobile-toggle, [data-theme="light"] .mobile-nav-link {
@@ -440,6 +441,11 @@ const Navbar = () => {
         }
         [data-theme="light"] .mobile-nav-overlay .logo-glow {
           background: rgba(255, 255, 255, 0.15);
+        }
+        [data-theme="light"] .mobile-nav-overlay .btn-primary {
+          background: linear-gradient(135deg, var(--primary), var(--accent)) !important;
+          color: #ffffff !important;
+          border: 1px solid rgba(255, 255, 255, 0.15) !important;
         }
 
         /* Mobile Menu Fullscreen Sheet */
@@ -548,6 +554,13 @@ const Navbar = () => {
           }
           .main-navbar {
             padding: 8px 16px;
+          }
+          [data-theme="light"] .main-navbar {
+            background: #000000 !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            box-shadow: 0 8px 30px -5px rgba(0, 0, 0, 0.6) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
           }
         }
 
