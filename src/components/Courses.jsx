@@ -64,7 +64,7 @@ const CourseCard = ({ course, index }) => {
           
           <div className="course-btn-wrapper">
             <motion.a 
-              href="https://api.whatsapp.com/send/?phone=03365821674&text&type=phone_number&app_absent=0" 
+              href="https://form.svhrt.com/6aa3dfff5f15ef5ec392f4f2" 
               target="_blank" 
               rel="noopener noreferrer"
               className="btn btn-outline course-enroll-btn"
